@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Law: Historical Foundations, Characteristics & Contracting Mechanics</title>
+  <style>
+    :root {
+      --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+      --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+      --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+      --text: #1F2937; --muted: #64748B;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+      padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+    .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+    .nav-dropdown {
+      flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+      border: 1px solid #CBD5E1; background: #FFF; color: var(--text);
+    }
+    .document-container {
+      max-width: 820px; margin: 2rem auto; background: var(--surface);
+      padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+    h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+    h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+    .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+    .doc-approach { font-size: 0.95rem; color: #374151; margin-bottom: 1.5rem; background: var(--surface-2); padding: 0.75rem 1rem; border-radius: 8px; border-left: 4px solid var(--teal); }
+    hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+    .ui-divider { margin: 0.85rem 0; }
+    .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+    .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+    /* Callouts & Boxes */
+    .update-banner {
+      background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+    }
+    .trap-banner {
+      background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .ui-box {
+      border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+      margin: 1.25rem 0; background: var(--surface);
+    }
+    .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+    .copy-btn, .check-btn, .reset-btn {
+      border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+      border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+    .check-btn {
+      width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+      color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+    }
+    .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* Mental Map Rows */
+    .mm-row { display: flex; align-items: center; gap: 1rem; }
+    .mm-icon {
+      width: 42px; height: 42px; border-radius: 10px; background: var(--surface-2);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+    }
+    .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+    .mm-desc { font-size: 0.9rem; color: #374151; }
+
+    /* Flow Stack & Grids */
+    .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+    .flow-step {
+      width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+      text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+    }
+    .flow-step span { font-size: 0.82rem; color: var(--muted); }
+    .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+    .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+    .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+    .stat-card {
+      background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+    }
+    .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+    .stat-card .stat-val { font-size: 1.25rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+    /* Tables */
+    .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+    .ui-table th {
+      text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+      border-bottom: 1.5px solid #CBD5E1;
+    }
+    .ui-table td {
+      padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+    }
+    .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+    /* Segmented Control & Bar Chart */
+    .seg-control {
+      display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+    }
+    .seg-btn {
+      flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+      border-radius: 6px; font-weight: 600; font-size: 0.85rem; color: var(--muted); cursor: pointer;
+    }
+    .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .bar-chart {
+      display: flex; align-items: flex-end; justify-content: space-around; height: 160px;
+      padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+    }
+    .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 90px; }
+    .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+    .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+    .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; text-align: center; }
+
+    /* Interactive Quizzes */
+    .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+    .quiz-q:last-of-type { border-bottom: none; }
+    .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+    .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+    .quiz-opt {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+      padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+    }
+    .quiz-opt:hover { background: var(--surface-2); }
+    .quiz-feedback {
+      margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem;
+    }
+    .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+    .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+    .final-score-box {
+      margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+      padding: 1.25rem; text-align: center;
+    }
+    .final-score-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); }
+
+    /* SVG Containers and Micro-helpers */
+    .svg-box { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #FAFAFA; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 0.5rem; margin: 1rem 0; overflow-x: auto; }
+    .formula-box { background: var(--surface-2); border-left: 4px solid var(--navy); padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-weight: 700; margin: 0.75rem 0; font-size: 0.92rem; }
+    .aphorism { font-style: italic; color: var(--navy); font-weight: 600; margin: 0.5rem 0; display: block; }
+    @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOPIC NAVIGATION BAR -->
+  <nav class="sticky-nav">
+    <div class="nav-content">
+      <span class="nav-label">JUMP TO TOPIC:</span>
+      <select class="nav-dropdown" onchange="if(this.value) location.hash = this.value;">
+        <option value="">-- Navigate Insurance Law Lecture Modules --</option>
+        <option value="#part-1">PART I — Historical Foundations, Characteristics & Principles</option>
+        <option value="#sec-1">&nbsp;&nbsp;1. Historical Evolution & Statutory Framework</option>
+        <option value="#sec-2">&nbsp;&nbsp;2. Conceptual Distinctions & Socio-Economic Purposes</option>
+        <option value="#sec-3">&nbsp;&nbsp;3. Characteristics of an Insurance Contract</option>
+        <option value="#sec-4">&nbsp;&nbsp;4. Distinguishing Elements, Principles & Classes</option>
+        <option value="#part-1-quiz">&nbsp;&nbsp;★ Part I Mini-Recall Quiz</option>
+        <option value="#part-2">PART II — Statutory Elements, Perfection & Contracting Parties</option>
+        <option value="#sec-5">&nbsp;&nbsp;5. Statutory Definition, Liability Coverage & Reinsurance</option>
+        <option value="#sec-6">&nbsp;&nbsp;6. Perfection Mechanics, Offer & Acceptance, Cover Notes</option>
+        <option value="#sec-7">&nbsp;&nbsp;7. Essential Requisites & Statutory Construction Rules</option>
+        <option value="#sec-8">&nbsp;&nbsp;8. Parties to Contract: Insurer, Insured & Assured</option>
+        <option value="#part-2-quiz">&nbsp;&nbsp;★ Part II Mini-Recall Quiz</option>
+        <option value="#part-3">PART III — Beneficiary Rules, Capacity & Regulatory Compliance</option>
+        <option value="#sec-9">&nbsp;&nbsp;9. Beneficiaries: Designation, Revocability & Predecease</option>
+        <option value="#sec-10">&nbsp;&nbsp;10. Special Personas: Cestui Que Vie, Minors & Public Enemies</option>
+        <option value="#sec-11">&nbsp;&nbsp;11. Doing an Insurance Business & Regulatory Compliance</option>
+        <option value="#sec-12">&nbsp;&nbsp;12. Subject Matter vs. Wagering and Gambling Contracts</option>
+        <option value="#part-3-quiz">&nbsp;&nbsp;★ Part III Mini-Recall Quiz</option>
+        <option value="#final-sheet">FINAL MEMORY SHEET & EXAM PRIORITIES</option>
+        <option value="#final-quiz">&nbsp;&nbsp;★ Final 5-Question Recall Challenge</option>
+      </select>
+    </div>
+  </nav>
+
+  <div class="document-container">
+
+    <!-- HEADER BLOCK -->
+    <h1>Insurance Law: Historical Foundations, Characteristics & Contracting Mechanics</h1>
+    <p class="doc-subtitle">Statutory Coverage: The Insurance Code (P.D. No. 1460, as amended by R.A. No. 10607), Civil Code of the Philippines (Arts. 1174, 1311, 1319, 1370, 1377, 2010–2012, 2207), Family Code (Arts. 43, 50, 63), and Leading Jurisprudence</p>
+    <p class="doc-approach"><strong>Our approach:</strong> Understand the factual situation first, identify the applicable rule, memorize the requisites via mnemonics and contrastive tables, and practice applying the law through interactive recall.</p>
+
+    <!-- MENTAL MAP CARD -->
+    <div class="ui-box mental-map">
+      <div class="mm-row">
+        <div class="mm-icon">🏛️</div>
+        <div class="mm-body">
+          <div class="mm-title">1. STATUTORY ARCHITECTURE & SOLVENCY REFORMS</div>
+          <div class="mm-desc">Why did Congress ban individual natural insurers and mandate progressive triennial net worth increases up to ₱1 Billion after the pre-need collapse?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">⚖️</div>
+        <div class="mm-body">
+          <div class="mm-title">2. CARDINAL PRINCIPLES & CONTRACTUAL CHARACTERISTICS</div>
+          <div class="mm-desc">How do indemnity, utmost good faith (<em>uberrimae fidei</em>), and subrogation distinguish insurance from wagering and ordinary civil contracts?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">📝</div>
+        <div class="mm-body">
+          <div class="mm-title">3. PERFECTION MECHANICS, COGNITION & COVER NOTES</div>
+          <div class="mm-desc">Who makes the true legal offer, when does the Cognition Theory seal perfection, and how do temporary cover notes protect against intervening disaster?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">👥</div>
+        <div class="mm-body">
+          <div class="mm-title">4. PERSONAS, BENEFICIARY RIGHTS & CAPACITY HURDLES</div>
+          <div class="mm-desc">When is a beneficiary a true party, when does "irrevocable" status fall, and how does the wartime Control Test invalidate public enemy policies?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPFRONT LEGAL UPDATE CALLOUT BANNER -->
+    <div class="update-banner">
+      <strong>🚨 IMPORTANT LEGAL & STATUTORY UPDATES (R.A. No. 10607, PDIC Charter & Jurisprudence):</strong>
+      <ul style="margin: 0.5rem 0 0 1.25rem; padding: 0;">
+        <li><strong>Abolition of Individual Insurers (Sec. 6 & Sec. 190):</strong> Under the 1976 Code, natural persons could act as insurers. R.A. No. 10607 deleted individual persons; now, only corporations, partnerships, or associations holding an Insurance Commission Certificate of Authority may operate as insurers.</li>
+        <li><strong>Progressive Net Worth Scaling:</strong> Domestic life and non-life insurers had to reach a mandatory net worth of <strong>₱1,000,000,000</strong> by December 31, 2022 (Sec. 194).</li>
+        <li><strong>Presumption of Revocability (Sec. 11):</strong> Under modern insurance law, beneficiary designations are <em>presumed revocable</em> unless the right to revoke is expressly waived in the policy.</li>
+        <li><strong>Self-Procured Life Beneficiaries (Sec. 10 vs. Art. 739):</strong> When an insured insures his own life, his beneficiary does <em>not</em> need insurable interest, allowing designations of friends or same-sex partners, subject strictly to Civil Code Art. 739 disqualifications.</li>
+        <li><strong>PDIC Deposit Insurance:</strong> Bank deposit insurance under R.A. No. 3591, as amended, covers up to <strong>₱1,000,000</strong> per depositor per bank.</li>
+      </ul>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART I -->
+    <!-- ========================================================================= -->
+    <h2 id="part-1">PART I — HISTORICAL FOUNDATIONS, CONCEPTUAL FRAMEWORK, CHARACTERISTICS, AND CARDINAL PRINCIPLES</h2>
+
+    <!-- SECTION 1 -->
+    <h3 id="sec-1">1. Historical Evolution & Statutory Framework of Philippine Insurance Law</h3>
+
+    <p><em>Imagine an 18th-century typhoon wiping out a coastal fishing village in the Visayas; with no institutional insurance, families had to rely purely on kinship charity to rebuild their huts. Only when British merchants established Lloyd’s of London in Manila did formal risk pooling replace communal grief.</em></p>
+
+    <p>Philippine insurance law evolved from pre-Hispanic familial loss-absorption to the Spanish Code of Commerce, American statutory transplantation through <strong>Act No. 2427</strong>, codification under <strong>P.D. No. 1460</strong>, and modern structural overhaul via <strong>R.A. No. 10607</strong>, supplemented suppletorily by the <strong>Civil Code</strong> (<em>Art. 2011</em>).</p>
+
+    <!-- Mnemonic Box -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: L - S - Y - I (Pioneering Corporate Entities)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'L — Lloyd\'s of London (Strachan, Murray & Co., First commercial insurer)\nS — Sun Life Assurance of Canada (1898, First foreign life insurer)\nY — Yek Tong Lin (1906, First domestic non-life insurer)\nI — Insular Life Assurance (1910, First domestic life insurer)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Chronological entry of foreign and domestic insurance pioneers into the Philippine market.</div>
+      <table class="ui-table compact-table">
+        <thead>
+          <tr><th style="width:12%">Letter</th><th style="width:28%">Entity / Year</th><th>Operative Historical Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>L</strong></td><td>Lloyd's / Strachan (British)</td><td>Pioneered commercial insurance operations through representative agent Strachan, Murray & Co., Inc.</td></tr>
+          <tr><td><strong>S</strong></td><td>Sun Life (1898)</td><td>First foreign life insurance company to establish operations in the Philippines.</td></tr>
+          <tr><td><strong>Y</strong></td><td>Yek Tong Lin (1906)</td><td>First domestic non-life insurance corporation organized under Philippine laws.</td></tr>
+          <tr><td><strong>I</strong></td><td>Insular Life (1910)</td><td>First domestic life insurance company established in the country.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Stacked Flow Cards -->
+    <div class="ui-box">
+      <strong>Memory aid: STATUTORY EVOLUTION CASCADE</strong>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>PRE-SPANISH ERA: INFORMAL TRIBAL LOSS-ABSORPTION</strong>
+          <span>No institutional fund pooling; losses absorbed by immediate family or barangay charity</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <strong>SPANISH CODE OF COMMERCE (1888)</strong>
+          <span>First conceptual introduction of formal commercial insurance provisions</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <strong>ACT NO. 2427 (INSURANCE ACT OF 1914)</strong>
+          <span>Repealed Spanish Code provisions; transplanted US (California) statutory model</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <strong>P.D. NO. 1460 (THE 1978 INSURANCE CODE)</strong>
+          <span>Consolidated prior decrees (P.D. 612, 1141, 1455) into a unified code</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#EFF6FF; border:1px solid #BFDBFE;">
+          <strong class="c-navy">R.A. NO. 10607 (AMENDED INSURANCE CODE OF 2013)</strong>
+          <span>Overhauled capital thresholds, eliminated individual insurers, introduced microinsurance & governance standards</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segmented Tab: Pre-Need Collapse vs R.A. 10607 Reforms -->
+    <div class="ui-box" data-tabs>
+      <div class="seg-control">
+        <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-preneed')">The Pre-Need Crisis Catalyst</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-capital')">R.A. 10607 Progressive Net Worth</button>
+      </div>
+      <div class="tab-panel active" data-panel="tab-preneed">
+        <p><strong>Legislative Rationale: Lessons from CAP and Prudential Life</strong><br>
+        In the 1990s and 2000s, massive pre-need companies collapsed when their actuarial reserves proved inadequate to meet skyrocketing college tuition and pension payouts. Thousands of Filipino families were left financially ruined. Congress realized that natural individuals or thinly capitalized companies cannot be trusted to backstop systemic risk across multi-decade horizons.</p>
+        <div class="formula-box">PRE-NEED COLLAPSE → ELIMINATE NATURAL INDIVIDUALS → MANDATE MASSIVE PROGRESSIVE NET WORTH</div>
+      </div>
+      <div class="tab-panel" data-panel="tab-capital">
+        <p><strong>Triennial Capitalization Progression (Sec. 194):</strong><br>
+        To guarantee solvency, R.A. No. 10607 mandated escalating net worth requirements for all life and non-life insurers:</p>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱250M</div><div class="bar-fill" style="height:35px"></div><div class="bar-lbl">2013</div></div>
+          <div class="bar-col"><div class="bar-val">₱550M</div><div class="bar-fill" style="height:70px"></div><div class="bar-lbl">2016</div></div>
+          <div class="bar-col"><div class="bar-val">₱900M</div><div class="bar-fill" style="height:115px"></div><div class="bar-lbl">2019</div></div>
+          <div class="bar-col"><div class="bar-val">₱1.0B</div><div class="bar-fill" style="height:135px; background:var(--navy);"></div><div class="bar-lbl">2022</div></div>
+        </div>
+        <div class="ui-caption">Result: Small insurers consolidated or merged, leaving fewer but ultra-stable financial institutions.</div>
+      </div>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — The Billionaire Individual Insurer:</strong><br>
+      Bar examiners love to ask: <em>"An eccentric multi-billionaire offers to personally underwrite and issue a fire insurance policy covering a luxury condominium building. Is the policy legally valid if he has ₱100 Billion in personal bank accounts?"</em><br>
+      <strong>Answer: NO.</strong> Under Section 6 and Section 190 of R.A. No. 10607, natural individual persons are strictly prohibited from acting as insurers in the Philippines. Only authorized juridical entities (corporations, partnerships, or mutual associations) holding an active Certificate of Authority from the Insurance Commissioner may operate an insurance business.
+    </div>
+
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h3 id="sec-2">2. Conceptual Distinctions, Personas & Socio-Economic Purposes of Insurance</h3>
+
+    <p><em>Imagine a business owner who faithfully pays ₱20,000 every single year to insure his warehouse against fire, yet every night he sincerely prays to God that his warehouse never burns down. This reveals the psychological paradox of insurance: paying for a catastrophe you hope never occurs.</em></p>
+
+    <p><strong>Insurance</strong> is the systemic social mechanism of pooling funds to distribute risk; the <strong>Contract of Insurance</strong> (<em>Sec. 2[a]</em>) is the intangible consensual agreement creating reciprocal rights; and the <strong>Policy of Insurance</strong> (<em>Sec. 49</em>) is the tangible written instrument serving as documentary proof.</p>
+
+    <!-- Side-by-Side Distinction Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Concept</th><th>Statutory Basis</th><th>Legal Nature & Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Insurance</strong></td>
+          <td>Doctrinal / Commercial</td>
+          <td>The <strong>macro-economic mechanism</strong> or business of pooling advance premiums from a multitude of contributors to distribute losses across a broad risk collective.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Contract of Insurance</strong></td>
+          <td><strong>Section 2(a)</strong>, R.A. 10607</td>
+          <td>The <strong>intangible legal agreement</strong> perfected by consent whereby the insurer, for premium consideration, promises to indemnify against contingent loss, damage, or liability.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Policy of Insurance</strong></td>
+          <td><strong>Section 49</strong>, R.A. 10607</td>
+          <td>The <strong>tangible written instrument</strong> embodying the contract. It is strictly evidentiary; physical issuance or delivery is <em>not</em> required to perfect the underlying consensual contract.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Segmented Tab: Saranay vs Modern Fund Pooling -->
+    <div class="ui-box" data-tabs>
+      <div class="seg-control">
+        <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-saranay')">Professor's Saranay / Paluwagan Analogy</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-modern')">Modern Actuarial Insurance Fund</button>
+      </div>
+      <div class="tab-panel active" data-panel="tab-saranay">
+        <p><strong>The Traditional Defect of "Saranay" or "Paluwagan for Death":</strong><br>
+        In rural barangays, neighbors contribute ₱200 every time a community member passes away. If five elderly neighbors pass away in the very same week, surviving members are hit with simultaneous, ruinous cash calls. Kinship solidarity buckles under sudden catastrophic frequency.</p>
+        <div class="formula-box">DEATH HAPPENS → SUDDEN COMMUNITY CASH-CALL → SURVIVORS OVERBURDENED & LIQUIDITY DRIED UP</div>
+      </div>
+      <div class="tab-panel" data-panel="tab-modern">
+        <p><strong>How Commercial Insurance Solves the Saranay Defect:</strong><br>
+        Instead of waiting for tragedy to hit, policyholders contribute predictable, ratable <strong>advance premiums</strong> into a central statutory reserve fund managed by an insurer. When loss strikes, indemnity is paid out of the accumulated reserves immediately, without burdening the rest of the community.</p>
+        <div class="formula-box">PREDICTABLE ADVANCE PREMIUMS → REGULATED COMMON RESERVE → IMMEDIATE LIQUIDITY ON DEMAND</div>
+      </div>
+    </div>
+
+    <!-- Six Socio-Economic Purposes Grid -->
+    <div class="ui-box">
+      <strong>THE SIX SOCIO-ECONOMIC PURPOSES OF INSURANCE</strong>
+      <div class="ui-grid-2">
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 1</div>
+          <div style="font-weight:700; color:var(--navy); font-size:0.95rem;">Solves Social Problems</div>
+          <div class="ui-caption">Guarantees emergency liquidity; prevents public dependency and family debt.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 2</div>
+          <div style="font-weight:700; color:var(--teal); font-size:0.95rem;">Stimulates Enterprises</div>
+          <div class="ui-caption">Pooled capital in VUL products fuels corporate investments and infrastructure.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 3</div>
+          <div style="font-weight:700; color:var(--navy); font-size:0.95rem;">Risk-Bearing / Peace of Mind</div>
+          <div class="ui-caption">Transfers uncertain financial perils; sells intangible psychological security.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 4</div>
+          <div style="font-weight:700; color:var(--green); font-size:0.95rem;">Loss Prevention & Restoration</div>
+          <div class="ui-caption">Modest premiums protect against catastrophic multimillion-peso wipeouts.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 5</div>
+          <div style="font-weight:700; color:var(--burgundy); font-size:0.95rem;">Basis of Commercial Credit</div>
+          <div class="ui-caption">Banks grant loans because mortgaged assets and debtor lives are insured.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Purpose 6</div>
+          <div style="font-weight:700; color:var(--rust); font-size:0.95rem;">Efficient Use of Reserves</div>
+          <div class="ui-caption">Earmarks idle capital into statutory reserve funds guaranteeing claim settlements.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Delivery of Policy vs. Contract Perfection:</strong><br>
+      An applicant signs an application, pays the premium, and receives written notice of acceptance. Before the courier physically delivers the printed insurance policy, a fire destroys the property. The insurer denies liability on the ground that <em>"no written policy of insurance was delivered."</em><br>
+      <strong>Ruling: The insurer is liable.</strong> The contract of insurance is <em>consensual</em> and was perfected upon the meeting of the minds. Under Section 49, the written policy is merely the formal documentary evidence of an already perfected contract.
+    </div>
+
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h3 id="sec-3">3. Characteristics of an Insurance Contract</h3>
+
+    <p><em>Imagine receiving a comprehensive fire policy with thirty pages of tiny print drafted by top corporate actuaries. You cannot alter a single comma; your only choice is to sign or walk away. Yet if a fire occurs and an exclusionary clause is vague, the court will resolve every doubt in your favor.</em></p>
+
+    <p>An insurance contract is an <strong>uberrimae fidei</strong>, <strong>aleatory</strong>, <strong>unilateral</strong>, <strong>onerous</strong>, <strong>consensual</strong>, <strong>personal</strong>, <strong>voluntary</strong>, <strong>conditional and executory</strong>, and <strong>property contract</strong> that operates as a <strong>risk-distributing device</strong> embodied in a <strong>contract of adhesion</strong>.</p>
+
+    <!-- Copyable Thematic Mnemonic Box -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: THE ELEVEN CHARACTERISTICS (Thematic Tri-Cluster)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'FORMATION & FORM:\n1. Consensual (perfected by consent)\n2. Voluntary (freedom to contract)\n3. Contract of Adhesion (fine print rule; contra proferentem)\n\nRISK & PERFORMANCE:\n4. Aleatory (depends on uncertain event; Art. 2010)\n5. Conditional & Executory (insurer obligation suspended pending fortuitous loss)\n6. Unilateral (only insurer remains obligated after premium paid)\n7. Risk-Distributing Device (loss shared across common pool)\n\nSUBSTANCE & EQUITIES:\n8. Uberrimae Fidei (contract of utmost good faith)\n9. Onerous (premium vs indemnity)\n10. Personal (credit & character of parties)\n11. Property Contract (vested property asset)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Grouped into three logical buckets for effortless bar exam recall.</div>
+      <table class="ui-table compact-table">
+        <thead>
+          <tr><th style="width:25%">Thematic Cluster</th><th style="width:25%">Characteristics</th><th>Doctrinal Meaning & Statutory Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cluster 1: Formation & Form</strong></td>
+            <td><strong>Consensual<br>Voluntary<br>Adhesion</strong></td>
+            <td>Perfected by mere consent; entry is voluntary; drafted unilaterally on standard forms where ambiguity is resolved strictly against the insurer (<em>Fine Print Rule</em>).</td>
+          </tr>
+          <tr>
+            <td><strong>Cluster 2: Risk & Performance</strong></td>
+            <td><strong>Aleatory<br>Conditional / Executory<br>Unilateral<br>Risk-Distributing</strong></td>
+            <td>Performance hinges on uncertain peril (<em>Art. 2010</em>); insurer's duty remains executory until fortuitous loss; unilateral after premium is paid; disperses losses across policyholders.</td>
+          </tr>
+          <tr>
+            <td><strong>Cluster 3: Substance & Equities</strong></td>
+            <td><strong>Uberrimae Fidei<br>Onerous<br>Personal<br>Property</strong></td>
+            <td>Demands highest honesty and full disclosure; involves valuable consideration on both sides; tied to personal trust/moral hazard; policy rights constitute property assets.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Symmetric Contrast Aphorisms -->
+    <div class="ui-box">
+      <strong>SYMMETRIC CONTRAST APHORISMS (CHARACTERISTICS)</strong>
+      <span class="aphorism">● CONSENSUAL in perfection, but CASH-AND-CARRY (Sec. 77) in the attachment of risk.</span>
+      <span class="aphorism">● UNILATERAL once premium is paid: only the insurer can be sued for future non-performance.</span>
+      <span class="aphorism">● ADHESION: The insurer drafts the fine print; the law arms the insured with contra proferentem.</span>
+      <span class="aphorism">● PERSONAL CONTRACT: Property insurance covers the PERSON against loss, not the inanimate physical object itself.</span>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — The Suspensive Condition & Arson:</strong><br>
+      A struggling factory owner insures his dilapidated plant against fire. Weeks later, it mysteriously burns down. Rumors swirl of arson, but the owner demands immediate payment citing the "aleatory" nature of insurance. The insurer delays to dispatch independent <strong>insurance adjusters</strong>.<br>
+      <strong>Doctrinal Trap:</strong> The insurer's obligation is <em>conditional and executory</em>. The suspensive condition is the occurrence of a <strong>legitimate fortuitous loss</strong>. If the adjuster establishes fraudulent arson by the insured, the condition legally fails, and the insurer is totally absolved from paying!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 4 -->
+    <h3 id="sec-4">4. Distinguishing Elements, Cardinal Principles & Classes of Insurance</h3>
+
+    <p><em>Imagine a warehouse swept away by a sudden flash flood during a typhoon. The insurer denies coverage, pointing to Civil Code Article 1174 and claiming a fortuitous event exempts it from liability. But absorbing that very fortuitous event is the exact risk the insurer was paid to assume!</em></p>
+
+    <p>An insurance contract is uniquely set apart by five distinguishing elements (<strong>PAIRS</strong>) and anchored on three cardinal principles: <strong>Indemnity</strong>, <strong>Utmost Good Faith</strong> (<em>Uberrimae Fidei</em>), and <strong>Subrogation</strong> (<em>Civil Code Art. 2207</em>).</p>
+
+    <!-- Copyable Mnemonic: PAIRS -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: P - A - I - R - S (Five Distinguishing Elements)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Premium consideration paid by insured\nA — Assumption of risk by insurer\nI — Insurable interest in subject matter\nR — Risk of loss through designated peril\nS — Scheme to distribute losses across a common fund')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Concurrence of all five elements distinguishes insurance from all other civil contracts.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>P</strong></td><td style="width:25%"><strong>Premium</strong></td><td>Valuable consideration paid by the insured for the assumption of peril.</td></tr>
+          <tr><td><strong>A</strong></td><td><strong>Assumption of Risk</strong></td><td>Insurer contractually assumes liability for contingent perils in exchange for premium.</td></tr>
+          <tr><td><strong>I</strong></td><td><strong>Insurable Interest</strong></td><td>Pecuniary interest: insured suffers real economic loss if the subject is damaged.</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>Risk of Loss</strong></td><td>Pre-existing hazard or peril that threatens the insured's insurable interest.</td></tr>
+          <tr><td><strong>S</strong></td><td><strong>Scheme to Distribute</strong></td><td>Losses are pooled and distributed among similarly situated policyholders.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Subrogation SVG Diagram -->
+    <div class="ui-box svg-box">
+      <strong>THE SUBROGATION MECHANISM (CIVIL CODE ART. 2207)</strong>
+      <svg viewBox="0 0 540 180" width="100%" style="max-width:540px; margin-top:0.75rem;">
+        <!-- Tortfeasor Box -->
+        <rect x="10" y="20" width="130" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+        <text x="75" y="42" font-size="11" font-weight="700" fill="#991B1B" text-anchor="middle">Tortfeasor B</text>
+        <text x="75" y="58" font-size="9" fill="#7F1D1D" text-anchor="middle">(Negligent Driver)</text>
+
+        <!-- Arrow Negligent Crash -->
+        <path d="M 140 45 L 210 45" stroke="#DC2626" stroke-width="2" marker-end="url(#red-arrow)"/>
+        <text x="175" y="38" font-size="9" font-weight="600" fill="#DC2626" text-anchor="middle">Crashes Car</text>
+
+        <!-- Insured Box -->
+        <rect x="215" y="20" width="130" height="50" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="280" y="42" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Insured Owner A</text>
+        <text x="280" y="58" font-size="9" fill="#14532D" text-anchor="middle">(Suffers ₱200k Loss)</text>
+
+        <!-- Arrow Indemnity Payment -->
+        <path d="M 280 120 L 280 75" stroke="#16A34A" stroke-width="2"/>
+        <text x="285" y="100" font-size="9" font-weight="600" fill="#166534">Pays ₱200k</text>
+
+        <!-- Insurer Box -->
+        <rect x="215" y="120" width="130" height="50" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+        <text x="280" y="142" font-size="11" font-weight="700" fill="#1E3A8A" text-anchor="middle">Property Insurer</text>
+        <text x="280" y="158" font-size="9" fill="#1E40AF" text-anchor="middle">(Indemnifies Loss)</text>
+
+        <!-- Subrogation Curve Arrow -->
+        <path d="M 215 145 C 90 145, 75 105, 75 75" fill="none" stroke="#2563EB" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="110" y="125" font-size="9" font-weight="700" fill="#1E3A8A">Subrogation (Art. 2207)</text>
+        <text x="110" y="137" font-size="8" fill="#475569">Sues B to recover ₱200k</text>
+
+        <!-- Defs for arrowheads -->
+        <defs>
+          <marker id="red-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+          </marker>
+        </defs>
+      </svg>
+      <div class="ui-caption" style="text-align:center;">Subrogation prevents double recovery: Insurer steps into A's shoes; A cannot sue B again for the same ₱200k.</div>
+    </div>
+
+    <!-- Statutory vs Scholarly Classifications Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Statutory Class (Insurance Code)</th><th>Scope of Coverage & Operative Statutory Rule</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1. Life Insurance</strong></td><td>Individual, group, industrial, annuities, and variable life (VUL) contracts payable upon death or survival.</td></tr>
+        <tr><td><strong>2. Fire Insurance</strong></td><td>Loss or damage by fire, lightning, windstorm, earthquake, and allied perils (<em>Sec. 169</em>).</td></tr>
+        <tr><td><strong>3. Marine Insurance</strong></td><td>Vessels, cargo, freightage, bottomry, respondentia, and marine liabilities at sea or inland waterways (<em>Sec. 101</em>).</td></tr>
+        <tr><td><strong>4. Casualty Insurance</strong></td><td>Loss or liability arising from accident or mishap, excluding fire and marine risks (<em>Sec. 176</em>).</td></tr>
+        <tr><td><strong>5. CMVLI / CTPL</strong></td><td>Compulsory Motor Vehicle Liability Insurance protecting third parties against death and bodily injury (<em>Sec. 386</em>).</td></tr>
+        <tr><td><strong>6. Suretyship</strong></td><td>Bonds guaranteeing performance of an obligation when executed by an insurer as a vocation (<em>Sec. 177</em>).</td></tr>
+        <tr><td><strong>7. Microinsurance</strong></td><td>Financial protection tailored for low-income sectors; capped daily premiums and max benefit limits (<em>Sec. 187</em>).</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Subrogation in Life vs. Property Insurance:</strong><br>
+      A reckless bus driver strikes and kills a pedestrian. The victim had a ₱5,000,000 life insurance policy. After the insurer pays ₱5,000,000 to the surviving widow, the insurer files a subrogation lawsuit against the bus company under Article 2207 of the Civil Code.<br>
+      <strong>Ruling: The insurer's lawsuit will be DISMISSED.</strong> Subrogation applies <em>exclusively to property insurance</em> and never to life insurance. Human life cannot be pecuniary measured, so life insurance is not a strict contract of indemnity. Consequently: (1) The insurer has no right of subrogation against the tortfeasor, and (2) The widow can collect the ₱5,000,000 life proceeds AND independently sue the bus company for wrongful death damages!
+    </div>
+
+    <!-- PART I MINI-RECALL QUIZ -->
+    <div class="ui-box quiz-box" id="part-1-quiz">
+      <div class="ui-row-between">
+        <strong>★ Part I Mini-Recall Quiz</strong>
+        <span class="ui-caption">Instant verification</span>
+      </div>
+      <div class="ui-divider"></div>
+
+      <!-- Q1 -->
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under RA 10607 (Sec. 6 & 190), natural individuals are abolished from operating as insurers. Only authorized corporations, partnerships, or associations may do so.">
+        <div class="quiz-prompt">1. A wealthy tycoon with ₱50 Billion in liquid assets signs a contract undertaking to insure a friend's commercial warehouse against fire. Is the tycoon a valid insurer under R.A. No. 10607?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="0" onchange="gradeInstant(this)"> Yes, because his net worth far exceeds the statutory ₱1 Billion requirement.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="1" onchange="gradeInstant(this)"> No, because natural individual persons are strictly prohibited from acting as insurers.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="2" onchange="gradeInstant(this)"> Yes, provided he deposits a ₱1 Billion bond with the Insurance Commission.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="An insurance contract is consensual; the policy under Section 49 is merely the written evidentiary instrument, not an indispensable requirement for perfection.">
+        <div class="quiz-prompt">2. An insurance company approves a fire insurance application and sends an acceptance letter. Before the formal written policy is printed and delivered, fire burns the house. Is there a valid contract?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="0" onchange="gradeInstant(this)"> No, because insurance is a formal contract requiring physical delivery of the policy.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="1" onchange="gradeInstant(this)"> No, because the risk only attaches upon the signed acknowledgement of the policy booklet.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="2" onchange="gradeInstant(this)"> Yes, because insurance is consensual and perfected upon the meeting of the minds.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Article 2207 subrogation strictly applies to property insurance. Human life is not subject to exact pecuniary calculation, so the widow may recover both.">
+        <div class="quiz-prompt">3. A husband is killed by a negligent truck driver. The life insurer pays the widow ₱3,000,000. Can the life insurer subrogate against the negligent truck driver under Art. 2207?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p1q3" value="0" onchange="gradeInstant(this)"> No, because subrogation never applies to life insurance contracts.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q3" value="1" onchange="gradeInstant(this)"> Yes, because the truck driver was the proximate cause of death.</label>
+          <label class="quiz-opt"><input type="radio" name="p1q3" value="2" onchange="gradeInstant(this)"> Yes, but only up to 50% of the life insurance face value paid.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART II -->
+    <!-- ========================================================================= -->
+    <h2 id="part-2">PART II — STATUTORY ELEMENTS, PERFECTION MECHANICS, CONSTRUCTION RULES, AND CONTRACTING PARTIES</h2>
+
+    <!-- SECTION 5 -->
+    <h3 id="sec-5">5. Statutory Definition, Liability Coverage & Reinsurance Dynamics</h3>
+
+    <p><em>Imagine an oil tanker running aground on a marine sanctuary reef. The ship’s hull has only minor dents, but coastal fishermen and the government hit the tanker company with ₱500,000,000 in environmental clean-up claims—here, liability coverage prevents instant bankruptcy.</em></p>
+
+    <p>Under <strong>Section 2(a)</strong> of R.A. No. 10607, insurance extends beyond reimbursing physical loss or damage to cover legal <strong>liability</strong> arising from an unknown or contingent event, which anchors third-party protection, suretyship bonds, and <strong>reinsurance</strong> (<em>Sec. 97</em>).</p>
+
+    <!-- Four Pillars of Liability Coverage Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Application</th><th>Statutory Basis</th><th>Operative Liability Mechanism</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Maritime Carrier Liability</strong></td>
+          <td>Sec. 101 & Code of Commerce</td>
+          <td>Protects shipowner against legal liabilities when cargo belonging to various shippers is lost or damaged at sea.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Suretyship as a Vocation</strong></td>
+          <td><strong>Section 177</strong></td>
+          <td>Insures the obligee against financial liability caused by the principal debtor's default or failure to perform.</td>
+        </tr>
+        <tr>
+          <td><strong>3. CMVLI / CTPL</strong></td>
+          <td><strong>Sections 386–387</strong></td>
+          <td>Mandatory LTO prerequisite; indemnifies civil liability to third parties for bodily injury or death resulting from motor operation.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Reinsurance Contracts</strong></td>
+          <td><strong>Section 97</strong></td>
+          <td>Contract where original insurer (reinsured) insures with a reinsurer against liability arising from its primary underwriting portfolio.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Reinsurance Cascade Flow Stack -->
+    <div class="ui-box">
+      <strong>THE REINSURANCE RISK CASCADE (SEC. 97)</strong>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>ORIGINAL INSURED (POLICYHOLDER)</strong>
+          <span>Insures high-value asset (e.g., ₱10 Billion Airport Terminal) with Primary Insurer</span>
+        </div>
+        <div class="flow-arrow">↓ <em>Primary Insurance Contract (Sec. 2[a])</em></div>
+        <div class="flow-step">
+          <strong>PRIMARY INSURER (REINSURED)</strong>
+          <span>Underwrites full risk, but retains only ₱1 Billion capacity to avoid insolvency</span>
+        </div>
+        <div class="flow-arrow">↓ <em>Reinsurance Contract (Sec. 97) [Separate & Independent]</em></div>
+        <div class="flow-step">
+          <strong>REINSURER (CEDING ASSUMPTION)</strong>
+          <span>Insures the primary insurer's excess ₱9 Billion contractual liability</span>
+        </div>
+        <div class="flow-arrow">↓ <em>Retrocession</em></div>
+        <div class="flow-step" style="background:#F1F5F9;">
+          <strong>RETROCESSIONAIRE</strong>
+          <span>Re-underwrites a slice of the reinsurer's global portfolio across international syndicates</span>
+        </div>
+      </div>
+      <div class="ui-caption" style="text-align:center; margin-top:0.5rem;">Note: The original policyholder has no privity of contract with the reinsurer and cannot sue the reinsurer directly!</div>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — CTPL vs. Own Damage Bumper Crash:</strong><br>
+      A car owner with standard LTO CTPL coverage rear-ends an electric post. He submits a claim to his CTPL insurer for ₱60,000 to replace his own radiator and bumper.<br>
+      <strong>Ruling: Claim DENIED.</strong> CMVLI/CTPL covers strictly <em>third-party liability</em> for bodily injury and death. It does not cover damage to the insured's own vehicle. To recover for one's own car damage, a separate <em>Comprehensive Motor Vehicle (Own Damage)</em> policy is required!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 6 -->
+    <h3 id="sec-6">6. Perfection Mechanics, Offer and Acceptance & Cover Notes</h3>
+
+    <p><em>Imagine an applicant who fills out an application, pays a deposit to an insurance agent in Cebu, and the Manila head office stamps the policy "APPROVED" on Friday afternoon. Unknown to Manila, the applicant dies in an accident on Saturday morning before notice is sent. Did the contract perfect?</em></p>
+
+    <p>Under the <strong>Cognition Theory</strong> (<em>Civil Code Art. 1319, par. 2</em>), an insurance contract negotiated through correspondence is perfected only when the <strong>insured (as offeror)</strong> actually receives notice of the insurer's acceptance; temporary protection prior to formal approval requires a <strong>Cover Note</strong> (<em>Sec. 52</em>).</p>
+
+    <!-- Polarity of Offer & Acceptance Table -->
+    <div class="ui-box">
+      <strong>THE POLARITY OF OFFER AND ACCEPTANCE IN INSURANCE</strong>
+      <table class="ui-table compact-table">
+        <thead>
+          <tr><th>Stage</th><th>Actor</th><th>Legal Classification</th><th>Doctrinal Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Pitch & Brochures</strong></td>
+            <td>Insurance Agent</td>
+            <td><strong>Invitation to Deal</strong></td>
+            <td>Mere solicitation; binds nobody; invites the prospect to make an offer.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Application Form</strong></td>
+            <td>Prospective Insured</td>
+            <td><strong>The Legal Offer</strong></td>
+            <td>The applicant is the offeror! Proposes terms and tenders premium consideration.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Underwriting & Policy</strong></td>
+            <td>Insurance Company</td>
+            <td><strong>The Legal Acceptance</strong></td>
+            <td>Approval and issuance of policy. Under Cognition Theory, binds only when communicated to insured.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Policy vs Cover Note Comparison -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Feature</th><th>Policy of Insurance (Sec. 49)</th><th>Cover Note (Sec. 52)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nature & Purpose</strong></td>
+          <td>Definitive written instrument embodying the complete, permanent contract.</td>
+          <td>Temporary, provisional binding document granting immediate interim coverage.</td>
+        </tr>
+        <tr>
+          <td><strong>Duration / Term</strong></td>
+          <td>Full policy period agreed upon (e.g., 1 year or lifetime).</td>
+          <td>Valid for a maximum of <strong>60 days</strong> (unless extended with Commissioner's approval).</td>
+        </tr>
+        <tr>
+          <td><strong>Juridical Relationship</strong></td>
+          <td>Evidences the principal contract itself.</td>
+          <td>A <strong>separate, distinct contract</strong>; binds insurer during the interim even if the main policy is eventually rejected!</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Insurer Delay Does NOT Equal Implied Acceptance:</strong><br>
+      An applicant submits a life insurance application and pays six months of advance premiums. The insurer sits on the papers for nine months without issuing a decision. The applicant suddenly dies. The beneficiaries claim the policy was perfected through <em>implied acceptance</em> due to unreasonable delay.<br>
+      <strong>Ruling: NO CONTRACT WAS PERFECTED.</strong> Under <em>Perez v. Philam Life</em>, mere delay—even unreasonable or negligent delay—does NOT constitute acceptance of an insurance application. Without communicated acceptance under the Cognition Theory, no contract exists. (The estate's remedy is an action for tort/damages under Art. 19–21 Civil Code, not an action on the policy!)
+    </div>
+
+    <hr>
+
+    <!-- SECTION 7 -->
+    <h3 id="sec-7">7. Essential Requisites & Rules of Statutory Construction in Insurance</h3>
+
+    <p><em>Imagine an accident policy excluding coverage while riding a "public conveyance without paying fare." An employee is injured while commuting on an employer-chartered shuttle bus provided free to workers. The insurer argues the shuttle is a "public conveyance" carrying multiple people—who wins?</em></p>
+
+    <p>While contracts with clear terms are strictly enforced under the <strong>Plain Meaning Rule</strong> (<em>Art. 1370</em>), obscure or ambiguous clauses in an insurance policy are construed strictly against the insurer and liberally in favor of the insured under the <strong>Contra Proferentem Rule</strong> (<em>Art. 1377</em>).</p>
+
+    <!-- Five Essential Requisites Breakdown -->
+    <div class="ui-box">
+      <strong>THE FIVE ESSENTIAL REQUISITES OF AN INSURANCE CONTRACT</strong>
+      <div class="ui-grid-4">
+        <div class="stat-card">
+          <div class="stat-lbl">Requisite 1</div>
+          <div style="font-weight:700; color:var(--navy); font-size:0.9rem;">Insurable Interest</div>
+          <div class="ui-caption">Sec. 10, 13, 14</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Requisite 2</div>
+          <div style="font-weight:700; color:var(--teal); font-size:0.9rem;">Contingent Peril</div>
+          <div class="ui-caption">Sec. 3 unknown event</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Requisite 3</div>
+          <div style="font-weight:700; color:var(--burgundy); font-size:0.9rem;">Promise to Pay</div>
+          <div class="ui-caption">Indemnity undertaking</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Requisite 4</div>
+          <div style="font-weight:700; color:var(--green); font-size:0.9rem;">Premium Paid</div>
+          <div class="ui-caption">Sec. 77 consideration</div>
+        </div>
+      </div>
+      <div class="stat-card" style="margin-top:0.5rem;">
+        <div class="stat-lbl">Requisite 5</div>
+        <div style="font-weight:700; color:var(--text); font-size:0.9rem;">Meeting of the Minds on All Terms & Exceptions (Consent)</div>
+      </div>
+    </div>
+
+    <!-- Construction Contrast Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Rule of Construction</th><th>Civil Code Basis</th><th>Operative Mandate in Insurance</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Plain Meaning Rule</strong></td>
+          <td><strong>Article 1370</strong></td>
+          <td>When terms are clear and unambiguous, the literal meaning controls. Courts cannot rewrite stipulations or create liability out of judicial sympathy.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Contra Proferentem Rule</strong></td>
+          <td><strong>Article 1377</strong></td>
+          <td>Interpretation of obscure or doubtful stipulations shall not favor the party who caused the obscurity. Construe <strong>strictly against the insurer</strong> and <strong>liberally in favor of the insured</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Don't Invoke Contra Proferentem on Clear Clauses:</strong><br>
+      A property policy clearly and unequivocally states in bold letters: <em>"Loss caused directly or indirectly by volcanic eruption is strictly excluded."</em> Mount Mayon erupts and destroys the insured house. The insured pleads for <em>contra proferentem</em>, claiming he is an ordinary layman who didn't understand the exclusion.<br>
+      <strong>Ruling: Exclusion is ENFORCED.</strong> Where policy language is clear, explicit, and unambiguous, there is zero room for interpretation. <em>Contra proferentem</em> is triggered <strong>only</strong> when genuine ambiguity or dual meanings exist!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 8 -->
+    <h3 id="sec-8">8. Parties to the Insurance Contract: Insurer, Insured & Assured</h3>
+
+    <p><em>Imagine a father taking out a life insurance policy on his own life and designating his two-year-old toddler as beneficiary. The infant never signed the contract, has no legal capacity, and does not even know the policy exists—does the contract lack valid contracting parties?</em></p>
+
+    <p>Strictly speaking, the only parties to an insurance contract are the <strong>Insurer</strong> and the <strong>Insured</strong> whose minds met; while a third-party life beneficiary is not a contracting party, in <strong>property insurance</strong> the property owner (<strong>Assured</strong>) and beneficiary merge into the same person, making the beneficiary a contracting party.</p>
+
+    <!-- Bar Exam Answering Strategy Box -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>BAR EXAM MODEL ANSWER: "Is the beneficiary a party to the insurance contract?"</strong>
+      </div>
+      <div class="ui-caption">A two-part structured response ensuring full credit:</div>
+      <div style="margin-top:0.5rem; font-size:0.92rem;">
+        <p><strong>1. General Rule (Life Insurance): NO.</strong> Generally, the only contracting parties are the <em>insurer</em> and the <em>insured</em>. In life insurance, the contract is perfected by the meeting of the minds between the insurer and the insured alone; the beneficiary’s consent or knowledge is not required. A life beneficiary is merely the recipient of a stipulation <em>pour autrui</em> (Civil Code Art. 1311).</p>
+        <p style="margin-bottom:0;"><strong>2. Exception (Property Insurance): YES.</strong> In property insurance, the law requires that the beneficiary must possess an <em>insurable interest</em> over the property (Sec. 18). Hence, the property owner (<em>assured</em>) who negotiates the contract is simultaneously the sole beneficiary. Since the assured and beneficiary merge into the same persona whose mind met with the insurer, the beneficiary in property insurance IS a contracting party.</p>
+      </div>
+    </div>
+
+    <!-- Persona Comparison Matrix -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Persona</th><th>Definition & Role</th><th>Insurable Interest Required?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Insurer</strong></td>
+          <td>Juridical entity (corporation/association) authorized by IC to assume risk.</td>
+          <td>Not applicable (assumes risk for premium).</td>
+        </tr>
+        <tr>
+          <td><strong>Insured</strong></td>
+          <td>Person who procures contract, pays premium, or whose life/property is covered.</td>
+          <td><strong>Mandatory:</strong> In own life, life of another, or property.</td>
+        </tr>
+        <tr>
+          <td><strong>Assured</strong></td>
+          <td>Property owner insuring own property, or person insuring life of another for own benefit.</td>
+          <td><strong>Mandatory:</strong> At inception and at loss (property).</td>
+        </tr>
+        <tr>
+          <td><strong>Beneficiary</strong></td>
+          <td>Designated recipient of proceeds upon occurrence of covered peril.</td>
+          <td><strong>Depends:</strong> <em>Not required</em> if insured insures own life; <strong>Required</strong> in property.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — The Three Qualifications of an Insured (C-I-P):</strong><br>
+      Under Section 7, anyone except a <strong>public enemy</strong> may be insured. To qualify as a valid insured, three requisites must concur: (1) <strong>Competent & capacitated</strong> to contract, (2) Holds an <strong>Insurable interest</strong>, and (3) Must <strong>not be a Public enemy</strong>.
+    </div>
+
+    <!-- PART II MINI-RECALL QUIZ -->
+    <div class="ui-box quiz-box" id="part-2-quiz">
+      <div class="ui-row-between">
+        <strong>★ Part II Mini-Recall Quiz</strong>
+        <span class="ui-caption">Instant verification</span>
+      </div>
+      <div class="ui-divider"></div>
+
+      <!-- Q1 -->
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under the Cognition Theory (Art. 1319), an acceptance made by letter does not bind the offeror except from the time it came to his knowledge.">
+        <div class="quiz-prompt">1. Under the Cognition Theory, when is an insurance contract negotiated through correspondence perfected?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="0" onchange="gradeInstant(this)"> The moment the insurer signs and deposits the policy in the mailbox.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="1" onchange="gradeInstant(this)"> The exact moment the insured actually receives knowledge of the insurer's approval.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="2" onchange="gradeInstant(this)"> At the moment the insurance agent receives the signed application form.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="A cover note is a standalone binding contract of temporary insurance under Sec. 52 that binds the insurer even during underwriting.">
+        <div class="quiz-prompt">2. An agent issues a 60-day Cover Note while a car policy undergoes underwriting. Five days later, the car is stolen. The insurer denies liability because the main application was not yet formally approved. Is the insurer liable?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="0" onchange="gradeInstant(this)"> Yes, because a cover note is a separate, binding contract of temporary insurance.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="1" onchange="gradeInstant(this)"> No, because a cover note is merely a non-binding receipt.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="2" onchange="gradeInstant(this)"> No, because theft is excluded during the provisional 60-day window.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="In property insurance, Section 18 requires insurable interest in the beneficiary, merging the property owner (assured) and beneficiary into the same contracting persona.">
+        <div class="quiz-prompt">3. Why is the beneficiary in a property insurance contract considered a party to the contract?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p2q3" value="0" onchange="gradeInstant(this)"> Because property insurance is a gratuitous contract of donation.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q3" value="1" onchange="gradeInstant(this)"> Because the physical property itself gives legal consent through its title.</label>
+          <label class="quiz-opt"><input type="radio" name="p2q3" value="2" onchange="gradeInstant(this)"> Because the property owner (assured) and beneficiary merge into the same person possessing insurable interest.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART III -->
+    <!-- ========================================================================= -->
+    <h2 id="part-3">PART III — BENEFICIARY RULES, SPECIAL PERSONAS, REGULATORY COMPLIANCE, AND SUBJECT MATTER OF INSURANCE</h2>
+
+    <!-- SECTION 9 -->
+    <h3 id="sec-9">9. The Beneficiary: Designation, Qualifications, Revocability & Predecease</h3>
+
+    <p><em>Imagine a bachelor insuring his own life for ₱10,000,000 and naming his romantic same-sex partner as his sole beneficiary. Upon his death, his estranged siblings sue to grab the money, claiming the partner had no insurable interest and the designation was invalid—who gets the ₱10,000,000?</em></p>
+
+    <p>When an insured insures his own life, the beneficiary <strong>need not possess any insurable interest</strong> and designations are presumed <strong>revocable</strong> (<em>Sec. 11</em>), subject only to <strong>Article 739</strong> disqualifications (<em>via Art. 2012</em>); moreover, even "irrevocable" designations are forfeited for willful killing (<em>Sec. 12</em>) or revoked upon legal separation (<em>Family Code Art. 63[4]</em>).</p>
+
+    <!-- Disqualified Beneficiaries Box -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: A - C - P (Disqualified Beneficiaries under Art. 739 & Art. 2012)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'A — Adultery or Concubinage (persons guilty at time of designation; conviction not required)\nC — Common Criminal Offense (guilty of same offense, in consideration thereof)\nP — Public Officer by reason of office (to public officer, spouse, ascendants, descendants)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Designation is akin to a donation; if donation is void under Art. 739, beneficiary designation is VOID.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>A</strong></td><td style="width:25%"><strong>Adultery / Concubinage</strong></td><td>Between persons guilty of adultery/concubinage at designation (civil preponderance suffices).</td></tr>
+          <tr><td><strong>C</strong></td><td><strong>Common Crime</strong></td><td>Between persons found guilty of the same criminal offense, in consideration thereof.</td></tr>
+          <tr><td><strong>P</strong></td><td><strong>Public Officer</strong></td><td>To a public officer or his spouse, ascendants, or descendants, by reason of his public office.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Predecease Comparison Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Legal Status</th><th>Revocable Beneficiary Predeceases Insured</th><th>Irrevocable Beneficiary Predeceases Insured</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nature of Interest Held</strong></td>
+          <td>Mere <strong>expectancy</strong> (inchoate right) contingent upon surviving the insured.</td>
+          <td><strong>Vested property right</strong> acquired immediately upon irrevocable designation.</td>
+        </tr>
+        <tr>
+          <td><strong>Rights of Beneficiary's Heirs</strong></td>
+          <td>Heirs derive <strong>no rights whatsoever</strong> through the deceased beneficiary.</td>
+          <td>Vested property right <strong>transmits by succession</strong> to the beneficiary's heirs.</td>
+        </tr>
+        <tr>
+          <td><strong>Ultimate Destination of Proceeds</strong></td>
+          <td>Proceeds pass to the <strong>estate of the insured</strong> (if no substitute is named).</td>
+          <td>Proceeds are paid to the <strong>estate / legal heirs of the deceased irrevocable beneficiary</strong>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Stacked Flow Cards: Section 12 Willful Killing -->
+    <div class="ui-box">
+      <strong>FORFEITURE UPON WILLFUL KILLING OF THE INSURED (SEC. 12)</strong>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>BENEFICIARY CONVICTED AS PRINCIPAL, ACCOMPLICE, OR ACCESSORY</strong>
+          <span>Willfully brings about the death of the insured</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <strong>TOTAL STATUTORY FORFEITURE OF BENEFICIARY'S SHARE</strong>
+          <span>Barred from receiving a single centavo by operation of Section 12</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#EFF6FF;">
+          <strong>PROCEEDS CASCADE: OTHER INNOCENT BENEFICIARIES → POLICY CONTRACT TERMS → INSURED'S ESTATE</strong>
+          <span>Proceeds never revert to the insurer, but enrich innocent co-beneficiaries or the insured's estate</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Three Exceptions to "Irrevocable" Designations:</strong><br>
+      Examinees routinely think an "irrevocable" beneficiary can NEVER be touched without their written consent. Remember the <strong>three statutory overrides</strong> where an irrevocable beneficiary CAN be revoked or stripped:<br>
+      1. <strong>Written Consent:</strong> The irrevocable beneficiary voluntarily consents in writing.<br>
+      2. <strong>Legal Separation / Annulment (Family Code Art. 43[4], 50, 63[4]):</strong> The innocent spouse can revoke the guilty spouse even if stipulated as irrevocable!<br>
+      3. <strong>Willful Killing (Sec. 12):</strong> Beneficiary forfeits interest if he/she willfully kills the insured!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 10 -->
+    <h3 id="sec-10">10. Special Personas & Capacity Issues: Cestui Que Vie, Minors, Married Women & Public Enemies</h3>
+
+    <p><em>Imagine a Philippine corporation operating a major trading firm in Manila, but 80% of its shares are held by German nationals during World War II. When a fire razes its warehouse in 1942, can it recover fire insurance proceeds from a domestic insurer?</em></p>
+
+    <p>While insurance over a <em>cestui que vie</em> requires strict insurable interest (<em>Sec. 10</em>) and married women may independently insure their lives and paraphernal property (<em>Sec. 3</em>), <strong>public enemies</strong> cannot be insured (<em>Sec. 7</em>); during wartime, corporate character is determined by the <strong>Control Test</strong> (<em>Filipinas Compañia de Seguros v. Christern, Huenefeld & Co., Inc.</em>).</p>
+
+    <!-- Inline SVG Cestui Que Vie Triangle -->
+    <div class="ui-box svg-box">
+      <strong>THE CESTUI QUE VIE TRIANGLE (THIRD-PARTY LIFE SUBJECT)</strong>
+      <svg viewBox="0 0 500 190" width="100%" style="max-width:500px; margin-top:0.75rem;">
+        <!-- Mother / Assured -->
+        <rect x="20" y="20" width="130" height="55" rx="8" fill="#EFF6FF" stroke="#1E3A8A" stroke-width="1.5"/>
+        <text x="85" y="44" font-size="11" font-weight="700" fill="#1E3A8A" text-anchor="middle">Mother (Policy Owner)</text>
+        <text x="85" y="60" font-size="9" fill="#1E40AF" text-anchor="middle">Assured & Beneficiary</text>
+
+        <!-- Arrow Pays Premium -->
+        <path d="M 150 45 L 340 45" stroke="#1E3A8A" stroke-width="2" marker-end="url(#blue-arrow)"/>
+        <text x="245" y="38" font-size="9" font-weight="600" fill="#1E3A8A" text-anchor="middle">Pays Premium / Contracts</text>
+
+        <!-- Insurer -->
+        <rect x="350" y="20" width="130" height="55" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+        <text x="415" y="44" font-size="11" font-weight="700" fill="#111827" text-anchor="middle">Insurer</text>
+        <text x="415" y="60" font-size="9" fill="#64748B" text-anchor="middle">Assumes Mortality Risk</text>
+
+        <!-- Child / Cestui Que Vie -->
+        <rect x="185" y="125" width="140" height="55" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="255" y="148" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Child (Cestui Que Vie)</text>
+        <text x="255" y="164" font-size="9" fill="#14532D" text-anchor="middle">The Person Insured / Subject</text>
+
+        <!-- Dotted lines from child -->
+        <path d="M 85 75 L 195 125" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="110" y="105" font-size="8" font-weight="600" fill="#166534">Sec. 10 Insurable Interest</text>
+
+        <path d="M 415 75 L 315 125" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="390" y="105" font-size="8" font-weight="600" fill="#2563EB">Covered Life</text>
+
+        <defs>
+          <marker id="blue-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#1E3A8A"/>
+          </marker>
+        </defs>
+      </svg>
+      <div class="ui-caption" style="text-align:center;">The mother is the assured; the child is the cestui que vie. Mother MUST have Sec. 10 insurable interest in the child's life!</div>
+    </div>
+
+    <!-- Incorporation vs Control Test Table -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Principle</th><th>Incorporation Test (General Rule)</th><th>Control Test (Wartime / Filipinas Case)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Operative Test</strong></td>
+          <td>Nationality is determined strictly by the state under whose laws the corporation was organized.</td>
+          <td>Nationality is determined by looking behind the corporate veil to the citizenship of controlling stockholders.</td>
+        </tr>
+        <tr>
+          <td><strong>Scope of Application</strong></td>
+          <td>Standard corporate transactions during peacetime.</td>
+          <td><strong>Wartime Insurance Law:</strong> Prevents transferring economic resources to hostile foreign nations.</td>
+        </tr>
+        <tr>
+          <td><strong>Result in Filipinas Case</strong></td>
+          <td>Corporation would have been deemed "Filipino" because it was incorporated in the Philippines.</td>
+          <td><strong>Ruled a PUBLIC ENEMY:</strong> Because majority shares were held by German nationals, the policy was voided!</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Domestic Rebels (NPA) are NOT Public Enemies:</strong><br>
+      A high-ranking commander of the New People's Army (NPA) procures a life insurance policy. Upon his death in a skirmish, the insurer refuses to pay, arguing that the NPA is a declared enemy of the state and therefore a "public enemy" under Section 7.<br>
+      <strong>Ruling: Claim MUST BE PAID.</strong> In Insurance Law, a <strong>public enemy</strong> is strictly defined as a foreign nation with which the Philippines is in a formal state of international war, and every citizen or subject thereof. Domestic rebels, terrorists, or insurgents remain Filipino citizens; hence, they are NOT public enemies within the contemplation of Section 7!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 11 -->
+    <h3 id="sec-11">11. Doing or Transacting an Insurance Business & Regulatory Compliance</h3>
+
+    <p><em>Imagine an electronics superstore offering a "Free Lifetime Care Plan" where dropped or water-damaged phones are repaired or replaced at zero extra charge. The store claims it is not an insurance company because it never charges a separate "premium"—can the Insurance Commission shut it down?</em></p>
+
+    <p>Under <strong>Section 2(b)</strong>, transacting an insurance business is governed by the <strong>Principal Object and Purpose Test</strong>, where the absence of profit or separate direct consideration is <strong>not conclusive</strong>; entities must secure an IC <strong>Certificate of Authority</strong> and maintain ongoing statutory reserves.</p>
+
+    <!-- Copyable Mnemonic: MSRE -->
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: M - S - R - E (Four Acts Constituting Insurance Business — Sec. 2[b])</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'M — Making or proposing to make, as insurer, any insurance contract\nS — Suretyship contract executed as a vocation (not merely incidental)\nR — Reinsurance business of any kind\nE — Evasion catch-all: Doing business equivalent in substance designed to evade the Insurance Code')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Statutory acts falling under the regulatory supervision of the Insurance Commissioner.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>M</strong></td><td style="width:25%"><strong>Making Contracts</strong></td><td>Making or proposing to make, as insurer, any insurance contract.</td></tr>
+          <tr><td><strong>S</strong></td><td><strong>Suretyship Vocation</strong></td><td>Making suretyship contracts as a vocation, not merely incidental to another business.</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>Reinsurance</strong></td><td>Doing any kind of reinsurance business specifically recognized under the Code.</td></tr>
+          <tr><td><strong>E</strong></td><td><strong>Evasion Catch-All</strong></td><td>Doing any business equivalent in substance designed to evade the provisions of the Code.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Principal Object and Purpose Test Card -->
+    <div class="ui-box">
+      <strong>THE PRINCIPAL OBJECT AND PURPOSE TEST</strong>
+      <div class="ui-grid-2">
+        <div class="stat-card" style="text-align:left;">
+          <div style="font-weight:700; color:var(--burgundy);">IT IS AN INSURANCE BUSINESS</div>
+          <p style="font-size:0.88rem; margin:0.35rem 0 0;">If the <strong>principal object and purpose</strong> is indemnity—assuming a contingent risk of loss from external perils (theft, accidental water damage, fire) and promising replacement.</p>
+          <div class="ui-caption">Requires Certificate of Authority & capitalization!</div>
+        </div>
+        <div class="stat-card" style="text-align:left;">
+          <div style="font-weight:700; color:var(--green);">IT IS NOT AN INSURANCE BUSINESS</div>
+          <p style="font-size:0.88rem; margin:0.35rem 0 0;">If the assumption of risk is <strong>merely incidental</strong> to the primary object of rendering maintenance services or warranting factory quality against inherent manufacturer defects.</p>
+          <div class="ui-caption">Exempt from Insurance Commission licensing.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — The "Free Service" Defense Fails:</strong><br>
+      Under Section 2(b) (last paragraph), the fact that <strong>no profit is derived</strong> or that <strong>no separate direct consideration is received</strong> shall NOT be conclusive to prove that an entity is not transacting an insurance business. Packaging indemnity as a "free promotional giveaway" cannot bypass the Insurance Commission!
+    </div>
+
+    <hr>
+
+    <!-- SECTION 12 -->
+    <h3 id="sec-12">12. Subject Matter of Insurance vs. Wagering and Gambling Contracts</h3>
+
+    <p><em>Imagine an ocean freighter that set sail from Manila to Cebu two days ago without radio contact. Unknown to both the shipowner and insurer in Manila, the ship sank yesterday afternoon. This morning, both parties sign a marine insurance policy with a "lost or not lost" clause. Is the policy void as an illegal bet on a past event?</em></p>
+
+    <p>Under <strong>Section 3</strong>, any contingent or unknown event—<strong>whether past or future</strong>—may be insured; unlike void wagering contracts (<em>Sec. 4 & Sec. 25</em>), an insurance contract does not court fortune or create risk, but transfers and distributes an independently existing risk through strict indemnity.</p>
+
+    <!-- Contrast Table: Insurance vs Wagering -->
+    <table class="ui-table">
+      <thead>
+        <tr><th>Point of Distinction</th><th>Wagering / Gambling Contract (e.g., Lotto)</th><th>Contract of Insurance</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Attitude Toward Fortune</strong></td>
+          <td><strong>"The gambler courts fortune."</strong> The bettor actively seeks an unearned windfall through pure chance.</td>
+          <td><strong>"The insured seeks to avoid misfortune."</strong> The insured pays premiums hoping the peril never happens.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Creation vs. Pre-existence of Risk</strong></td>
+          <td>The contract <strong>artificially creates a brand-new risk</strong> that did not exist before placing the wager.</td>
+          <td>The risk of loss (death, fire, typhoon) <strong>already exists independently</strong>; contract merely transfers it.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Contemplation of Gain</strong></td>
+          <td>Contemplates <strong>unearned profit</strong>; one party's winning jackpot is the other's net loss.</td>
+          <td>Contemplates <strong>pure indemnity</strong>; strictly restores the insured to his pre-loss financial baseline.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Presence of Winner / Loser</strong></td>
+          <td>Produces a zero-sum <strong>winner and loser</strong>.</td>
+          <td>There is <strong>no winner and no loser</strong>; provides mutual protection and peace of mind.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Symmetric Contrast Aphorisms -->
+    <div class="ui-box">
+      <strong>SYMMETRIC CONTRAST APHORISMS (WAGERING VS. INSURANCE)</strong>
+      <span class="aphorism">● THE GAMBLER COURTS FORTUNE; THE INSURED SEEKS TO AVOID MISFORTUNE.</span>
+      <span class="aphorism">● A WAGER CREATES A NEW RISK; INSURANCE TRANSFERS AN EXISTING HAZARD.</span>
+      <span class="aphorism">● GAMBLING PRODUCES A WINNER AND LOSER; INSURANCE RESTORES STATUS QUO ANTE.</span>
+    </div>
+
+    <!-- Exam Trap Banner -->
+    <div class="trap-banner">
+      <strong>⚠️ THE FAVORITE EXAMINATION TRAP — Insuring a Past Event under "Lost or Not Lost":</strong><br>
+      Examinees often mistakenly assert: <em>"An insurance contract can only insure future events; insuring a past event is always void."</em><br>
+      <strong>Doctrinal Trap:</strong> Section 3 explicitly permits insuring an <strong>unknown past event</strong>. This is doctrinally celebrated in <strong>Marine Insurance</strong> under the <em>"lost or not lost"</em> clause. Provided both the shipowner and insurer are in complete ignorance of the past loss and act in utmost good faith (<em>uberrimae fidei</em>) at perfection, the policy is 100% valid!
+    </div>
+
+    <!-- PART III MINI-RECALL QUIZ -->
+    <div class="ui-box quiz-box" id="part-3-quiz">
+      <div class="ui-row-between">
+        <strong>★ Part III Mini-Recall Quiz</strong>
+        <span class="ui-caption">Instant verification</span>
+      </div>
+      <div class="ui-divider"></div>
+
+      <!-- Q1 -->
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Article 2012 in relation to Art. 739 of the Civil Code, any person guilty of adultery or concubinage is disqualified from being named beneficiary. Preponderance of civil evidence suffices.">
+        <div class="quiz-prompt">1. A married man takes out a life insurance policy on his own life and designates his illicit paramour as beneficiary. Is the designation valid?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="0" onchange="gradeInstant(this)"> Valid, because an insured can designate anyone on his own life.</label>
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="1" onchange="gradeInstant(this)"> Void under Art. 2012 and Art. 739 of the Civil Code regarding donations.</label>
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="2" onchange="gradeInstant(this)"> Valid if the paramour had no knowledge that the man was married.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="In Filipinas Compañia de Seguros v. Christern, Huenefeld, the Supreme Court held that in wartime, corporate enemy character is determined by the nationality of controlling stockholders (Control Test).">
+        <div class="quiz-prompt">2. During wartime, what test determines whether a domestic corporation organized under Philippine laws is an uninsurable public enemy?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="0" onchange="gradeInstant(this)"> The Incorporation Test (place of incorporation).</label>
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="1" onchange="gradeInstant(this)"> The Principal Office Test (location of corporate headquarters).</label>
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="2" onchange="gradeInstant(this)"> The Control Test (citizenship of controlling stockholders).</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Section 3 allows insuring an unknown past event, and marine insurance permits this under 'lost or not lost' clauses if both parties act in utmost good faith without knowledge of the loss.">
+        <div class="quiz-prompt">3. Can a past event be the valid subject matter of an insurance contract?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p3q3" value="0" onchange="gradeInstant(this)"> Yes, provided the past event is unknown to both parties at perfection (e.g., marine insurance 'lost or not lost').</label>
+          <label class="quiz-opt"><input type="radio" name="p3q3" value="1" onchange="gradeInstant(this)"> No, because insurance can only contemplate uncertain future events.</label>
+          <label class="quiz-opt"><input type="radio" name="p3q3" value="2" onchange="gradeInstant(this)"> Yes, but only in life insurance policies covering elderly parents.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- FINAL MEMORY SHEET & EXAM PRIORITIES -->
+    <!-- ========================================================================= -->
+    <h2 id="final-sheet">FINAL MEMORY SHEET & EXAM PRIORITIES</h2>
+
+    <!-- Master Recall Table -->
+    <div class="ui-box">
+      <strong>MASTER RECALL TABLE (PROVISIONS, DOCTRINES & CASES)</strong>
+      <table class="ui-table compact-table">
+        <thead>
+          <tr><th style="width:30%">Article / Case / Provision</th><th>Core One-Line Examination Recall</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Section 2(a), R.A. 10607</strong></td>
+            <td>Definition of insurance contract: covers <strong>loss, damage, or liability</strong> arising from an unknown or contingent event.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 2(b), R.A. 10607</strong></td>
+            <td>Doing insurance business: <strong>Principal Object and Purpose Test</strong> controls; absence of profit or direct fee is not conclusive.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 3, R.A. 10607</strong></td>
+            <td>Subject matter: any contingent or <strong>unknown past or future event</strong> causing damage or liability may be insured.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 4 & 25, R.A. 10607</strong></td>
+            <td>Prohibition of wagers: policies executed by way of gaming or lottery wagering are completely <strong>void</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 6 & 190, R.A. 10607</strong></td>
+            <td>Insurers: only authorized corporations, partnerships, or associations; <strong>individual natural persons are barred</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 7, R.A. 10607</strong></td>
+            <td>Insured: anyone except a <strong>public enemy</strong> (nation at war with Philippines and its citizens; excludes domestic rebels).</td>
+          </tr>
+          <tr>
+            <td><strong>Section 11, R.A. 10607</strong></td>
+            <td>Beneficiary designation: <strong>presumed revocable</strong> unless right to revoke is expressly waived in policy.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 12, R.A. 10607</strong></td>
+            <td>Forfeiture: interest of beneficiary is <strong>forfeited if he willfully brings about the death</strong> of the insured.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 49, R.A. 10607</strong></td>
+            <td>Policy of insurance: the written instrument; purely <strong>evidentiary</strong> and not required for contract perfection.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 52, R.A. 10607</strong></td>
+            <td>Cover notes: provisional contract of insurance valid for up to <strong>60 days</strong> pending definitive policy issuance.</td>
+          </tr>
+          <tr>
+            <td><strong>Civil Code Art. 1174</strong></td>
+            <td>Fortuitous event: no exemption when the <strong>nature of the obligation requires assumption of risk</strong> (insurance essence).</td>
+          </tr>
+          <tr>
+            <td><strong>Civil Code Art. 1319 (par. 2)</strong></td>
+            <td><strong>Cognition Theory</strong>: contract by correspondence is perfected only when acceptance comes to offeror's (insured's) knowledge.</td>
+          </tr>
+          <tr>
+            <td><strong>Civil Code Art. 1377</strong></td>
+            <td><strong>Contra Proferentem</strong>: obscure terms in contract of adhesion construed strictly against insurer, liberally for insured.</td>
+          </tr>
+          <tr>
+            <td><strong>Civil Code Art. 2012 & 739</strong></td>
+            <td>Void beneficiaries: designations between persons guilty of <strong>adultery/concubinage, common crime, or public office bribery</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Civil Code Art. 2207</strong></td>
+            <td><strong>Subrogation</strong>: applies strictly to property insurance; <strong>never applies to life insurance</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Filipinas v. Christern, Huenefeld</strong></td>
+            <td>Wartime corporate enemy status is determined by the <strong>Control Test</strong>, not the place of incorporation.</td>
+          </tr>
+          <tr>
+            <td><strong>Perez v. Philam Life</strong></td>
+            <td>Unreasonable delay by insurer in acting on an application <strong>does NOT constitute implied acceptance</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Top Rules to Prioritize -->
+    <div class="ui-box">
+      <strong>TOP RULES TO PRIORITIZE FOR THE BAR EXAMINATION</strong>
+      <ol style="margin:0.5rem 0 0 1.25rem; padding:0; font-size:0.92rem;">
+        <li style="margin-bottom:0.4rem;"><strong>Subrogation Exclusivity:</strong> Never apply Art. 2207 to life insurance! The insurer cannot subrogate against the killer/tortfeasor of the insured; human life is outside pecuniary indemnity.</li>
+        <li style="margin-bottom:0.4rem;"><strong>Offer and Acceptance Direction:</strong> The applicant/insured makes the legal offer by submitting the application; the insurer accepts. Contract perfection requires actual receipt of acceptance by the insured under the <em>Cognition Theory</em>.</li>
+        <li style="margin-bottom:0.4rem;"><strong>Self-Procured Life Beneficiary Freedom:</strong> An insured insuring his own life can name ANYONE (even a complete stranger or same-sex partner); insurable interest in the beneficiary is NOT required, barred only by Art. 739 civil donations.</li>
+        <li style="margin-bottom:0.4rem;"><strong>Overriding the "Irrevocable" Label:</strong> Remember the statutory overrides to irrevocable designations: innocent spouse in legal separation (Family Code Art. 63), and willful killing of the insured (Sec. 12).</li>
+        <li style="margin-bottom:0.4rem;"><strong>The Control Test in Wartime:</strong> Pierce the corporate veil during war! A domestic corporation with majority foreign enemy stockholders becomes an uninsurable public enemy (<em>Filipinas case</em>).</li>
+      </ol>
+    </div>
+
+    <!-- FINAL 5-QUESTION BATCH-GRADED CHALLENGE -->
+    <div class="ui-box final-quiz-box" id="final-quiz">
+      <div class="ui-row-between">
+        <strong>★ Final 5-Question Comprehensive Recall Challenge</strong>
+        <span class="ui-caption">Batch graded</span>
+      </div>
+      <div class="ui-divider"></div>
+
+      <!-- Final Q1 -->
+      <div class="quiz-q" data-answer="1" data-why="Under Sec. 18, a beneficiary in property insurance must have an insurable interest in the property. A stranger with zero pecuniary interest cannot recover proceeds.">
+        <div class="quiz-prompt">1. Carlos owns a vintage sports car. He procures a comprehensive theft policy and names his neighbor Dennis—who has zero financial or ownership stake in the car—as the sole beneficiary. If the car is stolen, can Dennis collect the insurance proceeds?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> Yes, because a policy owner can designate anyone as beneficiary.</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> No, because in property insurance, the beneficiary must possess an insurable interest in the property.</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> Yes, provided Carlos gave his written consent in a notarized instrument.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Final Q2 -->
+      <div class="quiz-q" data-answer="2" data-why="Under Perez v. Philam Life, delay in acting upon an application does not constitute implied acceptance. Perfection requires communicated acceptance under the Cognition Theory.">
+        <div class="quiz-prompt">2. An applicant submits an application for health insurance with full payment of the annual premium. The insurer keeps the application pending for seven months without action. The applicant falls gravely ill and demands reimbursement. Is the insurer contractually bound?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> Yes, because unconscionable delay of 7 months operates as an implied acceptance.</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> Yes, because the insurer accepted and retained the full annual premium.</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> No, because mere delay does not constitute acceptance; no meeting of minds occurred.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Final Q3 -->
+      <div class="quiz-q" data-answer="0" data-why="Because an irrevocable beneficiary holds a vested property right, the interest transmits to the beneficiary's heirs upon predecease, unlike a revocable beneficiary whose expectancy expires.">
+        <div class="quiz-prompt">3. Eduardo designates his sister Clara as the IRREVOCABLE beneficiary on his life insurance policy. Clara dies in 2024. Eduardo dies in 2026 without having amended the policy. Who is entitled to the insurance proceeds?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> The legal heirs / estate of Clara, because her irrevocable right was a vested property asset.</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> The legal heirs / estate of Eduardo, because the beneficiary predeceased the insured.</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> The Insurance Commission, by virtue of escheat.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Final Q4 -->
+      <div class="quiz-q" data-answer="1" data-why="Domestic insurgents (NPA) are Filipino citizens, not subjects of a foreign sovereign at war with the Philippines; hence they are not public enemies under Sec. 7.">
+        <div class="quiz-prompt">4. Which of the following persons is legally classified as a 'Public Enemy' under Section 7 of the Insurance Code?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> An active armed combatant of the New People's Army (NPA).</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> A citizen of a foreign nation with which the Philippines is officially in a state of international war.</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> A convicted drug lord serving a life sentence in the New Bilibid Prison.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <!-- Final Q5 -->
+      <div class="quiz-q" data-answer="2" data-why="Under Civil Code Art. 1174, the defense of fortuitous event cannot be invoked when the nature of the obligation requires the assumption of risk, which is the foundational purpose of insurance.">
+        <div class="quiz-prompt">5. A factory insured specifically against flood damage is submerged during an unprecedented storm. Can the insurer claim exemption under Civil Code Art. 1174 on the ground of fortuitous event (force majeure)?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> Yes, because unprecedented flash floods are Acts of God that extinguish contractual obligations.</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> Yes, provided the insurer proves that the government failed to clear the drainage canals.</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> No, because the very nature of an insurance contract requires the assumption of risk.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+
+      <div class="final-score-box" hidden>
+        <div class="stat-lbl">YOUR FINAL RECALL SCORE:</div>
+        <div class="final-score-num">0 / 5</div>
+        <button type="button" class="reset-btn" style="margin-top:0.75rem;" onclick="resetFinalQuiz(this)">↺ Try again</button>
+      </div>
+    </div>
+
+    <!-- Mastery Sequence Footer -->
+    <div style="margin-top:2rem; padding:1rem; border-top:2px solid var(--border); text-align:center; font-size:0.85rem; color:var(--muted);">
+      <strong>Mastery Progression:</strong> Factual Peril & Risk Pooling → Statutory Requisites & Doctrinal Traps → Bar Exam Precision Application
+    </div>
+
+  </div>
+
+  <!-- MANDATORY JAVASCRIPT LOGIC -->
+  <script>
+    function copyMnemonic(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const old = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(() => { btn.textContent = old; }, 1500);
+      });
+    }
+
+    function switchTab(btn, panelId) {
+      const box = btn.closest('[data-tabs]');
+      box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+      box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const target = box.querySelector(`[data-panel="${panelId}"]`);
+      if (target) target.classList.add('active');
+    }
+
+    function gradeInstant(input) {
+      const qBox = input.closest('.quiz-q');
+      const ans = qBox.dataset.answer;
+      const why = qBox.dataset.why || '';
+      const fb = qBox.querySelector('.quiz-feedback');
+      const opts = qBox.querySelectorAll('.quiz-opt');
+      const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+      const isCorrect = input.value === ans;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+    }
+
+    function updateFinalQuiz(input) {
+      const box = input.closest('.final-quiz-box');
+      const total = box.querySelectorAll('.quiz-q').length;
+      const answered = new Set();
+      box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+      const btn = box.querySelector('.check-btn');
+      if (btn) btn.disabled = answered.size < total;
+    }
+
+    function gradeFinalQuiz(btn) {
+      const box = btn.closest('.final-quiz-box');
+      const qs = box.querySelectorAll('.quiz-q');
+      let score = 0;
+      qs.forEach(q => {
+        const ans = q.dataset.answer;
+        const why = q.dataset.why || '';
+        const checked = q.querySelector('input[type="radio"]:checked');
+        const fb = q.querySelector('.quiz-feedback');
+        const isCorrect = checked && checked.value === ans;
+        if (isCorrect) score++;
+        fb.hidden = false;
+        fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+        fb.textContent = (isCorrect ? '✓ Correct. ' : 'ℹ ') + why;
+      });
+      const scoreBox = box.querySelector('.final-score-box');
+      if (scoreBox) {
+        scoreBox.hidden = false;
+        scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+      }
+    }
+
+    function resetFinalQuiz(btn) {
+      const box = btn.closest('.final-quiz-box');
+      box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+      box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+      box.querySelector('.final-score-box').hidden = true;
+      box.querySelector('.check-btn').disabled = true;
+    }
+  </script>
+</body>
+</html>
