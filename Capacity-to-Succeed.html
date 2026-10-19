@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capacity to Succeed by Will or by Intestacy (Arts. 1024–1040)</title>
+  <style>
+  :root {
+    --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+    --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+    --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+    --text: #1F2937; --muted: #64748B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+  }
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+    padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+  .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+  .nav-dropdown {
+    flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+    border: 1px solid #CBD5E1; background: #FFF; color: var(--text);
+  }
+  .document-container {
+    max-width: 820px; margin: 2rem auto; background: var(--surface);
+    padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  }
+  h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+  h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+  h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+  h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+  .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+  hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+  .ui-divider { margin: 0.85rem 0; }
+  .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+  .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+  /* Callouts & Boxes */
+  .update-banner {
+    background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+  }
+  .trap-banner {
+    background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .ui-box {
+    border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+    margin: 1.25rem 0; background: var(--surface);
+  }
+  .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+  .copy-btn, .check-btn, .reset-btn {
+    border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+    border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+  .check-btn {
+    width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+    color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+  }
+  .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* Mental Map Rows */
+  .mm-row { display: flex; align-items: center; gap: 1rem; }
+  .mm-icon {
+    width: 42px; height: 42px; border-radius: 10px; background: var(--surface-2);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+  .mm-desc { font-size: 0.9rem; color: #374151; }
+
+  /* Flow Stack & Grids */
+  .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+  .flow-step {
+    width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+    text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+  }
+  .flow-step span { font-size: 0.82rem; color: var(--muted); }
+  .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+  .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+  .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+  .stat-card {
+    background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+  }
+  .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+  .stat-card .stat-val { font-size: 1.25rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+  .ui-table th {
+    text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1.5px solid #CBD5E1;
+  }
+  .ui-table td {
+    padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+  }
+  .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+  /* Segmented Control & Bar Chart */
+  .seg-control {
+    display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+  }
+  .seg-btn {
+    flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.85rem; color: var(--muted); cursor: pointer;
+  }
+  .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .bar-chart {
+    display: flex; align-items: flex-end; justify-content: space-around; height: 155px;
+    padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+  }
+  .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 80px; }
+  .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+  .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+  .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; }
+
+  /* Interactive Quizzes */
+  .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .quiz-q:last-of-type { border-bottom: none; }
+  .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .quiz-opt {
+    display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+    padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+  }
+  .quiz-opt:hover { background: var(--surface-2); }
+  .quiz-feedback {
+    margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem;
+  }
+  .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+  .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+  .final-score-box {
+    margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+    padding: 1.25rem; text-align: center;
+  }
+  .final-score-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); }
+  @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+<nav class="sticky-nav">
+  <div class="nav-content">
+    <span class="nav-label">TOPIC NAVIGATION</span>
+    <select class="nav-dropdown" onchange="if(this.value) location.hash=this.value">
+      <option value="">Jump to a section...</option>
+      <option value="#mental-map">Mental Map of the Entire Lecture</option>
+      <option value="#part-1">PART I — General Principles &amp; Natural/Juridical Capacity (Arts. 1024–1026)</option>
+      <option value="#sec-1">1. Passive Testamentary Capacity &amp; Scope of Incapacity (Art. 1024)</option>
+      <option value="#sec-2">2. Natural Persons &amp; the Conceived Child (Art. 1025)</option>
+      <option value="#sec-3">3. Juridical Persons &amp; Unincorporated Associations (Art. 1026)</option>
+      <option value="#part-2">PART II — Undue Influence, Public Morality &amp; Special Institutions (Arts. 1027–1031)</option>
+      <option value="#sec-4">4. Relative Incapacities from Undue Influence (Art. 1027)</option>
+      <option value="#sec-5">5. Public Morality Prohibitions (Art. 1028 in rel. to Art. 739)</option>
+      <option value="#sec-6">6. Institution of the Soul (Art. 1029) &amp; the Poor in General (Art. 1030)</option>
+      <option value="#sec-7">7. Interposition of Dummies &amp; Intermediaries (Art. 1031)</option>
+      <option value="#part-3">PART III — Incapacity by Reason of Unworthiness &amp; Pardon (Arts. 1032–1033)</option>
+      <option value="#sec-8">8. The Eight Statutory Grounds for Unworthiness (Art. 1032)</option>
+      <option value="#sec-9">9. Pardon &amp; Condonation of Unworthiness vs. Reconciliation (Art. 1033 vs. Art. 922)</option>
+      <option value="#part-4">PART IV — Determination, Representation &amp; Remedies (Arts. 1034–1040)</option>
+      <option value="#sec-10">10. Reckoning Point of Capacity &amp; Suspensive Conditions (Art. 1034)</option>
+      <option value="#sec-11">11. Right of Representation for Unworthy Compulsory Heirs (Art. 1035)</option>
+      <option value="#sec-12">12. Alienations, Expenses, Bad Faith, Conflict of Laws &amp; 5-Year Prescription (Arts. 1036–1040)</option>
+      <option value="#final-sheet">Final Memory Sheet &amp; Exam Priorities</option>
+    </select>
+  </div>
+</nav>
+
+<div class="document-container">
+  <h1>Capacity to Succeed by Will or by Intestacy</h1>
+  <p class="doc-subtitle">Civil Code Articles 1024–1040 (in relation to Articles 40–41, 739, 823, 845, 922, and 1013)</p>
+  <p class="doc-approach"><strong>Our approach:</strong> Understand the situation first, identify the applicable rule, memorize the requisites, and practice applying the law.</p>
+
+  <div class="ui-box mental-map" id="mental-map">
+    <div class="mm-row">
+      <div class="mm-icon">🧬</div>
+      <div class="mm-body">
+        <div class="mm-title">1. GENERAL EXISTENCE &amp; PERSONALITY (ARTS. 1024–1026)</div>
+        <div class="mm-desc">Does the heir exist with juridical capacity (or as a conceived child/qualified entity) at the exact moment of the decedent's death?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">⚖️</div>
+      <div class="mm-body">
+        <div class="mm-title">2. UNDUE INFLUENCE &amp; PUBLIC MORALITY IN WILLS (ARTS. 1027–1031)</div>
+        <div class="mm-desc">Is a voluntary testamentary bequest barred by a conclusive presumption of undue influence (priest, guardian, witness, physician) or public immorality (Art. 739)?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">🗡️</div>
+      <div class="mm-body">
+        <div class="mm-title">3. UNWORTHINESS &amp; CONDONATION (ARTS. 1032–1033)</div>
+        <div class="mm-desc">Did the heir commit one of the 8 grave offenses that forfeit both testate and intestate shares (including the legitime), and was it pardoned?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">⏳</div>
+      <div class="mm-body">
+        <div class="mm-title">4. REPRESENTATION, THIRD PARTIES &amp; PRESCRIPTION (ARTS. 1034–1040)</div>
+        <div class="mm-desc">When is capacity judged, how do descendants represent an unworthy heir, and what happens to property sold before judicial exclusion?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-banner">
+    <strong>⚠️ Important Legal Update (R.A. No. 11642 on Adopted Children &amp; Representation under Art. 1035):</strong><br>
+    In traditional classroom discussions of <strong>Article 1035</strong>, lectures cite <em>Sayson v. Court of Appeals</em> (G.R. No. 89224, 1992), which held that an adopted child of an excluded/predeceased heir <strong>cannot represent</strong> the adopter in the succession to the adopter's parents because adoption created a personal relationship solely between adopter and adoptee. However, under <strong>Section 41 of R.A. No. 11642</strong> (<em>Domestic Administrative Adoption and Alternative Child Care Act</em>, effective January 2022), the legitimate filiation created by adoption now <strong>extends to the adopter's parents, legitimate siblings, and legitimate descendants</strong> for all intents and purposes, including succession. <strong>For exams:</strong> Always state the classic <em>Sayson v. CA</em> doctrine emphasized in your lecture notes, and then cite Sec. 41 of R.A. 11642 as the modern statutory rule.
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PART I -->
+  <!-- ================================================================= -->
+  <h2 id="part-1">PART I — GENERAL PRINCIPLES &amp; NATURAL/JURIDICAL CAPACITY (ARTS. 1024–1026)</h2>
+
+  <h3 id="sec-1">1. Passive Testamentary Capacity &amp; Scope of Incapacity (Article 1024)</h3>
+  <p><strong>Imagine...</strong> A wealthy grandfather dies leaving a mansion to his 2-year-old grandson and a commercial building to a diagnosed schizophrenic nephew. Angry relatives claim neither can inherit because neither can sign contracts or manage property.</p>
+  <p><strong>The Rule:</strong> <strong>Capacity to succeed</strong> (<em>passive testamentary capacity</em>) is the legal ability to receive and retain property <em>mortis causa</em>; under <strong>Article 1024</strong>, all natural and juridical persons not specially incapacitated by law may succeed, because succession requires only <strong>juridical capacity</strong> (civil personality), never <strong>capacity to act</strong>.</p>
+
+  <div class="ui-box">
+    <strong>Memory aid: MAKING A WILL = CAPACITY TO ACT; RECEIVING AN INHERITANCE = JURIDICAL CAPACITY ONLY</strong>
+    <div class="ui-grid-2">
+      <div class="stat-card" style="text-align:left; border-left: 4px solid var(--burgundy);">
+        <div class="stat-lbl" style="font-weight:700; color:var(--burgundy);">ABSOLUTE INCAPACITY</div>
+        <p style="margin:0.4rem 0 0; font-size:0.88rem;">Cannot inherit from <strong>anyone</strong> under <strong>any</strong> circumstance:<br>
+        1. Not living or conceived at decedent's death (Art. 1025)<br>
+        2. Entities lacking personality (except Art. 1026/1029/1030)<br>
+        3. Unidentifiable / unknown heirs (Art. 845)</p>
+      </div>
+      <div class="stat-card" style="text-align:left; border-left: 4px solid var(--teal);">
+        <div class="stat-lbl" style="font-weight:700; color:var(--teal);">RELATIVE INCAPACITY</div>
+        <p style="margin:0.4rem 0 0; font-size:0.88rem;">Disqualified <strong>only</strong> regarding specific persons or properties:<br>
+        1. <strong>Possible Undue Influence</strong> (Art. 1027, Nos. 1–5)<br>
+        2. <strong>Public Policy &amp; Morality</strong> (Art. 1028 / Art. 739)<br>
+        3. <strong>Unworthiness</strong> (Art. 1032)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap (Article 1024, Par. 2):</strong><br>
+    Article 1024(2) states that provisions on incapacity by will apply equally to intestate succession—<strong>but this is NOT absolute!</strong> Disqualifications under <strong>Article 1027 (Nos. 1–5)</strong> and <strong>Article 1028</strong> apply <em>exclusively to testamentary succession</em> (and never bar intestate shares or compulsory legitimes). Only <strong>Unworthiness (Art. 1032)</strong> and <strong>Absolute Incapacity</strong> apply to both testate and intestate succession.
+  </div>
+
+  <hr>
+
+  <h3 id="sec-2">2. Natural Persons &amp; the Conceived Child (Article 1025)</h3>
+  <p><strong>Imagine...</strong> A man executes a will leaving ₱1 Million to his best friend, who had actually died the week before, and another ₱1 Million to his pregnant sister's unborn baby. Three months after the testator dies, the baby is born prematurely at 6 months of gestation and dies 12 hours after delivery.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1025</strong>, a natural person must be <strong>living or at least conceived at the exact moment the succession opens</strong> (decedent's death under Art. 777); a disposition to an already-deceased person is <strong>void <em>ab initio</em></strong> (<em>Resurreccion v. Javier</em>), while a conceived child (<em>nasciturus</em>) inherits only if subsequently born alive in compliance with <strong>Articles 40 and 41</strong>.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: 7 MONTHS = ALIVE AT BIRTH; &lt; 7 MONTHS = 24-HOUR SURVIVAL</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'Article 41 Rules for Conceived Child (Nasciturus):\n1. Intra-uterine life of 7 months or more -> Sufficient if born alive (even if it dies minutes later).\n2. Intra-uterine life of LESS than 7 months -> Must survive at least 24 hours after complete delivery from maternal womb.')">📋 Copy</button>
+    </div>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Intra-Uterine Life (Art. 41)</th>
+          <th>Survival Requirement After Complete Delivery</th>
+          <th>Legal Effect if Child Dies 10 Hours After Birth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>7 months or more</strong></td>
+          <td>Must simply be <strong>born alive</strong> (even for an instant).</td>
+          <td><span class="c-green"><strong>Acquired personality &amp; inherited.</strong></span> Its share passes to its own heirs.</td>
+        </tr>
+        <tr>
+          <td><strong>Less than 7 months</strong></td>
+          <td>Must remain alive for <strong>at least 24 hours</strong> after complete separation from womb.</td>
+          <td><span class="c-burgundy"><strong>Never deemed born.</strong></span> Acquires zero successional rights.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ui-caption"><strong>Prof. Paras &amp; Dr. Tolentino Critique on Art. 1025's "except in case of representation" clause:</strong> The phrasing is grammatically defective. The <em>representative</em> must still be living or conceived when succession opens; it is the <em>person represented</em> who need not be alive.</div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-3">3. Juridical Persons &amp; Unincorporated Associations (Article 1026)</h3>
+  <p><strong>Imagine...</strong> A philanthropist leaves a legacy in her will to a neighborhood soup kitchen that has operated for ten years as a charitable association for poor children, even though it never registered with the SEC.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1026</strong>, the State, provinces, municipal corporations, and validly organized private corporations may inherit by will, and by <strong>express statutory exception</strong>, even <strong>non-incorporated organizations or associations</strong> organized for religious, scientific, cultural, educational, or charitable purposes may receive testamentary dispositions.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: C-R-E-S-C (Unincorporated Associations Allowed by Will)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'C — Cultural\nR — Religious\nE — Educational\nS — Scientific\nC — Charitable')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Five purposes that empower even an unincorporated association to inherit by will under Article 1026.</div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr><td style="width:10%"><strong>C</strong></td><td style="width:28%">Cultural</td><td>Associations promoting arts, heritage, or culture.</td></tr>
+        <tr><td><strong>R</strong></td><td>Religious</td><td>Religious fellowships or missions (subject to constitutional land limits).</td></tr>
+        <tr><td><strong>E</strong></td><td>Educational</td><td>Study groups, scholarship societies, or educational bodies.</td></tr>
+        <tr><td><strong>S</strong></td><td>Scientific</td><td>Research or scientific associations.</td></tr>
+        <tr><td><strong>C</strong></td><td>Charitable</td><td>Benevolent or relief organizations.</td></tr>
+      </tbody>
+    </table>
+    <div class="ui-caption"><strong>Symmetric Contrast:</strong> <code>TESTATE = State + Corporations + CRESC Associations</code> | <code>INTESTATE = ONLY THE STATE (never private corporations)</code>.</div>
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part I</strong>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Resurreccion v. Javier and Art. 1025, an institution or legacy in favor of a person already dead is void ab initio, and representation never applies to voluntary testamentary institutions of strangers/friends.">
+      <div class="quiz-prompt">1. T executes a will bequeathing a vintage car to his friend F. Unknown to T, F had died two days earlier. F's son claims the car by right of representation. Who gets the car?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="0" onchange="gradeInstant(this)"> F's son, by right of representation under the exception in Article 1025</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="1" onchange="gradeInstant(this)"> The legacy is void ab initio; F's son gets nothing</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="2" onchange="gradeInstant(this)"> F's estate, because F was alive when T formed the intent</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Art. 41 in relation to Art. 1025, a fetus with an intra-uterine life of less than 7 months must survive for at least 24 hours after complete delivery from the maternal womb to be deemed born.">
+      <div class="quiz-prompt">2. T dies on May 1 leaving ₱5M to his brother's conceived child. The child is born later at 6 months of intra-uterine life and lives for 18 hours before passing away. Did the child inherit?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="0" onchange="gradeInstant(this)"> Yes, because being born alive for any duration suffices</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="1" onchange="gradeInstant(this)"> Yes, because conception occurred before T's death</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="2" onchange="gradeInstant(this)"> No, because having less than 7 months intra-uterine life, it died before completing 24 hours of survival</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PART II -->
+  <!-- ================================================================= -->
+  <h2 id="part-2">PART II — UNDUE INFLUENCE, PUBLIC MORALITY &amp; SPECIAL INSTITUTIONS (ARTS. 1027–1031)</h2>
+
+  <h3 id="sec-4">4. Relative Incapacities Based on Possible Undue Influence (Article 1027)</h3>
+  <p><strong>Imagine...</strong> On his deathbed during his final illness, an elderly patient confesses his sins to a parish priest and is cared for daily by his attending physician. Grateful and vulnerable, he executes a will leaving half his free portion to the priest's religious order and the other half to his doctor.</p>
+  <p><strong>The Rule:</strong> <strong>Article 1027</strong> establishes a <strong>conclusive presumption of undue influence or self-interest</strong>—meaning <em>no proof of actual undue influence is required and no evidence is admissible to disprove it</em>—disqualifying five specific classes of persons from receiving voluntary testamentary dispositions.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: P – R – G – W – M – L (The 6 Paragraphs of Article 1027)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Priest/Minister who heard confession/gave spiritual aid during last illness\nR — Relatives of priest within 4th degree + his church/order/community\nG — Guardian before final accounts approved (except A-D-B-S-S)\nW — Witness to the will + spouse, parents, children (unless 3 other competent witnesses)\nM — Medical caregiver (physician, surgeon, nurse, health officer, druggist) during last illness\nL — Lawfully prohibited entities (e.g., alien associations acquiring land)')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Memorize the exact scope, timing requisite, and statutory escape hatch for each paragraph of Article 1027.</div>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:18%">Class (Art. 1027)</th>
+          <th style="width:44%">Strict Requisites for Disqualification</th>
+          <th>When Valid / Exception</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1 &amp; 2. Priest / Minister &amp; 4th-Degree Relatives / Church</strong></td>
+          <td>(a) Heard confession or extended spiritual aid; (b) during <strong>last illness</strong>; (c) will executed <strong>during or after</strong> said confession/aid. Extends to priest's blood relatives within <strong>4th degree</strong> &amp; his church/order.</td>
+          <td>Valid if will was made <strong>before</strong> the confession/aid, or long after recovery, or involves <strong>intestate share / legitime</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Guardian</strong></td>
+          <td>Disposition made by ward <strong>before final accounts</strong> of guardianship are judicially approved (even if testator dies after approval).</td>
+          <td>Valid if guardian is an <strong>Ascendant, Descendant, Brother, Sister, or Spouse</strong> (<code>A-D-B-S-S</code>), or will is made <em>after</em> approval.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Attesting Witness</strong></td>
+          <td>Attesting witness, or their <strong>spouse, parents, or children</strong>. (Note: Under 2004 Notarial Rules, a Notary Public cannot authenticate a will if he or his spouse benefits).</td>
+          <td>Valid under <strong>Art. 823</strong> if there are <strong>3 other competent and disinterested witnesses</strong> to the will.</td>
+        </tr>
+        <tr>
+          <td><strong>5. Medical Caregivers</strong></td>
+          <td>Physicians, surgeons, nurses, health officers, or druggists who <strong>took regular/continuous care</strong> of testator during his <strong>last illness</strong>.</td>
+          <td>Isolated emergency care does not disqualify. (<em>J.B.L. Reyes critique:</em> should exempt close relatives acting out of filial piety).</td>
+        </tr>
+        <tr>
+          <td><strong>6. Entities Prohibited by Law</strong></td>
+          <td>Individuals, associations, and corporations not permitted by law to inherit.</td>
+          <td><em>Reg. of Deeds v. Ung Siu Si Temple:</em> Unregistered alien Chinese temple cannot acquire Philippine land under the Constitution.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui-box svg-box">
+    <strong>Landmark Case Visual: <em>Torres v. Lopez</em> (49 Phil. 504) — Guardian vs. Guardian's Daughter</strong>
+    <svg viewBox="0 0 460 185" width="100%" style="margin-top:0.5rem;">
+      <!-- Ward Node -->
+      <rect x="145" y="10" width="170" height="44" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+      <text x="230" y="29" text-anchor="middle" font-size="12" font-weight="700" fill="#1F2937">Tomas Rodriguez (Ward)</text>
+      <text x="230" y="45" text-anchor="middle" font-size="10" fill="#64748B">Will executed before final accounts</text>
+
+      <!-- Arrows -->
+      <line x1="190" y1="54" x2="110" y2="105" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="270" y1="54" x2="350" y2="105" stroke="#16A34A" stroke-width="2"/>
+
+      <!-- Guardian Node (Void) -->
+      <rect x="20" y="105" width="180" height="62" rx="8" fill="#FEF2F2" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="110" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">Vicente Lopez (Guardian)</text>
+      <text x="110" y="142" text-anchor="middle" font-size="10" fill="#991B1B">VOID under Art. 1027(3)</text>
+      <text x="110" y="156" text-anchor="middle" font-size="10" fill="#64748B">(Unapproved accounts)</text>
+
+      <!-- Accretion Arrow -->
+      <path d="M 205 136 L 255 136" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="230" y="128" text-anchor="middle" font-size="9.5" font-weight="700" fill="#166534">ACCRETION</text>
+
+      <!-- Daughter Node (Valid) -->
+      <rect x="260" y="105" width="180" height="62" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+      <text x="350" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Luz Lopez (Daughter)</text>
+      <text x="350" y="142" text-anchor="middle" font-size="10" fill="#166534">VALID + Takes Father's Share</text>
+      <text x="350" y="156" text-anchor="middle" font-size="10" fill="#166534">Relatives of guardian NOT barred!</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center">Unlike priests (where 4th-degree relatives are barred) and witnesses (where spouse/parents/children are barred), <strong>Article 1027(3) does NOT extend to the guardian's relatives</strong>. Thus, Luz Lopez inherited both her own share and her father's void share via accretion!</div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-5">5. Incapacity by Reason of Public Morality (Article 1028 in rel. to Article 739)</h3>
+  <p><strong>Imagine...</strong> A married man writes in his will: <em>"Although I am legally married to Rufina, I leave my entire free portion to Sofia, with whom I have been living as my partner for twenty years."</em></p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1028</strong>, the prohibitions against <em>donations inter vivos</em> in <strong>Article 739</strong> apply equally to testamentary dispositions, rendering void <em>ab initio</em> any bequest triggered by adultery/concubinage, mutual criminality, or public office.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: A – C – P (Three Void Dispositions under Art. 739 / 1028)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'A — Adultery or Concubinage at the time of execution (no criminal conviction required; proved civilly)\nC — Criminal offense in consideration thereof (between persons found guilty of the same criminal offense)\nP — Public officer or his spouse, ascendants, or descendants, by reason of his office')">📋 Copy</button>
+    </div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr><td style="width:10%"><strong>A</strong></td><td style="width:30%">Adultery / Concubinage</td><td>Made between persons guilty of adultery or concubinage at the time of execution. <strong>No criminal conviction needed</strong>; preponderance of evidence in civil/probate court suffices.</td></tr>
+        <tr><td><strong>C</strong></td><td>Criminal Offense</td><td>Made between persons found guilty of the <strong>same criminal offense</strong>, in consideration thereof (e.g., murder pact).</td></tr>
+        <tr><td><strong>P</strong></td><td>Public Officer</td><td>Made to a public officer or his <strong>spouse, ascendants, or descendants</strong>, by reason of his office.</td></tr>
+      </tbody>
+    </table>
+    <div class="ui-caption"><strong>Landmark Ruling — <em>Nepomuceno v. CA</em> (139 SCRA 206):</strong> While probate courts generally pass only upon <em>extrinsic validity</em>, where the <strong>intrinsic nullity is patent on the face of the will</strong> (testator admitted concubinage in the will itself), the probate court may immediately declare the devise to the concubine <strong>void <em>ab initio</em></strong>.</div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-6">6. Institution of the Soul (Art. 1029) &amp; the Poor in General (Art. 1030)</h3>
+  <p><strong>Imagine...</strong> A devout widow leaves a tract of land "for prayers and pious works for the benefit of my soul" without naming any church, and leaves ₱2 Million "to the poor" without naming any charity or city.</p>
+  <p><strong>The Rule:</strong> As statutory exceptions to the rule that heirs must be identified persons with juridical personality, <strong>Article 1029</strong> splits general dispositions for the soul <strong>50–50 between the testator's church and the State</strong>, while <strong>Article 1030</strong> directs dispositions for the "poor in general" to the <strong>poor domiciled in the testator's domicile at death</strong>.</p>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-1029')">Art. 1029: Institution of the Soul (50–50)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-1030')">Art. 1030: The Poor in General (Cascade)</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-1029">
+      <p><strong>When Testator Disposes for Prayers/Pious Works in General Terms (No Specific Application):</strong><br>The executor sells the property (with court approval) and distributes the proceeds 50–50:</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">50%</div><div class="bar-fill" style="height:95px"></div><div class="bar-lbl">Testator's Church</div></div>
+        <div class="bar-col"><div class="bar-val">50%</div><div class="bar-fill" style="height:95px; background:var(--teal);"></div><div class="bar-lbl">The State (Art. 1013)</div></div>
+      </div>
+      <div class="ui-caption"><strong>Exception (<em>Villavicencio v. Quinio</em>, 67 Phil. 367):</strong> If the testator specifies the application, specific masses, or particular churches/relatives, <strong>Article 1029 does NOT apply</strong>; the testator's express instructions govern 100%.</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-1030">
+      <p><strong>Locality Rule:</strong> Limited to the poor living in the <strong>domicile of the testator at the time of his death</strong>.<br><strong>Who Designates the Poor Beneficiaries? (1 → 2 → 3 Hierarchy + RTC Approval):</strong></p>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>1. PERSON APPOINTED BY TESTATOR</strong>
+          <span>Designates the qualified poor beneficiaries if named in the will</span>
+        </div>
+        <div class="flow-arrow">↓ (In default thereof)</div>
+        <div class="flow-step">
+          <strong>2. THE EXECUTOR</strong>
+          <span>Qualifies and selects the beneficiaries</span>
+        </div>
+        <div class="flow-arrow">↓ (In default of an executor)</div>
+        <div class="flow-step">
+          <strong>3. COMMITTEE OF THREE LOCAL OFFICIALS (BY MAJORITY VOTE)</strong>
+          <span>Municipal/City Mayor + Municipal/City Treasurer + MTC/MetTC Judge (all subject to final RTC approval)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-7">7. Interposition of Dummies &amp; Intermediaries (Article 1031)</h3>
+  <p><strong>Imagine...</strong> Knowing he cannot leave land directly to his mistress under Article 1028, a testator writes in his will that he "owes ₱5 Million" to the mistress's brother (who never lent him a centavo) and directs his executor to pay that simulated debt out of the estate.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1031</strong>, any testamentary disposition in favor of a disqualified person—even if disguised as an <strong>onerous contract / simulated credit</strong> or made through an <strong>intermediary (dummy)</strong>—is <strong>void <em>ab initio</em></strong> (<em>quod contra legem fit, nihil fit</em>).</p>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap (Art. 1031 Applies to 1027 &amp; 1028, NOT to 1032!):</strong><br>
+    Why does Article 1031's anti-dummy rule apply only to <strong>Undue Influence (Art. 1027)</strong> and <strong>Public Morality (Art. 1028)</strong>, and <em>not</em> to <strong>Unworthiness (Art. 1032)</strong>? Because if a testator already knows of an heir's act of unworthiness under Art. 1032 and still chooses to benefit him in a will (directly or indirectly), the law treats that disposition as an <strong>Implied Pardon under Article 1033</strong>!
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part II</strong>
+    <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Torres v. Lopez and Art. 1027(3), only the guardian himself is disqualified when final accounts are not yet approved; the guardian's child is NOT disqualified (unlike witnesses under Par. 4 or priests under Par. 2).">
+      <div class="quiz-prompt">1. Before the final accounts of guardianship are approved, Ward W executes a will leaving a legacy to his Guardian G (a non-relative) and another legacy to G's daughter D. W dies two years after the accounts are approved. Which legacy is valid?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="0" onchange="gradeInstant(this)"> Both are valid because the accounts were approved before W died</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="1" onchange="gradeInstant(this)"> Both are void under Article 1027(3)</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="2" onchange="gradeInstant(this)"> G's legacy is void, but D's legacy is valid</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Under Nepomuceno v. CA, when the intrinsic nullity under Art. 1028 in relation to Art. 739 (concubinage) is patent on the face of the will, the probate court may immediately pass upon intrinsic validity and declare the devise void.">
+      <div class="quiz-prompt">2. T's will states on its face that he is married to W but leaves his free portion to his concubine C. During probate, W asks the court to declare the devise to C void immediately. C objects that probate courts can only rule on extrinsic validity. Who is correct?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="0" onchange="gradeInstant(this)"> W is correct; because the intrinsic nullity is patent on the face of the will, the probate court may declare it void immediately</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="1" onchange="gradeInstant(this)"> C is correct; a prior criminal conviction for concubinage is required first</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="2" onchange="gradeInstant(this)"> C is correct; intrinsic validity can never be touched during probate</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PART III -->
+  <!-- ================================================================= -->
+  <h2 id="part-3">PART III — INCAPACITY BY REASON OF UNWORTHINESS &amp; PARDON (ARTS. 1032–1033)</h2>
+
+  <h3 id="sec-8">8. The Eight Statutory Grounds for Unworthiness (Article 1032)</h3>
+  <p><strong>Imagine...</strong> A son tries to poison his father and is convicted of frustrated parricide. The father dies intestate without leaving a will disinheriting the son. Can the son still claim his intestate share and legitime because there was no will?</p>
+  <p><strong>The Rule:</strong> <strong>No.</strong> Under <strong>Article 1032</strong>, incapacity by reason of <strong>unworthiness</strong> operates by force of law in <strong>both testate and intestate succession</strong>, automatically stripping the offender of <strong>both the free portion and the compulsory legitime</strong> across 8 enumerated grounds.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: A – L – F – V – A – C – P – F (The 8 Grounds of Art. 1032 Clustered into 3 Buckets)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'BUCKET 1: FAMILY & VIRTUE OFFENSES\n1. A — Abandonment of children / corruption of daughters / attempt against their virtue\n5. A — Adultery or concubinage with spouse of testator (requires final conviction)\n\nBUCKET 2: LIFE, LIBERTY & VIOLENT DEATH\n2. L — Life attempt against testator, spouse, descendants, or ascendants (requires final conviction + dolo)\n3. F — False accusation of crime carrying 6+ years imprisonment declared groundless\n4. V — Violent death not reported within 1 month by full-age heir (practically inoperative)\n\nBUCKET 3: ATTACKS ON TESTAMENTARY FREEDOM (WILLS)\n6. C — Causing testator to make/change will by fraud, violence, intimidation, or undue influence\n7. P — Preventing testator from making/revoking will, or supplanting/concealing/altering it\n8. F — Falsifying or forging a supposed will of the decedent')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Grouped into 3 thematic buckets for rapid Bar recall, with critical doctrinal qualifiers.</div>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:24%">Thematic Bucket</th>
+          <th style="width:38%">Grounds under Article 1032</th>
+          <th>Critical Doctrinal Nuances</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Family &amp; Marital Integrity</strong><br>(Nos. 1 &amp; 5)</td>
+          <td><strong>(1)</strong> Parents who <strong>abandon</strong> their children, induce daughters to lead a corrupt/immoral life, or attempt against their virtue.<br><strong>(5)</strong> Person <strong>convicted of adultery or concubinage</strong> with the spouse of the testator.</td>
+          <td>Notice: Under Art. 1032(5), the <em>paramour/lover</em> is unworthy after <strong>final conviction</strong>. (By contrast, under Art. 1028/739, no conviction is required to void a testamentary bequest between paramours).</td>
+        </tr>
+        <tr>
+          <td><strong>2. Life, Liberty &amp; Violent Death</strong><br>(Nos. 2, 3 &amp; 4)</td>
+          <td><strong>(2)</strong> <strong>Convicted of an attempt against the life</strong> of the testator, his/her spouse, descendants, or ascendants.<br><strong>(3)</strong> Accused testator of a crime carrying <strong>6+ years imprisonment</strong> (<em>prision correccional</em> max or higher), if the accusation is found <strong>groundless</strong>.<br><strong>(4)</strong> Heir of full age (18+) who fails to report testator's violent death to authorities within <strong>1 month</strong>.</td>
+          <td>• <strong>No. 2:</strong> Requires <strong>final conviction</strong> and intent to kill (<em>dolo</em>, never <em>culpa</em>). Executive pardon does NOT erase unworthiness, unless granted due to proven innocence or amnesty.<br>• <strong>No. 3 (<em>Javier v. Lucero</em>):</strong> Acquittal based merely on <strong>reasonable doubt</strong> does NOT make the accusation "groundless."<br>• <strong>No. 4 (<em>J.B.L. Reyes</em>):</strong> <strong>Practically inoperative</strong> today since crimes are prosecuted <em>de oficio</em> and citizens have no legal obligation to file a formal accusation.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Testamentary Freedom &amp; Wills</strong><br>(Nos. 6, 7 &amp; 8)</td>
+          <td><strong>(6)</strong> <strong>Causes</strong> testator to make or change a will by fraud, violence, intimidation, or undue influence.<br><strong>(7)</strong> <strong>Prevents</strong> decedent from making/revoking a will, or supplants, conceals, or alters the latter's will.<br><strong>(8)</strong> <strong>Falsifies or forges</strong> a supposed will of the decedent.</td>
+          <td>No criminal conviction is required for Nos. 6, 7, and 8; civil proof in the estate proceeding suffices.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-9">9. Pardon &amp; Condonation of Unworthiness vs. Reconciliation (Art. 1033 vs. Art. 922)</h3>
+  <p><strong>Imagine...</strong> After a daughter is convicted of attempting to kill her mother, the mother visits her in prison, hugs her, and verbally forgives her in front of the prison chaplain, but never signs any written document or new will before dying.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1033</strong>, causes of unworthiness are erased only inside a strict two-track system: <strong>Implied Pardon</strong> (if the testator <em>already knew</em> of the offense when executing a will instituting the offender) or <strong>Express Written Pardon</strong> (if the testator learned of it later, or died intestate, requiring a <strong>written public or private document</strong>).</p>
+
+  <div class="ui-box">
+    <strong>Memory aid: KNEW BEFORE WILL = IMPLIED BY INSTITUTION; LEARNED AFTER / NO WILL = MUST BE IN WRITING</strong>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Implied Pardon (Art. 1033)</th>
+          <th>Express Pardon (Art. 1033)</th>
+          <th>Reconciliation in Disinheritance (Art. 922)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Situation</strong></td>
+          <td>Testator <strong>already knew</strong> of the unworthiness when he executed the will.</td>
+          <td>Testator learned of it <strong>after</strong> making the will, or made no will.</td>
+          <td>Testator <strong>expressly disinherited</strong> the compulsory heir in a valid will.</td>
+        </tr>
+        <tr>
+          <td><strong>How Effected</strong></td>
+          <td>By <strong>instituting the offender</strong> or leaving him a bequest in the will.</td>
+          <td>Must be condoned <strong>in writing</strong> (public or private document). Oral pardon is void!</td>
+          <td><strong>Mutual reconciliation</strong> (bilateral resumption of family relations); <strong>need NOT be in writing</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Effect of Revocation</strong></td>
+          <td>If the will containing the institution is revoked, the implied pardon is also revoked.</td>
+          <td>Irrevocable once executed in writing.</td>
+          <td>Renders the express disinheritance ineffectual (prevailing view: Balane, Tolentino, Paras).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part III</strong>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Javier v. Lucero (94 Phil. 634), an acquittal based merely on reasonable doubt does not declare the accusation 'groundless' or false; thus, Art. 1032(3) does not attach.">
+      <div class="quiz-prompt">1. Heir H files a criminal complaint for estafa (punishable by 8 years) against his father T. After trial, T is acquitted based on reasonable doubt. Is H incapacitated by reason of unworthiness under Article 1032(3)?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="0" onchange="gradeInstant(this)"> Yes, because T was acquitted of a crime carrying more than 6 years imprisonment</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="1" onchange="gradeInstant(this)"> No, because acquittal on reasonable doubt does not mean the accusation was groundless</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="2" onchange="gradeInstant(this)"> Yes, unless T executes a written pardon under Article 1033</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under the prevailing view (Balane, Tolentino, Paras), when the testator did NOT execute a will expressly disinheriting the heir, Article 1033 strictly governs: pardon of unworthiness must be in writing. Oral forgiveness or reconciliation without a writing is insufficient.">
+      <div class="quiz-prompt">2. Son S is convicted by final judgment of attempting to kill his father F. F never made a will, so he never expressly disinherited S. Before dying, F tearfully embraces S in front of five witnesses and orally forgives him. Can S inherit from F?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="0" onchange="gradeInstant(this)"> Yes, because bilateral reconciliation under Article 922 does not require a written instrument</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="1" onchange="gradeInstant(this)"> Yes, as to his compulsory legitime only</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="2" onchange="gradeInstant(this)"> No, because there was no express disinheritance in a will, so Article 1033 requires a written condonation</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- PART IV -->
+  <!-- ================================================================= -->
+  <h2 id="part-4">PART IV — DETERMINATION, REPRESENTATION &amp; REMEDIES (ARTS. 1034–1040)</h2>
+
+  <h3 id="sec-10">10. Time to Judge Capacity &amp; Suspensive Conditions (Article 1034)</h3>
+  <p><strong>Imagine...</strong> A testator leaves a condo to his nephew "if he passes the Bar exam." The nephew is alive when the testator dies in 2024, but tragically dies in a car crash in 2025 before the Bar results come out.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1034</strong>, capacity to succeed is generally judged at the <strong>exact moment of the decedent's death</strong>; however, if the institution is subject to a <strong>suspensive condition</strong>, the heir must be capacitated <strong>BOTH at the time of the decedent's death AND at the time the condition is fulfilled</strong>.</p>
+
+  <div class="ui-box">
+    <strong>Memory aid: PURE = AT DEATH; FINAL JUDGMENT = RETROACTS TO DEATH; SUSPENSIVE CONDITION = DEATH + FULFILLMENT</strong>
+    <div class="flow-stack">
+      <div class="flow-step">
+        <strong>1. GENERAL RULE (Art. 1034, Par. 1)</strong>
+        <span>Judged at the exact moment of the <strong>decedent's death</strong> (Art. 777).</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>2. GROUNDS REQUIRING FINAL CONVICTION / JUDGMENT (Art. 1032 Nos. 2, 3, 5)</strong>
+        <span>Wait for the <strong>final judgment</strong> to be rendered; once final, incapacity <strong>retroacts to the moment of death</strong>.</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>3. SUSPENSIVE CONDITIONAL INSTITUTION (Art. 1034, Par. 3)</strong>
+        <span>Heir must have capacity at <strong>TWO moments</strong>: (a) Decedent's death AND (b) Fulfillment of the condition. (If heir dies before fulfillment, he transmits zero rights to his own heirs).</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-11">11. Right of Representation for Unworthy Compulsory Heirs (Article 1035)</h3>
+  <p><strong>Imagine...</strong> A father with a ₱600,000 estate leaves a will dividing his estate equally among his three children, A, B, and C (₱200,000 each). Child A is convicted of attempting to kill the father, but A has two innocent children of his own, X and Y.</p>
+  <p><strong>The Rule:</strong> Under <strong>Article 1035</strong>, if an unworthy compulsory heir is excluded, his children or descendants acquire his right to the <strong>legitime by representation</strong> (while in testate succession, his voluntary share in the free portion passes to co-heirs by <strong>accretion</strong>), and the unworthy parent is strictly barred from enjoying the <strong>usufruct or administration</strong> of the property inherited by his children.</p>
+
+  <div class="ui-box svg-box">
+    <strong>Family Tree &amp; Share Split: Representation of Unworthy Heir A (₱600,000 Estate)</strong>
+    <svg viewBox="0 0 480 215" width="100%" style="margin-top:0.5rem;">
+      <!-- Testator T -->
+      <rect x="160" y="8" width="160" height="40" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+      <text x="240" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#1F2937">Testator T (₱600,000)</text>
+      <text x="240" y="40" text-anchor="middle" font-size="10" fill="#64748B">Will: Equal shares to A, B, C</text>
+
+      <!-- Connectors from T to A, B, C -->
+      <line x1="200" y1="48" x2="85" y2="85" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="240" y1="48" x2="240" y2="85" stroke="#16A34A" stroke-width="1.5"/>
+      <line x1="280" y1="48" x2="395" y2="85" stroke="#16A34A" stroke-width="1.5"/>
+
+      <!-- Node A (Unworthy) -->
+      <rect x="15" y="85" width="140" height="50" rx="8" fill="#FEF2F2" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="85" y="103" text-anchor="middle" font-size="11.5" font-weight="700" fill="#991B1B">Child A (Unworthy)</text>
+      <text x="85" y="117" text-anchor="middle" font-size="9.5" fill="#991B1B">₱0 (No usufruct/admin)</text>
+      <text x="85" y="129" text-anchor="middle" font-size="9" fill="#64748B">₱100k FP accrues to B &amp; C</text>
+
+      <!-- Node B -->
+      <rect x="170" y="85" width="140" height="50" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="240" y="103" text-anchor="middle" font-size="11.5" font-weight="700" fill="#166534">Child B (Co-Heir)</text>
+      <text x="240" y="118" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Total: ₱250,000</text>
+      <text x="240" y="130" text-anchor="middle" font-size="9" fill="#166534">(₱100k Leg + ₱100k FP + ₱50k Accr)</text>
+
+      <!-- Node C -->
+      <rect x="325" y="85" width="140" height="50" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="395" y="103" text-anchor="middle" font-size="11.5" font-weight="700" fill="#166534">Child C (Co-Heir)</text>
+      <text x="395" y="118" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">Total: ₱250,000</text>
+      <text x="395" y="130" text-anchor="middle" font-size="9" fill="#166534">(₱100k Leg + ₱100k FP + ₱50k Accr)</text>
+
+      <!-- Connectors from A to X and Y -->
+      <line x1="60" y1="135" x2="45" y2="165" stroke="#16A34A" stroke-width="1.5"/>
+      <line x1="110" y1="135" x2="125" y2="165" stroke="#16A34A" stroke-width="1.5"/>
+
+      <!-- Node X -->
+      <rect x="5" y="165" width="80" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="45" y="183" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Grandchild X</text>
+      <text x="45" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">₱50,000</text>
+
+      <!-- Node Y -->
+      <rect x="95" y="165" width="80" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="135" y="183" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Grandchild Y</text>
+      <text x="135" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">₱50,000</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center"><strong>Key Distinction:</strong> In <em>testate</em> succession, X and Y represent A <strong>only as to A's ₱100,000 legitime</strong> (₱50k each), while A's ₱100,000 free portion share accrues to B and C (₱50k each). In <em>complete intestacy</em>, X and Y would represent A's entire ₱200,000 intestate share (₱100k each)!</div>
+  </div>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-testate')">Testate Computation (Will Dividing ₱600k Equally)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-intestate')">Intestate Contrast (If T Died Without a Will)</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-testate">
+      <p><strong>Step-by-Step Breakdown (Testate Succession — ₱600,000 Estate):</strong><br>
+      • Total Compulsory Legitime (1/2 of ₱600k) = ₱300,000 → ₱100,000 per child.<br>
+      • X and Y represent A <strong>only in the ₱100,000 legitime</strong> (₱50,000 each).<br>
+      • A's ₱100,000 share in the Free Portion cannot be represented; it accrues to B and C (₱50,000 each).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱50k</div><div class="bar-fill" style="height:25px"></div><div class="bar-lbl">X (Rep)</div></div>
+        <div class="bar-col"><div class="bar-val">₱50k</div><div class="bar-fill" style="height:25px"></div><div class="bar-lbl">Y (Rep)</div></div>
+        <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:115px"></div><div class="bar-lbl">Child B</div></div>
+        <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:115px"></div><div class="bar-lbl">Child C</div></div>
+      </div>
+      <div class="ui-caption">Total distributed = ₱50,000 + ₱50,000 + ₱250,000 + ₱250,000 = ₱600,000.</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-intestate">
+      <p><strong>Step-by-Step Breakdown (If T Died Intestate — ₱600,000 Estate):</strong><br>
+      • In legal/intestate succession, representation covers the <strong>entire intestate share</strong> (₱200,000 per branch).<br>
+      • X and Y split A's entire ₱200,000 intestate share = <strong>₱100,000 each</strong>.</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:50px"></div><div class="bar-lbl">X (Rep)</div></div>
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:50px"></div><div class="bar-lbl">Y (Rep)</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">Child B</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">Child C</div></div>
+      </div>
+      <div class="ui-caption">Symmetric Contrast: <code>TESTATE REPRESENTATION = LEGITIME ONLY</code> vs. <code>INTESTATE REPRESENTATION = FULL INTESTATE SHARE</code>.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-12">12. Alienations, Expenses, Bad Faith, Conflict of Laws &amp; Prescription (Arts. 1036–1040)</h3>
+  <p><strong>Imagine...</strong> An unworthy heir takes possession of an inherited farm right after the decedent's death and sells a tractor to an innocent buyer before the court issues a judicial order of exclusion. Six years later, the other heirs sue to declare him incapacitated and recover the farm.</p>
+  <p><strong>The Rule:</strong> Articles 1036 to 1040 govern the post-death consequences of incapacity: protecting innocent third-party buyers before judicial exclusion (<strong>Art. 1036</strong>), reimbursing necessary preservation expenses (<strong>Art. 1037</strong>), penalizing the incapacitated possessor as a conclusive possessor in bad faith (<strong>Art. 1038</strong>), applying the decedent's national law (<strong>Art. 1039</strong>), and fixing a <strong>5-year prescriptive period</strong> from physical possession (<strong>Art. 1040</strong>).</p>
+
+  <div class="ui-box">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:20%">Provision</th>
+          <th style="width:32%">Core Legal Rule</th>
+          <th>Key Exam Qualification / Remedy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Article 1036</strong><br>Alienations Before Exclusion</td>
+          <td>Alienations &amp; acts of administration by the excluded heir <strong>before the judicial order of exclusion</strong> are <strong>VALID</strong> as to third persons in <strong>good faith</strong>.</td>
+          <td>Co-heirs cannot recover the property from the innocent buyer; their sole remedy is to claim <strong>damages from the disqualified heir</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Article 1037</strong><br>Expenses &amp; Credits</td>
+          <td>Excluded heir may demand: (1) reimbursement for <strong>necessary expenses</strong> to preserve the property, and (2) payment of personal <strong>credits/debts</strong> against the estate.</td>
+          <td>Even a possessor in bad faith is entitled to necessary preservation expenses (Art. 546) and does not forfeit pre-existing valid credits.</td>
+        </tr>
+        <tr>
+          <td><strong>Article 1038</strong><br>Possessor in Bad Faith</td>
+          <td>Incapacitated person who takes possession in spite of prohibition is <strong>conclusively presumed a possessor in bad faith</strong>.</td>
+          <td>Must return the property + <strong>all accessions, fruits, and rents</strong> actually received or which <em>could have been received through due diligence</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Article 1039</strong><br>Conflict of Laws</td>
+          <td>Capacity to succeed is governed by the <strong>national law of the decedent</strong> (reiterating Art. 16, Par. 2).</td>
+          <td>If an Australian dies leaving Philippine land to a Filipino, <strong>Australian law</strong> governs the Filipino heir's capacity to succeed.</td>
+        </tr>
+        <tr>
+          <td><strong>Article 1040</strong><br>5-Year Prescription</td>
+          <td>Action for declaration of incapacity and recovery of inheritance must be brought within <strong>5 years from the time the disqualified person took possession</strong>.</td>
+          <td>Applies to <strong>Art. 1027 &amp; Art. 1032</strong>. Does <strong>NOT apply to Art. 1028 (Art. 739 immorality)</strong>, which is void <em>ab initio</em> and imprescriptible!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part IV</strong>
+    <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Under Art. 1036, alienations made by the excluded heir BEFORE the judicial order of exclusion are valid with respect to third persons who acted in good faith. The co-heirs' remedy is damages against the unworthy heir.">
+      <div class="quiz-prompt">1. Before any judicial order of exclusion is issued, unworthy heir U sells an inherited parcel of land to B, an innocent purchaser for value in good faith. When U is later judicially excluded, can the co-heirs recover the land from B?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="0" onchange="gradeInstant(this)"> No; the sale to B in good faith before the judicial order of exclusion is valid, and the co-heirs can only sue U for damages</label>
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="1" onchange="gradeInstant(this)"> Yes, because U's incapacity retroacts to the moment of death under Article 1034</label>
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="2" onchange="gradeInstant(this)"> Yes, provided the co-heirs reimburse B for the purchase price</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Art. 1039 (and Art. 16, Par. 2), capacity to succeed is governed by the national law of the DECEDENT, not the nationality of the heir or the location of the property.">
+      <div class="quiz-prompt">2. An Australian citizen domiciled in Sydney dies leaving a condominium in Makati to his Filipino nurse. Which law determines whether the Filipino nurse has the capacity to succeed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="0" onchange="gradeInstant(this)"> Philippine law, because the nurse is a Filipino citizen and the condo is in Makati</label>
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="1" onchange="gradeInstant(this)"> Australian law, the national law of the decedent under Article 1039</label>
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="2" onchange="gradeInstant(this)"> Both Philippine and Australian law cumulatively</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- FINAL MEMORY SHEET -->
+  <!-- ================================================================= -->
+  <h2 id="final-sheet">Final Memory Sheet</h2>
+
+  <h3>Master Recall Table (Articles 1024–1040 &amp; Landmark Cases)</h3>
+  <table class="ui-table">
+    <thead>
+      <tr>
+        <th style="width:32%">Article / Landmark Case</th>
+        <th>One-Line Recall Rule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Art. 1024</strong> — Capacity to Succeed</td><td>Only <strong>juridical capacity</strong> is required to inherit; Arts. 1027(1–5) &amp; 1028 apply <em>only</em> to wills, not intestacy.</td></tr>
+      <tr><td><strong>Art. 1025</strong> — Natural Persons &amp; <em>Nasciturus</em></td><td>Must be living or conceived at death; if &lt;7 months intra-uterine life, must survive <strong>24 hours</strong> after delivery (Art. 41).</td></tr>
+      <tr><td><strong><em>Resurreccion v. Javier</em></strong></td><td>A legacy or institution to a person already dead at execution/death is <strong>void <em>ab initio</em></strong>.</td></tr>
+      <tr><td><strong>Art. 1026</strong> — Juridical Entities</td><td>Unincorporated <strong>C-R-E-S-C</strong> associations can inherit by will; private corporations can <em>never</em> inherit ab intestato.</td></tr>
+      <tr><td><strong>Art. 1027 (1–2)</strong> — Priest / Minister</td><td>Disqualified if confession/spiritual aid given during <strong>last illness</strong> and will made during/after; extends to <strong>4th-degree</strong> relatives &amp; church.</td></tr>
+      <tr><td><strong>Art. 1027 (3) &amp; <em>Torres v. Lopez</em></strong></td><td>Guardian barred before <strong>final accounts approved</strong> (unless <code>A-D-B-S-S</code>); guardian's child is <em>not</em> barred and takes by accretion.</td></tr>
+      <tr><td><strong>Art. 1027 (4) &amp; Art. 823</strong></td><td>Attesting witness + spouse/parents/children barred, unless there are <strong>3 other competent disinterested witnesses</strong>.</td></tr>
+      <tr><td><strong>Art. 1027 (5)</strong> — Medical Caregivers</td><td>Physicians, surgeons, nurses, health officers, druggists who took <strong>regular care</strong> of testator during last illness.</td></tr>
+      <tr><td><strong>Art. 1027 (6) &amp; <em>Ung Siu Si Temple</em></strong></td><td>Alien religious organization lacks capacity to acquire private/agricultural land under the Philippine Constitution.</td></tr>
+      <tr><td><strong>Art. 1028 &amp; <em>Nepomuceno v. CA</em></strong></td><td>Art. 739 donations (adultery/concubinage, same crime, public officer) void in wills; probate court can declare patent intrinsic nullity.</td></tr>
+      <tr><td><strong>Art. 1029 &amp; <em>Villavicencio v. Quinio</em></strong></td><td>General institution of the soul splits <strong>50% Church / 50% State</strong>, unless testator specifies the exact application.</td></tr>
+      <tr><td><strong>Art. 1030</strong> — Poor in General</td><td>Poor of testator's domicile at death; designated by Appointee → Executor → <strong>Mayor, Treasurer &amp; MTC Judge</strong>.</td></tr>
+      <tr><td><strong>Art. 1031</strong> — Dummies &amp; Simulation</td><td>Simulated onerous contracts or dummies for disqualified heirs (Arts. 1027/1028) are <strong>void <em>ab initio</em></strong>.</td></tr>
+      <tr><td><strong>Art. 1032 &amp; <em>Javier v. Lucero</em></strong></td><td>8 grounds of unworthiness forfeit both testate &amp; intestate shares; acquittal on <strong>reasonable doubt</strong> is not "groundless."</td></tr>
+      <tr><td><strong>Art. 1033 vs. Art. 922</strong></td><td>Unworthiness requires <strong>implied pardon</strong> (will with prior knowledge) or <strong>written pardon</strong>; express disinheritance only needs reconciliation.</td></tr>
+      <tr><td><strong>Art. 1034</strong> — When Capacity Judged</td><td>At death; final conviction retroacts to death; suspensive condition requires capacity at <strong>death AND fulfillment</strong>.</td></tr>
+      <tr><td><strong>Art. 1035</strong> — Representation of Unworthy</td><td>Descendants represent unworthy heir in the <strong>legitime</strong> (testate) or full share (intestate); unworthy parent gets <strong>no usufruct/admin</strong>.</td></tr>
+      <tr><td><strong>Arts. 1036–1040</strong> — Effects &amp; Prescription</td><td>Good-faith third-party sales before judicial exclusion are valid; decedent's national law governs; <strong>5-year prescription</strong> from possession.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Top 5 Rules to Prioritize for Examination</h3>
+  <ol>
+    <li><strong>Scope of Disqualifications (Testate Only vs. Both):</strong> <strong>Articles 1027(1–5) and 1028</strong> invalidate only voluntary testamentary dispositions and never impair compulsory legitimes or intestate shares; <strong>Article 1032 (Unworthiness)</strong> operates in both testate and intestate succession and forfeits even the legitime.</li>
+    <li><strong>Whose Relatives Are Barred under Art. 1027?</strong> For a <strong>Priest</strong>, blood relatives within the <strong>4th degree</strong> are barred; for an <strong>Attesting Witness</strong>, the <strong>spouse, parents, and children</strong> are barred; for a <strong>Guardian</strong> (<em>Torres v. Lopez</em>) and <strong>Physician/Nurse</strong>, their relatives are <strong>NOT barred</strong> (unless used as a dummy under Art. 1031).</li>
+    <li><strong>Written Pardon (Art. 1033) vs. Reconciliation (Art. 922):</strong> If the testator did <em>not</em> expressly disinherit the unworthy heir in a will, oral forgiveness or reconciliation is useless—<strong>Article 1033 requires a written condonation</strong> (or subsequent institution in a will with knowledge).</li>
+    <li><strong>Representation of an Unworthy Compulsory Heir in Testate Succession (Art. 1035):</strong> The unworthy heir's children represent him <strong>only as to his compulsory legitime</strong> (with the parent stripped of usufruct and administration), while his voluntary share in the free portion passes to co-heirs by <strong>right of accretion</strong>.</li>
+    <li><strong>5-Year Prescription Exception (Art. 1040):</strong> The 5-year prescriptive period from physical possession applies to Arts. 1027 and 1032, but <strong>never to Article 1028 (Art. 739 immorality)</strong>, which is void <em>ab initio</em> and imprescriptible.</li>
+  </ol>
+
+  <h3>Final 5-Question Recall Challenge</h3>
+  <div class="ui-box final-quiz-box">
+    <div class="quiz-q" data-answer="1" data-why="Under Art. 1027(1), a disposition to a priest is void only if made DURING or AFTER the confession heard during the last illness, and it never impairs his compulsory legitime or intestate share as a brother/relative.">
+      <div class="quiz-prompt">1. T executed a will in 2020 leaving ₱1M to his friend, Father P, a Catholic priest. In 2026, T fell terminally ill, confessed his sins on his deathbed to Father P, and died the next day without changing his 2020 will. Is Father P capacitated to receive the ₱1M legacy?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> No, because Father P heard T's confession during his last illness</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> Yes, because the will was executed in 2020, long before the confession during T's last illness</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> No, because Article 1027 establishes a conclusive presumption of undue influence</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 1029 and Villavicencio v. Quinio, the 50-50 split between the Church and the State applies ONLY when the testator disposes of property for prayers/pious works in general terms without specifying its application.">
+      <div class="quiz-prompt">2. T's will directs his executor to sell his fishpond and turn over 100% of the proceeds to the San Agustin Parish Church in Intramuros to say daily masses for T's soul. The State claims 50% of the proceeds under Article 1029. Is the State entitled to 50%?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> Yes, Article 1029 mandatorily allocates 50% of all pious dispositions to the State</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> Yes, because a soul lacks juridical personality under Article 1025</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> No, because T specified the exact church and application of the funds (Villavicencio v. Quinio)</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="0" data-why="In testate succession (Art. 1035), representation of an unworthy child covers ONLY his compulsory legitime (₱100k split between X and Y = ₱50k each), while his ₱100k voluntary share in the free portion accrues to co-heirs B and C (₱50k each, making ₱250k each).">
+      <div class="quiz-prompt">3. T dies with a ₱600,000 estate and a will instituting his three legitimate children A, B, and C equally (₱200,000 each). A is unworthy due to a final conviction for attempting to kill T, and has two legitimate children, X and Y. How should the ₱600,000 estate be distributed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> X and Y get ₱50,000 each (representing A's legitime); B and C get ₱250,000 each</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> X and Y get ₱100,000 each (representing A's full ₱200,000 share); B and C get ₱200,000 each</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> B and C get ₱300,000 each; X and Y get nothing because unworthiness bars representation</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 1034, Par. 3, if an institution or legacy is subject to a suspensive condition, the heir must be capacitated (living) BOTH at the time of the decedent's death AND at the time the condition is fulfilled.">
+      <div class="quiz-prompt">4. T leaves a legacy of ₱2M to his nephew N "on the suspensive condition that N becomes a licensed physician." N is alive when T dies in 2024, but N dies in 2025 during his final year of medical school. N's baby child claims the ₱2M. Does N's child inherit the ₱2M?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> Yes, because capacity is judged solely at the moment of T's death in 2024</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> Yes, by right of representation under Article 1025</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> No, because in suspensive conditional dispositions under Article 1034, the legatee must be alive both at the testator's death and upon fulfillment of the condition</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="1" data-why="The 5-year prescriptive period under Art. 1040 applies to Arts. 1027 and 1032, but NOT to dispositions void under Art. 1028 in relation to Art. 739 (concubinage/adultery), which are void ab initio and imprescriptible.">
+      <div class="quiz-prompt">5. Pursuant to T's will, T's concubine M took physical possession of a house devised to her in 2018. In 2025 (7 years later), T's legal heirs file an action to declare the devise void under Article 1028 and recover the house. M invokes the 5-year prescriptive period under Article 1040. Has the action prescribed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> Yes, because more than 5 years have elapsed since M took physical possession</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> No, because dispositions violating Article 1028 (in rel. to Art. 739) are void ab initio and imprescriptible</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> Yes, unless M was criminally convicted of concubinage</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+    <div class="final-score-box" hidden>
+      <div class="final-score-num">0 / 5</div>
+      <div style="margin: 0.35rem 0 0.85rem; font-size: 0.9rem; color: var(--muted);">Correct answers</div>
+      <button type="button" class="reset-btn" onclick="resetFinalQuiz(this)">Try again</button>
+    </div>
+  </div>
+
+  <hr>
+  <p style="text-align:center; font-size:0.88rem; color:var(--muted); font-weight:600;">
+    Mastery Sequence: Verify Existence at Death (Arts. 1024–1026) → Screen Out Testamentary Undue Influence &amp; Immorality (Arts. 1027–1031) → Check 8 Unworthiness Grounds &amp; Written Pardon (Arts. 1032–1033) → Apply Legitime Representation &amp; 5-Year Remedies (Arts. 1034–1040)
+  </p>
+</div>
+
+<script>
+  function copyMnemonic(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    });
+  }
+
+  function switchTab(btn, panelId) {
+    const box = btn.closest('[data-tabs]');
+    box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+    box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = box.querySelector(`[data-panel="${panelId}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  function gradeInstant(input) {
+    const qBox = input.closest('.quiz-q');
+    const ans = qBox.dataset.answer;
+    const why = qBox.dataset.why || '';
+    const fb = qBox.querySelector('.quiz-feedback');
+    const opts = qBox.querySelectorAll('.quiz-opt');
+    const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+    const isCorrect = input.value === ans;
+    fb.hidden = false;
+    fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+    fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+  }
+
+  function updateFinalQuiz(input) {
+    const box = input.closest('.final-quiz-box');
+    const total = box.querySelectorAll('.quiz-q').length;
+    const answered = new Set();
+    box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+    const btn = box.querySelector('.check-btn');
+    if (btn) btn.disabled = answered.size < total;
+  }
+
+  function gradeFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    const qs = box.querySelectorAll('.quiz-q');
+    let score = 0;
+    qs.forEach(q => {
+      const ans = q.dataset.answer;
+      const why = q.dataset.why || '';
+      const checked = q.querySelector('input[type="radio"]:checked');
+      const fb = q.querySelector('.quiz-feedback');
+      const isCorrect = checked && checked.value === ans;
+      if (isCorrect) score++;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ ' : 'ℹ ') + why;
+    });
+    const scoreBox = box.querySelector('.final-score-box');
+    if (scoreBox) {
+      scoreBox.hidden = false;
+      scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+    }
+  }
+
+  function resetFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+    box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+    box.querySelector('.final-score-box').hidden = true;
+    box.querySelector('.check-btn').disabled = true;
+  }
+</script>
+</body>
+</html>
