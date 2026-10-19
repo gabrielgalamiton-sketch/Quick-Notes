@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Right of Accretion (Articles 1015–1023) — Quick Notes</title>
+<style>
+  :root {
+    --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+    --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+    --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+    --text: #1F2937; --muted: #64748B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+  }
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+    padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+  .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+  .nav-dropdown {
+    flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+    border: 1px solid #CBD5E1; background: #FFF; color: var(--text);
+  }
+  .document-container {
+    max-width: 820px; margin: 2rem auto; background: var(--surface);
+    padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  }
+  h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+  h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+  h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+  h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+  .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+  hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+  .ui-divider { margin: 0.85rem 0; }
+  .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+  .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+  /* Callouts & Boxes */
+  .update-banner {
+    background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+  }
+  .trap-banner {
+    background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .ui-box {
+    border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+    margin: 1.25rem 0; background: var(--surface);
+  }
+  .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+  .copy-btn, .check-btn, .reset-btn {
+    border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+    border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+  .check-btn {
+    width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+    color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+  }
+  .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* Mental Map Rows */
+  .mm-row { display: flex; align-items: center; gap: 1rem; }
+  .mm-icon {
+    width: 42px; height: 42px; border-radius: 10px; background: var(--surface-2);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+  .mm-desc { font-size: 0.9rem; color: #374151; }
+
+  /* Flow Stack & Grids */
+  .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+  .flow-step {
+    width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+    text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+  }
+  .flow-step span { font-size: 0.82rem; color: var(--muted); }
+  .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+  .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+  .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+  .stat-card {
+    background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+  }
+  .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+  .stat-card .stat-val { font-size: 1.25rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+  .ui-table th {
+    text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1.5px solid #CBD5E1;
+  }
+  .ui-table td {
+    padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+  }
+  .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+  /* Segmented Control & Bar Chart */
+  .seg-control {
+    display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+  }
+  .seg-btn {
+    flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.85rem; color: var(--muted); cursor: pointer;
+  }
+  .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .bar-chart {
+    display: flex; align-items: flex-end; justify-content: space-around; height: 155px;
+    padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+  }
+  .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 80px; }
+  .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+  .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+  .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; }
+
+  /* Interactive Quizzes */
+  .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .quiz-q:last-of-type { border-bottom: none; }
+  .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .quiz-opt {
+    display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+    padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+  }
+  .quiz-opt:hover { background: var(--surface-2); }
+  .quiz-feedback {
+    margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem;
+  }
+  .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+  .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+  .final-score-box {
+    margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+    padding: 1.25rem; text-align: center;
+  }
+  .final-score-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); }
+  @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav class="sticky-nav">
+  <div class="nav-content">
+    <span class="nav-label">JUMP TO SECTION</span>
+    <select class="nav-dropdown" onchange="if(this.value) location.href=this.value">
+      <option value="">Select a topic or micro-lesson...</option>
+      <option value="#mental-map">Mental Map of the Entire Lecture</option>
+      <option value="#part-1">PART I — Concept, Nature, Rationale &amp; Testamentary Requisites</option>
+      <option value="#sec-1">1. Concept, Nature, Rationale &amp; Causes of Accretion (Art. 1015)</option>
+      <option value="#sec-2">2. Requisites for Accretion in Testamentary Succession (Art. 1016)</option>
+      <option value="#sec-3">3. Meaning of Pro Indiviso &amp; the Earmarking Test (Art. 1017)</option>
+      <option value="#part-2">PART II — Intestate Accretion, Proportional Sharing &amp; The Legitime</option>
+      <option value="#sec-4">4. Accretion in Legal or Intestate Succession (Art. 1018)</option>
+      <option value="#sec-5">5. Proportional Sharing &amp; Transmission of Obligations (Arts. 1019–1020)</option>
+      <option value="#sec-6">6. Accretion Among Compulsory Heirs &amp; The Legitime (Art. 1021)</option>
+      <option value="#part-3">PART III — Hierarchy of Vacancies, Particular Titles &amp; Acceptance Rules</option>
+      <option value="#sec-7">7. The ISRAI Hierarchy of Filling Vacant Shares (Art. 1022)</option>
+      <option value="#sec-8">8. Devisees, Legatees, Usufructuaries &amp; Selective Repudiation (Art. 1023)</option>
+      <option value="#sec-9">9. Master Matrix: Rules for Filling Vacant Shares</option>
+      <option value="#final-sheet">Final Memory Sheet &amp; Recall Challenge</option>
+    </select>
+  </div>
+</nav>
+
+<div class="document-container">
+  <h1>Right of Accretion</h1>
+  <p class="doc-subtitle">Civil Code Articles 1015–1023 • Chapter 4, Section 1: Provisions Common to Testate and Intestate Successions</p>
+  <p class="doc-approach"><strong>Our approach:</strong> Understand the situation first, identify the applicable rule, memorize the requisites, and practice applying the law.</p>
+
+  <h2 id="mental-map">Your Mental Map of the Entire Lecture</h2>
+  <div class="ui-box mental-map">
+    <div class="mm-row">
+      <div class="mm-icon">🧲</div>
+      <div class="mm-body">
+        <div class="mm-title">1. THE CORE MECHANISM (ARTS. 1015–1017)</div>
+        <div class="mm-desc">When two or more persons are called conjointly (<em>pro indiviso</em>) to the same undivided property or fund, and one share becomes vacant, does that share expand into the shares of the surviving co-heirs?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">⚖️</div>
+      <div class="mm-body">
+        <div class="mm-title">2. PROPORTIONALITY &amp; CHARGES (ARTS. 1018–1020)</div>
+        <div class="mm-desc">How do surviving co-heirs divide the accrued portion, and do they also inherit the conditions and obligations attached to the vacant share?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">🛡️</div>
+      <div class="mm-body">
+        <div class="mm-title">3. THE SACRED LEGITIME WALL (ART. 1021)</div>
+        <div class="mm-desc">Why is accretion strictly prohibited over the legitime of compulsory heirs, while allowed over the disposable free portion?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">🪜</div>
+      <div class="mm-body">
+        <div class="mm-title">4. THE ISRAI WATERFALL (ARTS. 1022–1023)</div>
+        <div class="mm-desc">In what exact order of priority does the law fill a vacant share among Substitution, Representation, Accretion, and Intestacy?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-banner">
+    <strong>📜 Important Doctrinal Evolution (Spanish Code vs. New Civil Code Art. 1017):</strong><br>
+    Under the <em>Old Spanish Civil Code</em>, accretion required "no special designation of parts" (<em>sin especial designación de partes</em>), meaning unequal fractional shares (e.g., 1/3 to A and 2/3 to B) barred accretion. Under <strong>Article 1017 of the New Civil Code</strong> (Majority View: Balane, Jurado, Caguioa, Paras), accretion <strong>DOES take place even when shares are unequal fractions</strong>, provided they refer to aliquot parts of an undivided whole (<em>pro indiviso</em>) resulting in co-ownership and do not physically earmark determinate property to each heir.
+  </div>
+
+  <hr>
+
+  <h2 id="part-1">PART I — Concept, Nature, Rationale &amp; Testamentary Requisites</h2>
+
+  <h3 id="sec-1">1. Concept, Nature, Rationale, and Causes of Accretion (Art. 1015)</h3>
+  <p><em>Imagine a testator who leaves a beachfront vacation house jointly to his three closest college friends, A, B, and C. Before the testator dies, friend A passes away, leaving A's one-third share vacant.</em></p>
+  <p>Under <strong>Article 1015</strong>, <strong>accretion</strong> (<em>jus accrescendi</em>) is a right by virtue of which, when two or more persons are called to the same inheritance, devise, or legacy, the part assigned to the one who renounces, cannot receive his share, or died before the testator is added or incorporated into that of his co-heirs, co-devisees, or co-legatees. It is an <strong>incidental right, not an obligation</strong>—the surviving co-beneficiary remains free to accept or repudiate the accruing portion.</p>
+
+  <div class="ui-grid-2">
+    <div class="ui-box" style="margin:0">
+      <strong class="c-navy">Rationale in Testate Succession</strong>
+      <p style="font-size:0.9rem; margin:0.4rem 0 0"><strong>Presumed Will of the Testator:</strong> The law presumes the deceased prefers to give the conjoint property or quota entirely to the designated group rather than let a vacant fraction fall into general intestacy.</p>
+    </div>
+    <div class="ui-box" style="margin:0">
+      <strong class="c-teal">Rationale in Intestate Succession</strong>
+      <p style="font-size:0.9rem; margin:0.4rem 0 0"><strong>Presumed Equal Affection:</strong> The Code Commission noted that relatives called conjointly by law occupy substantially the same position in the decedent's affection.</p>
+    </div>
+  </div>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: Causes of Vacancy — P – I – R (+ C – I)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Predecease (dies before testator)\nI — Incapacity or Unworthiness (legally disqualified)\nR — Repudiation / Renunciation (formally refuses share)\nC — Conditional incapacity (non-fulfillment of suspensive condition)\nI — Ineffectiveness / Failure to identify one co-heir')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Five causes that create a vacant share eligible for accretion, and two ways a testator can exclude accretion.</div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr><td style="width:10%"><strong>P</strong></td><td style="width:28%">Predecease</td><td>The heir, legatee, or devisee dies before the testator.</td></tr>
+        <tr><td><strong>I</strong></td><td>Incapacity / Unworthiness</td><td>The successor is legally disqualified or declared unworthy to inherit.</td></tr>
+        <tr><td><strong>R</strong></td><td>Repudiation</td><td>The successor formally refuses or renounces his share (<strong>Note:</strong> disinheritance is excluded because it applies only to compulsory heirs' legitimes).</td></tr>
+        <tr><td><strong>+ C</strong></td><td>Condition Unfulfilled</td><td>Non-fulfillment of a suspensive condition (treated as conditional incapacity).</td></tr>
+        <tr><td><strong>+ I</strong></td><td>Identification Failure</td><td>When one co-heir cannot be identified, though the other co-instituted heirs are clearly identified.</td></tr>
+      </tbody>
+    </table>
+    <div class="ui-divider"></div>
+    <p style="margin:0; font-size:0.88rem"><strong>How Testator Excludes Accretion (2 Ways):</strong> (1) <strong>By Express Substitution</strong> (appointing an express substitute under Art. 859 overrides implied accretion); or (2) <strong>By Express Prohibition</strong> (explicitly stating in the will that no accretion shall occur).</p>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-2">2. Requisites for Accretion in Testamentary Succession (Art. 1016)</h3>
+  <p><em>Imagine two sisters, Maria and Clara, who are named together in their aunt's will to inherit a single parcel of commercial land. If Maria renounces her share so she can emigrate abroad without property management duties, Clara wants to know if she automatically gets the whole land.</em></p>
+  <p>Under <strong>Article 1016</strong> (as synthesized by Manresa, Paras, and Jurado), testamentary accretion requires <strong>four cumulative requisites</strong>: (1) <strong>Plurality of subjects</strong> called to inherit, (2) <strong>Unity of object</strong> (conjoint institution <em>pro indiviso</em> to the same inheritance or portion), (3) a <strong>Vacant portion</strong> due to predecease, incapacity, or repudiation, and (4) <strong>Acceptance</strong> of the accruing share by the surviving co-successor.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: P – U – V – A (4 Cumulative Requisites of Art. 1016)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Plurality of Subjects (2 or more heirs/legatees/devisees)\nU — Unity of Object (called pro indiviso to same inheritance/quota)\nV — Vacant Portion (predecease, incapacity, or repudiation)\nA — Acceptance by surviving co-successor')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Arrow Formula: <strong>PLURALITY OF HEIRS → PRO INDIVISO OBJECT → VACANT SHARE → ACCEPTANCE</strong></div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr><td style="width:10%"><strong>P</strong></td><td style="width:28%">Plurality of Subjects</td><td>Two or more persons (heirs, legatees, or devisees) are called to inherit.</td></tr>
+        <tr><td><strong>U</strong></td><td>Unity of Object</td><td>Called conjointly to a single inheritance, determinate property, or undivided quota <em>pro indiviso</em>.</td></tr>
+        <tr><td><strong>V</strong></td><td>Vacant Portion</td><td>One of those called dies before the testator, repudiates, or is incapacitated.</td></tr>
+        <tr><td><strong>A</strong></td><td>Acceptance</td><td>The surviving co-successor accepts both the original share and the accruing portion.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-3">3. Meaning of Pro Indiviso &amp; the Earmarking Test (Art. 1017)</h3>
+  <p><em>Imagine a father who owns a 3-door apartment building and two bank accounts. Does leaving "1/3 each" of the apartment to his three nephews have the same legal effect as leaving "Door 1 to A, Door 2 to B, and Door 3 to C"?</em></p>
+  <p>Under <strong>Article 1017</strong>, the words <em>"one-half for each"</em> or <em>"in equal shares"</em> or any designation of an <strong>aliquot part</strong> do not exclude accretion, so long as they do not make each heir the <strong>exclusive owner of determinate property</strong>. For money or fungible goods, accretion applies whenever the share of each beneficiary is <strong>not earmarked</strong> (not physically segregated).</p>
+
+  <div class="ui-box">
+    <strong>Symmetric Contrast: The Earmarking Test (Art. 1017)</strong>
+    <p class="ui-caption" style="margin-bottom:0.75rem"><strong>ALIQUOT QUOTA = ACCRETION APPLIES</strong> &nbsp;|&nbsp; <strong>PHYSICAL SEGREGATION (EARMARKED) = NO ACCRETION</strong></p>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:22%">Asset Type</th>
+          <th style="width:39%"><span class="c-green">✓ Accretion Granted (Pro Indiviso)</span></th>
+          <th style="width:39%"><span class="c-burgundy">✗ Accretion Excluded (Earmarked)</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Real Property</strong></td>
+          <td>"I leave my 3-door apartment building to A, B, and C in equal undivided shares" (or "1/3 to A and 2/3 to B"). Co-ownership is created over the whole building.</td>
+          <td>"I leave Door 1 of my apartment to A, Door 2 to B, and Door 3 to C" (or "northern half to A, southern half to B"). Each is exclusive owner of a distinct unit.</td>
+        </tr>
+        <tr>
+          <td><strong>Money / Fungible Goods</strong></td>
+          <td>"₱1 Million bank deposit to X and Y in 1/2 share each" or "₱30,000 to A and ₱40,000 to B out of my general cash." Drawn from a single unsegregated fund.</td>
+          <td>"Money in the left drawer to A, money in the right drawer to B" or "₱500k in Land Bank to A and ₱300k in safety deposit box to B." Physically segregated sources.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="trap-banner">
+    <strong>⚠️ The Favorite Examination Trap — Unequal Fractional Shares (1/3 vs. 2/3):</strong><br>
+    Examiners love to ask: <em>"Testator leaves his parcel of land 1/4 to A and 3/4 to B. A predeceases the testator. Does A's 1/4 accrue to B?"</em> Do not fall for the obsolete Spanish Civil Code rule! Under the <strong>New Civil Code (Art. 1017)</strong>, unequal fractions (1/4 and 3/4) are still <strong>aliquot parts held <em>pro indiviso</em></strong> in co-ownership. Because neither A nor B was made the exclusive owner of a physically segregated portion, <strong>accretion takes place</strong> and B gets the entire land.
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Part I Mini-Recall Quiz</strong>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Art. 1017, designating unequal fractional quotas (1/3 and 2/3) does not exclude accretion as long as the property remains undivided (pro indiviso) and no specific physical part is assigned exclusively to either heir.">
+      <div class="quiz-prompt">1. Testator T bequeaths a single mango orchard "1/3 to X and 2/3 to Y." X predeceases T without issue. Does X's 1/3 share accrue to Y?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="0" onchange="gradeInstant(this)"> No, because unequal fractional shares exclude accretion.</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="1" onchange="gradeInstant(this)"> Yes, because 1/3 and 2/3 are aliquot quotas held pro indiviso without physical earmarking.</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="2" onchange="gradeInstant(this)"> No, X's share passes immediately to T's intestate heirs.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Here, the cash legacies are physically segregated ('earmarked') in two distinct containers/accounts (BPI vs. BDO). Under Art. 1017, earmarking destroys unity of object, so accretion cannot take place.">
+      <div class="quiz-prompt">2. T's will states: "I leave my ₱500,000 in BPI to A, and my ₱500,000 in BDO to B." If A repudiates, does B get the ₱500,000 in BPI by accretion?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="0" onchange="gradeInstant(this)"> Yes, because money is always a fungible good subject to accretion.</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="1" onchange="gradeInstant(this)"> Yes, because both A and B were given equal ₱500,000 shares.</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="2" onchange="gradeInstant(this)"> No, because the funds are earmarked in separate bank accounts; A's share passes by intestacy (Art. 1022).</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 id="part-2">PART II — Intestate Accretion, Proportional Sharing &amp; The Legitime</h2>
+
+  <h3 id="sec-4">4. Accretion in Legal or Intestate Succession (Art. 1018)</h3>
+  <p><em>Imagine a decedent who dies without a will, survived by three brothers—A, B, and C—and A's son (nephew N). If brother A formally renounces his inheritance hoping his son N will step into his shoes, what happens to A's share?</em></p>
+  <p>Under <strong>Article 1018</strong>, <em>"in legal succession the share of the person who repudiates the inheritance shall always accrue to his co-heirs."</em> Because an heir who renounces can <strong>never be represented</strong> (Art. 977), A's repudiated share accrues directly to his co-heirs B and C, completely excluding nephew N.</p>
+
+  <div class="ui-box">
+    <strong>How the 3 Causes of Vacancy Operate in Intestacy</strong>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:22%">Cause in Intestacy</th>
+          <th style="width:38%">Primary Rule</th>
+          <th style="width:40%">When Accretion / Own Right Applies</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Repudiation</strong></td>
+          <td><strong>Always triggers accretion (Art. 1018)</strong> because a renouncer cannot be represented (Art. 977).</td>
+          <td>Accrues to co-heirs in the same degree (unless <em>all</em> in the same degree repudiate, calling the next degree in their own right under Art. 969).</td>
+        </tr>
+        <tr>
+          <td><strong>2. Incapacity</strong></td>
+          <td>Triggers <strong>Right of Representation</strong> first if qualified representatives exist.</td>
+          <td>Accretion occurs <strong>only when representation cannot take place</strong> (e.g., no descendants, or in the collateral line beyond nephews/nieces under Art. 972).</td>
+        </tr>
+        <tr>
+          <td><strong>3. Predecease</strong></td>
+          <td>Triggers <strong>Right of Representation</strong> first if qualified representatives exist.</td>
+          <td>If no representatives exist, the surviving co-heirs inherit the entire estate <strong>in their own right</strong> (<em>per capita</em>).</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ui-divider"></div>
+    <p style="font-size:0.88rem; margin:0"><strong>Juridical Note (Justice J.B.L. Reyes vs. Code Commission):</strong> Justice J.B.L. Reyes argued Art. 1018 is technically superfluous because intestate co-heirs take a vacant share in their own right by operation of law. The Code Commission (and Manresa, Tolentino, Caguioa, Paras) retained Art. 1018 based on presumed equal affection—and noted the practical mathematical distribution is identical.</p>
+  </div>
+
+  <div class="ui-grid-2">
+    <div class="ui-box" style="margin:0">
+      <strong class="c-navy">Modification 1: Concurrence with Representation (By Root)</strong>
+      <p style="font-size:0.88rem; margin:0.4rem 0 0">When grandchildren inherit by representation (dividing their predeceased parent's root/<em>stirpes</em>), if one grandchild repudiates, his vacant share accrues <strong>exclusively to his co-representatives (his siblings)</strong> within that root—not to his uncles or aunts.</p>
+    </div>
+    <div class="ui-box" style="margin:0">
+      <strong class="c-teal">Modification 2: Division by Lines in Ascendants (Art. 987)</strong>
+      <p style="font-size:0.88rem; margin:0.4rem 0 0">In the ascending direct line, the estate first splits 50–50 between paternal and maternal lines. If the maternal grandmother repudiates, her share accrues <strong>exclusively to the maternal grandfather</strong>, not to the paternal grandparents.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-5">5. Proportional Sharing &amp; Transmission of Obligations (Arts. 1019–1020)</h3>
+  <p><em>Imagine Testator X leaves a ₱1.2 Million estate to four relatives in unequal fractions: A (1/2), B (1/4), C (1/8), and D (1/8). When A renounces his ₱600,000 half, do B, C, and D split that ₱600,000 equally at ₱200,000 each, or in proportion to their initial shares?</em></p>
+  <p>Under <strong>Article 1019</strong>, the heirs to whom the portion goes by accretion take it <strong>in the same proportion that they inherit</strong> (analogous to reciprocal substitution under Art. 861). Furthermore, under <strong>Article 1020</strong>, accretion operates <em>cum onere</em>—the accruing heirs succeed to <strong>all the rights and obligations</strong> which the renouncing or incapacitated heir would have had, unless the testator expressly provided otherwise or the obligation is <em>intuitu personae</em> (purely personal).</p>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-init1019')">1. Initial Shares (₱1.2M)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-acc1019')">2. After A Repudiates (Art. 1019)</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-init1019">
+      <p><strong>Step 1 — Original Testamentary Institution (₱1,200,000 Estate)</strong><br>Testator X institutes A (1/2), B (1/4), C (1/8), and D (1/8).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱600k</div><div class="bar-fill" style="height:100px; background:#94A3B8"></div><div class="bar-lbl">A (1/2)</div></div>
+        <div class="bar-col"><div class="bar-val">₱300k</div><div class="bar-fill" style="height:50px"></div><div class="bar-lbl">B (1/4)</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:25px"></div><div class="bar-lbl">C (1/8)</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:25px"></div><div class="bar-lbl">D (1/8)</div></div>
+      </div>
+      <div class="ui-caption">A's ₱600,000 share (grey) becomes vacant upon A's repudiation.</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-acc1019">
+      <p><strong>Step 2 — Proportional Accretion of A's ₱600,000 (2 : 1 : 1 Ratio)</strong><br>Remaining fractions among B (1/4), C (1/8), and D (1/8) form a <strong>2 : 1 : 1 ratio</strong> (4 parts total). B gets 2/4 (₱300k), C gets 1/4 (₱150k), and D gets 1/4 (₱150k) of the vacant ₱600,000.</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱600k</div><div class="bar-fill" style="height:100px; background:#16A34A"></div><div class="bar-lbl">B Total</div></div>
+        <div class="bar-col"><div class="bar-val">₱300k</div><div class="bar-fill" style="height:50px; background:#16A34A"></div><div class="bar-lbl">C Total</div></div>
+        <div class="bar-col"><div class="bar-val">₱300k</div><div class="bar-fill" style="height:50px; background:#16A34A"></div><div class="bar-lbl">D Total</div></div>
+      </div>
+      <div class="ui-caption">B: ₱300k original + ₱300k accretion = ₱600k. C &amp; D: ₱150k original + ₱150k accretion = ₱300k each.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-6">6. Accretion Among Compulsory Heirs &amp; The Legitime (Art. 1021)</h3>
+  <p><em>Imagine a wealthy father with a ₱1.2 Million estate who is survived by two legitimate children (A and B), his wife (W), and an illegitimate child (X). In his will, he gives them their strict legitimes and leaves the remaining ₱150,000 free portion to all four of them equally. If child A repudiates his entire inheritance, why must we split A's share into two different legal buckets?</em></p>
+  <p>Under <strong>Article 1021</strong>, <strong>NO ACCRETION CAN EVER TAKE PLACE WITH RESPECT TO THE LEGITIME</strong>. Among compulsory heirs, accretion occurs <strong>only within the disposable free portion</strong> when left conjointly to two or more of them, or to any one of them and a stranger. If the part repudiated is the <strong>legitime</strong>, the other co-heirs succeed to it <strong>in their own right</strong> (by intestate ratios), and <em>not</em> by accretion.</p>
+
+  <div class="ui-box svg-box">
+    <svg viewBox="0 0 520 215" width="100%">
+      <!-- Root node: Estate -->
+      <rect x="160" y="10" width="200" height="38" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+      <text x="260" y="27" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">TESTATOR'S ESTATE (₱1,200,000)</text>
+      <text x="260" y="41" text-anchor="middle" font-size="9.5" fill="#64748B">Child A Repudiates Entire Share (₱337,500)</text>
+
+      <!-- Connecting lines -->
+      <line x1="210" y1="48" x2="130" y2="82" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="310" y1="48" x2="390" y2="82" stroke="#64748B" stroke-width="1.5"/>
+
+      <!-- Left Branch: A's Legitime -->
+      <rect x="20" y="82" width="220" height="52" rx="8" fill="#FEF2F2" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="130" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#991B1B">A's Vacant Legitime: ₱300,000</text>
+      <text x="130" y="116" text-anchor="middle" font-size="9.5" fill="#7F1D1D">NO ACCRETION (Art. 1021 par. 2)</text>
+      <text x="130" y="128" text-anchor="middle" font-size="9" fill="#7F1D1D">Passes in OWN RIGHT via Intestate Ratio (2:2:1)</text>
+
+      <!-- Right Branch: A's Free Portion -->
+      <rect x="280" y="82" width="220" height="52" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="390" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#166534">A's Free Portion Share: ₱37,500</text>
+      <text x="390" y="116" text-anchor="middle" font-size="9.5" fill="#166534">ACCRETION APPLIES (Art. 1021 par. 1)</text>
+      <text x="390" y="128" text-anchor="middle" font-size="9" fill="#166534">Divided in Instituted Ratio (1:1:1 Equal)</text>
+
+      <!-- Arrows down to final buckets -->
+      <line x1="130" y1="134" x2="130" y2="156" stroke="#991B1B" stroke-width="1.5"/>
+      <line x1="390" y1="134" x2="390" y2="156" stroke="#16A34A" stroke-width="1.5"/>
+
+      <!-- Left Result -->
+      <rect x="20" y="156" width="220" height="46" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+      <text x="130" y="174" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2937">B (2/5) = +₱120k | W (2/5) = +₱120k</text>
+      <text x="130" y="190" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1F2937">X (1/5) = +₱60k</text>
+
+      <!-- Right Result -->
+      <rect x="280" y="156" width="220" height="46" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+      <text x="390" y="174" text-anchor="middle" font-size="9.5" font-weight="600" fill="#166534">B (1/3) = +₱12,500 | W (1/3) = +₱12,500</text>
+      <text x="390" y="190" text-anchor="middle" font-size="9.5" font-weight="600" fill="#166534">X (1/3) = +₱12,500</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center">Why the distinction matters in the Bar Exam: A's ₱300k legitime follows the <strong>2:2:1 statutory ratio</strong>, whereas A's ₱37.5k free-portion share follows the <strong>1:1:1 testamentary ratio</strong>!</div>
+  </div>
+
+  <div class="ui-box">
+    <strong>Complete Breakdown of the Classroom Computation (₱1,200,000 Estate)</strong>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Compulsory Heir</th>
+          <th class="num">Initial Legitime</th>
+          <th class="num">Initial Free Portion</th>
+          <th class="num">+ From A's Legitime (2:2:1 Own Right)</th>
+          <th class="num">+ From A's FP (1:1:1 Accretion)</th>
+          <th class="num">Final Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>A (Legitimate Child — Repudiates)</strong></td>
+          <td class="num">(₱300,000)</td>
+          <td class="num">(₱37,500)</td>
+          <td class="num">—</td>
+          <td class="num">—</td>
+          <td class="num"><strong>₱0</strong></td>
+        </tr>
+        <tr>
+          <td><strong>B (Legitimate Child)</strong></td>
+          <td class="num">₱300,000</td>
+          <td class="num">₱37,500</td>
+          <td class="num">+ ₱120,000</td>
+          <td class="num">+ ₱12,500</td>
+          <td class="num"><strong>₱470,000</strong></td>
+        </tr>
+        <tr>
+          <td><strong>W (Surviving Spouse)</strong></td>
+          <td class="num">₱300,000</td>
+          <td class="num">₱37,500</td>
+          <td class="num">+ ₱120,000</td>
+          <td class="num">+ ₱12,500</td>
+          <td class="num"><strong>₱470,000</strong></td>
+        </tr>
+        <tr>
+          <td><strong>X (Illegitimate Child)</strong></td>
+          <td class="num">₱150,000</td>
+          <td class="num">₱37,500</td>
+          <td class="num">+ ₱60,000</td>
+          <td class="num">+ ₱12,500</td>
+          <td class="num"><strong>₱260,000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Part II Mini-Recall Quiz</strong>
+    <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Under Art. 1021, no accretion ever takes place with respect to the legitime. When a compulsory heir repudiates his legitime, the co-heirs succeed to it in their own right (following intestate ratios), while only the conjoint free portion share passes by accretion.">
+      <div class="quiz-prompt">1. Why does the law distinguish between "inheriting in their own right" (for a vacant legitime) and "accretion" (for a vacant free portion) under Article 1021?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="0" onchange="gradeInstant(this)"> Because a vacant legitime is distributed using statutory intestate ratios (e.g., 2:2:1), whereas a vacant free portion is distributed using the testamentary ratio (Art. 1019).</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="1" onchange="gradeInstant(this)"> Because an illegitimate child is barred from receiving any share by accretion.</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="2" onchange="gradeInstant(this)"> There is never any mathematical difference between the two.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="In the ascending line, succession is divided by lines (50% paternal, 50% maternal). A vacancy in the maternal line accrues exclusively to the surviving ascendant in that same maternal line.">
+      <div class="quiz-prompt">2. Decedent dies intestate survived only by his Paternal Grandfather, Paternal Grandmother, Maternal Grandfather, and Maternal Grandmother. If the Maternal Grandmother repudiates her share, who gets it?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="0" onchange="gradeInstant(this)"> All three surviving grandparents equally (1/3 each).</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="1" onchange="gradeInstant(this)"> Exclusively the Maternal Grandfather, because the estate was first split 50–50 by lines.</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="2" onchange="gradeInstant(this)"> The State by escheat.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 id="part-3">PART III — Hierarchy of Vacancies, Particular Titles &amp; Acceptance Rules</h2>
+
+  <h3 id="sec-7">7. The ISRAI Hierarchy of Filling Vacant Shares (Art. 1022)</h3>
+  <p><em>Imagine a probate judge looking at a vacant testamentary share. The decedent's grandchild claims it by representation, a co-heir claims it by accretion, a named substitute claims it by substitution, and a legal heir claims it by intestacy. Who wins first?</em></p>
+  <p>Under <strong>Article 1022</strong>, in testamentary succession, when the right of accretion does not take place and no substitute has been designated, the vacant portion passes to the <strong>legal heirs of the testator</strong>, who receive it with the same charges and obligations. Courts resolve competing claims strictly through the <strong>ISRAI Order of Preference</strong>.</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: I – S – R – A – I (Order of Preference for Filling Vacancies)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'I — Institution (Primary designation in the will)\nS — Substitution (Express substitute appointed by testator)\nR — Representation (Applies to legitime/intestacy for predecease, incapacity, disinheritance)\nA — Accretion (By operation of law among conjoint pro indiviso heirs)\nI — Intestacy (Passes to legal heirs under Art. 1022 with same charges)')">📋 Copy</button>
+    </div>
+    <div class="flow-stack">
+      <div class="flow-step">
+        <strong>1. INSTITUTION</strong>
+        <span>Primary disposition in the will if the instituted heir can and does accept.</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>2. SUBSTITUTION (Free Portion)</strong>
+        <span>Express will of the testator (Art. 859) always defeats the implied will of accretion.</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>3. REPRESENTATION (Legitime / Intestacy)</strong>
+        <span>In compulsory or legal succession (predecease/incapacity/disinheritance), representation defeats accretion.</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>4. ACCRETION (Art. 1016 / Art. 1018)</strong>
+        <span>Applies if no substitute or representative exists, provided Art. 1016 requisites concur (never on legitime).</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>5. INTESTACY (Art. 1022)</strong>
+        <span>Fallback rule: passes to the testator's legal heirs subject to the same charges and obligations.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-8">8. Devisees, Legatees, Usufructuaries &amp; Selective Repudiation (Art. 1023)</h3>
+  <p><em>Imagine an elderly aunt who leaves a life usufruct over her rental commercial building conjointly to her three nephews "for as long as they live." Ten years after her death, one nephew dies. Does his 1/3 share of the rental income revert to the naked owner, or go to the two surviving nephews?</em></p>
+  <p>Under <strong>Article 1023</strong>, accretion takes place among <strong>devisees, legatees, and usufructuaries</strong> under the same conditions established for heirs. In <em>Policarpio v. Salamat</em> (L-21809, Jan. 31, 1966), the Supreme Court held that when a life usufruct is constituted conjointly, the death of one co-usufructuary causes his share to <strong>accrue to the surviving co-usufructuaries</strong>—not revert to the naked owners—until the death of the last surviving usufructuary.</p>
+
+  <div class="ui-box">
+    <strong>Symmetric Contrast: Selective Acceptance &amp; Repudiation of Accretion</strong>
+    <p class="ui-caption" style="margin-bottom:0.75rem"><strong>ACCEPT ORIGINAL + RENOUNCE ACCRETION = VALID</strong> &nbsp;|&nbsp; <strong>RENOUNCE ORIGINAL + ACCEPT ACCRETION = VOID</strong></p>
+    <div class="ui-grid-2">
+      <div class="stat-card" style="text-align:left; border-left: 4px solid #16A34A">
+        <div style="font-weight:700; color:#166534; font-size:0.92rem">✓ Can an heir ACCEPT the original share and REPUDIATE the accretion?</div>
+        <p style="font-size:0.86rem; margin:0.4rem 0 0"><strong>YES (Majority View: Castan, Tolentino, Caguioa, Jurado, Paras).</strong> Accretion is an optional right granted by law (<em>jus accrescendi</em>), distinct from the original share derived from the express will. Thus, an heir may decline an accrued share burdened with heavy charges under Art. 1020.</p>
+      </div>
+      <div class="stat-card" style="text-align:left; border-left: 4px solid #991B1B">
+        <div style="font-weight:700; color:#991B1B; font-size:0.92rem">✗ Can an heir REPUDIATE the original share and ACCEPT the accretion?</div>
+        <p style="font-size:0.86rem; margin:0.4rem 0 0"><strong>NO (Absolute Rule).</strong> The original institution is the indispensable legal foundation (root) for the accessory right of accretion. Without accepting the primary share, no right to accretion can ever come into existence.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-9">9. Master Summary Matrix: Rules for Filling Vacant Shares</h3>
+  <p>Use this consolidated matrix to solve any problem involving a vacant share across testate and intestate succession:</p>
+
+  <div class="ui-box" style="overflow-x:auto">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th>Succession Type</th>
+          <th>Portion Affected</th>
+          <th>Cause of Vacancy</th>
+          <th>Priority 1</th>
+          <th>Priority 2</th>
+          <th>Priority 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Voluntary Testate</strong></td>
+          <td>Free Portion</td>
+          <td>Predecease / Incapacity / Repudiation</td>
+          <td><span class="c-navy"><strong>1. Express Substitution</strong></span></td>
+          <td><span class="c-green"><strong>2. Accretion</strong> (Art. 1016)</span></td>
+          <td><strong>3. Intestacy</strong> (Art. 1022 to legal heirs)</td>
+        </tr>
+        <tr>
+          <td><strong>Compulsory Testate</strong></td>
+          <td>Legitime</td>
+          <td>Predecease / Incapacity / Disinheritance</td>
+          <td><span class="c-teal"><strong>1. Representation</strong> (descendants)</span></td>
+          <td><strong>2. Intestacy</strong> (to legal heirs in own right)</td>
+          <td><em>(Never Accretion / Never Substitution)</em></td>
+        </tr>
+        <tr>
+          <td><strong>Compulsory Testate</strong></td>
+          <td>Legitime</td>
+          <td>Repudiation (Art. 977 bars representation)</td>
+          <td><strong>1. Intestacy</strong> (to legal heirs in own right, Art. 1021)</td>
+          <td>—</td>
+          <td><em>(Never Representation / Never Accretion)</em></td>
+        </tr>
+        <tr>
+          <td><strong>Legal / Intestate</strong></td>
+          <td>Entire Estate</td>
+          <td>Predecease / Incapacity</td>
+          <td><span class="c-teal"><strong>1. Representation</strong> (children/nephews)</span></td>
+          <td><span class="c-green"><strong>2. Accretion / Own Right</strong> (co-heirs)</span></td>
+          <td><strong>3. Next Degree</strong> in Own Right</td>
+        </tr>
+        <tr>
+          <td><strong>Legal / Intestate</strong></td>
+          <td>Entire Estate</td>
+          <td>Repudiation</td>
+          <td><span class="c-green"><strong>1. Accretion</strong> (always accrues to co-heirs, Art. 1018)</span></td>
+          <td><strong>2. Next Degree</strong> in Own Right (if <em>all</em> repudiate, Art. 969)</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui-box quiz-box">
+    <strong>⚡ Part III Mini-Recall Quiz</strong>
+    <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="In Policarpio v. Salamat, the Supreme Court held that under Art. 1023, when a life usufruct is constituted conjointly, upon the death of a co-usufructuary his share accrues to the surviving co-usufructuaries until the last one dies.">
+      <div class="quiz-prompt">1. Under Policarpio v. Salamat and Art. 1023, if a testatrix leaves a life usufruct conjointly to three cousins "for as long as they live," what happens when one cousin dies 5 years after the testatrix?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="0" onchange="gradeInstant(this)"> Accretion does not apply because the cousin died after the testatrix.</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="1" onchange="gradeInstant(this)"> The deceased cousin's share in the usufruct accrues to the surviving co-usufructuaries until the death of the last survivor.</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="2" onchange="gradeInstant(this)"> One-third of the usufruct immediately merges with the naked ownership.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Majority doctrine holds that an heir may accept his original share and repudiate the accruing share (since accretion is an optional right), but can NEVER repudiate the original share and accept the accretion.">
+      <div class="quiz-prompt">2. T leaves his free portion conjointly to X and Y, but burdens X's share with a heavy obligation to support T's cousin. X repudiates. Can Y accept his own original share while repudiating X's accrued share?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="0" onchange="gradeInstant(this)"> Yes, because accretion is a right (not an obligation) distinct from the original institution.</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="1" onchange="gradeInstant(this)"> No, acceptance of the original share automatically forces acceptance of the accretion.</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="2" onchange="gradeInstant(this)"> No, but Y can repudiate his original share and accept X's share instead.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2 id="final-sheet">Final Memory Sheet</h2>
+
+  <h3>Master Recall Table (Articles 1015–1023 &amp; Jurisprudence)</h3>
+  <table class="ui-table">
+    <thead>
+      <tr>
+        <th style="width:28%">Article / Case</th>
+        <th>One-Line Doctrinal Recall</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Art. 1015</strong></td><td>Defines accretion (<em>jus accrescendi</em>): vacant share in a conjoint call is added to co-heirs, co-devisees, or co-legatees.</td></tr>
+      <tr><td><strong>Art. 1016</strong></td><td>Sets 4 testamentary requisites (<strong>PUVA</strong>): Plurality of subjects, Unity of object (<em>pro indiviso</em>), Vacant share (P-I-R), Acceptance.</td></tr>
+      <tr><td><strong>Art. 1017</strong></td><td>Aliquot fractional shares (even if unequal, e.g., 1/3 and 2/3) allow accretion; physical earmarking of specific property or money excludes it.</td></tr>
+      <tr><td><strong>Art. 1018</strong></td><td>In legal/intestate succession, the share of a repudiating heir <strong>always accrues</strong> to his co-heirs (since a renouncer cannot be represented).</td></tr>
+      <tr><td><strong>Art. 1019</strong></td><td>Co-heirs divide the accrued share <strong>proportionately</strong> according to their initial quotas (not necessarily equally).</td></tr>
+      <tr><td><strong>Art. 1020</strong></td><td>Accretion is <em>cum onere</em>: passes all rights and obligations attached to the vacant share, unless personal (<em>intuitu personae</em>) or exempted.</td></tr>
+      <tr><td><strong>Art. 1021</strong></td><td><strong>Never accretion on the legitime</strong> (co-heirs take in their own right via intestate ratios); accretion applies only to the conjoint free portion.</td></tr>
+      <tr><td><strong>Art. 1022</strong></td><td>Follow the <strong>ISRAI</strong> hierarchy; if substitution, representation, and accretion all fail, the vacant share passes to legal heirs with same charges.</td></tr>
+      <tr><td><strong>Art. 1023</strong></td><td>Extends accretion rules identically to co-devisees, co-legatees, and co-usufructuaries.</td></tr>
+      <tr><td><strong>Policarpio v. Salamat</strong></td><td>Death of one conjoint life usufructuary causes his share to accrue to surviving co-usufructuaries until the last usufructuary dies.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Top 5 Rules to Prioritize for Examination</h3>
+  <ol>
+    <li><strong>No Accretion on the Legitime (Art. 1021):</strong> Always split a compulsory heir's vacant inheritance into two buckets—the <strong>Legitime</strong> passes to legal heirs <em>in their own right</em> (using statutory intestate ratios like 2:2:1), while the <strong>Free Portion</strong> passes <em>by accretion</em> (using testamentary proportions under Art. 1019).</li>
+    <li><strong>The ISRAI Hierarchy (Art. 1022):</strong> In the free portion, <strong>Substitution</strong> defeats Accretion. In the legitime or intestacy, <strong>Representation</strong> defeats Accretion. Only when both are absent does Accretion apply, followed last by Intestacy.</li>
+    <li><strong>Earmarked vs. Aliquot Shares (Art. 1017):</strong> Unequal fractional shares (1/4 and 3/4) <em>allow</em> accretion because they create co-ownership <em>pro indiviso</em>. Assigning specific physical parts ("Door 1 to A, Door 2 to B" or "BPI account to A, BDO account to B") <em>bars</em> accretion.</li>
+    <li><strong>Repudiation Never Allows Representation (Arts. 977 &amp; 1018):</strong> If an heir repudiates, his children cannot represent him—his free-portion or intestate share goes to his co-heirs by accretion (unless all co-heirs in that degree repudiate, triggering Art. 969).</li>
+    <li><strong>One-Way Selective Acceptance:</strong> You may <strong>accept the original share and renounce the accretion</strong>, but you can <strong>never renounce the original share and accept the accretion</strong>.</li>
+  </ol>
+
+  <h3>Final 5-Question Recall Challenge</h3>
+  <div class="ui-box final-quiz-box">
+    <div class="quiz-q" data-answer="1" data-why="In the free portion, express substitution (the express will of the testator) always overrides accretion (the merely presumed will of the testator) under the ISRAI hierarchy.">
+      <div class="quiz-prompt">1. Testator leaves his entire disposable free portion conjointly to friends A and B, and designates Z as A's vulgar substitute. If A predeceases the testator, who takes A's half of the free portion?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> B, by right of accretion under Article 1016.</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> Z, by right of substitution, because express substitution defeats implied accretion.</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> A's children, by right of representation.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 1019, surviving co-heirs divide the vacant share in proportion to their original quotas. B (1/4) and C (1/4) have a 1:1 ratio, so they split A's ₱600,000 equally (₱300,000 each), giving B and C ₱600,000 each in total.">
+      <div class="quiz-prompt">2. T institutes friends A (1/2), B (1/4), and C (1/4) to a ₱1,200,000 estate. A becomes incapacitated to inherit. How much do B and C receive in total after accretion?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> B and C receive ₱300,000 each; A's ₱600,000 goes to intestate heirs.</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> B receives ₱800,000 and C receives ₱400,000.</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> B and C receive ₱600,000 each (₱300k original + ₱300k proportional accretion).</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="0" data-why="When grandchildren inherit by representation, they inherit per stirpes (by root). If one grandchild repudiates, his vacant share accrues exclusively to his co-representatives (his siblings within that same root) and not to his uncles/aunts.">
+      <div class="quiz-prompt">3. Decedent D dies intestate. His son A predeceased him, leaving two children (grandchildren G1 and G2), while D's other son B survives. If grandchild G1 repudiates his share, who gets G1's vacant portion?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> Exclusively G2 (G1's co-representative in A's root).</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> Uncle B, because B is nearer in degree.</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> Shared equally between Uncle B and G2.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 1020, accretion passes all obligations imposed on the vacant share EXCEPT when the testator provides otherwise or when the obligation is purely personal (intuitu personae), such as painting a portrait requiring A's personal artistic skill.">
+      <div class="quiz-prompt">4. T leaves a conjoint legacy of ₱500,000 to master painter A and businessman B, imposing on A the obligation to paint T's family portrait. A predeceases T. When A's share accrues to B, must B paint the portrait?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> Yes, because accretion is always cum onere without exception under Art. 1020.</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> No, and therefore accretion is completely barred.</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> No, because a purely personal obligation (intuitu personae) is an exception to Art. 1020; B still takes the accrued share.</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="1" data-why="In the classroom problem (₱1.2M estate with legitimate children A & B, spouse W, and illegitimate child X), when A repudiates, A's ₱300,000 legitime is distributed to B, W, and X in their own right using the 2:2:1 intestate ratio (1/5 of ₱300k = ₱60k to X), while A's ₱37,500 free portion accrues equally (1/3 of ₱37.5k = ₱12.5k to X).">
+      <div class="quiz-prompt">5. In a ₱1.2M estate where legitimate children A and B, Spouse W, and Illegitimate child X are given their strict legitimes plus equal 1/4 shares of the ₱150,000 free portion, if Child A repudiates, how much of A's vacant share goes to Illegitimate Child X?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> ₱112,500 (1/3 of A's entire ₱337,500 share).</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> ₱72,500 total (₱60,000 from A's legitime in X's own right [1/5] + ₱12,500 from A's free portion by accretion [1/3]).</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> ₱67,500 total (1/5 of A's entire ₱337,500 share).</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+    <div class="final-score-box" hidden>
+      <div class="final-score-num">0 / 5</div>
+      <div style="font-size:0.9rem; color:var(--muted); margin-bottom:0.75rem">Correct answers</div>
+      <button type="button" class="reset-btn" onclick="resetFinalQuiz(this)">Try again</button>
+    </div>
+  </div>
+
+  <hr>
+  <p style="text-align:center; font-size:0.88rem; color:var(--muted); font-weight:600">
+    Mastery Sequence: Check ISRAI Hierarchy → Verify Pro Indiviso / Non-Earmarked Object (Art. 1017) → Separate Legitime (Own Right) from Free Portion (Accretion, Art. 1021) → Compute Proportional Shares (Art. 1019)
+  </p>
+</div>
+
+<script>
+  function copyMnemonic(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    });
+  }
+
+  function switchTab(btn, panelId) {
+    const box = btn.closest('[data-tabs]');
+    box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+    box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = box.querySelector(`[data-panel="${panelId}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  function gradeInstant(input) {
+    const qBox = input.closest('.quiz-q');
+    const ans = qBox.dataset.answer;
+    const why = qBox.dataset.why || '';
+    const fb = qBox.querySelector('.quiz-feedback');
+    const opts = qBox.querySelectorAll('.quiz-opt');
+    const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+    const isCorrect = input.value === ans;
+    fb.hidden = false;
+    fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+    fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+  }
+
+  function updateFinalQuiz(input) {
+    const box = input.closest('.final-quiz-box');
+    const total = box.querySelectorAll('.quiz-q').length;
+    const answered = new Set();
+    box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+    const btn = box.querySelector('.check-btn');
+    if (btn) btn.disabled = answered.size < total;
+  }
+
+  function gradeFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    const qs = box.querySelectorAll('.quiz-q');
+    let score = 0;
+    qs.forEach(q => {
+      const ans = q.dataset.answer;
+      const why = q.dataset.why || '';
+      const checked = q.querySelector('input[type="radio"]:checked');
+      const fb = q.querySelector('.quiz-feedback');
+      const isCorrect = checked && checked.value === ans;
+      if (isCorrect) score++;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ ' : 'ℹ ') + why;
+    });
+    const scoreBox = box.querySelector('.final-score-box');
+    if (scoreBox) {
+      scoreBox.hidden = false;
+      scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+    }
+  }
+
+  function resetFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+    box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+    box.querySelector('.final-score-box').hidden = true;
+    box.querySelector('.check-btn').disabled = true;
+  }
+</script>
+</body>
+</html>
