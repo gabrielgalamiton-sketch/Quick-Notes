@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Law: Policy Execution, Classifications, Cash-and-Carry Doctrine, Multiple Insurances & Marine Perils</title>
+  <style>
+    :root {
+      --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+      --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+      --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+      --text: #1F2937; --muted: #64748B;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+    }
+    .sticky-nav {
+      position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+      padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+    .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+    .nav-dropdown {
+      flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+      border: 1px solid #CBD5E1; background: #FFF; color: var(--text); cursor: pointer;
+    }
+    .document-container {
+      max-width: 820px; margin: 2rem auto; background: var(--surface);
+      padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    }
+    h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; line-height: 1.3; }
+    h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+    h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+    h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+    .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+    .doc-approach {
+      font-size: 0.95rem; color: #374151; margin-bottom: 1.5rem;
+      background: var(--surface-2); padding: 0.75rem 1rem; border-radius: 8px; border-left: 4px solid var(--teal);
+    }
+    hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+    .ui-divider { margin: 0.85rem 0; }
+    .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+    .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+    /* Callouts & Banners */
+    .update-banner {
+      background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+    }
+    .trap-banner {
+      background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .hypo-card {
+      background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid var(--green);
+      border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+    }
+    .ui-box {
+      border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+      margin: 1.25rem 0; background: var(--surface);
+    }
+    .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+    .copy-btn, .check-btn, .reset-btn {
+      border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+      border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+    .check-btn {
+      width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+      color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+    }
+    .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* Mental Map Rows */
+    .mm-row { display: flex; align-items: center; gap: 1rem; }
+    .mm-icon {
+      width: 44px; height: 44px; border-radius: 10px; background: var(--surface-2);
+      display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;
+    }
+    .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+    .mm-desc { font-size: 0.88rem; color: #374151; }
+
+    /* Flow Stack & Grids */
+    .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+    .flow-step {
+      width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+      text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+    }
+    .flow-step strong { color: var(--navy); font-size: 0.92rem; }
+    .flow-step span { font-size: 0.82rem; color: var(--muted); }
+    .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+    .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+    .ui-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin: 0.75rem 0; }
+    .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+    .stat-card {
+      background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+    }
+    .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+    .stat-card .stat-val { font-size: 1.2rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+    /* Tables */
+    .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+    .ui-table th {
+      text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+      border-bottom: 1.5px solid #CBD5E1;
+    }
+    .ui-table td {
+      padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+    }
+    .compact-table td { padding: 0.45rem 0.6rem 0.45rem 0; font-size: 0.88rem; }
+    .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+    /* Segmented Control & Bar Chart */
+    .seg-control {
+      display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+    }
+    .seg-btn {
+      flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+      border-radius: 6px; font-weight: 600; font-size: 0.84rem; color: var(--muted); cursor: pointer;
+    }
+    .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .bar-chart {
+      display: flex; align-items: flex-end; justify-content: space-around; height: 165px;
+      padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+    }
+    .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 90px; }
+    .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+    .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+    .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; text-align: center; }
+
+    /* SVG Containers */
+    .svg-box { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+    /* Interactive Quizzes */
+    .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+    .quiz-q:last-of-type { border-bottom: none; }
+    .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+    .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+    .quiz-opt {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+      padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+    }
+    .quiz-opt:hover { background: var(--surface-2); }
+    .quiz-feedback {
+      margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem; line-height: 1.45;
+    }
+    .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+    .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+    .final-score-box {
+      margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+      padding: 1.25rem; text-align: center;
+    }
+    .final-score-num { font-size: 1.75rem; font-weight: 800; color: var(--navy); }
+    @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- Pinned Sticky Navigation Bar -->
+  <nav class="sticky-nav">
+    <div class="nav-content">
+      <span class="nav-label">JUMP TO SECTION:</span>
+      <select class="nav-dropdown" onchange="navigateTo(this.value)">
+        <option value="">-- Table of Contents --</option>
+        <optgroup label="Overview">
+          <option value="mental-map">Mental Map of the Lecture</option>
+          <option value="legal-update">Important Statutory Updates</option>
+        </optgroup>
+        <optgroup label="Part I — Policy Nature, Classifications & Attachments">
+          <option value="part-1">Part I Overview</option>
+          <option value="sec-1">1. Policy vs. Contract & Regulatory Form</option>
+          <option value="sec-2">2. Policy Classifications: Open, Valued & Running</option>
+          <option value="sec-3">3. Documents Attached: Warranties, Riders & Cover Notes</option>
+          <option value="sec-4">4. Non-Life Cancellation & 45-Day Renewal</option>
+          <option value="quiz-part-1">Part I Mini-Recall Quiz</option>
+        </optgroup>
+        <optgroup label="Part II — Premiums, Cash-and-Carry & Multiple Insurances">
+          <option value="part-2">Part II Overview</option>
+          <option value="sec-5">5. Concept, Consideration & Payment Modes of Premium</option>
+          <option value="sec-6">6. Cash-and-Carry Doctrine & 5 Exclusive Exceptions</option>
+          <option value="sec-7">7. Return of Premiums & Life Anti-Forfeiture Devices</option>
+          <option value="sec-8">8. Multiple Insurances: Double, Over-Insurance & Reinsurance</option>
+          <option value="quiz-part-2">Part II Mini-Recall Quiz</option>
+        </optgroup>
+        <optgroup label="Part III — Loss, Claims Conditions & Marine Perils">
+          <option value="part-3">Part III Overview</option>
+          <option value="sec-9">9. Concept of Loss, Modes of Satisfaction & Proximate Cause</option>
+          <option value="sec-10">10. Notice of Loss, Proof of Loss & Beneficiary Status</option>
+          <option value="sec-11">11. Marine Insurance Scope: Perils of Sea vs. Ship</option>
+          <option value="sec-12">12. Specialized Marine Clauses & Bottomry/Respondentia</option>
+          <option value="quiz-part-3">Part III Mini-Recall Quiz</option>
+        </optgroup>
+        <optgroup label="Final Mastery & Exam Priorities">
+          <option value="master-sheet">Final Memory Sheet: Master Recall Table</option>
+          <option value="exam-priorities">Top Bar Exam Priorities</option>
+          <option value="final-challenge">Final 5-Question Recall Challenge</option>
+        </optgroup>
+      </select>
+    </div>
+  </nav>
+
+  <div class="document-container">
+
+    <!-- Header Block -->
+    <h1>Insurance Law: Policy Execution, Classifications, Cash-and-Carry Doctrine, Multiple Insurances & Marine Perils</h1>
+    <p class="doc-subtitle">Coverage: The Insurance Code of the Philippines (R.A. No. 10607), Secs. 25, 49–101; E-Commerce Act (R.A. No. 8792); Insurance Commission Circulars; Benchmark Jurisprudence</p>
+    <p class="doc-approach"><strong>Our approach:</strong> Understand the factual situation first, identify the applicable statutory rule, memorize the requisites through mnemonic scaffolding and contrasts, and practice applying the law through interactive recall.</p>
+
+    <!-- Mental Map Card -->
+    <div class="ui-box mental-map" id="mental-map">
+      <div class="mm-row">
+        <div class="mm-icon">📑</div>
+        <div class="mm-body">
+          <div class="mm-title">1. POLICY NATURE, EXECUTION & FORMS (Secs. 49–63)</div>
+          <div class="mm-desc">How does a consensual contract transform into an approved written policy, and how do Open, Valued, and Running policies fix liability?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">⏱️</div>
+        <div class="mm-body">
+          <div class="mm-title">2. NON-LIFE TERMINATION & 45-DAY RENEWAL (Secs. 64–66)</div>
+          <div class="mm-desc">What 7 post-inception grounds permit mid-term insurer cancellation, and how does the 45-day non-renewal notice protect the policyholder?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">💵</div>
+        <div class="mm-body">
+          <div class="mm-title">3. CASH-AND-CARRY RULE & ITS 5 EXCEPTIONS (Secs. 77–79)</div>
+          <div class="mm-desc">Why is actual premium payment an indispensable condition to enforceability, and what are the 5 ironclad statutory and judicial exceptions?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">🔄</div>
+        <div class="mm-body">
+          <div class="mm-title">4. MULTIPLE INSURANCES & RATABLE CONTRIBUTION (Secs. 95–100)</div>
+          <div class="mm-desc">Why is Double Insurance lawful per se while Over-Insurance is barred by the indemnity principle, and how does Sec. 96 allocate loss?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">🌊</div>
+        <div class="mm-body">
+          <div class="mm-title">5. CAUSATION, CLAIMS & MARINE INSURANCE (Secs. 85–101)</div>
+          <div class="mm-desc">How does proximate cause govern rescue perils, and what divides covered Perils of the Sea from excluded Perils of the Ship?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Important Legal Update Callout -->
+    <div class="update-banner" id="legal-update">
+      <strong>⚠️ Important Legal & Statutory Updates (R.A. No. 10607 & Governing Circulars):</strong>
+      <ul style="margin: 0.5rem 0 0 1.25rem; padding: 0;">
+        <li><strong>Electronic Policies:</strong> Under R.A. 8792 and Insurance Commission Circular No. 2014-47, insurance policies, certificates, and endorsements may now be lawfully issued in electronic format with full legal effect, authenticity, and admissibility.</li>
+        <li><strong>Cover Note Statutory Ceiling:</strong> Sec. 52 strictly limits an interim cover note to a maximum duration of <strong>sixty (60) days</strong>. Extensions require written approval from the Insurance Commissioner, and <em>no separate premium</em> may ever be charged.</li>
+        <li><strong>En Banc Resolution on Cash-and-Carry (*Masagana Telamart*, 2001):</strong> Reversing prior conflicting rulings, the Supreme Court En Banc held that an established credit-extension practice of 60–90 days legally binds the insurer if loss occurs during that window, equitably estopping the insurer from invoking Sec. 77.</li>
+      </ul>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART I -->
+    <!-- ========================================================================= -->
+    <h2 id="part-1">PART I — NATURE, FORM, CLASSIFICATIONS & ATTACHED DOCUMENTS (Secs. 49–66)</h2>
+
+    <!-- Section 1 -->
+    <h3 id="sec-1">1. Policy of Insurance vs. Underlying Contract & Regulatory Requisites</h3>
+
+    <p><em>Imagine an entrepreneur who signs an application for fire insurance covering his warehouse and leaves the branch office with the underwriting manager's oral approval. That night, an accidental electrical surge ignites the facility before any paper policy has been printed or delivered.</em></p>
+
+    <p>Under <strong>Section 49 of the Insurance Code (R.A. No. 10607)</strong>, a <strong>policy of insurance</strong> is the written instrument in which a contract of insurance is set forth. While the underlying contract is <em>consensual</em> and perfected upon the meeting of the minds on subject, risk, and premium, the policy serves as the indispensable evidentiary embodiment required for enforcement before judicial and administrative tribunals.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: CONSENT vs. PAPER</strong>
+        <span class="c-teal" style="font-weight:700; font-size:0.85rem;">Doctrinal Distinction</span>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:50%">Contract of Insurance</th>
+            <th style="width:50%">Policy of Insurance (Sec. 49)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Consensual contract</strong> perfected by mere mutual consent upon the essential elements: insurable interest, peril, and premium.</td>
+            <td><strong>The formal instrument</strong> (physical paper or electronic record) setting forth the terms, conditions, warranties, and exclusions.</td>
+          </tr>
+          <tr>
+            <td>Valid and binding between parties even if oral, provided all essential requisites concur.</td>
+            <td>Must be submitted to and <strong>expressly approved by the Insurance Commissioner</strong> before issuance to the public.</td>
+          </tr>
+          <tr>
+            <td>Physical delivery is <em>not indispensable</em> to substantive creation unless stipulated as a condition precedent.</td>
+            <td>Serves as conclusive external evidence of the terms agreed upon; signed by insurer, but <strong>insured's signature is not essential</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: P – A – R – T – I – E – S</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Parties (insurer, insured, beneficiaries)\nA — Amount insured (maximum ceiling)\nR — Risks/Perils insured against\nT — Term/Period during which policy continues\nI — Interest (nature/extent of insurable interest)\nE — Expense/Premium rate and payment period\nS — Subject matter (property or life insured)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Mandatory statutory contents of every insurance policy under Section 51, R.A. 10607.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>P</strong></td><td style="width:28%"><strong>Parties</strong></td><td>The parties between whom the contract is made, including designated beneficiaries.</td></tr>
+          <tr><td><strong>A</strong></td><td><strong>Amount</strong></td><td>The maximum liability ceiling assumed by the underwriter.</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>Risks</strong></td><td>The specific hazards or perils covered and undertaken by the policy.</td></tr>
+          <tr><td><strong>T</strong></td><td><strong>Term</strong></td><td>The period during which the insurance is to continue in legal effect.</td></tr>
+          <tr><td><strong>I</strong></td><td><strong>Interest</strong></td><td>Nature and extent of insured's insurable interest (critical if not absolute owner).</td></tr>
+          <tr><td><strong>E</strong></td><td><strong>Expense / Premium</strong></td><td>The consideration, rate computed, and specific periods of payment.</td></tr>
+          <tr><td><strong>S</strong></td><td><strong>Subject Matter</strong></td><td>The precise property or human life exposed to the risk.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ The Favorite Examination Trap: Section 25 Statutory Prohibitions</strong><br>
+      Under <strong>Section 25 of the Insurance Code</strong>, any stipulation providing for the payment of loss <em>regardless of whether the insured has an insurable interest</em>, or declaring that the policy shall be <em>conclusive proof of insurable interest</em>, is <strong>VOID AB INITIO</strong>. Parties cannot contract away the requirement of insurable interest; doing so degenerates the insurance into an illegal wagering contract.
+    </div>
+
+    <hr>
+
+    <!-- Section 2 -->
+    <h3 id="sec-2">2. Classification of Policies: Open, Valued & Running (Secs. 60–62)</h3>
+
+    <p><em>Imagine a gallery owner insuring an irreplaceable 19th-century oil painting, a commercial landlord insuring an office building, and a logistics titan storing fluctuating grain in a centralized silo. Should all three policies calculate indemnification in the exact same manner when disaster strikes?</em></p>
+
+    <p>The Insurance Code divides property policies into three distinct operational classifications based on <strong>how the subject matter is valued</strong> and <strong>how loss is measured</strong> at the moment of casualty.</p>
+
+    <!-- Interactive Segmented Tabs for Classifications -->
+    <div class="ui-box" data-tabs>
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>Interactive Policy Valuation Calculator & Comparison</strong>
+        <span class="c-navy" style="font-size:0.82rem; font-weight:700;">Secs. 60–62</span>
+      </div>
+      <div class="seg-control">
+        <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-open')">Open Policy (Sec. 60)</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-valued')">Valued Policy (Sec. 61)</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-running')">Running Policy (Sec. 62)</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="tab-open">
+        <p><strong>Open Policy (Sec. 60):</strong> The value of the property is <em>not agreed upon</em> in advance. The face amount represents solely the insurer's <strong>maximum liability ceiling</strong>. Recovery is pegged strictly to the <strong>proven sound value of the loss</strong> at the time of casualty.</p>
+        <div class="hypo-card">
+          <strong>Professor's Classroom Illustration:</strong> A commercial building is insured under an open policy for ₱5,000,000. It is totally destroyed by fire. Post-loss adjusters prove the sound market value at the time of the fire was ₱3,500,000. The insurer is liable only for ₱3,500,000. (Likewise, a car insured for ₱1,000,000 suffering ₱400,000 repairable collision damage pays ₱400,000, not ₱1,000,000).
+        </div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱5.0M</div><div class="bar-fill" style="height:120px; background:#94A3B8;"></div><div class="bar-lbl">Policy Face</div></div>
+          <div class="bar-col"><div class="bar-val">₱3.5M</div><div class="bar-fill" style="height:84px; background:#16A34A;"></div><div class="bar-lbl">Sound Loss</div></div>
+          <div class="bar-col"><div class="bar-val">₱3.5M</div><div class="bar-fill" style="height:84px; background:#2563EB;"></div><div class="bar-lbl">Insurer Pays</div></div>
+        </div>
+        <div class="ui-caption" style="text-align:center;">Recovery is capped by actual sound loss (₱3.5M), preserving the indemnity principle.</div>
+      </div>
+
+      <div class="tab-panel" data-panel="tab-valued">
+        <p><strong>Valued Policy (Sec. 61):</strong> The value of the subject matter is <em>expressly agreed upon</em> and stated directly on the face of the policy. In the event of total loss, this agreed valuation is <strong>conclusive between the parties</strong> absent actionable fraud, mistake, or misrepresentation.</p>
+        <div class="hypo-card">
+          <strong>Professor's Classroom Illustration:</strong> A rare classic collector's sports car is covered under a valued policy pegged at ₱2,000,000. Even if current classic car market auctions dip to ₱1,400,000, total destruction obligates the underwriter to pay the full agreed ₱2,000,000. Damages were liquidated in advance!
+        </div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱2.0M</div><div class="bar-fill" style="height:120px; background:#94A3B8;"></div><div class="bar-lbl">Agreed Face</div></div>
+          <div class="bar-col"><div class="bar-val">₱1.4M</div><div class="bar-fill" style="height:84px; background:#DC2626;"></div><div class="bar-lbl">Market Dip</div></div>
+          <div class="bar-col"><div class="bar-val">₱2.0M</div><div class="bar-fill" style="height:120px; background:#2563EB;"></div><div class="bar-lbl">Insurer Pays</div></div>
+        </div>
+        <div class="ui-caption" style="text-align:center;">Agreed valuation is conclusive in total loss; no tedious post-loss appraisal required.</div>
+      </div>
+
+      <div class="tab-panel" data-panel="tab-running">
+        <p><strong>Running Policy (Sec. 62):</strong> Contemplates <em>successive insurances</em> over floating, revolving inventory. The property covered is defined from time to time by additional statements or endorsements as stock shifts in and out of the warehouse.</p>
+        <div class="hypo-card">
+          <strong>Professor's Classroom Illustration:</strong> A manufacturer has 50 printing machines in October. In November, 30 are sold and delivered, leaving 20 in storage. A fire occurs in November. The manufacturer cannot claim for 50 machines based on October reports; recovery is strictly confined to the 20 machines physically present and exposed to fire.
+        </div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">50 units</div><div class="bar-fill" style="height:120px; background:#94A3B8;"></div><div class="bar-lbl">Oct Stock</div></div>
+          <div class="bar-col"><div class="bar-val">20 units</div><div class="bar-fill" style="height:48px; background:#F59E0B;"></div><div class="bar-lbl">Nov Fire</div></div>
+          <div class="bar-col"><div class="bar-val">20 units</div><div class="bar-fill" style="height:48px; background:#2563EB;"></div><div class="bar-lbl">Recoverable</div></div>
+        </div>
+        <div class="ui-caption" style="text-align:center;">Running policies are analyzed as a specialized open policy: sound value calculated at loss.</div>
+      </div>
+    </div>
+
+    <div class="ui-box">
+      <strong>Memory aid: O – V – R</strong>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>OPEN POLICY (Sec. 60)</strong>
+          <span>Face amount = Maximum limit | Sound value proved post-casualty</span>
+        </div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-step">
+          <strong>VALUED POLICY (Sec. 61)</strong>
+          <span>Face amount = Conclusive valuation | Pre-liquidated damages</span>
+        </div>
+        <div class="flow-arrow">↕</div>
+        <div class="flow-step">
+          <strong>RUNNING POLICY (Sec. 62)</strong>
+          <span>Floating inventory | Defined from time to time by endorsements</span>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 3 -->
+    <h3 id="sec-3">3. Documents Attached: Warranties, Riders, Endorsements & Cover Notes (Sec. 52)</h3>
+
+    <p><em>Imagine an industrial corporation whose printed fire policy contains a general exclusion for chemical fires, but stapled to the first page is a signed, typewritten rider extending coverage to chemical spills in exchange for an extra ₱50,000 premium. Which clause governs when a chemical fire occurs?</em></p>
+
+    <p>Under insurance jurisprudence, <strong>riders, endorsements, and specific clauses prevail over standard printed forms</strong> because they represent the specialized, proximate intention negotiated by the parties.</p>
+
+    <div class="ui-box">
+      <strong>Comparative Matrix of Collateral Policy Documents</strong>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:25%">Document Type</th>
+            <th style="width:35%">Legal Nature & Purpose</th>
+            <th style="width:40%">Key Doctrinal Rule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Warranty</strong></td>
+            <td>Affirmation of fact or promise to maintain a condition (e.g. working fire extinguishers).</td>
+            <td><strong>Strict compliance required.</strong> Material breach avoids policy regardless of whether breach caused the loss.</td>
+          </tr>
+          <tr>
+            <td><strong>Rider</strong></td>
+            <td>Slip attached to primary policy enlarging or restricting standard coverage.</td>
+            <td><strong>Prevails over printed body.</strong> Requires consideration (adjusted premium).</td>
+          </tr>
+          <tr>
+            <td><strong>Endorsement</strong></td>
+            <td>Subsequent written modification (change of beneficiary, location, or coverage limit).</td>
+            <td>Becomes an integral part of the contract from its stipulated effective date.</td>
+          </tr>
+          <tr>
+            <td><strong>Cover Note (Sec. 52)</strong></td>
+            <td>Temporary interim contract pending formal underwriting review.</td>
+            <td><strong>Max 60 days.</strong> No separate premium permitted. Full policy liability attaches during its life.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hypo-card">
+      <strong>Professor's Illustration on Section 52 Cover Notes:</strong> An entrepreneur applies for fire insurance and remits the deposit. The general agent issues an official cover note. On the <strong>40th day</strong>, before the formal paper policy is printed or delivered, an electrical fire destroys the warehouse. <em>The insurer remains fully liable!</em> The cover note constitutes a binding interim contract of insurance.
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ Examination Trap on Cover Notes:</strong>
+      Three strict rules frequently tested in the Bar:
+      <ol style="margin: 0.4rem 0 0 1.25rem; padding: 0;">
+        <li>Valid for a maximum of <strong>60 days</strong> only (Sec. 52).</li>
+        <li>May be extended <em>only</em> with the written approval of the Insurance Commissioner.</li>
+        <li><strong>No separate premium</strong> can be charged; the regular policy premium covers the interim protection.</li>
+      </ol>
+    </div>
+
+    <hr>
+
+    <!-- Section 4 -->
+    <h3 id="sec-4">4. Non-Life Cancellation & 45-Day Renewal Rules (Secs. 64–66)</h3>
+
+    <p><em>Imagine a factory owner holding an annual property casualty policy. Eight months into the term, the insurer mails a postcard stating: "Your policy is cancelled effective immediately due to recent fires in your city." Two days later, a fire strikes. Is the cancellation valid?</em></p>
+
+    <p>Under <strong>Section 64 of the Insurance Code</strong>, an insurer cannot unilaterally cancel a policy of insurance other than life during its term unless founded exclusively upon <strong>subsequent statutory grounds</strong> and communicated via <strong>prior written notice</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: P – C – F – W – P – R – O</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'P — Premium non-payment\nC — Conviction of crime increasing hazard\nF — Fraud or material misrepresentation\nW — Willful or reckless acts/omissions\nP — Physical changes rendering property uninsurable\nR — Regulatory finding by Insurance Commissioner\nO — Other insurance violating limits (Over-insurance)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">The 7 exclusive statutory grounds for insurer cancellation under Section 64.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>P</strong></td><td style="width:28%"><strong>Premium</strong></td><td>Non-payment of premium or installments due.</td></tr>
+          <tr><td><strong>C</strong></td><td><strong>Crime</strong></td><td>Conviction of the named insured of a crime increasing hazard.</td></tr>
+          <tr><td><strong>F</strong></td><td><strong>Fraud</strong></td><td>Discovery of fraud or material misrepresentation.</td></tr>
+          <tr><td><strong>W</strong></td><td><strong>Willful Acts</strong></td><td>Willful or reckless acts or omissions substantially increasing risk.</td></tr>
+          <tr><td><strong>P</strong></td><td><strong>Physical Changes</strong></td><td>Physical alterations rendering property uninsurable under manuals.</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>Regulatory Finding</strong></td><td>Determination by Insurance Commissioner that policy violates Code.</td></tr>
+          <tr><td><strong>O</strong></td><td><strong>Other Insurance</strong></td><td>Undisclosed additional policies causing unlawful over-insurance.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Section 66: The 45-Day Automatic Renewal Mechanism</strong>
+        <span class="c-burgundy" style="font-weight:700; font-size:0.85rem;">Mandatory Advance Notice</span>
+      </div>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>EXPIRATION APPROACHING</strong>
+          <span>Insurer must decide whether to renew or terminate non-life policy</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <strong>45 DAYS PRIOR TO EXPIRY</strong>
+          <span>Insurer mails notice of non-renewal OR notice reducing coverage limits</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#FEF2F2; border:1px solid #FECACA;">
+          <strong style="color:var(--burgundy);">IF INSURER FAILS TO MAIL NOTICE &ge; 45 DAYS PRIOR:</strong>
+          <span style="color:#991B1B; font-weight:600;">The insured acquires an ABSOLUTE STATUTORY RIGHT TO RENEW upon tender of premium!</span>
+        </div>
+      </div>
+      <div class="ui-caption" style="margin-top:0.75rem;">
+        <strong>Statutory Term Rules:</strong> Policies written for &lt; 1 year are legally construed as <strong>1 full year</strong>; policies for &gt; 1 year or indefinite terms are treated as <strong>successive 1-year terms</strong> (Sec. 66).
+      </div>
+    </div>
+
+    <!-- Mini-Recall Quiz Part I -->
+    <div class="ui-box quiz-box" id="quiz-part-1">
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>⚡ Part I Mini-Recall Quiz (Instant Feedback)</strong>
+        <span class="c-teal" style="font-size:0.82rem; font-weight:700;">3 Questions</span>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="An insurance policy is perfected consensually. Absence of the insured's physical signature does not invalidate the delivered policy unless made a strict condition precedent in the application.">
+        <div class="quiz-prompt">1. An insurer approves an application, receives the full premium, and delivers the policy. The insured never signed the delivered policy. Is the policy enforceable?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq1" value="0" onchange="gradeInstant(this)"> No; an unsigned contract is void under the Statute of Frauds.</label>
+          <label class="quiz-opt"><input type="radio" name="mq1" value="1" onchange="gradeInstant(this)"> Yes; delivery manifests insurer acceptance; insured's signature is not essential.</label>
+          <label class="quiz-opt"><input type="radio" name="mq1" value="2" onchange="gradeInstant(this)"> No; all insurance contracts require bilateral notarized signatures.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="0" data-why="Under Sec. 60, in an open policy, the face sum is merely the ceiling. Indemnity is capped at the proven sound value at loss (₱400,000).">
+        <div class="quiz-prompt">2. A car is insured under an open policy for ₱1,000,000. An accident causes repair damage assessed at ₱400,000 sound value. How much can the owner recover?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq2" value="0" onchange="gradeInstant(this)"> ₱400,000, representing the actual sound value of the loss.</label>
+          <label class="quiz-opt"><input type="radio" name="mq2" value="1" onchange="gradeInstant(this)"> ₱1,000,000, because the face amount is liquidated in advance.</label>
+          <label class="quiz-opt"><input type="radio" name="mq2" value="2" onchange="gradeInstant(this)"> ₱700,000, representing the statutory average between face and loss.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under Sec. 52, cover notes are valid for a maximum of 60 days, and assessing a separate or additional premium for a cover note is strictly prohibited by law.">
+        <div class="quiz-prompt">3. Which of the following is TRUE regarding Cover Notes under Section 52 of the Insurance Code?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq3" value="0" onchange="gradeInstant(this)"> They may be issued for up to 120 days without regulatory approval.</label>
+          <label class="quiz-opt"><input type="radio" name="mq3" value="1" onchange="gradeInstant(this)"> The insurer is entitled to charge a separate administrative fee/premium.</label>
+          <label class="quiz-opt"><input type="radio" name="mq3" value="2" onchange="gradeInstant(this)"> Valid up to 60 days max; no separate premium may ever be charged.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART II -->
+    <!-- ========================================================================= -->
+    <h2 id="part-2">PART II — PREMIUMS, CASH-AND-CARRY, ANTI-FORFEITURE & MULTIPLE INSURANCES (Secs. 77–100)</h2>
+
+    <!-- Section 5 -->
+    <h3 id="sec-5">5. Concept, Consideration & Payment Modes of Premium (Secs. 77, 84)</h3>
+
+    <p><em>Imagine a breadwinner who applies for a Variable Universal Life (VUL) policy. He remits his scheduled premium and deposits an extra ₱100,000 "top-up" payment via a post-dated check dated October 1. He dies on October 2, before the insurer encashes the check. Is the coverage active?</em></p>
+
+    <p>A <strong>premium</strong> is the agreed price or consideration (<em>causa</em>) paid by the insured for assuming the risk of indemnifying against casualty. Under <strong>Section 84</strong>, insurers may lawfully accept payments for future premiums.</p>
+
+    <div class="ui-box">
+      <strong>VUL Dual Structural Framework & Payment Modes</strong>
+      <div class="ui-grid-2">
+        <div class="stat-card" style="text-align:left;">
+          <strong class="c-navy">1. Pure Mortality & Admin Charge</strong>
+          <p style="font-size:0.85rem; margin-top:0.35rem; color:#4B5563;">Funds the actuarial cost of pure death benefit protection and company overhead. Decreases as the policyholder ages.</p>
+        </div>
+        <div class="stat-card" style="text-align:left;">
+          <strong class="c-teal">2. Investment / Fund Value Component</strong>
+          <p style="font-size:0.85rem; margin-top:0.35rem; color:#4B5563;">Channeled into equity/bond funds. "Top-ups" increase investment value and cash accumulation, not the base death benefit face value.</p>
+        </div>
+      </div>
+      <div class="hypo-card" style="margin-top:0.75rem;">
+        <strong>Negotiable Instruments & Post-Dated Checks:</strong>
+        Under general commercial law, a check produces payment only when cashed. <em>However</em>, if an insurer <strong>accepts a post-dated check</strong> bearing a date prior to the loss, and the drawer had sufficient funds in the bank on that date, <strong>payment is legally complete</strong> even if the insurer delayed depositing the check!
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 6 -->
+    <h3 id="sec-6">6. The Cash-and-Carry Rule & Its 5 Exclusive Exceptions (Sec. 77)</h3>
+
+    <p><em>Imagine an insurer delivering a comprehensive fire policy stating: "Valid for 1 year; premium payable within 60 days." Thirty days later, a fire strikes before the premium is remitted. Can the insured enforce the policy?</em></p>
+
+    <p>Under <strong>Section 77 of the Insurance Code</strong> (the <strong>Cash-and-Carry Rule</strong>): <em>"Notwithstanding any agreement to the contrary, no policy or contract of insurance is valid and binding until and unless the premium thereof has been paid..."</em> This doctrine shields actuarial solvency.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Reconciliation: Consensual Perfection vs. Binding Consummation</strong>
+        <span class="c-rust" style="font-weight:700; font-size:0.85rem;">Sec. 77 Interplay</span>
+      </div>
+      <div class="flow-stack">
+        <div class="flow-step">
+          <strong>PERFECTION (Meeting of the Minds)</strong>
+          <span>Consensual contract is born when offer (application) meets unqualified acceptance (approval).</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#FFFBEB; border:1px solid #FDE68A;">
+          <strong style="color:#B45309;">STATUTORY CONDITION PRECEDENT (Sec. 77)</strong>
+          <span style="color:#78350F;">Until premium is paid, the perfected contract remains dormant, inchoate, and UNENFORCEABLE against insurer!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: G – A – I – C – E</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'G — Grace period in life/industrial life policies (30/31 days)\nA — Acknowledgment of premium receipt in policy is conclusive (Sec. 79)\nI — Installment agreement binds upon first payment (Makati Tuscany)\nC — Credit extension custom of 60-90 days binds insurer (Masagana Telamart)\nE — Equitable estoppel and waiver bars insurer defense')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">The 5 exclusive statutory and jurisprudential exceptions to the Cash-and-Carry Rule.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr>
+            <td style="width:8%"><strong>G</strong></td>
+            <td style="width:24%"><strong>Grace Period</strong></td>
+            <td>In life and industrial life policies, 30 or 31-day grace period for subsequent premiums (Sec. 77). Death during grace period is covered.</td>
+          </tr>
+          <tr>
+            <td><strong>A</strong></td>
+            <td><strong>Acknowledgment</strong></td>
+            <td><strong>Section 79:</strong> Written acknowledgment in the policy of receipt of premium is <em>conclusive evidence</em> of payment to make policy binding.</td>
+          </tr>
+          <tr>
+            <td><strong>I</strong></td>
+            <td><strong>Installments</strong></td>
+            <td><strong>*Makati Tuscany v. CA* (1992):</strong> Acceptance of an initial installment makes policy valid and binding for the full term. Default doesn't void policy.</td>
+          </tr>
+          <tr>
+            <td><strong>C</strong></td>
+            <td><strong>Credit Term</strong></td>
+            <td><strong>*UCPB v. Masagana Telamart* (2001 En Banc):</strong> Established practice of extending 60–90 day credit binds insurer if loss occurs within that window.</td>
+          </tr>
+          <tr>
+            <td><strong>E</strong></td>
+            <td><strong>Estoppel</strong></td>
+            <td>Insurer's representations, silence, or misleading conduct induces insured to believe coverage took effect.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ Examination Trap on Section 79 Acknowledgment:</strong><br>
+      The conclusive presumption of payment under Section 79 operates <strong>solely to make the policy binding and enforceable</strong> for loss claims. It does <em>not</em> bar the insurer from filing an ordinary civil action against the insured to collect the unpaid premium!
+    </div>
+
+    <hr>
+
+    <!-- Section 7 -->
+    <h3 id="sec-7">7. Return of Premiums & Life Anti-Forfeiture Devices (Secs. 80–84)</h3>
+
+    <p><em>Imagine a policyholder who pays 3 years of premiums on a 20-year whole life policy and then loses his job, unable to pay further. Does the insurer simply confiscate every single peso paid?</em></p>
+
+    <p>Unlike property insurance where unearned premiums are returned pro-rata upon surrender (Sec. 80), a life policy is an indivisible contract for life, protected by statutory <strong>anti-forfeiture devices</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Grounds for Return of Remitted Premium</strong>
+        <span class="c-navy" style="font-size:0.82rem; font-weight:700;">Secs. 80–83</span>
+      </div>
+      <div class="ui-grid-2">
+        <div style="background:var(--surface-2); padding:0.75rem; border-radius:8px;">
+          <strong class="c-green">RETURN OF WHOLE PREMIUM</strong>
+          <ul style="font-size:0.85rem; margin:0.35rem 0 0 1.1rem; padding:0;">
+            <li>Contract voidable due to <strong>fraud/misrepresentation of insurer</strong>.</li>
+            <li>Rescission due to insurer's substantial breach.</li>
+            <li>Thing insured was <strong>never exposed to risk</strong> (e.g., voyage aborted).</li>
+            <li>Insured ignorant of facts without fault.</li>
+            <li>Insured's default without intentional fraud.</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface-2); padding:0.75rem; border-radius:8px;">
+          <strong class="c-teal">RETURN OF PRO-RATA PREMIUM</strong>
+          <ul style="font-size:0.85rem; margin:0.35rem 0 0 1.1rem; padding:0;">
+            <li><strong>Surrender before term expiration</strong> in property insurance written for a definite period.</li>
+            <li><strong>Over-insurance by double insurance:</strong> Proportional ratable refund of excess premium paid across underwriters.</li>
+            <li><em>Note:</em> Pro-rata refund NEVER applies to life insurance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: C – P – E – A</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'C — Cash Surrender Value (CSV): Cash paid upon absolute cancellation\nP — Paid-Up Insurance: Reduced face value of same kind, fully paid\nE — Extended Term Insurance: Full face value for limited duration\nA — Automatic Premium Loan (APL): Overdue premium advanced as interest loan')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Statutory Anti-Forfeiture options in life insurance policies after 3 years.</div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Operative Mechanism</th>
+            <th>Face Amount</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cash Surrender Value (CSV)</strong></td>
+            <td>Absolute surrender and cancellation of policy for cash payout.</td>
+            <td>Cash Value</td>
+            <td>Terminated</td>
+          </tr>
+          <tr>
+            <td><strong>Paid-Up Insurance</strong></td>
+            <td>Reserve buys a fully paid policy of the exact same kind.</td>
+            <td><strong>Reduced</strong></td>
+            <td>Original Term</td>
+          </tr>
+          <tr>
+            <td><strong>Extended Term Insurance</strong></td>
+            <td>Reserve buys pure term insurance for as long as funds last.</td>
+            <td><strong>FULL Face</strong></td>
+            <td>Shortened Term</td>
+          </tr>
+          <tr>
+            <td><strong>Automatic Premium Loan (APL)</strong></td>
+            <td>Overdue premium automatically borrowed against cash reserve.</td>
+            <td><strong>FULL Face</strong></td>
+            <td>Active until loan exhausts CSV</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- Section 8 -->
+    <h3 id="sec-8">8. Multiple Insurances: Double, Over-Insurance & Reinsurance (Secs. 95–100)</h3>
+
+    <p><em>Imagine a commercial real estate mogul whose ₱1,000,000 building is insured for ₱500,000 each with four different companies (A, B, C, and D)—a total of ₱2,000,000 in coverage. A fire completely incinerates the building. How much can he collect, and who ultimately bears the loss?</em></p>
+
+    <p>Under <strong>Section 95</strong>, <strong>Double Insurance</strong> occurs when the same person is insured by several insurers separately in respect to the same subject and interest. It is <strong>valid per se</strong>. However, when total coverage exceeds the actual property value, it becomes <strong>Over-Insurance by Double Insurance</strong>, governed by the strict ratable loss settlement formula of <strong>Section 96</strong>.</p>
+
+    <!-- Interactive Segmented Tab for Section 96 Loss Settlement -->
+    <div class="ui-box" data-tabs>
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>Section 96 Loss Settlement & Ratable Contribution Calculator</strong>
+        <span class="c-rust" style="font-weight:700; font-size:0.85rem;">Indemnity Principle</span>
+      </div>
+      <div class="seg-control">
+        <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-sec96-step1')">Step 1: Insured's Recovery (No Double Recovery)</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-sec96-step2')">Step 2: Inter-Insurer Ratable Contribution</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="tab-sec96-step1">
+        <p><strong>Insured's Selection:</strong> Under Sec. 96, the insured may claim from underwriters in whatever order he chooses, but cannot recover more than actual loss (₱1,000,000). He collects ₱500k from Insurer A and ₱500k from Insurer B, exhausting his loss.</p>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱500k</div><div class="bar-fill" style="height:120px; background:#DC2626;"></div><div class="bar-lbl">Insurer A</div></div>
+          <div class="bar-col"><div class="bar-val">₱500k</div><div class="bar-fill" style="height:120px; background:#DC2626;"></div><div class="bar-lbl">Insurer B</div></div>
+          <div class="bar-col"><div class="bar-val">₱0</div><div class="bar-fill" style="height:2px; background:#94A3B8;"></div><div class="bar-lbl">Insurer C</div></div>
+          <div class="bar-col"><div class="bar-val">₱0</div><div class="bar-fill" style="height:2px; background:#94A3B8;"></div><div class="bar-lbl">Insurer D</div></div>
+        </div>
+        <div class="ui-caption" style="text-align:center;">Total recovered: ₱1,000,000. Insured cannot touch C or D; indemnity is satisfied.</div>
+      </div>
+
+      <div class="tab-panel" data-panel="tab-sec96-step2">
+        <p><strong>Inter-Insurer Contribution:</strong> Any insurer paying beyond its ratable share demands contribution. Total loss (₱1,000,000) ÷ 4 equal underwriters = <strong>₱250,000 net burden each</strong>. Insurers A & B demand ₱250,000 reimbursement each from C & D!</p>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:60px; background:#2563EB;"></div><div class="bar-lbl">Insurer A</div></div>
+          <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:60px; background:#2563EB;"></div><div class="bar-lbl">Insurer B</div></div>
+          <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:60px; background:#2563EB;"></div><div class="bar-lbl">Insurer C</div></div>
+          <div class="bar-col"><div class="bar-val">₱250k</div><div class="bar-fill" style="height:60px; background:#2563EB;"></div><div class="bar-lbl">Insurer D</div></div>
+        </div>
+        <div class="ui-caption" style="text-align:center;">Final equitable equilibrium: Each underwriter bears exactly ₱250,000 ratable share.</div>
+      </div>
+    </div>
+
+    <!-- Clean SVG Privity Diagram: Double Insurance vs Reinsurance -->
+    <div class="ui-box svg-box">
+      <strong>Privity Comparison: Double Insurance vs. Reinsurance (Secs. 97–100)</strong>
+      <svg viewBox="0 0 540 230" width="100%" style="max-width:540px; margin-top:0.75rem;">
+        <!-- Left: Double Insurance -->
+        <rect x="20" y="20" width="220" height="190" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+        <text x="130" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">DOUBLE INSURANCE (Sec. 95)</text>
+        <circle cx="130" cy="80" r="22" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" />
+        <text x="130" y="85" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Insured</text>
+        
+        <path d="M115 100 L70 145" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow)" />
+        <path d="M145 100 L190 145" stroke="#16A34A" stroke-width="2" marker-end="url(#arrow)" />
+        
+        <rect x="35" y="150" width="70" height="40" rx="6" fill="#F1F5F9" stroke="#64748B" />
+        <text x="70" y="174" text-anchor="middle" font-size="11" font-weight="600">Insurer 1</text>
+        
+        <rect x="155" y="150" width="70" height="40" rx="6" fill="#F1F5F9" stroke="#64748B" />
+        <text x="190" y="174" text-anchor="middle" font-size="11" font-weight="600">Insurer 2</text>
+        <text x="130" y="202" text-anchor="middle" font-size="9" fill="#059669" font-weight="600">✓ Privity with BOTH Insurers</text>
+
+        <!-- Right: Reinsurance -->
+        <rect x="290" y="20" width="230" height="190" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+        <text x="405" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">REINSURANCE (Secs. 97–98)</text>
+        <circle cx="340" cy="85" r="20" fill="#DCFCE7" stroke="#16A34A" stroke-width="2" />
+        <text x="340" y="89" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">Insured</text>
+
+        <path d="M360 85 L430 85" stroke="#1E3A8A" stroke-width="2" />
+        <text x="395" y="78" text-anchor="middle" font-size="8" fill="#64748B">Policy</text>
+
+        <circle cx="450" cy="85" r="20" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2" />
+        <text x="450" y="89" text-anchor="middle" font-size="9" font-weight="700" fill="#1E3A8A">Insurer</text>
+
+        <path d="M450 105 L450 145" stroke="#C2410C" stroke-width="2" />
+        <text x="480" y="130" text-anchor="middle" font-size="8" fill="#C2410C">Reinsurance</text>
+
+        <circle cx="450" cy="165" r="20" fill="#FFEDD5" stroke="#C2410C" stroke-width="2" />
+        <text x="450" y="169" text-anchor="middle" font-size="9" font-weight="700" fill="#C2410C">Reinsurer</text>
+
+        <!-- No Privity Cross Line -->
+        <path d="M340 105 L430 165" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4 3" />
+        <text x="375" y="145" text-anchor="middle" font-size="10" font-weight="700" fill="#DC2626">✗ NO PRIVITY</text>
+        <text x="405" y="202" text-anchor="middle" font-size="9" fill="#DC2626" font-weight="600">Insured CANNOT sue Reinsurer</text>
+      </svg>
+      <div class="ui-caption" style="text-align:center;">Sec. 98: The original insured has no interest in the reinsurance contract and cannot sue the reinsurer directly.</div>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ Examination Trap on "Other Insurance" Clause:</strong><br>
+      While Double Insurance is lawful per se, standard fire policies contain an <strong>Other Insurance Clause</strong> requiring disclosure of concurrent policies. The Supreme Court strictly holds that failure to disclose additional insurance constitutes a <strong>breach of warranty</strong> that completely avoids the policy!
+    </div>
+
+    <!-- Mini-Recall Quiz Part II -->
+    <div class="ui-box quiz-box" id="quiz-part-2">
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>⚡ Part II Mini-Recall Quiz (Instant Feedback)</strong>
+        <span class="c-teal" style="font-size:0.82rem; font-weight:700;">3 Questions</span>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="Accepting a post-dated check prior to loss where the drawer has sufficient funds operates as payment to make the policy binding, even if the insurer neglects to encash it before casualty.">
+        <div class="quiz-prompt">1. Insurer accepts a post-dated check dated Oct 1 for a fire policy. The insured had sufficient funds. Fire occurs on Oct 3 before insurer encashes the check. Is the insurer liable?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq4" value="0" onchange="gradeInstant(this)"> No; checks never produce payment until physically encashed.</label>
+          <label class="quiz-opt"><input type="radio" name="mq4" value="1" onchange="gradeInstant(this)"> Yes; post-dated check accepted with sufficient funds binds the insurer.</label>
+          <label class="quiz-opt"><input type="radio" name="mq4" value="2" onchange="gradeInstant(this)"> No; Section 77 makes all post-dated checks void ab initio.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="0" data-why="Under Sec. 79, written acknowledgment in the policy is conclusive evidence of payment to make the policy binding, though insurer may still collect the debt via an ordinary civil action.">
+        <div class="quiz-prompt">2. An insurance policy contains a written clause: 'Receipt of full annual premium of ₱50,000 is hereby acknowledged.' In truth, the insured never paid. Is the policy binding?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq5" value="0" onchange="gradeInstant(this)"> Yes; Sec. 79 creates a conclusive presumption of payment to make coverage binding.</label>
+          <label class="quiz-opt"><input type="radio" name="mq5" value="1" onchange="gradeInstant(this)"> No; truth prevails over written fiction under contract law.</label>
+          <label class="quiz-opt"><input type="radio" name="mq5" value="2" onchange="gradeInstant(this)"> Only if the Insurance Commissioner explicitly waives Section 77.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under Sec. 98, the original insured has no privity of contract with the reinsurer and cannot sue the reinsurer directly for indemnity.">
+        <div class="quiz-prompt">3. Insurer X reinsures 50% of its fire liability with Reinsurer Y. A total fire loss occurs, and Insurer X becomes insolvent. Can the original insured directly sue Reinsurer Y?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq6" value="0" onchange="gradeInstant(this)"> Yes, under the doctrine of subrogation.</label>
+          <label class="quiz-opt"><input type="radio" name="mq6" value="1" onchange="gradeInstant(this)"> Yes, because reinsurance creates a stipulation pour autrui.</label>
+          <label class="quiz-opt"><input type="radio" name="mq6" value="2" onchange="gradeInstant(this)"> No; Sec. 98 bars direct suit because no privity of contract exists.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PART III -->
+    <!-- ========================================================================= -->
+    <h2 id="part-3">PART III — LOSS, CLAIMS CONDITIONS & MARINE PERILS (Secs. 85–101)</h2>
+
+    <!-- Section 9 -->
+    <h3 id="sec-9">9. Concept of Loss, Modes of Satisfaction & Proximate Cause (Secs. 85–89)</h3>
+
+    <p><em>Imagine a vehicle policy covering flood, but excluding theft. A torrential typhoon submerges a car in deep floodwaters. While neighbors pull the car out of the water, opportunistic thieves sever the winch line and drive the car into a chop-shop compound. Does the insurer pay?</em></p>
+
+    <p>The insurer is liable where the <strong>proximate cause</strong> of the loss is a covered peril, even if the <em>immediate cause</em> was an excepted peril (Sec. 86). Under <strong>Section 87</strong>, losses incurred during rescue efforts from a covered peril are fully compensable!</p>
+
+    <div class="hypo-card">
+      <strong>Professor's Classroom Illustration on Proximate Cause:</strong> In the flooded car scenario, flood was the <strong>prime efficient cause</strong> that set the chain in motion without an independent break. Because the rescue was necessitated by the flood, the consequential theft during the rescue operation is chargeable to the underwriter!
+    </div>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Negligence vs. Willful Acts (Section 89)</strong>
+        <span class="c-navy" style="font-size:0.82rem; font-weight:700;">Liability Boundary</span>
+      </div>
+      <div class="ui-grid-2">
+        <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:0.8rem;">
+          <strong style="color:var(--green);">✓ SIMPLE NEGLIGENCE (Covered)</strong>
+          <p style="font-size:0.85rem; margin-top:0.35rem; color:#14532D;">Carelessness, human lapses, or oversight by the insured or servants DO NOT exonerate the insurer. Protecting against simple negligence is a primary objective of buying insurance.</p>
+        </div>
+        <div style="background:#FEF2F2; border:1px solid #FECACA; border-radius:8px; padding:0.8rem;">
+          <strong style="color:var(--burgundy);">✗ GROSS NEGLIGENCE / FRAUD (Discharged)</strong>
+          <p style="font-size:0.85rem; margin-top:0.35rem; color:#7F1D1D;">Gross negligence amounting to reckless, willful misconduct, intentional destruction, or fraudulent arson discharges the insurer from all liability.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 10 -->
+    <h3 id="sec-10">10. Notice of Loss, Proof of Loss & Beneficiary Status (Secs. 90–94)</h3>
+
+    <p><em>Imagine an insured whose commercial building burns down. He orally informs the insurance agent 3 days later, but fails to submit formal sworn itemized inventory receipts for 3 months. Can the insurer escape liability if it initially denied the claim purely on the ground that the policy had expired?</em></p>
+
+    <p>Under <strong>Sections 93 and 94</strong>, any defect or delay in notice or proof of loss is <strong>deemed waived</strong> if the insurer fails to object promptly, or denies liability on other substantive grounds.</p>
+
+    <div class="ui-box">
+      <strong>Statutory Rules on Notice & Proof of Loss</strong>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:25%">Requirement</th>
+            <th style="width:35%">Statutory Rule</th>
+            <th style="width:40%">Legal Consequence & Waiver</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Notice of Loss (Sec. 90)</strong></td>
+            <td>Must be given <strong>without unnecessary delay</strong> in property insurance.</td>
+            <td>Condition subsequent. Failure bars claim unless waived by insurer's conduct or failure to object (Sec. 93).</td>
+          </tr>
+          <tr>
+            <td><strong>Proof of Loss (Secs. 91–92)</strong></td>
+            <td>Claimant must provide the <strong>best evidence available</strong> to substantiate loss.</td>
+            <td>Does not require courtroom legal precision; reasonable documentation suffices. Delay caused by insurer is waived (Sec. 94).</td>
+          </tr>
+          <tr>
+            <td><strong>Irrevocable Beneficiary</strong></td>
+            <td>Designation in life insurance where right to revoke is expressly waived.</td>
+            <td><strong>Acquires a vested property right.</strong> Insured cannot change beneficiary, take policy loans, or assign policy without consent.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- Section 11 -->
+    <h3 id="sec-11">11. Marine Insurance Scope: Perils of the Sea vs. Perils of the Ship (Sec. 101)</h3>
+
+    <p><em>Imagine an ocean cargo freighter that sinks mid-voyage. In Scenario A, an unprecedented 50-foot rogue tidal wave capsizes the hull. In Scenario B, the ship's rusty wooden hull timbers slowly rot, allowing seawater to seep in during dead calm seas. Is the underwriter liable in both?</em></p>
+
+    <p>The core doctrinal pillar of marine insurance is that <strong>marine policies cover Perils of the Sea, NEVER Perils of the Ship</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>The Great Maritime Dichotomy</strong>
+        <span class="c-navy" style="font-weight:700; font-size:0.85rem;">Sec. 101</span>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:50%; color:var(--green);">PERILS OF THE SEA (Covered)</th>
+            <th style="width:50%; color:var(--burgundy);">PERILS OF THE SHIP (Excluded)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fortuitous, extraordinary, catastrophic casualties</strong> caused by unusual violence of the wind and waves.</td>
+            <td><strong>Natural, normal, ordinary decay</strong> and inevitable wear and tear of navigation.</td>
+          </tr>
+          <tr>
+            <td>Violent typhoons, rogue waves, lightning, collisions without fault, stranding on uncharted reefs.</td>
+            <td>Rusted plates, rotten timbers, unseaworthiness, engines running out of fuel, ordinary water seepage.</td>
+          </tr>
+          <tr>
+            <td><em>Rule:</em> Insurer undertakes to protect against <strong>accidents of the sea</strong>.</td>
+            <td><em>Rule:</em> Insurer does NOT guarantee against the <strong>internal frailties of the vessel</strong>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- Section 12 -->
+    <h3 id="sec-12">12. Specialized Marine Clauses & Bottomry/Respondentia (Sec. 101)</h3>
+
+    <p><em>Imagine a ship captain who deliberately scuttles his cargo ship to smuggle narcotics, or an engine boiler that explodes due to a hidden casting defect. What clauses govern these risks?</em></p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: A – B – I – S</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'A — All-Risks Marine Policy: Covers all fortuitous accidental physical losses\nB — Barratry Clause: Willful fraud/scuttling by master/crew to prejudice of owner\nI — Inchmaree Clause: Covers latent machinery defects, burst boilers, crew negligence\nS — Sue and Labor Clause: Reimburses expenses incurred to rescue and defend property')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Specialized marine insurance clauses frequently encountered in international carriage of goods.</div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:10%"><strong>A</strong></td><td style="width:26%"><strong>All-Risks</strong></td><td>Covers all fortuitous external physical loss, including accidents otherwise classed as perils of the ship.</td></tr>
+          <tr><td><strong>B</strong></td><td><strong>Barratry</strong></td><td>Willful, fraudulent, or criminal acts of master/mariners violating duty to owner without owner's consent.</td></tr>
+          <tr><td><strong>I</strong></td><td><strong>Inchmaree</strong></td><td>Covers damage from bursting boilers, broken shafts, latent machinery defects, or crew negligence.</td></tr>
+          <tr><td><strong>S</strong></td><td><strong>Sue & Labor</strong></td><td>Requires insured to take reasonable steps to mitigate loss; insurer reimburses expenses <em>over and above face limit</em>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Inline SVG for Bottomry & Respondentia Hypothecations -->
+    <div class="ui-box svg-box">
+      <strong>Insurable Interests in Maritime Hypothecations: Bottomry & Respondentia</strong>
+      <svg viewBox="0 0 520 190" width="100%" style="max-width:520px; margin-top:0.75rem;">
+        <rect x="10" y="15" width="500" height="160" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" />
+        
+        <!-- Vessel Sound Value -->
+        <rect x="30" y="35" width="140" height="50" rx="8" fill="#DBEAFE" stroke="#1E3A8A" />
+        <text x="100" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">VESSEL VALUE</text>
+        <text x="100" y="74" text-anchor="middle" font-size="13" font-weight="800" fill="#1E3A8A">₱10,000,000</text>
+
+        <!-- Loan Arrow -->
+        <path d="M175 60 L245 60" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)" />
+        <text x="210" y="52" text-anchor="middle" font-size="9" fill="#64748B">Bottomry</text>
+
+        <!-- Split Interests -->
+        <rect x="250" y="30" width="240" height="60" rx="8" fill="#ECFDF5" stroke="#10B981" />
+        <text x="370" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="#065F46">LENDER'S INTEREST (Creditor)</text>
+        <text x="370" y="68" text-anchor="middle" font-size="13" font-weight="800" fill="#047857">₱4,000,000 (Loan Amount)</text>
+        <text x="370" y="82" text-anchor="middle" font-size="9" fill="#065F46">Vessel sinks → Loan discharged (Lender loses)</text>
+
+        <rect x="250" y="100" width="240" height="60" rx="8" fill="#FEF3C7" stroke="#D97706" />
+        <text x="370" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">OWNER'S INTEREST (Debtor)</text>
+        <text x="370" y="138" text-anchor="middle" font-size="13" font-weight="800" fill="#B45309">₱6,000,000 (Excess Value)</text>
+        <text x="370" y="152" text-anchor="middle" font-size="9" fill="#92400E">Insurable interest is reduced by loan amount</text>
+      </svg>
+      <div class="ui-caption" style="text-align:center;">Bottomry hypothecates the vessel; Respondentia hypothecates cargo. Peril loss discharges debt.</div>
+    </div>
+
+    <!-- Mini-Recall Quiz Part III -->
+    <div class="ui-box quiz-box" id="quiz-part-3">
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>⚡ Part III Mini-Recall Quiz (Instant Feedback)</strong>
+        <span class="c-teal" style="font-size:0.82rem; font-weight:700;">3 Questions</span>
+      </div>
+
+      <div class="quiz-q" data-answer="0" data-why="Flood was the proximate prime cause that necessitated the rescue operation; under Sec. 87, losses occurring during rescue from a covered peril are compensable even if immediate peril (theft) was excepted.">
+        <div class="quiz-prompt">1. A car insured against flood but excluding theft is inundated by floodwaters. While neighbors pull it out, thieves sever the winch and steal the car. Who bears the loss?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq7" value="0" onchange="gradeInstant(this)"> The insurer pays; flood was proximate cause exposing car to rescue hazards.</label>
+          <label class="quiz-opt"><input type="radio" name="mq7" value="1" onchange="gradeInstant(this)"> The insurer is discharged because theft was an expressly excluded peril.</label>
+          <label class="quiz-opt"><input type="radio" name="mq7" value="2" onchange="gradeInstant(this)"> The loss is divided equally between insurer and the car owner.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="Perils of the sea cover extraordinary fortuitous violence of the sea. Natural wear and tear, rusty plates, and rotting timbers are perils of the ship, which are excluded.">
+        <div class="quiz-prompt">2. An ocean vessel sinks in calm weather because its bottom plating rusted through due to poor maintenance. Is this covered by a standard marine cargo policy?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq8" value="0" onchange="gradeInstant(this)"> Yes; sinking in water is always a peril of the sea.</label>
+          <label class="quiz-opt"><input type="radio" name="mq8" value="1" onchange="gradeInstant(this)"> No; rusting and internal decay are perils of the ship, which are excluded.</label>
+          <label class="quiz-opt"><input type="radio" name="mq8" value="2" onchange="gradeInstant(this)"> Yes, if the ship captain exercised due diligence.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="In bottomry, if the vessel sinks by a peril of the sea, the loan is extinguished and the borrower is discharged. The lender's insurable interest is up to the loan value; the owner's is the excess.">
+        <div class="quiz-prompt">3. A ship worth ₱10M secures a bottomry loan of ₱4M. If the vessel is destroyed by typhoon, what happens to the loan debt?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="mq9" value="0" onchange="gradeInstant(this)"> The owner remains personally liable to repay the ₱4M loan.</label>
+          <label class="quiz-opt"><input type="radio" name="mq9" value="1" onchange="gradeInstant(this)"> The lender can attach the owner's personal bank accounts.</label>
+          <label class="quiz-opt"><input type="radio" name="mq9" value="2" onchange="gradeInstant(this)"> The loan is extinguished; the lender loses their money completely.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- FINAL MEMORY SHEET & EXAM PRIORITIES -->
+    <!-- ========================================================================= -->
+    <h2 id="master-sheet">Final Memory Sheet: Master Recall Table</h2>
+
+    <div class="ui-box">
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:30%">Statute / Case / Clause</th>
+            <th style="width:70%">One-Line Bar Exam Recall</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sec. 25, R.A. 10607</strong></td><td>Stipulations for payment without insurable interest or making policy conclusive proof thereof are <em>void ab initio</em>.</td></tr>
+          <tr><td><strong>Sec. 49, R.A. 10607</strong></td><td>Policy of insurance is the written/electronic instrument setting forth the consensual contract; requires IC form approval.</td></tr>
+          <tr><td><strong>Sec. 51, R.A. 10607</strong></td><td>Mandatory contents of policy: Parties, Amount, Risks, Term, Interest, Expense/Premium, Subject matter (<code>PARTIES</code>).</td></tr>
+          <tr><td><strong>Sec. 52, R.A. 10607</strong></td><td>Cover notes provide binding interim insurance up to 60 days max; no separate premium permitted.</td></tr>
+          <tr><td><strong>Sec. 60, R.A. 10607</strong></td><td>Open policy: Face amount is merely a liability ceiling; recovery is pegged to proven sound value of loss.</td></tr>
+          <tr><td><strong>Sec. 61, R.A. 10607</strong></td><td>Valued policy: Value agreed on face; binding and conclusive for total loss absent actionable fraud.</td></tr>
+          <tr><td><strong>Sec. 62, R.A. 10607</strong></td><td>Running policy: Successive insurances over floating revolving inventory defined by endorsements over time.</td></tr>
+          <tr><td><strong>Sec. 64, R.A. 10607</strong></td><td>Non-life cancellation requires prior written notice based exclusively on 7 post-inception statutory grounds.</td></tr>
+          <tr><td><strong>Sec. 66, R.A. 10607</strong></td><td>Insurer must give notice of non-renewal &ge; 45 days prior to expiry; failure grants insured automatic right to renew.</td></tr>
+          <tr><td><strong>Sec. 77, R.A. 10607</strong></td><td><strong>Cash-and-Carry Rule:</strong> No policy is valid and binding until premium is paid, subject to 5 exclusive exceptions.</td></tr>
+          <tr><td><strong>Sec. 79, R.A. 10607</strong></td><td>Written acknowledgment in policy of receipt of premium is conclusive evidence of payment to make coverage binding.</td></tr>
+          <tr><td><strong>*Makati Tuscany* (1992)</strong></td><td>Installment premium agreements make the policy immediately valid and binding upon payment of the first installment.</td></tr>
+          <tr><td><strong>*Masagana Telamart* (2001)</strong></td><td>Customary practice of extending 60–90 day credit binds insurer if loss occurs within that credit window (estoppel).</td></tr>
+          <tr><td><strong>Sec. 86–87, R.A. 10607</strong></td><td>Insurer liable if proximate cause is covered; includes consequential loss sustained during bona fide rescue efforts.</td></tr>
+          <tr><td><strong>Sec. 89, R.A. 10607</strong></td><td>Simple negligence of insured is covered; gross negligence, willful acts, connivance, and arson discharge insurer.</td></tr>
+          <tr><td><strong>Sec. 93–94, R.A. 10607</strong></td><td>Defects in notice/proof of loss are waived if insurer fails to object promptly or denies claim on other grounds.</td></tr>
+          <tr><td><strong>Sec. 95–96, R.A. 10607</strong></td><td>Double insurance is valid per se; Over-insurance by double insurance triggers Sec. 96 pro-rata ratable contribution.</td></tr>
+          <tr><td><strong>Sec. 97–98, R.A. 10607</strong></td><td>Reinsurance contracts lack privity with original insured; original insured cannot sue reinsurer directly.</td></tr>
+          <tr><td><strong>Sec. 101, R.A. 10607</strong></td><td>Marine insurance covers extraordinary Perils of the Sea, but excludes ordinary wear-and-tear Perils of the Ship.</td></tr>
+          <tr><td><strong>Bottomry / Respondentia</strong></td><td>Maritime loan hypothecating vessel/cargo; loss by perils of the sea discharges debt; lender insurable up to loan.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Exam Priorities -->
+    <h3 id="exam-priorities">Top Bar Exam Priorities</h3>
+    <ol style="font-size:0.95rem; color:#1F2937; line-height:1.7;">
+      <li><strong>Cash-and-Carry Exceptions (Sec. 77):</strong> Memorize the 5 exceptions (<code>GAICE</code>: Grace period, Acknowledgment under Sec. 79, Installment rule in <em>Makati Tuscany</em>, Credit term in <em>Masagana Telamart</em>, and Equitable Estoppel).</li>
+      <li><strong>Non-Life Renewal 45-Day Rule (Sec. 66):</strong> Remember that failure to notify the insured 45 days before expiration creates an absolute statutory right of renewal.</li>
+      <li><strong>Double Insurance vs. Over-Insurance (Secs. 95–96):</strong> Double insurance is lawful; when combined with over-insurance, apply the Section 96 pro-rata formula. Remember the "Other Insurance" disclosure clause warranty trap!</li>
+      <li><strong>Proximate Cause in Rescue Operations (Secs. 86–87):</strong> An excepted immediate peril (theft) does not defeat recovery if the proximate cause setting off rescue was a covered peril (flood).</li>
+      <li><strong>Perils of the Sea vs. Perils of the Ship:</strong> Distinguish violent, fortuitous natural forces (covered) from internal structural deterioration, rust, and unseaworthiness (excluded).</li>
+    </ol>
+
+    <!-- Final 5-Question Recall Challenge -->
+    <div class="ui-box final-quiz-box" id="final-challenge">
+      <div class="ui-row-between" style="margin-bottom:0.75rem;">
+        <strong>🏆 Final 5-Question Recall Challenge</strong>
+        <span class="c-navy" style="font-size:0.82rem; font-weight:700;">Batch Graded</span>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under UCPB v. Masagana Telamart (2001 En Banc), an insurer that consistently extends 60-90 day credit is equitably estopped from asserting Section 77 for losses occurring during the credit window.">
+        <div class="quiz-prompt">1. Insurer routinely allowed Client 60 days to pay annual fire renewal premiums. On Day 45, before payment, fire destroys Client's store. Client pays the next morning. Can Client recover?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> No; Section 77 is absolute and admits no exceptions under contract law.</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> No; payment after loss is void ab initio.</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> Yes; consistent credit-extension custom binds insurer under equitable estoppel.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="Under Sec. 66, if an insurer fails to give written notice of non-renewal at least 45 days prior to expiration, the insured is entitled as a matter of right to renew upon premium tender.">
+        <div class="quiz-prompt">2. An insurer mails a notice of non-renewal 20 days prior to the expiration of a 1-year fire policy. What is the legal status of the insured?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> The policy automatically expires because 20 days is reasonable notice.</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> Insured is entitled as of right to renew policy upon tender of renewal premium.</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> The policy is converted into a life insurance policy by operation of law.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="0" data-why="Under Sec. 96, insured collects actual loss (₱1M) from Insurer A. A is entitled to ratable contribution from B, C, and D based on policy limits (equal limits = ₱250k each).">
+        <div class="quiz-prompt">3. Building worth ₱1M is insured for ₱500k each with A, B, C, and D (Total ₱2M). Total loss occurs. Insured collects ₱500k from A and ₱500k from B. What can A and B do?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> Demand ratable contribution of ₱250k each from C and D to equalize the ₱250k burden.</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> Demand full ₱500k reimbursement from C and D.</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> Nothing; underwriters who pay first have no recourse against concurrent insurers.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under Sec. 64, an insurer's unilateral mid-term cancellation must be based exclusively on statutory grounds occurring subsequent to the effective date of the policy.">
+        <div class="quiz-prompt">4. Which of the following is an indispensable statutory requirement for an insurer to cancel a non-life policy mid-term under Section 64?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> Obtaining prior written permission from the court.</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> The ground must have existed prior to the execution of the policy.</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> Prior written notice stating statutory grounds occurring subsequent to policy inception.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="An irrevocable beneficiary acquires a vested property right; the insured cannot obtain policy loans or change beneficiaries without the irrevocable beneficiary's express consent.">
+        <div class="quiz-prompt">5. An insured designates his daughter as irrevocable beneficiary in a life policy. Can the insured later borrow against the policy's cash surrender value without her consent?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> Yes; ownership of the policy remains entirely with the premium payer.</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> No; an irrevocable beneficiary holds a vested right requiring her written consent.</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> Yes, provided the policy has been active for more than two years.</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+
+      <div class="final-score-box" hidden>
+        <div class="final-score-num">0 / 5</div>
+        <div class="ui-caption" style="margin: 0.35rem 0 0.85rem;">Correct answers score summary</div>
+        <button type="button" class="reset-btn" onclick="resetFinalQuiz(this)">Try again</button>
+      </div>
+    </div>
+
+    <!-- Mastery Sequence Footer -->
+    <div class="ui-box" style="text-align:center; background:var(--surface-2); border-left:4px solid var(--navy);">
+      <strong style="color:var(--navy); font-size:0.95rem;">Mastery Progression Sequence</strong>
+      <div style="font-size:0.88rem; color:#4B5563; margin-top:0.35rem; font-weight:600;">
+        Consensual Agreement (Perfection) &rarr; Cash-and-Carry Premium (Enforceability) &rarr; Form Approval & Attached Riders &rarr; Proximate Causation & Ratable Loss Distribution
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function navigateTo(id) {
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function copyMnemonic(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const old = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(() => { btn.textContent = old; }, 1500);
+      });
+    }
+
+    function switchTab(btn, panelId) {
+      const box = btn.closest('[data-tabs]');
+      box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+      box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const target = box.querySelector(`[data-panel="${panelId}"]`);
+      if (target) target.classList.add('active');
+    }
+
+    function gradeInstant(input) {
+      const qBox = input.closest('.quiz-q');
+      const ans = qBox.dataset.answer;
+      const why = qBox.dataset.why || '';
+      const fb = qBox.querySelector('.quiz-feedback');
+      const opts = qBox.querySelectorAll('.quiz-opt');
+      const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+      const isCorrect = input.value === ans;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+    }
+
+    function updateFinalQuiz(input) {
+      const box = input.closest('.final-quiz-box');
+      const total = box.querySelectorAll('.quiz-q').length;
+      const answered = new Set();
+      box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+      const btn = box.querySelector('.check-btn');
+      if (btn) btn.disabled = answered.size < total;
+    }
+
+    function gradeFinalQuiz(btn) {
+      const box = btn.closest('.final-quiz-box');
+      const qs = box.querySelectorAll('.quiz-q');
+      let score = 0;
+      qs.forEach(q => {
+        const ans = q.dataset.answer;
+        const why = q.dataset.why || '';
+        const checked = q.querySelector('input[type="radio"]:checked');
+        const fb = q.querySelector('.quiz-feedback');
+        const isCorrect = checked && checked.value === ans;
+        if (isCorrect) score++;
+        fb.hidden = false;
+        fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+        fb.textContent = (isCorrect ? '✓ ' : 'ℹ ') + why;
+      });
+      const scoreBox = box.querySelector('.final-score-box');
+      if (scoreBox) {
+        scoreBox.hidden = false;
+        scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+      }
+    }
+
+    function resetFinalQuiz(btn) {
+      const box = btn.closest('.final-quiz-box');
+      box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+      box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+      box.querySelector('.final-score-box').hidden = true;
+      box.querySelector('.check-btn').disabled = true;
+    }
+  </script>
+</body>
+</html>
