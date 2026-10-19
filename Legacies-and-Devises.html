@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacies and Devises (Arts. 924–959) — Quick Notes</title>
+  <style>
+  :root {
+    --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+    --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+    --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+    --text: #1F2937; --muted: #64748B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+  }
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+    padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+  .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+  .nav-dropdown {
+    flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+    border: 1px solid #CBD5E1; background: #FFF; color: var(--text);
+  }
+  .document-container {
+    max-width: 820px; margin: 2rem auto; background: var(--surface);
+    padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  }
+  h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+  h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+  h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+  h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+  .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+  hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+  .ui-divider { margin: 0.85rem 0; }
+  .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+  .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+  /* Callouts & Boxes */
+  .update-banner {
+    background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+  }
+  .trap-banner {
+    background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .ui-box {
+    border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+    margin: 1.25rem 0; background: var(--surface);
+  }
+  .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+  .copy-btn, .check-btn, .reset-btn {
+    border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+    border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+  .check-btn {
+    width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+    color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+  }
+  .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* Mental Map Rows */
+  .mm-row { display: flex; align-items: center; gap: 1rem; }
+  .mm-icon {
+    width: 42px; height: 42px; border-radius: 10px; background: var(--surface-2);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+  .mm-desc { font-size: 0.9rem; color: #374151; }
+
+  /* Flow Stack & Grids */
+  .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+  .flow-step {
+    width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+    text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+  }
+  .flow-step span { font-size: 0.82rem; color: var(--muted); }
+  .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+  .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+  .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+  .stat-card {
+    background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+  }
+  .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+  .stat-card .stat-val { font-size: 1.25rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+  .ui-table th {
+    text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1.5px solid #CBD5E1;
+  }
+  .ui-table td {
+    padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+  }
+  .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+  /* Segmented Control & Bar Chart */
+  .seg-control {
+    display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+  }
+  .seg-btn {
+    flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.85rem; color: var(--muted); cursor: pointer;
+  }
+  .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .bar-chart {
+    display: flex; align-items: flex-end; justify-content: space-around; height: 155px;
+    padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+  }
+  .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 80px; }
+  .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+  .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+  .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; }
+
+  /* Interactive Quizzes */
+  .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .quiz-q:last-of-type { border-bottom: none; }
+  .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .quiz-opt {
+    display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+    padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+  }
+  .quiz-opt:hover { background: var(--surface-2); }
+  .quiz-feedback {
+    margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem;
+  }
+  .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+  .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+  .final-score-box {
+    margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+    padding: 1.25rem; text-align: center;
+  }
+  .final-score-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); }
+  @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- 1. STICKY TOPIC NAVIGATION BAR -->
+  <nav class="sticky-nav">
+    <div class="nav-content">
+      <span class="nav-label">JUMP TO SECTION</span>
+      <select class="nav-dropdown" onchange="if(this.value) location.href=this.value">
+        <option value="#top">— Select a Topic or Micro-Lesson —</option>
+        <option value="#mental-map">Mental Map of the Entire Lecture</option>
+        <option value="#part-1">PART I — General Concepts, Definitions &amp; Charges (Arts. 924–928)</option>
+        <option value="#sec-1">  1. Concept, Definitions &amp; Subject Matter (Art. 924)</option>
+        <option value="#sec-2">  2. Persons Charged &amp; Extent of Liability (Arts. 925–926)</option>
+        <option value="#sec-3">  3. Solidary Liability &amp; Warranty Against Eviction (Arts. 927–928)</option>
+        <option value="#part-2">PART II — Property Owned Partly or Totally by Others or Legatees (Arts. 929–933)</option>
+        <option value="#sec-4">  4. Thing Belonging Partly to Testator or Stranger (Art. 929)</option>
+        <option value="#sec-5">  5. Thing Belonging Entirely to a Stranger (Arts. 930–931)</option>
+        <option value="#sec-6">  6. Thing Already Belonging to Legatee or Devisee (Arts. 932–933)</option>
+        <option value="#part-3">PART III — Encumbered Property, Credits, Remission &amp; Creditors (Arts. 934–939)</option>
+        <option value="#sec-7">  7. Pledged or Mortgaged Property &amp; Other Charges (Art. 934)</option>
+        <option value="#sec-8">  8. Legacy of Credit &amp; Remission of Debt (Arts. 935–937)</option>
+        <option value="#sec-9">  9. Legacy to Creditors &amp; Mistaken Debts (Arts. 938–939)</option>
+        <option value="#part-4">PART IV — Alternative, Generic &amp; Welfare Bequests (Arts. 940–945)</option>
+        <option value="#sec-10">  10. Alternative &amp; Generic Legacies and Devises (Arts. 940–943)</option>
+        <option value="#sec-11">  11. Legacies for Education, Support &amp; Pensions (Arts. 944–945)</option>
+        <option value="#part-5">PART V — Vesting, Preference, Delivery &amp; Implied Revocation (Arts. 946–959)</option>
+        <option value="#sec-12">  12. Vesting of Rights, Ownership, Fruits &amp; Risks (Arts. 946–949)</option>
+        <option value="#sec-13">  13. Order of Preference: Art. 950 vs. Art. 911</option>
+        <option value="#sec-14">  14. Delivery, Self-Possession, Acceptance &amp; Merging (Arts. 951–956)</option>
+        <option value="#sec-15">  15. Revocation by Implication of Law (Art. 957)</option>
+        <option value="#sec-16">  16. Mistake in Description &amp; Dispositions to Relatives (Arts. 958–959)</option>
+        <option value="#final-sheet">Final Memory Sheet &amp; 5-Question Recall Challenge</option>
+      </select>
+    </div>
+  </nav>
+
+  <div class="document-container" id="top">
+
+    <!-- 2. HEADER BLOCK -->
+    <h1>Legacies and Devises (Testamentary Succession)</h1>
+    <p class="doc-subtitle">Civil Code Articles 924–959, in relation to Articles 793, 911, and Rules 86 &amp; 90 of the Rules of Court</p>
+    <p class="doc-approach"><strong>Our approach:</strong> Understand the situation first, identify the applicable rule, memorize the requisites, and practice applying the law.</p>
+
+    <!-- 3. MENTAL MAP CARD -->
+    <div class="ui-box mental-map" id="mental-map">
+      <div class="mm-row">
+        <div class="mm-icon">🎁</div>
+        <div class="mm-body">
+          <div class="mm-title">1. NATURE &amp; BURDEN (ARTS. 924–928)</div>
+          <div class="mm-desc">What can be given by particular title, who pays for it, and when are heirs liable for loss or eviction?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">🔑</div>
+        <div class="mm-body">
+          <div class="mm-title">2. OWNERSHIP ANOMALIES (ARTS. 929–933)</div>
+          <div class="mm-desc">What happens if the testator only partly owns the item, doesn't own it at all, or the legatee already owns it?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">🏦</div>
+        <div class="mm-body">
+          <div class="mm-title">3. LIENS, CREDITS &amp; DEBTS (ARTS. 934–939)</div>
+          <div class="mm-desc">Who pays off a mortgage on devised land, and when does a legacy of credit or debt release lapse?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">⚖️</div>
+        <div class="mm-body">
+          <div class="mm-title">4. GENERIC, WELFARE &amp; PRIORITY RULES (ARTS. 940–950)</div>
+          <div class="mm-desc">Why do generic personal and real gifts differ, when does ownership vest, and how do we cut back excess gifts?</div>
+        </div>
+      </div>
+      <div class="ui-divider"></div>
+      <div class="mm-row">
+        <div class="mm-icon">🔥</div>
+        <div class="mm-body">
+          <div class="mm-title">5. DELIVERY, IMPLIED REVOCATION &amp; RELATIVES (ARTS. 951–959)</div>
+          <div class="mm-desc">Why can't a legatee grab the item himself, what acts silently revoke a legacy, and who are "my relatives"?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="update-banner">
+      <strong>📌 Important Legal &amp; Doctrinal Calibration (BSP Interest Rate &amp; Probate Rules):</strong>
+      While older jurisprudence (*Chiong Joc-Soy v. Vano*) applied the classic 6% statutory rate under the old Code of Civil Procedure for money legacies upon judicial demand or default, remember that under <strong>BSP Circular No. 799 (2013)</strong> and <em>Nacar v. Gallery Frames</em>, the legal interest rate for forbearance of money or delay remains <strong>6% per annum</strong>. Furthermore, in <em>Pastor, Jr. v. Court of Appeals</em>, the Supreme Court emphasized that no legacy or devise can be enforced or delivered until the estate is <strong>fully liquidated</strong> (all debts, taxes, and administration expenses paid), subject only to advance distribution upon posting a bond under <strong>Rule 90, Section 1 of the Rules of Court</strong>.
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- PART I -->
+    <!-- ================================================================= -->
+    <h2 id="part-1">PART I — General Concepts, Definitions &amp; Charges (Arts. 924–928)</h2>
+
+    <!-- MICRO-LESSON 1 -->
+    <h3 id="sec-1">1. Concept, Definitions &amp; Subject Matter (Article 924)</h3>
+    <p><strong>Imagine...</strong> Don Rafael writes a will leaving his vintage Rolex watch to his loyal driver and a specific 500-square-meter residential lot in Tagaytay to his favorite niece. However, before the executor pays the estate taxes and bank creditors, the driver and niece show up demanding immediate delivery of the watch and land title.</p>
+    <p>Under <strong>Article 924</strong>, all things and rights <em>within the commerce of man</em> may be bequeathed as a <strong>legacy</strong> (testamentary gift of personal property to a <em>legatee</em>) or devised as a <strong>devise</strong> (testamentary gift of real property to a <em>devisee</em>). Legatees and devisees succeed by <strong>particular title</strong> to individual, determinate items or specific rights—charged strictly against the <strong>disposable free portion</strong>—and under <em>Pastor, Jr. v. CA</em>, delivery cannot be enforced until the estate is <strong>fully liquidated</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: Legacy vs. Devise vs. Institution of Heir</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'LEGACY = Personal Property (Particular Title)\nDEVISE = Real Property (Particular Title)\nHEIR = Universal / Aliquot Fractional Share\nLIQUIDATE FIRST = Pay Debts + Taxes + Expenses before Legacies (Pastor, Jr. v. CA)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">Contrast between universal/aliquot succession and succession by particular title.</div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Legacy (<em>Legatee</em>)</th>
+            <th>Devise (<em>Devisee</em>)</th>
+            <th>Institution of Heir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Object</strong></td>
+            <td>Personal / movable property or rights</td>
+            <td>Real / immovable property</td>
+            <td>Whole estate or aliquot fractional share</td>
+          </tr>
+          <tr>
+            <td><strong>Title of Succession</strong></td>
+            <td><strong>Particular title</strong></td>
+            <td><strong>Particular title</strong></td>
+            <td><strong>Universal title</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Source in Estate</strong></td>
+            <td colspan="2">Strictly from the <strong>Disposable Free Portion</strong> (never impairs legitime)</td>
+            <td>Legitime (compulsory) or Free Portion (voluntary)</td>
+          </tr>
+          <tr>
+            <td><strong>Subject Matter Limit</strong></td>
+            <td colspan="3">Must be <strong>within the commerce of man</strong> (excludes public plazas/roads &amp; illegal contraband / <em>res nullius</em>).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ui-box">
+      <strong>Prior Estate Liquidation Sequence (<em>Pastor, Jr. v. CA</em>):</strong>
+      <p style="margin:0.4rem 0 0; font-weight:700; color:var(--navy);">GROSS ESTATE → PAY DEBTS, TAXES &amp; EXPENSES → SATISFY LEGITIMES → DELIVER LEGACIES &amp; DEVISES</p>
+      <div class="ui-caption">Manresa's 4 Purposes of Bequests: (1) Moral/social duties, (2) Rewarding affection/devotion, (3) Gratitude for past favors/services, (4) Charitable/educational/religious funds.</div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 2 -->
+    <h3 id="sec-2">2. Persons Charged &amp; Extent of Liability (Articles 925 &amp; 926)</h3>
+    <p><strong>Imagine...</strong> A testator leaves a net estate of ₱10,000,000 to his two legitimate children, Ana and Ben. Their combined legitime is ₱5,000,000 (₱2.5M each), and the testator gives Ana ₱4,000,000 of the free portion and Ben ₱1,000,000 of the free portion, while ordering "my children to pay a sub-legacy of ₱500,000 to my nurse."</p>
+    <p>Under <strong>Articles 925 and 926</strong>, a testator may charge compulsory heirs, voluntary heirs, or even legatees/devisees (a <em>sub-legacy</em> or <em>sub-devise</em>) with the payment of a bequest; if no one is specified, the <strong>estate</strong> itself bears the charge. A legatee/devisee is liable only up to the value of the gift received, while compulsory heirs are liable <strong>strictly in proportion to their share in the disposable free portion</strong>, because their legitime is completely untouchable.</p>
+
+    <div class="ui-box" data-tabs>
+      <div class="seg-control">
+        <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-compulsory')">Compulsory Heirs Charged (Art. 925)</button>
+        <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-sublegacy')">Voluntary Heir / Sub-Legatee Charged</button>
+      </div>
+      <div class="tab-panel active" data-panel="tab-compulsory">
+        <p><strong>Rule: Proportionate to Free Portion Received Only (Legitime Untouchable)</strong><br>
+        Ana received ₱4M of the Free Portion (80% of FP) and Ben received ₱1M of the Free Portion (20% of FP). To pay the ₱500k nurse's legacy, they contribute in an <strong>80 : 20 ratio</strong>—NOT based on their total inheritance!</p>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">Ana (80% FP)</div></div>
+          <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:25px"></div><div class="bar-lbl">Ben (20% FP)</div></div>
+          <div class="bar-col"><div class="bar-val">₱0</div><div class="bar-fill" style="height:4px; background:#94A3B8"></div><div class="bar-lbl">Legitime</div></div>
+        </div>
+        <div class="ui-caption">Ana pays ₱400,000 and Ben pays ₱100,000. Their ₱2.5M legitimes cannot be touched.</div>
+      </div>
+      <div class="tab-panel" data-panel="tab-sublegacy">
+        <p><strong>Rule: Ceiling is the Value of the Legacy / Devise Received</strong><br>
+        If Legatee X receives a car worth ₱800,000 and is charged by the testator to pay a sub-legacy of ₱1,000,000 to Y, X is only bound up to ₱800,000.</p>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar-val">₱800k</div><div class="bar-fill" style="height:90px"></div><div class="bar-lbl">Gift Value</div></div>
+          <div class="bar-col"><div class="bar-val">₱800k</div><div class="bar-fill" style="height:90px; background:#16A34A"></div><div class="bar-lbl">Max Liability</div></div>
+          <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:25px; background:#DC2626"></div><div class="bar-lbl">Excess Void</div></div>
+        </div>
+        <div class="ui-caption">A sub-legatee can never lose out-of-pocket money on a testamentary charge.</div>
+      </div>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ The Favorite Examination Trap (Total Inheritance vs. Free Portion Ratio):</strong>
+      When compulsory heirs are charged with a legacy without specifying individual shares, examiners love to ask how much each compulsory heir contributes. Do <strong>not</strong> use their total inheritance ratio if they received unequal shares of the free portion—compute their contribution strictly according to their <strong>proportionate share in the free portion</strong> (Art. 925, par. 2).
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 3 -->
+    <h3 id="sec-3">3. Solidary Liability &amp; Warranty Against Eviction (Articles 927 &amp; 928)</h3>
+    <p><strong>Imagine...</strong> Three brothers take physical possession of their late father's mansion before turning over a bequeathed painting to a museum. One brother carelessly leaves a window open during a typhoon, destroying the painting; meanwhile, another heir delivers a generic stallion to a legatee, only for the true owner to evict the legatee a week later.</p>
+    <p>Under <strong>Article 927</strong>, if two or more heirs take possession of the estate, they are <strong>solidarily liable</strong> for the loss or destruction of a thing devised or bequeathed through negligence, fraud, or delay, even if only one co-heir was at fault. Under <strong>Article 928</strong>, the heir or estate is liable for <strong>eviction and hidden defects</strong> only when the bequest is <em>generic/indeterminate</em>, not when it is a specific thing chosen by the testator.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Symmetric Contrast Aphorisms (Arts. 927 &amp; 928)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'CO-HEIRS IN POSSESSION = Solidarily liable even if only ONE is negligent (Art. 927)\nGENERIC GIFT = Liable for eviction (obligor chose a bad item)\nSPECIFIC GIFT = NOT liable for eviction (testator chose the exact item)')">📋 Copy</button>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Rule / Provision</th>
+            <th>Triggering Facts</th>
+            <th>Legal Consequence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Art. 927: Solidary Liability of Co-Heirs</strong><br><em>(Debuque v. Climaco)</em></td>
+            <td>2+ heirs take physical possession of estate assets + bequeathed item is lost/destroyed via negligence (<em>culpa</em>), fraud (<em>dolo</em>), or delay (<em>mora</em>) of one heir.</td>
+            <td><strong>All co-heirs in possession are solidarily liable</strong> to the legatee/devisee (with right of reimbursement against the guilty co-heir). Also applies to unauthorized appropriation of estate funds.</td>
+          </tr>
+          <tr>
+            <td><strong>Art. 928: Generic / Indeterminate Bequest</strong></td>
+            <td>Heir delivers an indeterminate item ("a horse") and legatee is evicted or discovers hidden defects.</td>
+            <td><strong>LIABLE for eviction</strong> (Art. 1548) and hidden defects because the obligor had the choice and duty to select an unencumbered item.</td>
+          </tr>
+          <tr>
+            <td><strong>Art. 928: Specific / Determinate Bequest</strong></td>
+            <td>Testator bequeathed a specific item ("my horse Silver") and legatee is evicted by a third party.</td>
+            <td><strong>NOT liable for eviction</strong> because the testator specified the exact object, leaving the heir with no choice.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MINI-RECALL QUIZ PART I -->
+    <div class="ui-box quiz-box">
+      <strong>⚡ Part I Instant Mini-Recall</strong>
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Pastor, Jr. v. CA, the payment or delivery of legacies and devises cannot be enforced until the estate has been fully liquidated (debts, taxes, and expenses paid).">
+        <div class="quiz-prompt">1. Immediately after the will is admitted to probate, a legatee files a motion demanding immediate delivery of a ₱2M cash legacy while estate taxes and creditor claims remain unpaid and unbonded. Should the court grant it?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="0" onchange="gradeInstant(this)"> Yes, because probate of the will vests immediate demandability</label>
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="1" onchange="gradeInstant(this)"> No, because estate liquidation (payment of debts and taxes) must precede delivery of legacies</label>
+          <label class="quiz-opt"><input type="radio" name="p1q1" value="2" onchange="gradeInstant(this)"> Yes, provided the compulsory heirs consent</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Art. 927, when two or more heirs take possession of the estate, they are solidarily liable for the loss or destruction of a bequeathed thing even if only one of them was negligent.">
+        <div class="quiz-prompt">2. Co-heirs X, Y, and Z took possession of the estate. Through X's sole negligence, a vintage car bequeathed to L was destroyed. Who may L sue for the full value of the car?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="0" onchange="gradeInstant(this)"> Only X, since negligence is personal</label>
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="1" onchange="gradeInstant(this)"> X, Y, and Z jointly (1/3 each)</label>
+          <label class="quiz-opt"><input type="radio" name="p1q2" value="2" onchange="gradeInstant(this)"> Any of X, Y, or Z solidarily for 100% of the value</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================================= -->
+    <!-- PART II -->
+    <!-- ================================================================= -->
+    <h2 id="part-2">PART II — Property Owned Partly or Totally by Others or Legatees (Arts. 929–933)</h2>
+
+    <!-- MICRO-LESSON 4 -->
+    <h3 id="sec-4">4. Thing Belonging Partly to Testator or Stranger (Article 929)</h3>
+    <p><strong>Imagine...</strong> Testator T co-owns a beachfront parcel in Boracay equally (50–50) with his business partner S. In his will, T writes: <em>"I devise the beachfront land in Boracay to my friend Marco."</em></p>
+    <p>Under <strong>Article 929</strong>, if the testator, heir, or legatee owns only a part of or an interest in the thing bequeathed, the legacy or devise is <strong>presumed limited strictly to such part or interest</strong>, unless the testator <strong>expressly declares that he gives the thing in its entirety</strong> (knowing that he is only a part-owner).</p>
+
+    <div class="ui-box">
+      <strong>Arrow Micro-Formula: Partial Ownership Presumption (Art. 929)</strong>
+      <p style="margin:0.4rem 0 0; font-weight:700; color:var(--navy);">PARTIAL OWNERSHIP → PRESUMED LIMITED TO TESTATOR'S SHARE → ENTIRETY ONLY IF EXPRESSLY DECLARED + KNOWLEDGE</p>
+      <div class="ui-grid-2">
+        <div class="stat-card">
+          <div class="stat-lbl">Partition: Adjudicated to Testator</div>
+          <div class="stat-val" style="font-size:1rem; color:var(--green);">Bequest Subsists in Full</div>
+          <div class="ui-caption">If before death the property is partitioned and awarded to the testator, the devisee gets it.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-lbl">Partition: Adjudicated to Co-Owner</div>
+          <div class="stat-val" style="font-size:1rem; color:var(--burgundy);">Inoperative (Art. 957[2])</div>
+          <div class="ui-caption">Without an express declaration of entirety, adjudication to the co-owner works as an implied alienation.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 5 -->
+    <h3 id="sec-5">5. Thing Belonging Entirely to a Stranger (Articles 930 &amp; 931)</h3>
+    <p><strong>Imagine...</strong> Testator T bequeaths his neighbor's painting to L. In Scenario A, T genuinely thought he owned the painting because it had been hanging in his living room for years. In Scenario B, T knew it belonged to his neighbor and directed his executor to buy it for L, but the neighbor demands ₱50 Million for a ₱500,000 painting.</p>
+    <p>Under <strong>Article 930</strong>, a bequest of a stranger's property is <strong>void</strong> if the testator <em>erroneously believed</em> he owned it—unless the testator subsequently acquires it before death by any title. Under <strong>Article 931</strong>, if the testator <em>knew</em> it belonged to another and ordered its acquisition, the bequest is <strong>valid</strong>: the estate must buy and deliver it, or if the owner refuses to sell or demands an excessive price, pay the legatee its <strong>just value</strong>.</p>
+
+    <div class="ui-box svg-box">
+      <svg viewBox="0 0 600 215" width="100%" role="img" aria-label="Decision tree for bequest of a stranger's property under Articles 930 and 931">
+        <!-- Root -->
+        <rect x="175" y="10" width="250" height="40" rx="8" fill="#1E3A8A" />
+        <text x="300" y="35" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">Stranger Owns 100% of Thing at Will Execution</text>
+        
+        <!-- Lines from Root -->
+        <path d="M240 50 L140 85" stroke="#64748B" stroke-width="2" fill="none"/>
+        <path d="M360 50 L460 85" stroke="#64748B" stroke-width="2" fill="none"/>
+
+        <!-- Branch 1: Erroneous Belief (Art. 930) -->
+        <rect x="25" y="85" width="230" height="44" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="140" y="104" text-anchor="middle" fill="#991B1B" font-size="12" font-weight="700">Art. 930: Erroneous Belief of Ownership</text>
+        <text x="140" y="121" text-anchor="middle" fill="#374151" font-size="11">VOID ab initio (Mistake vitiates consent)</text>
+
+        <!-- Branch 2: Knew + Ordered Acquisition (Art. 931) -->
+        <rect x="345" y="85" width="230" height="44" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="460" y="104" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">Art. 931: Knew + Ordered Acquisition</text>
+        <text x="460" y="121" text-anchor="middle" fill="#166534" font-size="11">VALID (Estate must buy &amp; deliver)</text>
+
+        <!-- Sub-lines -->
+        <path d="M140 129 L140 155" stroke="#64748B" stroke-width="2" fill="none"/>
+        <path d="M460 129 L460 155" stroke="#16A34A" stroke-width="2" fill="none"/>
+
+        <!-- Curing Exception (Art. 930) -->
+        <rect x="20" y="155" width="240" height="46" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="140" y="174" text-anchor="middle" fill="#166534" font-size="11" font-weight="700">CURING EXCEPTION: Testator Acquires Later</text>
+        <text x="140" y="191" text-anchor="middle" fill="#374151" font-size="10.5">Becomes VALID by whatever title before death</text>
+
+        <!-- Fallback (Art. 931) -->
+        <rect x="340" y="155" width="240" height="46" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+        <text x="460" y="174" text-anchor="middle" fill="#1E3A8A" font-size="11" font-weight="700">Owner Refuses / Excessive Price</text>
+        <text x="460" y="191" text-anchor="middle" fill="#374151" font-size="10.5">Obligor pays JUST VALUE to legatee/devisee</text>
+      </svg>
+      <div class="ui-caption" style="text-align:center">
+        <strong>Juridical Debate on Art. 931:</strong> Justices J.B.L. Reyes, Puno &amp; Caguioa require an <em>express order</em> to acquire; Tolentino, Jurado &amp; Paras hold that knowledge alone creates an <em>implied order</em> to acquire.
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 6 -->
+    <h3 id="sec-6">6. Thing Already Belonging to Legatee or Devisee (Articles 932 &amp; 933)</h3>
+    <p><strong>Imagine...</strong> Testator T bequeaths a specific condo unit to Carla. What if Carla already owned that condo on the day T signed the will? Or what if a stranger owned it when T signed the will, and Carla bought it for ₱5 Million a year before T died?</p>
+    <p>Under <strong>Articles 932 and 933</strong>, if the thing <strong>already belonged to the legatee/devisee at the execution of the will</strong>, the bequest is <strong>ineffective/void</strong> (even if the legatee later alienates it), unless the testator expressly orders it freed from a third-party encumbrance. However, if the legatee acquires it <strong>after the execution of the will</strong> (assuming it was a valid bequest under Art. 931), a <em>gratuitous</em> acquisition yields nothing, whereas an <em>onerous</em> acquisition entitles the legatee to <strong>reimbursement</strong> from the estate.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Symmetric Contrast: WHEN &amp; HOW the Legatee Acquired It (Arts. 932–933)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'OWNED AT WILL EXECUTION = Void (except express order to free encumbrance)\nACQUIRED AFTER WILL (GRATUITOUS) = Claims Nothing\nACQUIRED AFTER WILL (ONEROUS FROM 3RD PARTY) = Demands Reimbursement\nACQUIRED AFTER WILL (BOUGHT FROM TESTATOR) = Revoked by Alienation (Art. 957[2]), No Reimbursement')">📋 Copy</button>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Timing &amp; Mode of Legatee's Ownership</th>
+            <th>Legal Effect / Remedy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Owned by Legatee AT Execution of Will</strong> (Arts. 932 &amp; 933 par. 1)</td>
+            <td><strong>VOID / INEFFECTIVE</strong>, even if legatee later sells it.<br><em>Exception:</em> Valid to the extent the testator expressly orders the property freed from an encumbrance (mortgage, usufruct, pledge).</td>
+          </tr>
+          <tr>
+            <td><strong>2. Acquired AFTER Will Execution by GRATUITOUS Title</strong> (Art. 933 par. 2)</td>
+            <td><strong>Claims Nothing.</strong> Because the legatee already got the item for free (by donation or inheritance), the testator's liberality is fulfilled.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Acquired AFTER Will Execution by ONEROUS Title from Stranger</strong> (Art. 933 par. 2)</td>
+            <td><strong>Demands Reimbursement</strong> from the estate/heir for the purchase price or value paid (assuming the bequest was valid under Art. 931).</td>
+          </tr>
+          <tr>
+            <td><strong>4. Acquired AFTER Will Execution by Purchase from TESTATOR Himself</strong></td>
+            <td><strong>Revoked by Alienation (Art. 957[2]); No Reimbursement.</strong> By selling the item to the legatee, the testator impliedly revoked the gratuitous bequest.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MINI-RECALL QUIZ PART II -->
+    <div class="ui-box quiz-box">
+      <strong>⚡ Part II Instant Mini-Recall</strong>
+      <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Under Art. 930, even if the testator erroneously believed he owned the stranger's thing at the execution of the will, if it afterwards becomes his by whatever title before death, the disposition takes effect.">
+        <div class="quiz-prompt">1. In 2022, T executed a will bequeathing a Rolex watch to L, mistakenly believing the watch was his when it actually belonged to his brother B. In 2024, B donated the watch to T. In 2025, T died. Is L entitled to the watch?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="0" onchange="gradeInstant(this)"> Yes, T's subsequent acquisition before death cured the initial invalidity under Art. 930</label>
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="1" onchange="gradeInstant(this)"> No, a void legacy can only be cured by executing a new will or codicil</label>
+          <label class="quiz-opt"><input type="radio" name="p2q1" value="2" onchange="gradeInstant(this)"> No, unless T acquired it by onerous title</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Art. 933, if the thing belonged to the legatee at the time of the execution of the will, the legacy is without effect even if the legatee subsequently alienates it.">
+        <div class="quiz-prompt">2. At the time T made his will devising Lot A to D, D already owned Lot A. Two years later, D sold Lot A to a stranger X. When T died, D demanded that the estate buy Lot A back from X or pay him its value. Decide.</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="0" onchange="gradeInstant(this)"> D is entitled to reimbursement of the price X paid</label>
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="1" onchange="gradeInstant(this)"> The estate must reacquire Lot A from X under Art. 931</label>
+          <label class="quiz-opt"><input type="radio" name="p2q2" value="2" onchange="gradeInstant(this)"> The devise is void and without effect; subsequent alienation by D does not validate it</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================================= -->
+    <!-- PART III -->
+    <!-- ================================================================= -->
+    <h2 id="part-3">PART III — Encumbered Property, Credits, Remission &amp; Creditors (Arts. 934–939)</h2>
+
+    <!-- MICRO-LESSON 7 -->
+    <h3 id="sec-7">7. Pledged or Mortgaged Property &amp; Other Charges (Article 934)</h3>
+    <p><strong>Imagine...</strong> Testator T devises a commercial building to his nephew. The building is both (a) mortgaged to BPI to secure a ₱10M loan, and (b) burdened by a 10-year registered usufruct and right-of-way easement in favor of a neighbor. Who pays the ₱10M bank loan, and does the estate have to buy out the usufruct?</p>
+    <p>Under <strong>Article 934</strong>, if a bequeathed thing is <strong>pledged or mortgaged to secure a recoverable debt</strong> (whether before or after the execution of the will), the <strong>estate is obliged to pay the debt</strong> unless a contrary intention appears. Conversely, <strong>any other charge</strong> (perpetual or temporary, such as usufructs, leases, or easements) <strong>passes with the property</strong> to the legatee or devisee.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Symmetric Contrast: Debt Security vs. Real Burden (Art. 934)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'PLEDGE / MORTGAGE / ANTICHRESIS (Recoverable Debt) = ESTATE PAYS THE DEBT\nUSUFRUCT / EASEMENT / LEASE (Other Charges) = PASSES WITH PROPERTY TO LEGATEE')">📋 Copy</button>
+      </div>
+      <div class="ui-grid-2">
+        <div class="stat-card" style="border-left:4px solid var(--green); text-align:left;">
+          <div class="stat-lbl">Pledge, Mortgage, Antichresis</div>
+          <div class="stat-val" style="font-size:1.05rem; color:var(--green);">Estate Pays &amp; Clears Title</div>
+          <p style="font-size:0.84rem; margin:0.4rem 0 0;">Applies whether constituted before or after the will, as long as it secures a recoverable debt (unless testator orders otherwise).</p>
+        </div>
+        <div class="stat-card" style="border-left:4px solid var(--rust); text-align:left;">
+          <div class="stat-lbl">Usufruct, Servitude, Lease</div>
+          <div class="stat-val" style="font-size:1.05rem; color:var(--rust);">Passes to Beneficiary</div>
+          <p style="font-size:0.84rem; margin:0.4rem 0 0;">Perpetual or temporary non-debt charges follow the property; the devisee must respect them until extinguished.</p>
+        </div>
+      </div>
+      <div class="ui-caption" style="margin-top:0.8rem;">
+        <strong>Mortgagee's 3 Alternative Remedies in Probate (Rule 86, Sec. 7):</strong> (1) Abandon security &amp; file an ordinary money claim against the estate; (2) Foreclose judicially against the executor/administrator and claim any deficiency in probate; or (3) Rely solely on the mortgage and foreclose extrajudicially/judicially within 10 years (waiving any deficiency).
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 8 -->
+    <h3 id="sec-8">8. Legacy of Credit &amp; Remission of Debt (Articles 935–937)</h3>
+    <p><strong>Imagine...</strong> Testator T bequeaths to L "the ₱1,000,000 debt that Debtor D owes me." Six months before dying, T pays a lawyer to file a collection suit in RTC against D, though D still hasn't paid a cent when T dies. What happens to L's legacy?</p>
+    <p>Under <strong>Articles 935 to 937</strong>, a <strong>legacy of credit</strong> (against a third person) or <strong>legacy of remission</strong> (releasing the legatee's own debt) is effective only for the balance existing at the testator's death, and <strong>lapses by implied revocation if the testator brings a judicial action</strong> against the debtor for collection (even if unpaid at death).</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: C-R-A-P-G Rules on Credits &amp; Remissions (Arts. 935–937)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'C — Credit legacy covers only balance + interest existing at DEATH (Art. 935)\nR — Remission releases debt existing at DEATH (Art. 935)\nA — Action in court (JUDICIAL demand) revokes legacy; extrajudicial demand does NOT (Art. 936)\nP — Pledge returned to debtor releases ONLY the pledge, not the principal loan (Art. 936 par. 2)\nG — Generic remission covers only debts existing at WILL EXECUTION (Art. 937)')">📋 Copy</button>
+      </div>
+      <table class="ui-table compact-table">
+        <tbody>
+          <tr><td style="width:8%"><strong>C</strong></td><td style="width:28%"><strong>Credit Legacy (Art. 935)</strong></td><td>Effective only for the unpaid amount + interest existing at <strong>death</strong>. Executed by assigning the right of action to the legatee.</td></tr>
+          <tr><td><strong>R</strong></td><td><strong>Remission (Art. 935)</strong></td><td>Condonation of legatee's debt; effective only for the balance existing at <strong>death</strong>. Estate issues an acquittance.</td></tr>
+          <tr><td><strong>A</strong></td><td><strong>Action in Court (Art. 936)</strong></td><td>Filing a <strong>judicial action</strong> revokes the legacy even if unpaid at death. <em>Mere extrajudicial demand does NOT revoke it!</em></td></tr>
+          <tr><td><strong>P</strong></td><td><strong>Pledge Return (Art. 936)</strong></td><td>Bequeathing the pledged thing back to the debtor extinguishes <strong>only the accessory pledge</strong>; the principal debt remains due.</td></tr>
+          <tr><td><strong>G</strong></td><td><strong>Generic Release (Art. 937)</strong></td><td>A generic release ("I forgive all debts L owes me") covers only debts existing at <strong>execution of the will</strong>, not subsequent ones.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ The Favorite Examination Trap (Judicial Suit vs. Demand Letter &amp; Death vs. Execution Date):</strong>
+      Watch out for two classic traps: (1) If the testator sent five angry notarized demand letters to the debtor before dying, the legacy of credit/remission is <strong>NOT revoked</strong> (unless the debtor actually paid, leaving zero balance at death). Only a <strong>judicial action</strong> revokes it under Art. 936! (2) A specific legacy of credit/remission is measured at <strong>death</strong> (Art. 935), whereas a generic remission of debts covers only debts existing at <strong>will execution</strong> (Art. 937).
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 9 -->
+    <h3 id="sec-9">9. Legacy to Creditors &amp; Mistaken Debts (Articles 938 &amp; 939)</h3>
+    <p><strong>Imagine...</strong> Testator T owes Creditor C ₱500,000. In his will, T writes: <em>"I give C a legacy of ₱500,000."</em> Can the executor refuse to pay C's debt claim by arguing that the ₱500,000 legacy already paid it off? What if T instead wrote: <em>"Pay X the ₱300,000 I owe him,"</em> when T actually owed X nothing—or when the debt had already prescribed 12 years ago?</p>
+    <p>Under <strong>Article 938</strong>, a legacy or devise to a creditor is <strong>NOT applied to his credit</strong> unless the testator expressly declares it; thus, the creditor collects <strong>both</strong> his credit and his legacy. Under <strong>Article 939</strong>, an order to pay a non-existent debt is considered <strong>not written</strong> (void) and any excess over a true debt is not due, <em>except</em> when the testator orders the fulfillment of a <strong>natural obligation</strong> (such as a prescribed debt).</p>
+
+    <div class="ui-box">
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Testamentary Provision</th>
+            <th>Legal Rule &amp; Effect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Legacy to a Creditor (Art. 938)</strong></td>
+            <td>Presumed a <strong>pure act of liberality</strong>. Creditor collects <strong>BOTH</strong> the debt (against the gross estate) and the legacy (from the free portion), unless testator expressly declares it applies to the credit.</td>
+          </tr>
+          <tr>
+            <td><strong>Order to Pay Non-Existent / Excess Debt (Art. 939)</strong></td>
+            <td><strong>Void / Considered Not Written</strong> due to mistake (<em>solutio indebiti</em>); excess over real debt is not due unless intent to give a legacy is proved.</td>
+          </tr>
+          <tr>
+            <td><strong>Order to Pay a Prescribed Debt (Art. 939 par. 2)</strong></td>
+            <td><strong>VALID &amp; ENFORCEABLE</strong> as the voluntary fulfillment of a <strong>natural obligation</strong> (Art. 1424).</td>
+          </tr>
+          <tr>
+            <td><strong>Mere Listing of Debts in Will (<em>Santos v. Manarang</em>)</strong></td>
+            <td>Directing the executor to pay listed debts is <strong>NOT a legacy</strong>. Creditors must still file their money claims within the probate statute of non-claims or be forever barred.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MINI-RECALL QUIZ PART III -->
+    <div class="ui-box quiz-box">
+      <strong>⚡ Part III Instant Mini-Recall</strong>
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Art. 936 par. 2, the legacy to the debtor of the thing pledged by him is understood to discharge only the right of pledge, not the principal debt.">
+        <div class="quiz-prompt">1. D borrowed ₱500,000 from T and delivered his diamond ring to T by way of pledge. In his will, T wrote: "I bequeath to D the diamond ring he pledged to me." What is extinguished upon T's death?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="0" onchange="gradeInstant(this)"> Both the ₱500,000 loan and the pledge</label>
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="1" onchange="gradeInstant(this)"> Only the accessory contract of pledge; D still owes the ₱500,000 principal loan</label>
+          <label class="quiz-opt"><input type="radio" name="p3q1" value="2" onchange="gradeInstant(this)"> Nothing, because D already owns the ring under Art. 932</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+      <div class="quiz-q" data-answer="0" data-AutoGrade="true" data-why="Under Art. 938, a legacy made to a creditor is NOT applied to his credit unless the testator expressly declares so. Thus, C collects ₱1M as creditor plus ₱1M as legatee.">
+        <div class="quiz-prompt">2. T owes C ₱1,000,000 evidenced by a promissory note. In his will, T states: "I bequeath ₱1,000,000 to my friend C." If the estate is solvent, how much can C recover in total?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="0" onchange="gradeInstant(this)"> ₱2,000,000 (₱1M as creditor + ₱1M as legatee)</label>
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="1" onchange="gradeInstant(this)"> ₱1,000,000 only, because a legacy to a creditor extinguishes the debt</label>
+          <label class="quiz-opt"><input type="radio" name="p3q2" value="2" onchange="gradeInstant(this)"> ₱1,000,000 only, under Art. 939 on mistaken debts</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================================= -->
+    <!-- PART IV -->
+    <!-- ================================================================= -->
+    <h2 id="part-4">PART IV — Alternative, Generic &amp; Welfare Bequests (Arts. 940–945)</h2>
+
+    <!-- MICRO-LESSON 10 -->
+    <h3 id="sec-10">10. Alternative &amp; Generic Legacies and Devises (Articles 940–943)</h3>
+    <p><strong>Imagine...</strong> Testator T dies leaving an estate consisting entirely of cash in the bank—zero cars and zero land. In his will, he gives L1 <em>"a brand-new sedan"</em> (generic personal property) and L2 <em>"a one-hectare residential lot"</em> (generic real property). One of these gifts is completely valid, and the other is dead on arrival!</p>
+    <p>Under <strong>Article 940</strong>, in an <strong>alternative bequest</strong>, the right of choice belongs to the <strong>executor/administrator or heir charged</strong> (unless expressly given to the legatee/devisee) and becomes irrevocable once communicated. Under <strong>Article 941</strong>, a <strong>generic legacy of personal property is valid even if none of its kind exists in the estate</strong>, whereas a <strong>generic devise of real property is valid ONLY if immovable property of its kind exists in the estate</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Symmetric Contrast: Generic Movable vs. Generic Immovable (Art. 941)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'GENERIC PERSONALTY = VALID even if ZERO in estate (Estate buys medium quality)\nGENERIC REALTY = VALID ONLY IF immovable of its kind EXISTS in estate\nCHOICE DEFAULT = Belongs to Executor / Heir Charged (deliver MEDIUM quality)')">📋 Copy</button>
+      </div>
+      <div class="ui-grid-2">
+        <div class="stat-card" style="border-top:4px solid var(--green);">
+          <div class="stat-lbl">Generic PERSONAL Property</div>
+          <div class="stat-val" style="font-size:1.05rem; color:var(--green);">ALWAYS VALID</div>
+          <p style="font-size:0.84rem; margin:0.4rem 0 0;">Valid even if there are no things of the same kind in the estate at death. The executor must acquire and deliver one of <strong>medium quality</strong>.</p>
+        </div>
+        <div class="stat-card" style="border-top:4px solid var(--burgundy);">
+          <div class="stat-lbl">Generic REAL Property</div>
+          <div class="stat-val" style="font-size:1.05rem; color:var(--burgundy);">VALID ONLY IF IN ESTATE</div>
+          <p style="font-size:0.84rem; margin:0.4rem 0 0;">Valid only if immovable property of its kind exists in the estate (because land is artificially delineated by man). Check Art. 793 for after-acquired realty.</p>
+        </div>
+      </div>
+      <div class="ui-caption" style="margin-top:0.75rem;">
+        <strong>Right of Choice Rules (Arts. 940–943):</strong> (1) Default chooser = Executor/Heir charged, who must pick <strong>medium quality</strong> ("neither inferior nor superior"). (2) If expressly granted to the legatee/devisee, the beneficiary may pick the <strong>best quality</strong> available in the estate! (3) If the chooser dies before choosing, the right passes to his heirs; once made, the choice is irrevocable.
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 11 -->
+    <h3 id="sec-11">11. Legacies for Education, Support &amp; Pensions (Articles 944 &amp; 945)</h3>
+    <p><strong>Imagine...</strong> A wealthy godfather leaves three welfare legacies in his will: (1) a legacy for the education of his 16-year-old godson, (2) a legacy for the support of his retired househelp, and (3) a monthly pension of ₱30,000 payable at the start of every month to his cousin, who receives the January 1 payout and dies on January 5.</p>
+    <p>Under <strong>Articles 944 and 945</strong>, a <strong>legacy for education</strong> lasts until the age of majority (18) <em>or beyond</em> until the legatee finishes a professional, vocational, or general course (if pursued diligently); a <strong>legacy for support</strong> lasts during the <em>legatee's lifetime</em>; and a <strong>periodic pension</strong> is demandable upon the testator's death and at the start of each period, with <strong>no duty to refund</strong> even if the legatee dies before the period ends.</p>
+
+    <div class="ui-box">
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Welfare Bequest</th>
+            <th>Duration</th>
+            <th>Amount &amp; Special Rules</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Legacy for Education</strong><br>(Art. 944 par. 1)</td>
+            <td>Until majority (<strong>18</strong>) <strong>OR beyond</strong> to finish a professional, vocational, or general course (with diligence).</td>
+            <td>If unfixed by testator, fixed according to the <strong>social standing and circumstances of the testator</strong> and the value of the disposable estate. Strictly personal.</td>
+          </tr>
+          <tr>
+            <td><strong>Legacy for Support</strong><br>(Art. 944 pars. 2–4)</td>
+            <td>During the <strong>legatee's lifetime</strong> (unless testator specifies otherwise).</td>
+            <td>If testator habitually gave support in life, that <strong>same amount</strong> applies unless markedly disproportionate to the disposable estate.</td>
+          </tr>
+          <tr>
+            <td><strong>Legacy of Periodic Pension</strong><br>(Art. 945)</td>
+            <td>Periodic (weekly, monthly, yearly) as fixed in the will.</td>
+            <td>First period demandable at <strong>testator's death</strong>; subsequent ones at the <strong>start of each period</strong>. Once paid/due, <strong>NEVER refunded</strong> even if legatee dies mid-period. (Subject to Rule 90, Sec. 1 bond/liquidation).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MINI-RECALL QUIZ PART IV -->
+    <div class="ui-box quiz-box">
+      <strong>⚡ Part IV Instant Mini-Recall</strong>
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="Under Art. 941, a legacy of generic personal property is valid even if there are no things of the same kind in the estate, whereas a devise of indeterminate real property is valid only if immovable property of its kind exists in the estate.">
+        <div class="quiz-prompt">1. T died leaving ₱50 Million in cash and no other properties. In his will, he gave A "a horse" and B "a parcel of agricultural land." Which disposition is valid?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p4q1" value="0" onchange="gradeInstant(this)"> Both are valid; the executor must buy both out of the ₱50M cash</label>
+          <label class="quiz-opt"><input type="radio" name="p4q1" value="1" onchange="gradeInstant(this)"> Only the generic legacy of a horse to A is valid; the generic devise of land to B is void</label>
+          <label class="quiz-opt"><input type="radio" name="p4q1" value="2" onchange="gradeInstant(this)"> Both are void under Art. 930 because T owned neither at death</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Art. 945, the legatee may demand the pension at the beginning of each period, and there shall be no obligation to make any refund even should the legatee die before the expiration of the period.">
+        <div class="quiz-prompt">2. Under T's will, P was granted an annual pension of ₱120,000 payable every January 1. P collected the ₱120,000 on January 1, 2026, and died on January 10, 2026. How much must P's heirs refund to T's estate?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p4q2" value="0" onchange="gradeInstant(this)"> ₱110,000 (pro-rated for the remaining 11 months)</label>
+          <label class="quiz-opt"><input type="radio" name="p4q2" value="1" onchange="gradeInstant(this)"> ₱120,000 in full</label>
+          <label class="quiz-opt"><input type="radio" name="p4q2" value="2" onchange="gradeInstant(this)"> Zero; periodic pensions demandable at the start of the period are non-refundable</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================================= -->
+    <!-- PART V -->
+    <!-- ================================================================= -->
+    <h2 id="part-5">PART V — Vesting, Preference, Delivery &amp; Implied Revocation (Arts. 946–959)</h2>
+
+    <!-- MICRO-LESSON 12 -->
+    <h3 id="sec-12">12. Vesting of Rights, Ownership, Fruits &amp; Risks (Articles 946–949)</h3>
+    <p><strong>Imagine...</strong> Testator T leaves a pure and simple devise of a mango orchard to D, and a generic legacy of 100 sacks of rice to G. Between the day T dies and the day the executor delivers the properties six months later, the mango orchard harvests ₱200,000 worth of mangoes. Who owns those mangoes?</p>
+    <p>Under <strong>Articles 947 to 949</strong>, for a <strong>pure and simple bequest of a specific, determinate thing</strong> belonging to the testator, <strong>both the right and ownership vest at the moment of the testator's death</strong>, carrying with them all fruits and income (and risk of fortuitous loss under <em>res perit domino</em>) from death. For <strong>generic</strong> or <strong>conditional/term</strong> gifts, ownership and fruits vest only upon <strong>selection/choice</strong> or <strong>fulfillment/arrival</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Master Matrix: Vesting of Right, Ownership, Fruits &amp; Risk (Arts. 947–949)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'PURE SPECIFIC = Right, Ownership, Fruits & Risk all vest at DEATH (Arts. 947–949)\nSUSPENSIVE TERM = Right vests at Death; Ownership & Fruits at ARRIVAL OF TERM\nSUSPENSIVE CONDITION = Vests upon FULFILLMENT (ownership retroacts, fruits do NOT)\nGENERIC = Right vests at Death; Ownership & Fruits upon SELECTION / CHOICE\nMONEY = Earns 6% interest only from JUDICIAL DEMAND / DEFAULT')">📋 Copy</button>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Type of Bequest</th>
+            <th>Right Vests</th>
+            <th>Ownership Vests</th>
+            <th>Fruits &amp; Income</th>
+            <th>Risk of Loss</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Pure &amp; Simple (Specific)</strong></td>
+            <td>Moment of Death</td>
+            <td><strong>Moment of Death</strong></td>
+            <td>From <strong>Moment of Death</strong> (excludes rent/interest already due before death)</td>
+            <td><strong>Legatee/Devisee</strong> from death</td>
+          </tr>
+          <tr>
+            <td><strong>2. With Suspensive Term</strong></td>
+            <td>Moment of Death (transmissible)</td>
+            <td><strong>Arrival of Term</strong></td>
+            <td>From <strong>Arrival of Term</strong></td>
+            <td>Estate until term arrives</td>
+          </tr>
+          <tr>
+            <td><strong>3. Suspensive Condition</strong></td>
+            <td>Upon Fulfillment</td>
+            <td><strong>Fulfillment</strong> (retroacts to death)</td>
+            <td>From <strong>Fulfillment</strong> (unless testator orders otherwise)</td>
+            <td>Estate until fulfilled</td>
+          </tr>
+          <tr>
+            <td><strong>4. Generic / Quantity</strong></td>
+            <td>Moment of Death</td>
+            <td><strong>Upon Selection / Choice</strong></td>
+            <td>From <strong>Selection / Choice</strong> (unless ordered from death)</td>
+            <td><em>Genus nunquam perit</em></td>
+          </tr>
+          <tr>
+            <td><strong>5. Money Legacy</strong></td>
+            <td>Moment of Death</td>
+            <td>Upon Payment</td>
+            <td><strong>6% p.a. interest</strong> from judicial demand / default (<em>Chiong Joc-Soy</em>)</td>
+            <td>Estate</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui-caption"><strong>Note on Usufruct vs. Legacy (Art. 946):</strong> If the bequeathed thing was subject to a usufruct, the legatee/devisee must respect the usufruct until it is legally extinguished.</div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 13 -->
+    <h3 id="sec-13">13. Order of Preference: Article 950 vs. Article 911</h3>
+    <p><strong>Imagine...</strong> A bachelor dies with no compulsory heirs and no donations <em>inter vivos</em>, leaving a net estate of ₱5,000,000. However, his will contains six different legacies totaling ₱10,000,000. Do we cut all six legacies by 50% across the board, or do some legacies get paid 100% first?</p>
+    <p>Under <strong>Article 950</strong>, when the estate (or disposable free portion) is insufficient to cover all legacies and devises and the conflict is <strong>exclusively among the legatees/devisees themselves</strong>, they are paid strictly in the 6-tier hierarchical order of <strong>R – P – S – E – S – A</strong>. Conversely, if reduction is needed to <strong>preserve the legitime of compulsory heirs</strong> or when <strong>donations <em>inter vivos</em> concur</strong>, <strong>Article 911</strong> governs and reduces non-preferred legacies <em>pro rata</em>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: R – P – S – E – S – A (Art. 950 Order of Payment)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'R — Remuneratory legacies/devises (1st)\nP — Preferential (declared by testator to be preferred) (2nd)\nS — Support legacies (3rd)\nE — Education legacies (4th)\nS — Specific, determinate thing forming part of the estate (5th)\nA — All others pro rata (generic, cash) (6th)')">📋 Copy</button>
+      </div>
+      <div class="ui-caption">"What Switches" Comparison: Compare the 6-step ladder of <strong>Art. 950 (R-P-S-E-S-A)</strong> against the 2-tier cutback of <strong>Art. 911 (Pro Rata first → Preferred Legacies → Donations)</strong>.</div>
+      <div class="flow-stack">
+        <div class="flow-step"><strong>1. R — REMUNERATORY LEGACIES / DEVISES</strong><span>Given in remuneration of services that do not constitute a recoverable debt (moral obligation)</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>2. P — PREFERENTIAL LEGACIES / DEVISES</strong><span>Expressly declared by the testator in the will to be paid ahead of others</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>3. S — LEGACIES FOR SUPPORT</strong><span>Food, shelter, clothing, and medical attendance for the legatee's lifetime</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>4. E — LEGACIES FOR EDUCATION</strong><span>Instruction until age 18 or completion of a course</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>5. S — SPECIFIC DETERMINATE THING IN THE ESTATE</strong><span>Individualized property forming part of the testator's estate at death</span></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><strong>6. A — ALL OTHERS PRO RATA</strong><span>Generic legacies, cash legacies, and stranger's property ordered acquired</span></div>
+      </div>
+    </div>
+
+    <div class="trap-banner">
+      <strong>⚠️ The Favorite Examination Trap (When to Apply Art. 911 vs. Art. 950):</strong>
+      <ul>
+        <li><strong>Use Article 911 (Pro Rata Reduction of Non-Preferred Legacies):</strong> Whenever (a) legitimes of compulsory heirs are impaired, OR (b) there are donations <em>inter vivos</em> concurring with legacies/devises. Under Art. 911, support, education, and specific gifts are all cut <em>pro rata</em> together before touching testator-preferred gifts!</li>
+        <li><strong>Use Article 950 (R-P-S-E-S-A Ladder):</strong> ONLY when the conflict is exclusively among legatees/devisees (e.g., no compulsory heirs exist, or the legitimes are already untouched and there are no donations <em>inter vivos</em>, or when distributing among heirs who were charged beyond their free portion).</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 14 -->
+    <h3 id="sec-14">14. Delivery, Self-Possession, Acceptance &amp; Merging (Articles 951–956)</h3>
+    <p><strong>Imagine...</strong> Testator T leaves two legacies to L: Legacy A is a free ₱1,000,000 diamond ring (purely gratuitous), and Legacy B is an apartment building worth ₱3,000,000 burdened with an obligation to house T's elderly sister for life (onerous). Can L grab the diamond ring from T's dresser on the night of the wake, accept Legacy A, and reject Legacy B?</p>
+    <p>Under <strong>Article 953</strong>, a legatee or devisee <strong>cannot take possession on his own authority</strong>, even if ownership vested at death; he must request delivery from the executor/administrator or heir. Under <strong>Articles 954 and 955</strong>, a beneficiary <strong>cannot accept a gratuitous legacy (or part) and repudiate an onerous one</strong>. Under <strong>Article 956</strong>, any ineffective or repudiated bequest <strong>merges into the mass of the estate</strong> (passing by intestacy if there is no substitution or accretion, as in <em>Parish Priest of Victoria, Tarlac v. Rigor</em>).</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Symmetric Contrast: Acceptance &amp; Repudiation Matrix (Arts. 954–955)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'NO SELF-HELP = Must request delivery from Executor/Heir (Art. 953)\n1 ONEROUS + 1 GRATUITOUS = Cannot renounce onerous & accept gratuitous\nBOTH GRATUITOUS or BOTH ONEROUS = Free to accept one & renounce the other\nCOMPULSORY HEIR + LEGATEE = May waive legitime & accept legacy, or vice versa\nINEFFECTIVE LEGACY = Substitution → Accretion → Intestacy / Merges into Estate Mass (Art. 956)')">📋 Copy</button>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th>Combination of Bequests to Same Beneficiary</th>
+            <th>Can Beneficiary Accept One &amp; Reject the Other?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Single Legacy: Partly Gratuitous, Partly Onerous</strong> (Art. 954)</td>
+            <td><strong>NO.</strong> Cannot accept the free part and repudiate the burdened part. (If he dies before accepting, his heirs may accept their shares independently on the same terms).</td>
+          </tr>
+          <tr>
+            <td><strong>Two Legacies: One Gratuitous, One Onerous</strong> (Art. 955 par. 1)</td>
+            <td><strong>NO</strong> as to rejecting the onerous while keeping the gratuitous. (He <em>can</em> accept the onerous and reject the gratuitous, or accept/reject both).</td>
+          </tr>
+          <tr>
+            <td><strong>Two Legacies: Both Onerous OR Both Gratuitous</strong> (Art. 955 par. 1)</td>
+            <td><strong>YES.</strong> He may accept or renounce either or both, <em>unless</em> the testator expressly made them inseparable.</td>
+          </tr>
+          <tr>
+            <td><strong>Compulsory Heir who is also a Legatee/Devisee</strong> (Art. 955 par. 2)</td>
+            <td><strong>YES.</strong> May waive the inheritance/legitime and accept the legacy, or waive the legacy and accept the legitime.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui-caption">
+        <strong>ISRAI Cascade when a Legacy Fails (Art. 956; <em>Parish Priest of Victoria v. Rigor</em>):</strong> If a legacy fails due to predecease, incapacity, repudiation, or unfulfilled condition, check: <strong>Substitution → Accretion → Intestacy (Merges into Mass of Estate)</strong>. Delivery includes all accessions/accessories in the condition at death (Art. 951).
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 15 -->
+    <h3 id="sec-15">15. Revocation by Implication of Law (Article 957)</h3>
+    <p><strong>Imagine...</strong> Testator T bequeaths his gold bar to L1, his Tagaytay house to L2, and his racehorse to L3. Before dying, T melts the gold bar into a gold crown, sells the Tagaytay house to X (and buys it back two years later), and the racehorse is struck by lightning. Are any of these three legacies still alive?</p>
+    <p>Under <strong>Article 957</strong>, a legacy or devise is impliedly revoked by operation of law in three instances: <strong>(1) Transformation</strong>, <strong>(2) Alienation</strong>, and <strong>(3) Total Loss</strong>—memorized as <strong>T – A – L</strong>.</p>
+
+    <div class="ui-box">
+      <div class="ui-row-between">
+        <strong>Memory aid: T – A – L (3 Grounds for Implied Revocation under Art. 957)</strong>
+        <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'T — Transformation in BOTH form (appearance) and denomination (name/genus)\nA — Alienation (voluntary transfer inter vivos; reacquisition does NOT revive, except Pacto de Retro or Vitiated Consent in Fernandez v. Dimagiba)\nL — Loss (total destruction before death, or after death without heir\'s fault)')">📋 Copy</button>
+      </div>
+      <table class="ui-table">
+        <thead>
+          <tr>
+            <th style="width:12%">Letter</th>
+            <th style="width:24%">Ground</th>
+            <th>Requisites, Doctrines &amp; Exceptions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>T</strong></td>
+            <td><strong>Transformation</strong><br>(Art. 957[1])</td>
+            <td>Testator transforms the thing so that it retains <strong>neither its form (external appearance) nor its denomination (name/identity)</strong>—e.g., wool turned into a suit, riceland converted into a commercial fishpond.</td>
+          </tr>
+          <tr>
+            <td><strong>A</strong></td>
+            <td><strong>Alienation</strong><br>(Art. 957[2])</td>
+            <td>Testator voluntarily alienates the thing (or part of it) by any title. <strong>General Rule:</strong> Even if the alienation is void or the testator reacquires the property, the legacy is <strong>NOT revived</strong>.<br>
+            <strong>2 Exceptions (Legacy Survives!):</strong><br>
+            1. Reacquisition by exercising a <strong>right of repurchase (<em>pacto de retro</em>)</strong>.<br>
+            2. Alienation was annulled due to <strong>vitiated consent</strong> (fraud, violence, undue influence—<em>Fernandez v. Dimagiba</em>) or was an involuntary execution/tax sale, because the testator lacked voluntary revocatory intent.</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong></td>
+            <td><strong>Loss of the Thing</strong><br>(Art. 957[3])</td>
+            <td>Thing is <strong>totally lost</strong> during the testator's lifetime, or after his death <strong>without the heir's fault</strong> (unless the heir/obligor is liable for eviction under Art. 928 for generic items).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- MICRO-LESSON 16 -->
+    <h3 id="sec-16">16. Mistake in Description &amp; Dispositions to Relatives (Articles 958 &amp; 959)</h3>
+    <p><strong>Imagine...</strong> A childless testator leaves a will stating: <em>"I leave all my remaining properties to my relatives."</em> He is survived by an uncle (3rd degree), a nephew (3rd degree, whose brother predeceased leaving a grandnephew in the 4th degree), and a first cousin (4th degree). Does the grandnephew inherit by representing his predeceased father?</p>
+    <p>Under <strong>Article 958</strong>, a mistake in the name or description of a thing does not vitiate a bequest if the object can be ascertained. Under <strong>Article 959</strong>, a disposition made in general terms in favor of the <strong>testator's relatives</strong> applies strictly in favor of those <strong>nearest in degree</strong> (within the 5th collateral degree). Because Art. 959 only adopts the <strong>Rule of Proximity</strong>, there is <strong>NO right of representation</strong>, no preference of lines, and no 2:1 full/half-blood ratio!</p>
+
+    <div class="ui-box svg-box">
+      <svg viewBox="0 0 600 205" width="100%" role="img" aria-label="Family tree illustrating Article 959 disposition to testator's relatives">
+        <!-- Testator -->
+        <rect x="235" y="15" width="130" height="38" rx="8" fill="#1E3A8A"/>
+        <text x="300" y="39" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700">TESTATOR ("To my relatives")</text>
+
+        <!-- Branches to Collaterals -->
+        <path d="M260 53 L100 95" stroke="#16A34A" stroke-width="2" fill="none"/>
+        <path d="M300 53 L300 95" stroke="#16A34A" stroke-width="2" fill="none"/>
+        <path d="M340 53 L490 95" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+
+        <!-- Uncle (3rd Degree) -->
+        <rect x="30" y="95" width="140" height="44" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="100" y="114" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">Uncle U (3rd Degree)</text>
+        <text x="100" y="130" text-anchor="middle" fill="#166534" font-size="11">INHERITS 1/2</text>
+
+        <!-- Nephew N1 (3rd Degree) -->
+        <rect x="230" y="95" width="140" height="44" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+        <text x="300" y="114" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">Nephew N1 (3rd Degree)</text>
+        <text x="300" y="130" text-anchor="middle" fill="#166534" font-size="11">INHERITS 1/2</text>
+
+        <!-- Predeceased Nephew N2 -> Grandnephew / Cousin (4th Degree) -->
+        <rect x="415" y="95" width="155" height="44" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="492" y="114" text-anchor="middle" fill="#64748B" font-size="12" font-weight="700">Cousin / Grandnephew (4th°)</text>
+        <text x="492" y="130" text-anchor="middle" fill="#991B1B" font-size="11">EXCLUDED (No Representation!)</text>
+
+        <!-- Bottom note -->
+        <rect x="40" y="155" width="520" height="36" rx="6" fill="#F8FAFC" stroke="#CBD5E1"/>
+        <text x="300" y="177" text-anchor="middle" fill="#1F2937" font-size="11.5" font-weight="600">Art. 959 = Proximity ONLY (Within 5th Degree) • Uncle (3°) &amp; Nephew (3°) share equally!</text>
+      </svg>
+      <div class="ui-caption" style="text-align:center">
+        <strong>Two Landmark Doctrines:</strong> (1) <em>Belen v. BPI:</em> Art. 959 applies only to "relatives of the <strong>testator</strong>," NOT "relatives of Legatee X." (2) <em>Vda. de Singson v. De Lim:</em> If the will says "to all who are entitled thereto," full intestate rules (including representation) apply!
+      </div>
+    </div>
+
+    <!-- MINI-RECALL QUIZ PART V -->
+    <div class="ui-box quiz-box">
+      <strong>⚡ Part V Instant Mini-Recall</strong>
+      <div class="quiz-q" data-answer="1" data-AutoGrade="true" data-why="In Fernandez v. Dimagiba, the Supreme Court held that when an alienation is annulled due to vitiated consent (undue influence or fraud), there was no voluntary intent to revoke the bequest under Art. 957(2).">
+        <div class="quiz-prompt">1. T executed a will devising Lot X to D. Later, through fraud and undue influence exerted by M, T signed a deed of sale of Lot X to M. Before dying, T filed an action and obtained a final judgment annulling the sale for vitiated consent. Does D still get Lot X?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p5q1" value="0" onchange="gradeInstant(this)"> No, because Art. 957(2) states that even if the alienation is void, the devise is not revived</label>
+          <label class="quiz-opt"><input type="radio" name="p5q1" value="1" onchange="gradeInstant(this)"> Yes, under Fernandez v. Dimagiba, an alienation voidable for vitiated consent lacks voluntary intent to revoke</label>
+          <label class="quiz-opt"><input type="radio" name="p5q1" value="2" onchange="gradeInstant(this)"> No, unless T executed a new codicil republishing the devise</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+      <div class="quiz-q" data-answer="2" data-AutoGrade="true" data-why="Under Art. 959, a disposition in general terms in favor of the testator's relatives applies only the rule of proximity (nearest in degree). There is no right of representation and no preference between uncles and nephews (both 3rd degree).">
+        <div class="quiz-prompt">2. T's will states: "I bequeath ₱10 Million to my relatives." T is survived by his maternal Uncle U (3rd degree), his full-blood Nephew N1 (3rd degree), and his Grandnephew GN (4th degree, son of predeceased Nephew N2). How is the ₱10M divided?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="p5q2" value="0" onchange="gradeInstant(this)"> N1 gets ₱5M and GN gets ₱5M by representation; Uncle U is excluded because nephews are preferred over uncles in intestacy</label>
+          <label class="quiz-opt"><input type="radio" name="p5q2" value="1" onchange="gradeInstant(this)"> N1 gets the entire ₱10M</label>
+          <label class="quiz-opt"><input type="radio" name="p5q2" value="2" onchange="gradeInstant(this)"> Uncle U (3rd degree) and Nephew N1 (3rd degree) get ₱5M each; GN (4th degree) gets nothing because there is no representation under Art. 959</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ================================================================= -->
+    <!-- 5. FINAL MEMORY SHEET & EXAM PRIORITIES -->
+    <!-- ================================================================= -->
+    <h2 id="final-sheet">Final Memory Sheet</h2>
+
+    <h3>Master Summary Matrix of Bequest Validity</h3>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:33%">VALID BEQUESTS</th>
+          <th style="width:33%">VOID <em>AB INITIO</em></th>
+          <th style="width:34%">INEFFECTUAL / REVOKED</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            • Things <strong>within the commerce of man</strong> (Art. 924).<br>
+            • Owned by testator (or part-owned, limited to his share unless entirety is expressly declared, Art. 929).<br>
+            • Owned by stranger <strong>WITH order to acquire</strong> (Art. 931) or later acquired by testator before death (Art. 930).<br>
+            • <strong>Generic personal property</strong> even if none exists in the estate (Art. 941).<br>
+            • Payment of <strong>natural obligations / prescribed debts</strong> (Art. 939).
+          </td>
+          <td>
+            • Things <strong>outside the commerce of man</strong> (Art. 924).<br>
+            • Owned by stranger, <strong>mistakenly believed owned</strong> by testator and never acquired (Art. 930).<br>
+            • Owned by <strong>legatee/devisee at the execution of the will</strong> (Arts. 932–933), even if later alienated.<br>
+            • <strong>Generic real property</strong> if NONE of its kind exists in the estate (Art. 941).<br>
+            • Order to pay a <strong>non-existent debt</strong> by mistake (Art. 939).
+          </td>
+          <td>
+            • <strong>Transformation</strong> of both form and denomination (Art. 957[1]).<br>
+            • <strong>Voluntary alienation</strong> <em>inter vivos</em> (Art. 957[2]).<br>
+            • <strong>Total loss / destruction</strong> before death or after death without heir's fault (Art. 957[3]).<br>
+            • <strong>Judicial action</strong> by testator to collect a bequeathed credit or released debt (Art. 936).<br>
+            • <strong>Predecease, incapacity, or repudiation</strong> by legatee/devisee (Art. 956).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Master Recall Table (Articles 924–959 &amp; Landmark Cases)</h3>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:28%">Article / Landmark Case</th>
+          <th>One-Line Doctrinal Recall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Art. 924 &amp; <em>Pastor, Jr. v. CA</em></strong></td><td>Legacies (personalty) and devises (realty) must be within the commerce of man and cannot be enforced until full estate liquidation.</td></tr>
+        <tr><td><strong>Arts. 925–926</strong></td><td>Compulsory heirs charged with a sub-legacy contribute strictly in proportion to their share in the <strong>disposable free portion</strong>; sub-legatees are liable only up to the value of their gift.</td></tr>
+        <tr><td><strong>Art. 927 &amp; <em>Debuque v. Climaco</em></strong></td><td>Two or more heirs taking possession of the estate are <strong>solidarily liable</strong> for the negligent loss of a bequeathed item, even if only one was negligent.</td></tr>
+        <tr><td><strong>Art. 928</strong></td><td>The estate/heir warrants against eviction and hidden defects ONLY if the bequest is <strong>generic/indeterminate</strong>, not when it is specific.</td></tr>
+        <tr><td><strong>Art. 929</strong></td><td>A bequest of a co-owned item is presumed limited to the testator's part/interest unless he expressly declares he gives the entirety knowing of his partial ownership.</td></tr>
+        <tr><td><strong>Arts. 930–931</strong></td><td>Bequest of a stranger's thing is void if made by mistake (cured by subsequent acquisition before death), but valid if ordered acquired (pay just value if owner refuses or demands excessive price).</td></tr>
+        <tr><td><strong>Arts. 932–933</strong></td><td>Bequest of a thing owned by the legatee at will execution is void; if acquired by legatee <em>after</em> will execution by onerous title from a 3rd party, legatee gets reimbursement.</td></tr>
+        <tr><td><strong>Art. 934 &amp; Rule 86, Sec. 7</strong></td><td>Estate pays off pledges/mortgages securing recoverable debts; other burdens (usufructs, easements, leases) pass with the property to the legatee/devisee.</td></tr>
+        <tr><td><strong>Arts. 935–937</strong></td><td>Legacy of credit or remission covers the balance at death and lapses if the testator files a <strong>judicial collection suit</strong>; generic remission covers only debts at will execution.</td></tr>
+        <tr><td><strong>Arts. 938–939 &amp; <em>Santos v. Manarang</em></strong></td><td>Legacy to a creditor is not applied to the debt unless declared; mistaken debt is void except natural obligations; listing debts in a will is not a legacy.</td></tr>
+        <tr><td><strong>Arts. 940–943</strong></td><td>Generic personalty is valid even if none is in the estate; generic realty is valid ONLY if immovable of its kind exists in the estate; executor chooses medium quality.</td></tr>
+        <tr><td><strong>Arts. 944–945</strong></td><td>Education lasts until 18 or course completion; support lasts for life; pensions are demandable at the start of each period with no refund if legatee dies mid-period.</td></tr>
+        <tr><td><strong>Arts. 946–949 &amp; <em>Chiong Joc-Soy</em></strong></td><td>Pure specific bequests vest ownership, fruits, and risk at death; generic gifts vest ownership upon selection; money legacies earn 6% interest from judicial demand/default.</td></tr>
+        <tr><td><strong>Art. 950 vs. Art. 911</strong></td><td>Art. 950 (<strong>R-P-S-E-S-A</strong>) applies when conflict is solely among legatees/devisees; Art. 911 (<em>pro rata</em>) applies when legitimes are impaired or donations <em>inter vivos</em> concur.</td></tr>
+        <tr><td><strong>Arts. 951–956 &amp; <em>Rigor</em></strong></td><td>Legatee cannot take self-possession; cannot accept gratuitous and reject onerous; ineffective legacy merges into the estate mass (Intestacy) absent substitution or accretion.</td></tr>
+        <tr><td><strong>Art. 957 &amp; <em>Fernandez v. Dimagiba</em></strong></td><td>Implied revocation by Transformation, Alienation, or Loss (<strong>T-A-L</strong>); alienation void for vitiated consent or reacquired via <em>pacto de retro</em> does NOT revoke the bequest.</td></tr>
+        <tr><td><strong>Arts. 958–959, <em>Belen</em> &amp; <em>Singson</em></strong></td><td>Dispositions to "relatives" refer to the testator's relatives within the 5th degree governed strictly by <strong>proximity</strong> (no representation, no line/blood preference).</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Top 5 Rules to Prioritize for the Bar Examination</h3>
+    <ol>
+      <li><strong>Generic Movable vs. Generic Immovable (Art. 941):</strong> A legacy of generic personal property ("a car") is valid even if none exists in the estate; a devise of generic real property ("a residential lot") is void if no immovable of its kind exists in the estate.</li>
+      <li><strong>Implied Revocation by Alienation &amp; Its Two Exceptions (Art. 957[2]):</strong> Voluntary alienation revokes a legacy forever even if the testator later buys the item back—<em>unless</em> (a) the reacquisition was by exercising a <em>pacto de retro</em> right of repurchase, or (b) the alienation was annulled for vitiated consent (<em>Fernandez v. Dimagiba</em>).</li>
+      <li><strong>Judicial Suit vs. Extrajudicial Demand in Legacy of Credit/Remission (Art. 936):</strong> Only a <strong>judicial action</strong> filed by the testator against the debtor revokes a legacy of credit or remission; demand letters do not.</li>
+      <li><strong>Art. 911 vs. Art. 950 Order of Preference:</strong> Memorize <strong>R-P-S-E-S-A</strong> for conflicts exclusively among legatees/devisees (Art. 950), but switch to <strong>Art. 911</strong> whenever compulsory heirs' legitimes are impaired or donations <em>inter vivos</em> exist.</li>
+      <li><strong>Article 959 "Relatives" Rule:</strong> "To my relatives" means only the rule of proximity within the 5th degree—never apply the right of representation or the 2:1 full/half-blood rule!</li>
+    </ol>
+
+    <!-- FINAL 5-QUESTION RECALL CHALLENGE -->
+    <div class="ui-box final-quiz-box">
+      <h3>🏆 Final 5-Question Recall Challenge</h3>
+      <p class="ui-caption" style="margin-top:0;">Answer all 5 bar-style problems to unlock batch grading and explanations.</p>
+
+      <div class="quiz-q" data-answer="1" data-why="Under Art. 934, if the testator devises property mortgaged to secure a recoverable debt, the estate is obliged to pay the mortgage debt. However, any other charge such as a usufruct or easement passes with the property to the devisee.">
+        <div class="quiz-prompt">1. T devised a commercial lot to D. At T's death, the lot was encumbered by (a) a ₱5M real estate mortgage securing T's bank loan, and (b) a registered 5-year usufruct in favor of U. Absent any contrary stipulation in the will, what is the obligation of T's estate?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> The estate must pay off both the ₱5M bank loan and buy out U's usufruct</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> The estate must pay off the ₱5M mortgage debt, but D takes the land subject to U's usufruct</label>
+          <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> Both the mortgage debt and the usufruct pass to D as burdens on the land</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under Art. 933 par. 2, if a thing validly bequeathed (originally belonging to a stranger under Art. 931) is subsequently acquired by the legatee after the execution of the will by onerous title from that third person, the legatee can demand reimbursement from the estate.">
+        <div class="quiz-prompt">2. In 2023, T executed a will ordering his estate to acquire a specific painting owned by S and give it to L. In 2024, L bought the painting directly from S for ₱800,000. In 2025, T died. What is L's right under Article 933?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> L can claim nothing because he already owns the painting at T's death</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> The legacy was impliedly revoked under Art. 957(2)</label>
+          <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> L can demand reimbursement of ₱800,000 from T's estate because he acquired it by onerous title after the execution of the will</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="0" data-why="Under Art. 950 (R-P-S-E-S-A), the order of preference is: (1) Remuneratory, (2) Preferential, (3) Support, (4) Education, (5) Specific thing in the estate, (6) All others pro rata.">
+        <div class="quiz-prompt">3. T died unmarried and without compulsory heirs or donations inter vivos, leaving a net estate of ₱1,000,000 and four legacies of ₱500,000 each: (1) Legacy for support of A; (2) Remuneratory legacy to B; (3) Legacy for education of C; and (4) Legacy to D declared by T in the will to be preferential. Which two legacies get paid in full first under Article 950?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> B (Remuneratory) and D (Preferential)</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> A (Support) and C (Education)</label>
+          <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> All four legacies are reduced pro rata to ₱250,000 each</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="2" data-why="Under Art. 955, if a legatee is given two legacies—one onerous and one gratuitous—he cannot renounce the onerous one and accept the gratuitous one. However, he is free to accept the onerous one and renounce the gratuitous one, or accept/renounce both.">
+        <div class="quiz-prompt">4. T bequeathed to L a free cash legacy of ₱500,000 (gratuitous) and a second legacy of a van worth ₱1,000,000 subject to the obligation of paying ₱400,000 to a charity (onerous). Which action is PROHIBITED under Article 955?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> Accepting the onerous van legacy and renouncing the gratuitous cash legacy</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> Accepting both legacies or renouncing both legacies</label>
+          <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> Accepting the gratuitous cash legacy and renouncing the onerous van legacy</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <div class="quiz-q" data-answer="1" data-why="Under Art. 957(2), when the testator alienates the thing bequeathed by sale with right to repurchase (pacto de retro) and reacquires it by exercising the right of repurchase during his lifetime, the legacy or devise is preserved and NOT revoked.">
+        <div class="quiz-prompt">5. In 2021, T devised his Antipolo farm to D. In 2023, needing urgent cash, T sold the farm to X under a Pacto de Retro sale with a 2-year redemption period. In 2024, T exercised his right of repurchase and redeemed the farm. In 2025, T died without changing his will. Who gets the Antipolo farm?</div>
+        <div class="quiz-opts">
+          <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> T's intestate heirs, because any voluntary alienation revokes the devise forever</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> D, because reacquisition by exercising a pacto de retro right of repurchase is an express statutory exception under Art. 957(2)</label>
+          <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> D gets only 50% of the farm's value</label>
+        </div>
+        <div class="quiz-feedback" hidden></div>
+      </div>
+
+      <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+
+      <div class="final-score-box" hidden>
+        <div class="final-score-num">0 / 5</div>
+        <div style="font-size:0.9rem; color:var(--muted); margin-bottom:0.75rem;">Correct answers</div>
+        <button type="button" class="reset-btn" onclick="resetFinalQuiz(this)">Try again</button>
+      </div>
+    </div>
+
+    <hr>
+    <p style="text-align:center; font-size:0.88rem; color:var(--muted); font-weight:600;">
+      Mastery Sequence: Verify Commerce &amp; Ownership (Arts. 924–933) → Clear Liens &amp; Credits (Arts. 934–939) → Check Genus, Vesting &amp; R-P-S-E-S-A Priority (Arts. 940–950) → Screen for T-A-L Revocation &amp; Proximity (Arts. 951–959)
+    </p>
+
+  </div>
+
+  <script>
+  function copyMnemonic(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    });
+  }
+
+  function switchTab(btn, panelId) {
+    const box = btn.closest('[data-tabs]');
+    box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+    box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = box.querySelector(`[data-panel="${panelId}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  function gradeInstant(input) {
+    const qBox = input.closest('.quiz-q');
+    const ans = qBox.dataset.answer;
+    const why = qBox.dataset.why || '';
+    const fb = qBox.querySelector('.quiz-feedback');
+    const opts = qBox.querySelectorAll('.quiz-opt');
+    const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+    const isCorrect = input.value === ans;
+    fb.hidden = false;
+    fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+    fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+  }
+
+  function updateFinalQuiz(input) {
+    const box = input.closest('.final-quiz-box');
+    const total = box.querySelectorAll('.quiz-q').length;
+    const answered = new Set();
+    box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+    const btn = box.querySelector('.check-btn');
+    if (btn) btn.disabled = answered.size < total;
+  }
+
+  function gradeFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    const qs = box.querySelectorAll('.quiz-q');
+    let score = 0;
+    qs.forEach(q => {
+      const ans = q.dataset.answer;
+      const why = q.dataset.why || '';
+      const checked = q.querySelector('input[type="radio"]:checked');
+      const fb = q.querySelector('.quiz-feedback');
+      const isCorrect = checked && checked.value === ans;
+      if (isCorrect) score++;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ ' : 'ℹ ') + why;
+    });
+    const scoreBox = box.querySelector('.final-score-box');
+    if (scoreBox) {
+      scoreBox.hidden = false;
+      scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+    }
+  }
+
+  function resetFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+    box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+    box.querySelector('.final-score-box').hidden = true;
+    box.querySelector('.check-btn').disabled = true;
+  }
+  </script>
+</body>
+</html>
