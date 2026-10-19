@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order of Intestate Succession (Arts. 978–1014) — Quick Notes</title>
+<style>
+  :root {
+    --navy: #1E3A8A; --teal: #0F766E; --green: #166534;
+    --burgundy: #991B1B; --rust: #C2410C; --bg: #F8FAFC;
+    --surface: #FFFFFF; --surface-2: #F1F5F9; --border: #E2E8F0;
+    --text: #1F2937; --muted: #64748B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    color: var(--text); background: var(--bg); margin: 0; line-height: 1.65;
+  }
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 1000; background: var(--navy); color: #FFF;
+    padding: 0.7rem 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  .nav-content { max-width: 820px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; }
+  .nav-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+  .nav-dropdown {
+    flex: 1; padding: 0.4rem 0.65rem; font-size: 0.85rem; border-radius: 6px;
+    border: 1px solid #CBD5E1; background: #FFF; color: var(--text);
+  }
+  .document-container {
+    max-width: 820px; margin: 2rem auto; background: var(--surface);
+    padding: 2.5rem 3rem; border-radius: 14px; border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  }
+  h1 { color: var(--navy); font-size: 1.85rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+  h2 { color: var(--navy); font-size: 1.45rem; margin: 2.25rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--border); }
+  h3 { color: var(--navy); font-size: 1.18rem; margin: 1.75rem 0 0.6rem; }
+  h4 { color: var(--text); font-size: 1rem; margin: 1.35rem 0 0.4rem; }
+  .doc-subtitle { color: var(--muted); font-size: 0.92rem; font-weight: 500; margin: 0 0 1rem; }
+  hr, .ui-divider { border: 0; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+  .ui-divider { margin: 0.85rem 0; }
+  .c-navy { color: var(--navy); } .c-teal { color: var(--teal); }
+  .c-green { color: var(--green); } .c-burgundy { color: var(--burgundy); } .c-rust { color: var(--rust); }
+
+  /* Callouts & Boxes */
+  .update-banner {
+    background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #D97706;
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.95rem;
+  }
+  .trap-banner {
+    background: #FFF7ED; border: 1px solid #FED7AA; border-left: 4px solid var(--rust);
+    border-radius: 10px; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  }
+  .ui-box {
+    border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+    margin: 1.25rem 0; background: var(--surface);
+  }
+  .ui-row-between { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .ui-caption { color: var(--muted); font-size: 0.82rem; margin-top: 0.35rem; }
+  .copy-btn, .check-btn, .reset-btn {
+    border: 1px solid #CBD5E1; background: var(--surface); color: var(--text);
+    border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .copy-btn:hover, .reset-btn:hover { background: var(--surface-2); }
+  .check-btn {
+    width: 100%; padding: 0.65rem; margin-top: 1rem; background: var(--navy);
+    color: #FFF; border: none; font-size: 0.9rem; border-radius: 8px;
+  }
+  .check-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  /* Mental Map Rows */
+  .mm-row { display: flex; align-items: center; gap: 1rem; }
+  .mm-icon {
+    width: 42px; height: 42px; border-radius: 10px; background: var(--surface-2);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .mm-title { font-weight: 700; font-size: 0.95rem; color: #111827; }
+  .mm-desc { font-size: 0.9rem; color: #374151; }
+
+  /* Flow Stack & Grids */
+  .flow-stack { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
+  .flow-step {
+    width: 100%; background: var(--surface-2); border-radius: 8px; padding: 0.8rem 1rem;
+    text-align: center; display: flex; flex-direction: column; gap: 0.15rem;
+  }
+  .flow-step span { font-size: 0.82rem; color: var(--muted); }
+  .flow-arrow { color: var(--muted); font-weight: 700; font-size: 1.05rem; line-height: 1; }
+  .ui-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+  .ui-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin: 0.75rem 0; }
+  .stat-card {
+    background: var(--surface-2); border-radius: 8px; padding: 0.75rem; text-align: center;
+  }
+  .stat-card .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+  .stat-card .stat-val { font-size: 1.25rem; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums; }
+
+  /* Tables */
+  .ui-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+  .ui-table th {
+    text-align: left; font-weight: 700; color: #111827; padding: 0.65rem 0.75rem 0.65rem 0;
+    border-bottom: 1.5px solid #CBD5E1;
+  }
+  .ui-table td {
+    padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--surface-2); vertical-align: top;
+  }
+  .ui-table th.num, .ui-table td.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
+
+  /* Segmented Control & Bar Chart */
+  .seg-control {
+    display: flex; background: var(--surface-2); padding: 0.25rem; border-radius: 8px; gap: 0.25rem; margin-bottom: 1rem;
+  }
+  .seg-btn {
+    flex: 1; border: none; background: transparent; padding: 0.45rem 0.75rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.85rem; color: var(--muted); cursor: pointer;
+  }
+  .seg-btn.active { background: var(--surface); color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .bar-chart {
+    display: flex; align-items: flex-end; justify-content: space-around; height: 155px;
+    padding: 1.25rem 1rem 0.5rem; border-bottom: 1px solid #CBD5E1; margin: 1rem 0 0.5rem; gap: 0.75rem;
+  }
+  .bar-col { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 80px; }
+  .bar-val { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
+  .bar-fill { width: 100%; background: #3B82F6; border-radius: 6px 6px 0 0; transition: height 0.25s ease; }
+  .bar-lbl { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.4rem; }
+
+  /* Interactive Quizzes */
+  .quiz-q { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+  .quiz-q:last-of-type { border-bottom: none; }
+  .quiz-prompt { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.55rem; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .quiz-opt {
+    display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+    padding: 0.45rem 0.65rem; border-radius: 6px; cursor: pointer; transition: background 0.12s;
+  }
+  .quiz-opt:hover { background: var(--surface-2); }
+  .quiz-feedback {
+    margin-top: 0.55rem; padding: 0.55rem 0.75rem; border-radius: 6px; font-size: 0.86rem;
+  }
+  .quiz-feedback.ok { background: #ECFDF5; color: #065F46; border-left: 3px solid #10B981; }
+  .quiz-feedback.err { background: #F8FAFC; color: #334155; border-left: 3px solid #64748B; }
+  .final-score-box {
+    margin-top: 1rem; background: var(--surface-2); border-radius: 10px;
+    padding: 1.25rem; text-align: center;
+  }
+  .final-score-num { font-size: 1.65rem; font-weight: 800; color: var(--navy); }
+  @media (max-width: 640px) { .document-container { margin: 1rem; padding: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav class="sticky-nav">
+  <div class="nav-content">
+    <span class="nav-label">JUMP TO SECTION</span>
+    <select class="nav-dropdown" onchange="if(this.value) location.hash=this.value">
+      <option value="">Select a topic or provision...</option>
+      <option value="#mental-map">Mental Map &amp; Important Legal Updates</option>
+      <option value="#part-1">PART I — General Principles &amp; Descending Direct Line (Arts. 978–984)</option>
+      <option value="#sec-1">1. Underlying Principles &amp; Order of Intestate Succession (Art. 978)</option>
+      <option value="#sec-2">2. Legitimate, Legitimated &amp; Adopted Children (Arts. 979 &amp; 984)</option>
+      <option value="#sec-3">3. Per Capita vs. Per Stirpes in the Descending Line (Arts. 980–982)</option>
+      <option value="#sec-4">4. Concurrence of Legitimate &amp; Illegitimate Children (Art. 983)</option>
+      <option value="#part-2">PART II — Ascending Direct Line &amp; Illegitimate Children (Arts. 985–994)</option>
+      <option value="#sec-5">5. Legitimate Parents &amp; Ascendants: Division by Lines (Arts. 985–987)</option>
+      <option value="#sec-6">6. Illegitimate Children &amp; Their Descendants (Arts. 988–991)</option>
+      <option value="#sec-7">7. The Barrier ("Iron Curtain") Rule &amp; Jurisprudence (Art. 992)</option>
+      <option value="#sec-8">8. Estate of an Illegitimate Decedent (Arts. 993–994)</option>
+      <option value="#part-3">PART III — Surviving Spouse (Arts. 995–1002)</option>
+      <option value="#sec-9">9. Surviving Spouse Alone &amp; With One or More Children (Arts. 995–996)</option>
+      <option value="#sec-10">10. Concurrence With Ascendants, Illegitimates &amp; Mixed Groups (Arts. 997–1000)</option>
+      <option value="#sec-11">11. Spouse With Siblings/Nephews &amp; Legal Separation Rule (Arts. 1001–1002)</option>
+      <option value="#part-4">PART IV — Collateral Relatives &amp; The State (Arts. 1003–1014)</option>
+      <option value="#sec-12">12. First Collateral Group: Siblings, Nephews &amp; Nieces (Arts. 1003–1008)</option>
+      <option value="#sec-13">13. Second Collateral Group &amp; The 5th-Degree Cap (Arts. 1009–1010)</option>
+      <option value="#sec-14">14. The State &amp; Escheat Proceedings (Arts. 1011–1014)</option>
+      <option value="#master-table">Master Summary Table of Intestate Shares</option>
+      <option value="#final-sheet">Final Memory Sheet &amp; 5-Question Recall Challenge</option>
+    </select>
+  </div>
+</nav>
+
+<div class="document-container">
+  <h1>Order of Intestate Succession</h1>
+  <p class="doc-subtitle">Civil Code of the Philippines, Chapter 3, Section 2 (Articles 978 to 1014), Family Code Art. 176, R.A. 8552 / R.A. 11642, and Landmark Jurisprudence</p>
+  <p class="doc-approach"><strong>Our approach:</strong> Understand the situation first, identify the applicable rule, memorize the requisites, and practice applying the law.</p>
+
+  <h3 id="mental-map">Your Mental Map of the Entire Lecture</h3>
+  <div class="ui-box mental-map">
+    <div class="mm-row">
+      <div class="mm-icon">❤️</div>
+      <div class="mm-body">
+        <div class="mm-title">1. THE DIRECTION OF LOVE (ARTS. 978–987)</div>
+        <div class="mm-desc">How does the law distribute an estate when there is no will? Love first descends (children/grandchildren), then ascends (parents/grandparents), and finally spreads sideways (collaterals).</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">🚧</div>
+      <div class="mm-body">
+        <div class="mm-title">2. ILLEGITIMATE FILIATION &amp; THE BARRIER RULE (ARTS. 988–994)</div>
+        <div class="mm-desc">When do illegitimate children inherit, how does the 2:1 ratio work without impairing legitimes, and who is blocked by the "Iron Curtain" of Article 992?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">💍</div>
+      <div class="mm-body">
+        <div class="mm-title">3. THE CONCURRING SURVIVING SPOUSE (ARTS. 995–1002)</div>
+        <div class="mm-desc">How does the widow or widower share the estate when concurring with legitimate children (including the <em>Santillon</em> 1-child rule), ascendants, illegitimate children, or siblings?</div>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="mm-row">
+      <div class="mm-icon">🏛️</div>
+      <div class="mm-body">
+        <div class="mm-title">4. COLLATERALS UP TO THE 5TH DEGREE &amp; ESCHEAT (ARTS. 1003–1014)</div>
+        <div class="mm-desc">How do full-blood and half-blood siblings/nephews divide the estate, why do 3rd-degree uncles exclude 4th-degree cousins, and when does the State inherit via escheat?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="update-banner">
+    <strong>⚠️ Important Legal Updates (Classroom vs. Modern Bar Exam Rules):</strong>
+    <ul style="margin:0.5rem 0 0; padding-left:1.25rem;">
+      <li><strong>1. Article 992 ("Iron Curtain" Rule) — <em>Aquino v. Aquino</em> (G.R. No. 208912, Dec. 7, 2021, En Banc):</strong> Your lecture notes present the classic doctrine under <em>Diaz v. IAC</em> and <em>Llorente v. Rodriguez</em> that an illegitimate grandchild cannot represent a legitimate parent in the estate of a legitimate grandparent. <strong>For the Bar Exam:</strong> Note that in <em>Aquino v. Aquino</em> (2021), the Supreme Court <strong>abandoned <em>Diaz v. IAC</em></strong> in the direct descending line and ruled that <strong>grandchildren (whether legitimate or illegitimate) may represent their deceased parent (whether legitimate or illegitimate) in the estate of their grandparent</strong>. Always state the classic lecture rule in class recitation, and cite <em>Aquino v. Aquino</em> when answering Bar-style problems!</li>
+      <li><strong>2. Adoption Law — R.A. No. 11642 (Domestic Administrative Adoption and Alternative Child Care Act of 2022):</strong> Superseding R.A. 8552 (1998), Sections 41 and 42 of R.A. 11642 reaffirm that the adopter and adoptee are reciprocal legitimate/compulsory and intestate heirs of each other (severing intestate ties with biological parents), and expressly codify the <em>Bartolome v. SSS</em> doctrine that if the adopter dies while the adoptee is still a minor, parental authority automatically reverts to the biological parents.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ==================== PART I ==================== -->
+  <h2 id="part-1">PART I — General Principles &amp; The Descending Direct Line (Arts. 978–984)</h2>
+
+  <h3 id="sec-1">1. Underlying Principles &amp; Order of Intestate Succession (Art. 978)</h3>
+  <p><em>Imagine a wealthy patriarch who dies suddenly without leaving a will. His grieving children, aged parents, widow, illegitimate child, and brothers all show up claiming a share of the estate.</em></p>
+  <p><strong>Intestate succession</strong> operates on the <strong>presumed will of the decedent</strong>, governed by four bedrock principles: the direction of love (<em>"love first descends, then ascends, and finally spreads sideways"</em>), the <strong>rule of proximity</strong> (nearer degree excludes more distant, saving representation), the <strong>rule of equal division</strong> (with 3 statutory exceptions), and <strong>exclusion vs. concurrence</strong>.</p>
+
+  <div class="ui-box">
+    <strong>Memory aid: DOWN → UP → SIDE (With 3 Exceptions to Equal Division)</strong>
+    <div class="flow-stack">
+      <div class="flow-step">
+        <strong>1. DESCENDING DIRECT LINE (First Priority)</strong>
+        <span>Legitimate children &amp; descendants exclude ascendants and all collaterals</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>2. ASCENDING DIRECT LINE (Second Priority — In Default of Descendants)</strong>
+        <span>Legitimate parents &amp; ascendants exclude all collaterals</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>3. COLLATERAL LINE (Spreads Sideways up to 5th Degree)</strong>
+        <span>Inherits only in default of descendants, ascendants, illegitimate children, and spouse (except siblings/nephews/nieces who concur with spouse)</span>
+      </div>
+    </div>
+    <div class="ui-divider"></div>
+    <div class="ui-caption" style="color:var(--text);">
+      <strong>Three Statutory Exceptions to Equal Division in the Same Degree (Mnemonic: <span class="c-navy">L – B – R</span>):</strong><br>
+      1. <strong>L</strong>ines in the Ascending Line (50% Paternal line / 50% Maternal line — Art. 987)<br>
+      2. <strong>B</strong>lood Relationship among Siblings/Nephews (2:1 Full-Blood vs. Half-Blood — Art. 1006)<br>
+      3. <strong>R</strong>epresentation (Division <em>per stirpes</em> by family root — Art. 974)
+    </div>
+  </div>
+
+  <h4>"What Switches" — Regular vs. Irregular Order of Intestate Succession (Art. 978)</h4>
+  <p>Watch how the priority sequence changes depending on whether the <strong>decedent is Legitimate</strong> (Regular Order) or <strong>Illegitimate</strong> (Irregular Order):</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: L – P – I – S – C – State vs. L – I – P – S/B – State</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'REGULAR (Legitimate Decedent): L - P - I - S - C - State\n1. Legitimate children/descendants\n2. Legitimate Parents/ascendants\n3. Illegitimate children/descendants\n4. Surviving Spouse\n5. Collaterals up to 5th degree\n6. State\n\nIRREGULAR (Illegitimate Decedent): L - I - P - S/B - State\n1. Legitimate children/descendants\n2. Illegitimate children/descendants (SWITCHES above parents!)\n3. Illegitimate Parents ONLY (no other ascendants)\n4. Surviving Spouse & Illegitimate Brothers/Sisters/Nephews/Nieces\n5. State')">📋 Copy</button>
+    </div>
+    <div class="ui-caption">Notice what switches between #2 and #3, and who disappears in the irregular order!</div>
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:12%">Rank</th>
+          <th style="width:44%">Legitimate Decedent (Regular: <code>L-P-I-S-C-St</code>)</th>
+          <th style="width:44%">Illegitimate Decedent (Irregular: <code>L-I-P-S/B-St</code>)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1st</strong></td>
+          <td><strong>L</strong>egitimate children &amp; legitimate descendants</td>
+          <td><strong>L</strong>egitimate children &amp; legitimate descendants</td>
+        </tr>
+        <tr style="background:#FEF3C7;">
+          <td><strong>2nd</strong></td>
+          <td><strong>P</strong>arents &amp; legitimate ascendants</td>
+          <td><strong>I</strong>llegitimate children &amp; descendants <em>(Swaps above parents!)</em></td>
+        </tr>
+        <tr style="background:#FEF3C7;">
+          <td><strong>3rd</strong></td>
+          <td><strong>I</strong>llegitimate children &amp; descendants (legitimate or illegitimate)</td>
+          <td><strong>P</strong>arents (Illegitimate parents <strong>ONLY</strong> — excludes grandparents!)</td>
+        </tr>
+        <tr>
+          <td><strong>4th</strong></td>
+          <td><strong>S</strong>urviving spouse (concurs with #1, #2, #3, and siblings/nephews)</td>
+          <td><strong>S</strong>urviving spouse <strong>AND</strong> illegitimate <strong>B</strong>rothers, sisters, nephews, nieces</td>
+        </tr>
+        <tr>
+          <td><strong>5th</strong></td>
+          <td><strong>C</strong>ollateral relatives up to the <strong>5th civil degree</strong></td>
+          <td><strong>State</strong> <em>(No 5th-degree collaterals; legitimate relatives barred by Art. 992)</em></td>
+        </tr>
+        <tr>
+          <td><strong>6th</strong></td>
+          <td><strong>State</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-2">2. Legitimate, Legitimated &amp; Adopted Children (Arts. 979 &amp; 984)</h3>
+  <p><em>Imagine a man who has children from two different marriages and one legally adopted daughter. Upon his death, the children of the first marriage claim a larger share based on seniority, while the biological parents of the adopted child later claim her estate when she dies childless.</em></p>
+  <p>Under <strong>Article 979</strong>, legitimate and legitimated children inherit in <strong>equal shares without distinction as to sex, age, or different marriages</strong>, and an <strong>adopted child succeeds in the same manner as a legitimate child</strong>. Under <strong>R.A. 8552 (Sec. 18)</strong> (now reaffirmed by <strong>R.A. 11642, Sec. 41</strong>), Article 984 of the Civil Code has been modified so that <strong>adopters and adoptees are reciprocal legal and compulsory heirs</strong>, severing intestate successional ties with biological parents.</p>
+
+  <div class="ui-box">
+    <strong>Evolution of Successional Rights in Adoption (Chronological Flow)</strong>
+    <div class="flow-stack">
+      <div class="flow-step">
+        <strong>STAGE 1: Civil Code (Art. 343 &amp; Art. 984) &amp; PD 603</strong>
+        <span>If adopter left legitimate parents/ascendants, adopted child was reduced to the share of an acknowledged natural child. Under Art. 984, if adoptee died without issue, biological parents inherited intestate.</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <strong>STAGE 2: Family Code (Art. 189)</strong>
+        <span>Expressly repealed Art. 343 NCC. Adopted child acquired full successional rights as a legitimate child of the adopter, while still remaining an intestate heir of biological parents under Art. 189(3).</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="border: 1.5px solid var(--teal); background:#F0FDFA;">
+        <strong>STAGE 3: Domestic Adoption Act (RA 8552, Sec. 18) &amp; RA 11642 (Sec. 41)</strong>
+        <span><strong>Severed all intestate ties with biological parents.</strong> Adopter(s) and adoptee have exclusive reciprocal intestate rights. Biological parents can inherit from the adoptee ONLY if named as voluntary beneficiaries in a valid will.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap — <em>Bartolome v. SSS</em> (740 SCRA 78) Reversion Exception:</strong><br>
+    Does the death of a sole adopting parent restore the biological parents' right to inherit from the adopted child? <strong>Read carefully when the adopter died!</strong><br>
+    • <strong>If the sole adopter dies during the MINORITY of the adopted child (<em>Bartolome v. SSS</em>; now R.A. 11642 Sec. 42):</strong> Parental authority and legal custody <strong>automatically revert to the biological parents</strong> (since adoption is a personal relationship and the minor child cannot be left without parental care). Consequently, the biological parent qualifies as a dependent parent/beneficiary upon the adoptee's subsequent death.<br>
+    • <strong>If the adoptee is already emancipated/of age when the adopter dies (Regular Rule under RA 8552 Sec. 18):</strong> The adopter's estate passes to the adoptee, and the biological parents remain excluded from intestate succession to the adoptee's estate.
+  </div>
+
+  <hr>
+
+  <h3 id="sec-3">3. Per Capita vs. Per Stirpes in the Descending Line (Arts. 980–982)</h3>
+  <p><em>Imagine a decedent leaving a ₱1.2 Million estate. He is survived by two living children (A and B), two grandchildren (X and Y) from predeceased child C, and three grandchildren (M, N, and O) from predeceased child D.</em></p>
+  <p>Surviving children in the first degree always inherit in their own right <strong><em>per capita</em> (equal shares per head, Art. 980)</strong>, whereas grandchildren stepping into the shoes of a predeceased, incapacitated, or disinherited child inherit by right of representation <strong><em>per stirpes</em> (by family root, Arts. 981–982)</strong>—even if all children have died and only grandchildren survive (Art. 982).</p>
+
+  <div class="ui-box svg-box">
+    <strong>Visual Family Tree: Art. 981 Lecture Problem (₱1,200,000 Estate → 4 Roots of ₱300,000)</strong>
+    <svg viewBox="0 0 600 225" width="100%" style="margin-top:0.5rem;">
+      <!-- Decedent -->
+      <rect x="230" y="10" width="140" height="36" rx="6" fill="#1E3A8A" />
+      <text x="300" y="33" fill="#FFF" font-size="12" font-weight="700" text-anchor="middle">DECEDENT (₱1.2M)</text>
+      <!-- Connector lines from Decedent to 4 roots -->
+      <line x1="300" y1="46" x2="300" y2="65" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="75" y1="65" x2="510" y2="65" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="75" y1="65" x2="75" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="205" y1="65" x2="205" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="350" y1="65" x2="350" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="510" y1="65" x2="510" y2="85" stroke="#64748B" stroke-width="1.5"/>
+
+      <!-- Child A (Alive) -->
+      <rect x="25" y="85" width="100" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="75" y="104" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Child A (Alive)</text>
+      <text x="75" y="120" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">₱300,000</text>
+
+      <!-- Child B (Alive) -->
+      <rect x="155" y="85" width="100" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="205" y="104" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Child B (Alive)</text>
+      <text x="205" y="120" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">₱300,000</text>
+
+      <!-- Child C (Predeceased) -->
+      <rect x="295" y="85" width="110" height="42" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="350" y="104" fill="#475569" font-size="11" font-weight="700" text-anchor="middle">Child C (Dead)</text>
+      <text x="350" y="120" fill="#64748B" font-size="10" text-anchor="middle">Root = ₱300,000</text>
+
+      <!-- Child D (Predeceased) -->
+      <rect x="455" y="85" width="110" height="42" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="510" y="104" fill="#475569" font-size="11" font-weight="700" text-anchor="middle">Child D (Dead)</text>
+      <text x="510" y="120" fill="#64748B" font-size="10" text-anchor="middle">Root = ₱300,000</text>
+
+      <!-- Lines from C to X, Y -->
+      <line x1="350" y1="127" x2="350" y2="145" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="315" y1="145" x2="385" y2="145" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="315" y1="145" x2="315" y2="160" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="385" y1="145" x2="385" y2="160" stroke="#64748B" stroke-width="1.5"/>
+
+      <rect x="283" y="160" width="64" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="315" y="179" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">GC X</text>
+      <text x="315" y="195" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">₱150k</text>
+
+      <rect x="353" y="160" width="64" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="385" y="179" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">GC Y</text>
+      <text x="385" y="195" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">₱150k</text>
+
+      <!-- Lines from D to M, N, O -->
+      <line x1="510" y1="127" x2="510" y2="145" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="450" y1="145" x2="570" y2="145" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="450" y1="145" x2="450" y2="160" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="510" y1="145" x2="510" y2="160" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="570" y1="145" x2="570" y2="160" stroke="#64748B" stroke-width="1.5"/>
+
+      <rect x="423" y="160" width="54" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="450" y="179" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">GC M</text>
+      <text x="450" y="195" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">₱100k</text>
+
+      <rect x="483" y="160" width="54" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="510" y="179" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">GC N</text>
+      <text x="510" y="195" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">₱100k</text>
+
+      <rect x="543" y="160" width="54" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="570" y="179" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">GC O</text>
+      <text x="570" y="195" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">₱100k</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center">
+      <strong>Symmetric Contrast Aphorism:</strong> <code>ALL CHILDREN ALIVE = PER CAPITA (Art. 980)</code> &nbsp;|&nbsp; <code>GRANDCHILDREN BY REPRESENTATION = PER STIRPES EVEN IF ALL CHILDREN DIED (Art. 982)</code><br>
+      <em>(Compare this with Nephews/Nieces in Art. 1005: if all siblings are dead, nephews/nieces inherit PER CAPITA, whereas grandchildren under Art. 982 still inherit PER STIRPES unless all children repudiated under Art. 969!)</em>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-4">4. Concurrence of Legitimate &amp; Illegitimate Children (Art. 983)</h3>
+  <p><em>Imagine a decedent who leaves one legitimate child and five illegitimate children, with an estate of ₱1,200,000. If you blindly give every illegitimate child half of a legitimate child's share, the lone legitimate child would get less than half of the estate!</em></p>
+  <p>Under <strong>Article 983</strong> in relation to <strong>Article 176 of the Family Code</strong>, each illegitimate child receives <strong>one-half (1/2)</strong> of the share of each legitimate child (<strong>2:1 ratio</strong>), provided that the collective shares of the illegitimate children <strong>must never impair the 1/2 compulsory legitime of the legitimate children</strong>.</p>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-no-impair')">Scenario A: No Impairment (2 LC + 2 IC)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-impair')">Scenario B: Legitime Impaired (1 LC + 5 IC)</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-no-impair">
+      <p><strong>Estate = ₱1,200,000 | 2 Legitimate Children (LC1, LC2) + 2 Illegitimate Children (IC1, IC2)</strong><br>
+      Step 1 (Apply 2:1 Ratio): LC = 2 parts each (4 parts total); IC = 1 part each (2 parts total). Total = 6 parts (₱200k per part).<br>
+      Step 2 (Check Impairment): Legitimate children get ₱800k total (2/3 of estate), which is ≥ ₱600k (1/2 legitime). <strong>No impairment!</strong></p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">LC 1 (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">LC 2 (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:50px; background:#0F766E;"></div><div class="bar-lbl">IC 1 (1x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:50px; background:#0F766E;"></div><div class="bar-lbl">IC 2 (1x)</div></div>
+      </div>
+      <div class="ui-caption">2:1 Ratio holds cleanly: ₱400k per Legitimate Child, ₱200k per Illegitimate Child.</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-impair">
+      <p><strong>Estate = ₱1,200,000 | 1 Legitimate Child (LC1) + 5 Illegitimate Children (IC1–IC5)</strong><br>
+      Step 1 (Test 2:1 Ratio): 2x + 5(x) = 7x → LC1 would only get 2/7 (₱342,857), which is <strong>less than the ₱600,000 (1/2) compulsory legitime!</strong><br>
+      Step 2 (Apply Guardrail): Satisfy LC1's 1/2 legitime (<strong>₱600,000</strong>) first; divide the remaining 1/2 free portion (₱600,000) equally among the 5 ICs (<strong>₱120,000 each</strong>).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱600k</div><div class="bar-fill" style="height:110px"></div><div class="bar-lbl">LC 1 (1/2)</div></div>
+        <div class="bar-col"><div class="bar-val">₱120k</div><div class="bar-fill" style="height:24px; background:#991B1B;"></div><div class="bar-lbl">IC 1</div></div>
+        <div class="bar-col"><div class="bar-val">₱120k</div><div class="bar-fill" style="height:24px; background:#991B1B;"></div><div class="bar-lbl">IC 2</div></div>
+        <div class="bar-col"><div class="bar-val">₱120k</div><div class="bar-fill" style="height:24px; background:#991B1B;"></div><div class="bar-lbl">IC 3</div></div>
+        <div class="bar-col"><div class="bar-val">₱120k</div><div class="bar-fill" style="height:24px; background:#991B1B;"></div><div class="bar-lbl">IC 4</div></div>
+        <div class="bar-col"><div class="bar-val">₱120k</div><div class="bar-fill" style="height:24px; background:#991B1B;"></div><div class="bar-lbl">IC 5</div></div>
+      </div>
+      <div class="ui-caption">Arrow Formula: <code>TEST 2:1 RATIO → IF LC &lt; 1/2 ESTATE → LOCK LC AT 1/2, SPLIT REMAINING 1/2 AMONG ICs</code></div>
+    </div>
+  </div>
+
+  <!-- Mini-Quiz Part I -->
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part I Check</strong>
+    <div class="quiz-q" data-answer="1" data-why="Under RA 8552 Sec. 18 (and RA 11642 Sec. 41), Art. 984 NCC was modified: adopters are the exclusive intestate heirs of the adoptee. Biological parents inherit only if instituted in a valid will (unless the adopter died during the adoptee's minority under Bartolome v. SSS).">
+      <div class="quiz-prompt">1. An adult adopted child dies intestate without any descendants or spouse. Both his adopting parents and his biological parents survive him. Who inherits his estate?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="0" onchange="gradeInstant(this)"> Biological parents alone under Article 984 of the Civil Code</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="1" onchange="gradeInstant(this)"> Adopting parents alone under RA 8552 / RA 11642</label>
+        <label class="quiz-opt"><input type="radio" name="p1q1" value="2" onchange="gradeInstant(this)"> Adopting parents and biological parents divide the estate 50-50</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 982, grandchildren and other descendants always inherit by right of representation (per stirpes), even if all children have predeceased the decedent.">
+      <div class="quiz-prompt">2. X dies intestate. Both of his children, C and D, predeceased him. C left 2 children (X1, X2) and D left 3 children (M, N, O). How is a ₱600,000 estate distributed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="0" onchange="gradeInstant(this)"> ₱120,000 each to all 5 grandchildren per capita</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="1" onchange="gradeInstant(this)"> It escheats to the State because all children are dead</label>
+        <label class="quiz-opt"><input type="radio" name="p1q2" value="2" onchange="gradeInstant(this)"> Per stirpes: ₱150,000 each to X1 and X2; ₱100,000 each to M, N, and O</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ==================== PART II ==================== -->
+  <h2 id="part-2">PART II — Ascending Direct Line &amp; Illegitimate Children (Arts. 985–994)</h2>
+
+  <h3 id="sec-5">5. Legitimate Parents &amp; Ascendants: Division by Lines (Arts. 985–987)</h3>
+  <p><em>Imagine an unmarried professional who dies childless leaving ₱1,000,000. Both of his parents are dead, leaving only his paternal grandfather (A) and his maternal grandparents (C and D).</em></p>
+  <p>In default of legitimate descendants, <strong>legitimate parents and ascendants</strong> inherit to the exclusion of all collateral relatives (Art. 985). There is <strong>never any right of representation in the ascending line</strong>: if one parent survives, that parent takes 100% of the ascendants' share excluding the grandparents on the deceased parent's side (Art. 986); if both parents are dead and ascendants of equal degree belong to different lines, the estate is divided <strong>50% to the paternal line and 50% to the maternal line</strong>, and then <em>per capita</em> within each line (Art. 987).</p>
+
+  <div class="ui-box svg-box">
+    <strong>Visual Line Split: Art. 987 Lecture Problem (₱1,000,000 Estate — Paternal vs. Maternal Line)</strong>
+    <svg viewBox="0 0 560 195" width="100%" style="margin-top:0.5rem;">
+      <!-- Paternal GP A -->
+      <rect x="45" y="12" width="170" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="130" y="31" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Paternal Grandfather (A)</text>
+      <text x="130" y="47" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Gets Full Line = ₱500,000</text>
+
+      <!-- Maternal GPs C and D -->
+      <rect x="310" y="12" width="110" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="365" y="31" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Maternal GF (C)</text>
+      <text x="365" y="47" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">₱250,000</text>
+
+      <rect x="435" y="12" width="110" height="44" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="490" y="31" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">Maternal GM (D)</text>
+      <text x="490" y="47" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">₱250,000</text>
+
+      <!-- Lines to Deceased Parents -->
+      <line x1="130" y1="56" x2="130" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="365" y1="56" x2="365" y2="70" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="490" y1="56" x2="490" y2="70" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="365" y1="70" x2="490" y2="70" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="427" y1="70" x2="427" y2="85" stroke="#64748B" stroke-width="1.5"/>
+
+      <!-- Deceased Father & Mother -->
+      <rect x="65" y="85" width="130" height="36" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-dasharray="4 3"/>
+      <text x="130" y="107" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Father (Predeceased)</text>
+
+      <rect x="362" y="85" width="130" height="36" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-dasharray="4 3"/>
+      <text x="427" y="107" fill="#475569" font-size="11" font-weight="600" text-anchor="middle">Mother (Predeceased)</text>
+
+      <!-- Lines to Decedent -->
+      <line x1="130" y1="121" x2="130" y2="136" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="427" y1="121" x2="427" y2="136" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="130" y1="136" x2="427" y2="136" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="278" y1="136" x2="278" y2="150" stroke="#64748B" stroke-width="1.5"/>
+
+      <rect x="198" y="150" width="160" height="36" rx="6" fill="#1E3A8A"/>
+      <text x="278" y="173" fill="#FFF" font-size="12" font-weight="700" text-anchor="middle">DECEDENT (₱1,000,000)</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center">
+      <strong>Two-Step Ascending Formula:</strong> <code>NEAREST DEGREE EXCLUDES REMOTE → SPLIT 50/50 BY LINE → DIVIDE PER CAPITA INSIDE EACH LINE</code>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-6">6. Illegitimate Children &amp; Their Descendants (Arts. 988–991)</h3>
+  <p><em>Imagine a decedent who has no legitimate children, leaving only his legitimate parents and three illegitimate children (one of whom predeceased him, leaving a legitimate child and an illegitimate child).</em></p>
+  <p>In the absence of legitimate descendants and ascendants, <strong>illegitimate children inherit the entire estate</strong> to the exclusion of collateral relatives (Art. 988). Unlike a legitimate child (under the classic Art. 992 view), an <strong>illegitimate child can be represented by BOTH legitimate and illegitimate descendants</strong> (Arts. 989–990, observing the 2:1 ratio between them). When illegitimate children concur with legitimate ascendants (Art. 991), they split the estate <strong>1/2 to legitimate ascendants and 1/2 to illegitimate children</strong> regardless of headcount.</p>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap — Justice J.B.L. Reyes' Rule in Partial Intestacy (Art. 991):</strong><br>
+    Suppose X dies leaving Legitimate Parents (LP) and Illegitimate Children (IC) with an estate of ₱1,000,000, and his will merely gives a ₱100,000 legacy to a friend. How do you distribute the estate?<br>
+    • <strong>Wrong Answer:</strong> Deduct ₱100,000 off the top and split ₱900,000 (giving LP ₱450k and IC ₱450k). That illegally impairs LP's compulsory legitime of 1/2 (₱500,000)!<br>
+    • <strong>Correct Answer (J.B.L. Reyes' Rule):</strong> Deduct testamentary legacies <strong>exclusively from the 1/2 share of the illegitimate children</strong> so that the 1/2 legitime of the legitimate ascendants remains completely untouched (LP = ₱500,000; Friend = ₱100,000; IC = ₱400,000).
+  </div>
+
+  <hr>
+
+  <h3 id="sec-7">7. The Barrier ("Iron Curtain") Rule &amp; Jurisprudence (Art. 992)</h3>
+  <p><em>Imagine an illegitimate son who grows up loving his father's legitimate parents. When the father dies ahead of the grandfather, and the grandfather later dies intestate, the legitimate uncles tell the illegitimate grandson: "You cannot inherit a single centavo from our father by law!"</em></p>
+  <p><strong>Article 992</strong> erects a statutory barrier (the <em>"Iron Curtain"</em>) providing that an <strong>illegitimate child has no right to inherit <em>ab intestato</em> from the legitimate children and relatives of his father or mother, nor shall such legitimate children or relatives inherit in the same manner from the illegitimate child</strong>.</p>
+
+  <div class="ui-box svg-box">
+    <strong>Visualizing the "Iron Curtain" (Art. 992) vs. Representation Rules</strong>
+    <svg viewBox="0 0 600 205" width="100%" style="margin-top:0.5rem;">
+      <!-- Left Side: Legitimate Parent (Barred under Diaz / Allowed under Aquino) -->
+      <text x="150" y="20" fill="#991B1B" font-size="11" font-weight="700" text-anchor="middle">CASE 1: LEGITIMATE PARENT (Art. 982 / 992)</text>
+      <rect x="85" y="30" width="130" height="34" rx="6" fill="#1E3A8A"/>
+      <text x="150" y="51" fill="#FFF" font-size="11" font-weight="700" text-anchor="middle">Grandparent (Estate)</text>
+      <line x1="150" y1="64" x2="150" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <rect x="85" y="85" width="130" height="34" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-dasharray="4 3"/>
+      <text x="150" y="106" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">Legitimate Child (Dead)</text>
+      <!-- Iron Curtain Line -->
+      <line x1="45" y1="133" x2="255" y2="133" stroke="#991B1B" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <text x="150" y="129" fill="#991B1B" font-size="9" font-weight="700" text-anchor="middle">IRON CURTAIN (Art. 992 - Diaz v. IAC)</text>
+      <rect x="40" y="145" width="100" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="90" y="164" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">Legitimate GC</text>
+      <text x="90" y="178" fill="#166534" font-size="9" text-anchor="middle">✓ Represents</text>
+      <rect x="160" y="145" width="100" height="42" rx="6" fill="#FEE2E2" stroke="#991B1B" stroke-width="1.5"/>
+      <text x="210" y="164" fill="#991B1B" font-size="10" font-weight="700" text-anchor="middle">Illegitimate GC</text>
+      <text x="210" y="178" fill="#991B1B" font-size="9" text-anchor="middle">✗ Barred (Diaz)*</text>
+
+      <!-- Divider -->
+      <line x1="300" y1="10" x2="300" y2="195" stroke="#CBD5E1" stroke-width="1.5"/>
+
+      <!-- Right Side: Illegitimate Parent (Art. 990) -->
+      <text x="450" y="20" fill="#166534" font-size="11" font-weight="700" text-anchor="middle">CASE 2: ILLEGITIMATE PARENT (Art. 990)</text>
+      <rect x="385" y="30" width="130" height="34" rx="6" fill="#1E3A8A"/>
+      <text x="450" y="51" fill="#FFF" font-size="11" font-weight="700" text-anchor="middle">Grandparent (Estate)</text>
+      <line x1="450" y1="64" x2="450" y2="85" stroke="#64748B" stroke-width="1.5"/>
+      <rect x="385" y="85" width="130" height="34" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-dasharray="4 3"/>
+      <text x="450" y="106" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">Illegitimate Child (Dead)</text>
+      <line x1="450" y1="119" x2="450" y2="133" stroke="#16A34A" stroke-width="1.5"/>
+      <line x1="390" y1="133" x2="510" y2="133" stroke="#16A34A" stroke-width="1.5"/>
+      <line x1="390" y1="133" x2="390" y2="145" stroke="#16A34A" stroke-width="1.5"/>
+      <line x1="510" y1="133" x2="510" y2="145" stroke="#16A34A" stroke-width="1.5"/>
+      <rect x="340" y="145" width="100" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="390" y="164" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">Legitimate GC</text>
+      <text x="390" y="178" fill="#166534" font-size="9" text-anchor="middle">✓ Represents (2x)</text>
+      <rect x="460" y="145" width="100" height="42" rx="6" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <text x="510" y="164" fill="#166534" font-size="10" font-weight="700" text-anchor="middle">Illegitimate GC</text>
+      <text x="510" y="178" fill="#166534" font-size="9" text-anchor="middle">✓ Represents (1x)</text>
+    </svg>
+    <div class="ui-caption" style="text-align:center">
+      *Note: Under <em>Aquino v. Aquino</em> (2021), the Supreme Court abandoned <em>Diaz v. IAC</em> in Case 1 and now allows an illegitimate grandchild to represent a legitimate parent in the grandparent's estate.
+    </div>
+  </div>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: 5 Key Jurisprudential Rules on Art. 992 (D – V – W – I – S)</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'D — Diaz v. IAC / Llorente: Illegitimate child cannot represent legitimate parent (modified in 2021 by Aquino v. Aquino)\nV — Vda. de Crisologo v. CA: Legitimate relatives of mother cannot inherit intestate from her illegitimate child\nW — Wills / Voluntary Bequests Exempt: Art. 992 applies ONLY to ab intestato & legitimes, NOT voluntary wills\nI — Illegitimate Siblings Inherit (Delgado v. Damian / Manuel v. Ferrer): Full/half-blood illegitimate siblings inherit from each other (2:1)\nS — Suntay III v. Cojuangco-Suntay (2012 Res.): Art. 992 is an absolute rule of heirship, though inapplicable in selecting an administrator')">📋 Copy</button>
+    </div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr>
+          <td style="width:8%"><strong>D</strong></td>
+          <td style="width:32%"><em>Diaz v. IAC</em> (150 SCRA 645) &amp; <em>Llorente v. Rodriguez</em></td>
+          <td>Classic lecture rule: An illegitimate child cannot represent his deceased legitimate parent in the estate of the legitimate grandparent based on presumed antagonism (<em>Grey v. Fabie</em>). <em>(Abandoned in 2021 by Aquino v. Aquino as to grandchildren).</em></td>
+        </tr>
+        <tr>
+          <td><strong>V</strong></td>
+          <td><em>Vda. de Crisologo v. CA</em> (137 SCRA 231)</td>
+          <td>The barrier is <strong>reciprocal</strong>: the legitimate mother's legitimate relatives (aunts/uncles/cousins) cannot inherit <em>ab intestato</em> from the mother's illegitimate child.</td>
+        </tr>
+        <tr>
+          <td><strong>W</strong></td>
+          <td><strong>Wills &amp; Voluntary Dispositions Exempt</strong></td>
+          <td>Article 992 restricts only succession by operation of law (<em>ab intestato</em> and legitimes). It does <strong>not</strong> prohibit voluntary testamentary bequests or fideicommissary substitutions.</td>
+        </tr>
+        <tr>
+          <td><strong>I</strong></td>
+          <td><em>Delgado Vda. de Dela Rosa v. Heirs of Damian</em> (480 SCRA 334); <em>Manuel v. Ferrer</em></td>
+          <td>The barrier does <strong>not</strong> apply between <strong>illegitimate siblings</strong>! Full-blood or half-blood illegitimate brothers and sisters inherit intestate from one another (observing the 2:1 full-to-half blood ratio).</td>
+        </tr>
+        <tr>
+          <td><strong>S</strong></td>
+          <td><em>Suntay III v. Cojuangco-Suntay</em> (621 SCRA 142 &amp; 683 SCRA 449)</td>
+          <td>While the 2010 decision suggested love and joint upbringing could rebut the presumption of antagonism, the <strong>2012 Resolution</strong> clarified that Art. 992 remains an absolute statutory rule in declaring heirship (though inapplicable when appointing a co-administrator).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-8">8. Succession to the Estate of an Illegitimate Child (Arts. 993–994)</h3>
+  <p><em>Imagine an illegitimate child who becomes a self-made millionaire and dies intestate without any children. His biological father, his biological grandfather, his widow, his legitimate half-brother, and his illegitimate brother all claim a share.</em></p>
+  <p>When an <strong>illegitimate child dies without issue</strong> (neither legitimate nor illegitimate descendants), his estate passes first to his <strong>illegitimate parents</strong> (excluding grandparents and higher ascendants, Art. 993). In default of parents, the <strong>surviving spouse</strong> takes the entire estate, or splits it <strong>1/2 to the spouse and 1/2 to illegitimate brothers, sisters, nephews, and nieces</strong> (Art. 994, excluding legitimate siblings under Art. 992).</p>
+
+  <div class="ui-box">
+    <strong>4 Core Rules When the Decedent Is an Illegitimate Child (Arts. 993–994)</strong>
+    <div class="ui-grid-2">
+      <div class="stat-card" style="text-align:left; padding:1rem;">
+        <div class="stat-lbl" style="font-weight:700; color:var(--navy);">1. PARENTS STOP AT DEGREE 1 (Art. 993)</div>
+        <p style="margin:0.35rem 0 0; font-size:0.88rem;">Only the <strong>father or mother</strong> (whose filiation is duly proved) inherits. Illegitimate grandparents and higher ascendants have <strong>zero intestate rights</strong>.</p>
+      </div>
+      <div class="stat-card" style="text-align:left; padding:1rem;">
+        <div class="stat-lbl" style="font-weight:700; color:var(--teal);">2. ILLEGITIMATE PARENTS + SPOUSE (Analogy to Art. 997)</div>
+        <p style="margin:0.35rem 0 0; font-size:0.88rem;">Though omitted in the text of Arts. 993–994, Justice J.B.L. Reyes &amp; the Code Commission confirm that they concur: <strong>1/2 to Illegitimate Parents, 1/2 to Surviving Spouse</strong>.</p>
+      </div>
+      <div class="stat-card" style="text-align:left; padding:1rem;">
+        <div class="stat-lbl" style="font-weight:700; color:var(--green);">3. SPOUSE + ILLEGITIMATE SIBLINGS (Art. 994)</div>
+        <p style="margin:0.35rem 0 0; font-size:0.88rem;">In default of parents, the surviving spouse gets 100% alone, or splits <strong>1/2 to Spouse and 1/2 to Illegitimate Siblings/Nephews/Nieces</strong>.</p>
+      </div>
+      <div class="stat-card" style="text-align:left; padding:1rem;">
+        <div class="stat-lbl" style="font-weight:700; color:var(--burgundy);">4. LEGITIMATE SIBLINGS BARRED (Art. 992)</div>
+        <p style="margin:0.35rem 0 0; font-size:0.88rem;">The "brothers, sisters, nephews, nieces" in Art. 994 refer <strong>exclusively to illegitimate collaterals</strong>. Legitimate half-siblings are barred by the Iron Curtain.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini-Quiz Part II -->
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part II Check</strong>
+    <div class="quiz-q" data-answer="0" data-why="Under Art. 986, there is NO representation in the ascending line. If one parent survives, he or she takes the entire share of the ascending line and excludes grandparents on the deceased parent's side.">
+      <div class="quiz-prompt">1. D dies intestate without descendants, survived by his Father and his Maternal Grandparents (his Mother having predeceased him). How is his ₱1,000,000 estate distributed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="0" onchange="gradeInstant(this)"> ₱1,000,000 (100%) to the Father; Maternal Grandparents get nothing</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="1" onchange="gradeInstant(this)"> ₱500,000 to the Father and ₱250,000 each to the Maternal Grandparents by representation</label>
+        <label class="quiz-opt"><input type="radio" name="p2q1" value="2" onchange="gradeInstant(this)"> ₱333,333 each to the Father and the two Maternal Grandparents per capita</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 994 in relation to Art. 992 (and Delgado v. Damian), only illegitimate siblings inherit intestate from an illegitimate decedent; legitimate siblings are barred by the Iron Curtain.">
+      <div class="quiz-prompt">2. An illegitimate child dies intestate without descendants or parents, survived by his widow, one legitimate half-brother, and one illegitimate brother. How is the estate divided?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="0" onchange="gradeInstant(this)"> Widow takes 100% because all brothers are excluded by Art. 992</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="1" onchange="gradeInstant(this)"> 1/2 to Widow, and the other 1/2 split in a 2:1 ratio between the legitimate and illegitimate brothers</label>
+        <label class="quiz-opt"><input type="radio" name="p2q2" value="2" onchange="gradeInstant(this)"> 1/2 to Widow, 1/2 to the illegitimate brother; the legitimate half-brother gets nothing</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ==================== PART III ==================== -->
+  <h2 id="part-3">PART III — Surviving Spouse (Arts. 995–1002)</h2>
+
+  <h3 id="sec-9">9. Surviving Spouse Alone &amp; With Legitimate Children (Arts. 995–996; <em>Santillon v. Miranda</em>)</h3>
+  <p><em>Imagine a husband who dies intestate survived only by his wife and one legitimate son. The son argues that under Article 892 (on legitimes), when there is only one legitimate child, the spouse gets only 1/4 and the child gets 3/4.</em></p>
+  <p>In the absence of descendants, ascendants, and illegitimate children, the <strong>surviving spouse inherits the entire estate</strong> (without prejudice to concurring siblings/nephews/nieces under Art. 1001), with <strong>no reduction even if the marriage was celebrated <em>in articulo mortis</em></strong> (Art. 995). When concurring with legitimate children (Art. 996), the spouse gets the <strong>same share as that of each legitimate child</strong>—and under the landmark doctrine in <strong><em>Santillon v. Miranda</em> (14 SCRA 563)</strong>, when there is <strong>only ONE legitimate child</strong>, they divide the estate <strong>50% to the child and 50% to the surviving spouse</strong> because the statutory plural "children" includes the singular "child".</p>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap — 1 Legitimate Child + Surviving Spouse (Testamentary vs. Intestate):</strong><br>
+    • <strong>In Testamentary Succession (Legitime Only — Art. 892):</strong> 1 Legitimate Child gets <strong>1/2</strong> as legitime; Surviving Spouse gets <strong>1/4</strong> as legitime (leaving 1/4 free disposal).<br>
+    • <strong>In Intestate Succession (Whole Estate — Art. 996, <em>Santillon v. Miranda</em>):</strong> 1 Legitimate Child gets <strong>1/2</strong>; Surviving Spouse gets <strong>1/2</strong>!<br>
+    • <strong>Marriage <em>In Articulo Mortis</em> (Art. 900 vs. Art. 995):</strong> If the decedent died within 3 months of a marriage <em>in articulo mortis</em> (without prior 5-year cohabitation), the spouse's <em>legitime</em> as sole heir drops from 1/2 to 1/3 under Art. 900—but in <strong>intestate succession (Art. 995)</strong>, there is <strong>NO reduction</strong> (the spouse still takes 100%)!
+  </div>
+
+  <hr>
+
+  <h3 id="sec-10">10. Concurrence With Ascendants, Illegitimate Children &amp; Mixed Groups (Arts. 997–1000)</h3>
+  <p><em>Imagine a widow trying to calculate her share when she concurs with her in-laws (legitimate parents), or with illegitimate children, or with both at the same time.</em></p>
+  <p>When the surviving spouse concurs with <strong>legitimate ascendants alone (Art. 997)</strong> or with <strong>illegitimate children alone (Art. 998)</strong>, the division is always a clean <strong>1/2 – 1/2 split</strong>. When concurring with <strong>both legitimate ascendants and illegitimate children (Art. 1000)</strong>, the shares are fixed at <strong>1/2 to ascendants, 1/4 to the spouse, and 1/4 to illegitimate children</strong>. When concurring with <strong>legitimate children and illegitimate children (Art. 999)</strong>, apply the <strong>2 : 2 : 1 ratio</strong> unless the 1/2 legitime of the legitimate children is impaired.</p>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-999-ok')">Art. 999: 2:2:1 Ratio (2 LC + S + 2 IC)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-999-imp')">Art. 999: Impairment (1 LC + S + 4 IC)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-1000')">Art. 1000: LP + S + IC</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-999-ok">
+      <p><strong>Estate = ₱1,600,000 | 2 Legitimate Children + Surviving Spouse + 2 Illegitimate Children</strong><br>
+      Apply <strong>2 : 2 : 1 Ratio</strong>: LC1 (2) + LC2 (2) + Spouse (2) + IC1 (1) + IC2 (1) = 8 parts (₱200k per part).<br>
+      Check Legitime: LC1 + LC2 = ₱800k (exactly 1/2 of ₱1.6M). <strong>No impairment!</strong></p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:90px"></div><div class="bar-lbl">LC 1 (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:90px"></div><div class="bar-lbl">LC 2 (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:90px; background:#166534;"></div><div class="bar-lbl">Spouse (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:45px; background:#0F766E;"></div><div class="bar-lbl">IC 1 (1x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:45px; background:#0F766E;"></div><div class="bar-lbl">IC 2 (1x)</div></div>
+      </div>
+      <div class="ui-caption">Standard Art. 999 distribution when legitimate children's 1/2 legitime is not impaired.</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-999-imp">
+      <p><strong>Estate = ₱1,600,000 | 1 Legitimate Child + Surviving Spouse + 4 Illegitimate Children</strong><br>
+      Test 2:2:1 Ratio: 2 + 2 + 4(1) = 8 parts → Lone LC would only get 2/8 (1/4), <strong>impairing the 1/2 compulsory legitime!</strong><br>
+      <strong>Step-by-Step Fix:</strong> (1) Give LC <strong>1/2 (₱800k)</strong>; (2) Give Spouse her <strong>1/4 legitime (₱400k)</strong>; (3) Divide remaining <strong>1/4 (₱400k)</strong> equally among the 4 ICs (<strong>₱100k each</strong>).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱800k</div><div class="bar-fill" style="height:110px"></div><div class="bar-lbl">LC (1/2)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:55px; background:#166534;"></div><div class="bar-lbl">Spouse (1/4)</div></div>
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:16px; background:#991B1B;"></div><div class="bar-lbl">IC 1</div></div>
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:16px; background:#991B1B;"></div><div class="bar-lbl">IC 2</div></div>
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:16px; background:#991B1B;"></div><div class="bar-lbl">IC 3</div></div>
+        <div class="bar-col"><div class="bar-val">₱100k</div><div class="bar-fill" style="height:16px; background:#991B1B;"></div><div class="bar-lbl">IC 4</div></div>
+      </div>
+      <div class="ui-caption">Never reduce the legitime of the legitimate child or the surviving spouse—only the illegitimate children's shares absorb the reduction!</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-1000">
+      <p><strong>Estate = ₱1,600,000 | Legitimate Parents (LP) + Surviving Spouse (S) + Illegitimate Children (IC) (Art. 1000)</strong><br>
+      Fixed Statutory Fraction: <strong>1/2 (50%) to Legitimate Ascendants</strong>, <strong>1/4 (25%) to Surviving Spouse</strong>, and <strong>1/4 (25%) to Illegitimate Children</strong>.</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱800k</div><div class="bar-fill" style="height:110px"></div><div class="bar-lbl">Parents (1/2)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:55px; background:#166534;"></div><div class="bar-lbl">Spouse (1/4)</div></div>
+        <div class="bar-col"><div class="bar-val">₱400k</div><div class="bar-fill" style="height:55px; background:#0F766E;"></div><div class="bar-lbl">ICs (1/4)</div></div>
+      </div>
+      <div class="ui-caption">Memory Formula for Art. 1000: <code>50% ASCENDANTS – 25% SPOUSE – 25% ILLEGITIMATE CHILDREN</code></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-11">11. Concurrence With Siblings/Nephews &amp; Legal Separation Disqualification (Arts. 1001–1002)</h3>
+  <p><em>Imagine an estranged husband and wife who have lived apart for 15 years without any court decree. When the husband dies leaving only his wife and two sisters, the sisters claim the wife is disqualified for abandoning him.</em></p>
+  <p>Under <strong>Article 1001</strong>, when the surviving spouse concurs with brothers, sisters, nephews, or nieces, the estate is divided <strong>1/2 to the surviving spouse and 1/2 to the sibling/nephew/niece group</strong> (while the spouse excludes all more distant collaterals like uncles and cousins). Under <strong>Article 1002</strong>, a surviving spouse loses intestate rights ONLY if there is a <strong>final judicial decree of legal separation</strong> declaring that spouse the <strong>guilty party</strong> (mere <em>de facto</em> separation does not disqualify).</p>
+
+  <div class="ui-box">
+    <strong>Symmetric Contrast Aphorisms on the Surviving Spouse (Arts. 995, 1001, 1002)</strong>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr>
+          <td style="width:38%"><code>VALID MARRIAGE = HEIR</code><br><code>VOID / COMMON-LAW = ZERO</code></td>
+          <td>A common-law partner or spouse in a void/bigamous marriage has zero intestate successional rights.</td>
+        </tr>
+        <tr>
+          <td><code>SIBLINGS/NEPHEWS = CONCUR (1/2)</code><br><code>UNCLES/COUSINS = EXCLUDED (0)</code></td>
+          <td>The spouse shares 50-50 with brothers, sisters, nephews, and nieces (Art. 1001), but completely excludes 3rd, 4th, and 5th-degree collaterals (Art. 995).</td>
+        </tr>
+        <tr>
+          <td><code>GUILTY IN DECREE = DISQUALIFIED</code><br><code>DE FACTO SEPARATION = STILL HEIR</code></td>
+          <td>Without a final decree of legal separation finding the surviving spouse guilty (Art. 1002), mere physical separation does not strip intestate rights.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mini-Quiz Part III -->
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part III Check</strong>
+    <div class="quiz-q" data-answer="1" data-why="Under Art. 996 and Santillon v. Miranda, when a decedent dies intestate survived by 1 legitimate child and the surviving spouse, they divide the estate equally: 1/2 to the child and 1/2 to the spouse.">
+      <div class="quiz-prompt">1. X dies intestate leaving an estate of ₱2,000,000, survived by his widow W and one legitimate child A. How much does W receive?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="0" onchange="gradeInstant(this)"> ₱500,000 (1/4 of the estate under Art. 892)</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="1" onchange="gradeInstant(this)"> ₱1,000,000 (1/2 of the estate under Art. 996 and Santillon v. Miranda)</label>
+        <label class="quiz-opt"><input type="radio" name="p3q1" value="2" onchange="gradeInstant(this)"> ₱1,500,000 (3/4 of the estate)</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="0" data-why="Under Art. 995 and Art. 1001, the surviving spouse concurs only with brothers, sisters, nephews, and nieces, and excludes aunts, uncles, and cousins. Mere de facto separation without a judicial decree of legal separation does not disqualify the spouse (Art. 1002).">
+      <div class="quiz-prompt">2. H and W had been separated in fact for 10 years when H died intestate without descendants, ascendants, illegitimate children, or siblings/nephews. H's only blood relative is his Aunt. Who inherits H's estate?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="0" onchange="gradeInstant(this)"> W inherits 100% of the estate, excluding the Aunt</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="1" onchange="gradeInstant(this)"> W and the Aunt split the estate 50-50 under Art. 1001</label>
+        <label class="quiz-opt"><input type="radio" name="p3q2" value="2" onchange="gradeInstant(this)"> The Aunt takes 100% because W was separated in fact from H</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ==================== PART IV ==================== -->
+  <h2 id="part-4">PART IV — Collateral Relatives &amp; The State (Arts. 1003–1014)</h2>
+
+  <h3 id="sec-12">12. First Collateral Group: Siblings, Nephews &amp; Nieces (Arts. 1003–1008)</h3>
+  <p><em>Imagine a bachelor who dies intestate without descendants, ascendants, illegitimate children, or a spouse. He is survived by a full-blood brother, a half-blood sister on his father's side, two nephews from a predeceased full-blood brother, and a grandnephew from another predeceased sister.</em></p>
+  <p>In default of primary and concurring heirs, collateral relatives inherit (Art. 1003), led by the <strong>First Collateral Group (brothers, sisters, nephews, and nieces)</strong>. Full-blood siblings take <strong>double the share (2:1)</strong> of half-blood siblings (Arts. 1004, 1006), while half-blood siblings alone divide equally regardless of paternal or maternal side (Art. 1007). Representation in the collateral line extends <strong>ONLY to nephews and nieces</strong> when concurring with surviving uncles/aunts (Arts. 1005, 1008; <em>Abellana de Bacayo v. Ferraris de Borromeo</em>)—never to grandnephews/grandnieces!</p>
+
+  <div class="ui-box" data-tabs>
+    <div class="seg-control">
+      <button type="button" class="seg-btn active" onclick="switchTab(this, 'tab-neph-stirpes')">Art. 1005: With Uncle/Aunt (Per Stirpes)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-neph-capita')">Art. 975 / 1005: Nephews Alone (Per Capita)</button>
+      <button type="button" class="seg-btn" onclick="switchTab(this, 'tab-halfblood')">Art. 1006 / 1008: Full vs. Half Blood (2:1)</button>
+    </div>
+    <div class="tab-panel active" data-panel="tab-neph-stirpes">
+      <p><strong>Scenario 1 — Sibling A (Alive) + Nephews N1 &amp; N2 (children of predeceased Sibling B) | Estate = ₱600,000</strong><br>
+      Because an uncle/aunt (Sibling A) survives, Nephews N1 and N2 inherit by representation (<strong><em>per stirpes</em></strong>).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱300k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">Sibling A</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:50px; background:#0F766E;"></div><div class="bar-lbl">Nephew 1</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:50px; background:#0F766E;"></div><div class="bar-lbl">Nephew 2</div></div>
+      </div>
+      <div class="ui-caption">Sibling A takes ₱300k per capita; N1 and N2 split B's ₱300k per stirpes (₱150k each).</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-neph-capita">
+      <p><strong>Scenario 2 — Both Sibling A (leaving N1) and Sibling B (leaving N2 &amp; N3) Predeceased | Estate = ₱600,000</strong><br>
+      When <strong>ALL brothers and sisters are dead</strong>, nephews and nieces inherit in their own right (<strong><em>per capita</em></strong>), NOT by representation!</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:70px"></div><div class="bar-lbl">Nephew 1</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:70px"></div><div class="bar-lbl">Nephew 2</div></div>
+        <div class="bar-col"><div class="bar-val">₱200k</div><div class="bar-fill" style="height:70px"></div><div class="bar-lbl">Nephew 3</div></div>
+      </div>
+      <div class="ui-caption">Contrast with Grandchildren (Art. 982): Grandchildren alone still inherit PER STIRPES, but Nephews/Nieces alone inherit PER CAPITA!</div>
+    </div>
+    <div class="tab-panel" data-panel="tab-halfblood">
+      <p><strong>Scenario 3 — 1 Full-Blood Sibling (FB) + 1 Half-Blood Paternal Sibling (HB1) + 1 Half-Blood Maternal Sibling (HB2) | Estate = ₱600,000</strong><br>
+      Full-blood takes <strong>double (2x)</strong> the share of each half-blood sibling (1x), without distinction as to origin of property (Arts. 1006–1007).</p>
+      <div class="bar-chart">
+        <div class="bar-col"><div class="bar-val">₱300k</div><div class="bar-fill" style="height:100px"></div><div class="bar-lbl">Full-Blood (2x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:50px; background:#C2410C;"></div><div class="bar-lbl">Half-Blood 1 (1x)</div></div>
+        <div class="bar-col"><div class="bar-val">₱150k</div><div class="bar-fill" style="height:50px; background:#C2410C;"></div><div class="bar-lbl">Half-Blood 2 (1x)</div></div>
+      </div>
+      <div class="ui-caption">If only HB1 and HB2 survived (no full-blood), they would split the ₱600k equally (₱300k each) under Art. 1007.</div>
+    </div>
+  </div>
+
+  <div class="trap-banner">
+    <strong>🪤 The Favorite Examination Trap — <em>Abellana de Bacayo v. Ferraris de Borromeo</em> (14 SCRA 986):</strong><br>
+    Suppose the decedent is survived by an <strong>Aunt (3rd degree)</strong> and the <strong>Children of a Predeceased First Cousin (5th degree)</strong>, OR a <strong>Surviving Sister (2nd degree)</strong> and a <strong>Grandnephew (4th degree, child of a predeceased nephew)</strong>.<br>
+    • <strong>Rule:</strong> Representation in the collateral line stops strictly at <strong>children of brothers and sisters (nephews and nieces, 3rd degree)</strong>. A grandnephew (4th degree) cannot represent a nephew, and an aunt (3rd degree) does NOT exclude a nephew/niece! Why? Because <strong>nephews and nieces (First Collateral Group, Arts. 1004–1008) ALWAYS exclude uncles and aunts (Second Collateral Group, Art. 1009)</strong> even though both are in the 3rd civil degree!
+  </div>
+
+  <hr>
+
+  <h3 id="sec-13">13. Second Collateral Group &amp; The 5th-Degree Cap (Arts. 1009–1010)</h3>
+  <p><em>Imagine a decedent with no siblings, nephews, or nieces. His surviving relatives are one maternal aunt (3rd degree) and three paternal first cousins (4th degree), plus a full-blood uncle and a half-blood uncle.</em></p>
+  <p>Only when there are <strong>neither brothers/sisters nor nephews/nieces</strong> do other collateral relatives inherit (Art. 1009), strictly observing the <strong>Rule of Proximity (<em>Bagunu v. Piedad</em>, 347 SCRA 71)</strong> up to the <strong>5th civil degree limit (Art. 1010)</strong>, and <strong>without any distinction between full-blood and half-blood</strong> (equal division within the same degree).</p>
+
+  <div class="ui-box">
+    <strong>Collateral Degree Ladder &amp; Rules (Arts. 1009–1010; <em>Bagunu v. Piedad</em>)</strong>
+    <table class="ui-table compact-table">
+      <thead>
+        <tr>
+          <th style="width:18%">Civil Degree</th>
+          <th style="width:42%">Relatives Included</th>
+          <th style="width:40%">Priority &amp; Blood Rule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>2nd Degree</strong></td>
+          <td>Brothers and Sisters</td>
+          <td>1st Collateral Group; <strong>2:1 Full vs. Half-blood</strong> applies</td>
+        </tr>
+        <tr>
+          <td><strong>3rd Degree (Group 1)</strong></td>
+          <td>Nephews and Nieces (children of siblings)</td>
+          <td>1st Collateral Group; <strong>excludes Uncles/Aunts!</strong> 2:1 Full vs. Half-blood applies</td>
+        </tr>
+        <tr>
+          <td><strong>3rd Degree (Group 2)</strong></td>
+          <td>Uncles and Aunts (siblings of parents)</td>
+          <td>2nd Collateral Group; excludes 4th degree; <strong>Full &amp; Half-blood share EQUALLY (1:1)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>4th Degree</strong></td>
+          <td>First Cousins, Grandnephews/Grandnieces, Great-Uncles/Great-Aunts</td>
+          <td>2nd Collateral Group; excludes 5th degree; <strong>Full &amp; Half-blood share EQUALLY (1:1)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>5th Degree (MAX)</strong></td>
+          <td>First Cousins Once Removed (child of 1st cousin), Second Cousins? <em>(No—2nd cousins are 6th degree!)</em></td>
+          <td><strong>Statutory Cutoff (Art. 1010).</strong> 6th degree (e.g., second cousins) get ZERO.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <h3 id="sec-14">14. The State &amp; Escheat Proceedings (Arts. 1011–1014)</h3>
+  <p><em>Imagine an elderly recluse who dies intestate without any known spouse or blood relative within the 5th degree. Four years after his properties are turned over to the city for public schools, a long-lost nephew surfaces with his birth certificate.</em></p>
+  <p>In default of all intestate heirs, <strong>the State inherits the whole estate (Art. 1011)</strong> as ultimate heir (<em>bona vacantia</em>) through <strong>judicial escheat proceedings under Rule 91 of the Rules of Court (Art. 1012)</strong>, assigning personal property to the city/municipality of last residence and real property to where it is situated for the benefit of public schools and charitable institutions (Art. 1013), subject to a <strong>5-year prescriptive period</strong> for any rightful heir to reclaim the property or its unspent proceeds (Art. 1014).</p>
+
+  <div class="ui-box">
+    <div class="ui-row-between">
+      <strong>Memory aid: ESCHEAT (Arts. 1011–1014 &amp; Rule 91) — R – P – R – 5</strong>
+      <button type="button" class="copy-btn" onclick="copyMnemonic(this, 'R — Rule 91 Petition by Solicitor General + 6-week publication (Art. 1012)\nP — Personal property goes to city/municipality of last Philippine residence (Art. 1013)\nR — Real property (or all property if non-resident) goes to city/municipality where situated, for public schools/charities (Art. 1013)\n5 — 5-year prescriptive period from delivery to the State for a legal heir to file a claim (Art. 1014)')">📋 Copy</button>
+    </div>
+    <table class="ui-table compact-table">
+      <tbody>
+        <tr>
+          <td style="width:10%"><strong>R</strong></td>
+          <td style="width:28%"><strong>Rule 91 Procedure</strong> (Art. 1012)</td>
+          <td>Not automatic! Requires an escheat petition filed by the <strong>Solicitor General</strong>, court hearing, and publication once a week for <strong>6 consecutive weeks</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>P</strong></td>
+          <td><strong>Personal Property</strong> (Art. 1013)</td>
+          <td>Assigned to the municipality or city where the deceased <strong>last resided in the Philippines</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>R</strong></td>
+          <td><strong>Real Property &amp; Non-Residents</strong> (Art. 1013)</td>
+          <td>Assigned to the municipalities or cities <strong>where the property is situated</strong> (also applies to the whole estate if the deceased never resided in the Philippines), for <strong>public schools and charitable institutions</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td><strong>5-Year Reclaim Window</strong> (Art. 1014)</td>
+          <td>A rightful heir must appear and file a claim with the court within <strong>5 years from the date the property was delivered to the State</strong> to recover the property (or unspent proceeds if sold); otherwise forever barred.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mini-Quiz Part IV -->
+  <div class="ui-box quiz-box">
+    <strong>⚡ Instant Mini-Recall — Part IV Check</strong>
+    <div class="quiz-q" data-answer="1" data-why="Under Art. 1009, among 'other collateral relatives' (beyond brothers, sisters, nephews, and nieces), relatives in the same degree inherit equally WITHOUT preference by reason of relationship of the whole blood.">
+      <div class="quiz-prompt">1. X dies intestate survived only by a full-blood Uncle (U1), a half-blood Uncle (U2), and a First Cousin (FC). How is his ₱900,000 estate distributed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="0" onchange="gradeInstant(this)"> ₱600,000 to U1 (full-blood) and ₱300,000 to U2 (half-blood); FC is excluded</label>
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="1" onchange="gradeInstant(this)"> ₱450,000 to U1 and ₱450,000 to U2 equally; FC (4th degree) is excluded by 3rd-degree uncles</label>
+        <label class="quiz-opt"><input type="radio" name="p4q1" value="2" onchange="gradeInstant(this)"> ₱300,000 each to U1, U2, and FC</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 1014, a person legally entitled to the escheated estate has 5 years from the date the property was delivered to the State to file a claim.">
+      <div class="quiz-prompt">2. Within what period must a rightful intestate heir file a claim to recover property that has been escheated and delivered to the State?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="0" onchange="gradeInstant(this)"> Within 1 year from publication of the petition</label>
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="1" onchange="gradeInstant(this)"> Within 2 years from the decedent's death</label>
+        <label class="quiz-opt"><input type="radio" name="p4q2" value="2" onchange="gradeInstant(this)"> Within 5 years from the date the property was delivered to the State</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ==================== MASTER SUMMARY TABLE ==================== -->
+  <h2 id="master-table">Master Summary Table of Intestate Shares</h2>
+  <p>Use this complete reference table to quickly verify any combination of surviving intestate heirs:</p>
+
+  <div class="ui-box" style="overflow-x:auto;">
+    <table class="ui-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Surviving Intestate Heirs</th>
+          <th style="width:44%">Shares / Allocation Rules</th>
+          <th style="width:18%">Statutory Basis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Legitimate Children alone</strong></td>
+          <td>Entire estate divided equally (<em>per capita</em>)</td>
+          <td>Art. 980</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Children &amp; Grandchildren (of predeceased/incapacitated/disinherited child)</strong></td>
+          <td>Children inherit <em>per capita</em>; Grandchildren inherit <em>per stirpes</em></td>
+          <td>Art. 981, 982</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Children &amp; Illegitimate Children</strong></td>
+          <td>Ratio <strong>2 : 1</strong> (provided 1/2 legitime of Legitimate Children is never impaired)</td>
+          <td>Art. 983, FC 176</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Children &amp; Surviving Spouse</strong></td>
+          <td>Spouse gets same share as 1 Legitimate Child</td>
+          <td>Art. 996</td>
+        </tr>
+        <tr>
+          <td><strong>1 Legitimate Child &amp; Surviving Spouse</strong></td>
+          <td><strong>1/2</strong> to Child, <strong>1/2</strong> to Spouse (<em>Santillon v. Miranda</em>)</td>
+          <td>Art. 996</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Children, Illegitimate Children &amp; Spouse</strong></td>
+          <td>Ratio <strong>2 : 2 : 1</strong> (unless 1/2 legitime of Legitimate Children is impaired)</td>
+          <td>Art. 999</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Parents / Ascendants alone</strong></td>
+          <td>Parents divide equally (or 100% to lone surviving parent); more remote ascendants split 50% Paternal / 50% Maternal line</td>
+          <td>Art. 985, 986, 987</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Parents &amp; Surviving Spouse</strong></td>
+          <td><strong>1/2</strong> to Parents, <strong>1/2</strong> to Spouse</td>
+          <td>Art. 997</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Parents &amp; Illegitimate Children</strong></td>
+          <td><strong>1/2</strong> to Parents, <strong>1/2</strong> to Illegitimate Children</td>
+          <td>Art. 991</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Parents, Spouse &amp; Illegitimate Children</strong></td>
+          <td><strong>1/2</strong> to Parents, <strong>1/4</strong> to Spouse, <strong>1/4</strong> to Illegitimate Children</td>
+          <td>Art. 1000</td>
+        </tr>
+        <tr>
+          <td><strong>Illegitimate Children alone</strong></td>
+          <td>Entire estate divided equally (<em>per capita</em>; representation allowed by legitimate or illegitimate issue under Art. 990)</td>
+          <td>Art. 988, 989, 990</td>
+        </tr>
+        <tr>
+          <td><strong>Illegitimate Children &amp; Surviving Spouse</strong></td>
+          <td><strong>1/2</strong> to Illegitimate Children, <strong>1/2</strong> to Spouse</td>
+          <td>Art. 998</td>
+        </tr>
+        <tr>
+          <td><strong>Surviving Spouse alone</strong></td>
+          <td>Entire estate (<strong>100%</strong>; no <em>articulo mortis</em> reduction)</td>
+          <td>Art. 995</td>
+        </tr>
+        <tr>
+          <td><strong>Surviving Spouse &amp; Siblings / Nephews / Nieces</strong></td>
+          <td><strong>1/2</strong> to Spouse, <strong>1/2</strong> to Sibling/Nephew/Niece group</td>
+          <td>Art. 1001</td>
+        </tr>
+        <tr>
+          <td><strong>Illegitimate Parents alone (of Illegitimate Decedent)</strong></td>
+          <td>Entire estate (<strong>100%</strong>; excludes grandparents)</td>
+          <td>Art. 993</td>
+        </tr>
+        <tr>
+          <td><strong>Illegitimate Parents &amp; Spouse (of Illegitimate Decedent)</strong></td>
+          <td><strong>1/2</strong> to Illegitimate Parents, <strong>1/2</strong> to Spouse</td>
+          <td>Art. 994, 997 (by analogy)</td>
+        </tr>
+        <tr>
+          <td><strong>Spouse &amp; Illegitimate Siblings/Nephews (of Illegitimate Decedent)</strong></td>
+          <td><strong>1/2</strong> to Spouse, <strong>1/2</strong> to Illegitimate Siblings/Nephews/Nieces</td>
+          <td>Art. 994</td>
+        </tr>
+        <tr>
+          <td><strong>Brothers &amp; Sisters alone (Full-blood)</strong></td>
+          <td>Entire estate divided equally (<em>per capita</em>)</td>
+          <td>Art. 1004</td>
+        </tr>
+        <tr>
+          <td><strong>Full-blood &amp; Half-blood Siblings</strong></td>
+          <td>Full-blood gets double share of Half-blood (<strong>2 : 1</strong> ratio)</td>
+          <td>Art. 1006, 1007</td>
+        </tr>
+        <tr>
+          <td><strong>Nephews &amp; Nieces concurring with Uncles/Aunts (Siblings)</strong></td>
+          <td>Siblings inherit <em>per capita</em>; Nephews/Nieces inherit <em>per stirpes</em> (if Nephews/Nieces inherit alone, <em>per capita</em>)</td>
+          <td>Art. 1005, 1008</td>
+        </tr>
+        <tr>
+          <td><strong>Other Collaterals (3rd to 5th civil degree)</strong></td>
+          <td>Nearest degree excludes farther (<em>Bagunu v. Piedad</em>); equal shares without full/half-blood distinction</td>
+          <td>Art. 1009, 1010</td>
+        </tr>
+        <tr>
+          <td><strong>The State</strong></td>
+          <td>Entire estate via Rule 91 Escheat proceedings (subject to 5-year reclaim period)</td>
+          <td>Arts. 1011–1014</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- ==================== FINAL MEMORY SHEET ==================== -->
+  <h2 id="final-sheet">Final Memory Sheet</h2>
+
+  <h4>Master Recall Table (Articles 978–1014 &amp; Landmark Cases)</h4>
+  <table class="ui-table compact-table">
+    <thead>
+      <tr>
+        <th style="width:28%">Article / Case</th>
+        <th>One-Line Exam Recall</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Art. 978</strong></td><td>Succession pertains first to the descending direct line; Regular order: <code>L-P-I-S-C-State</code>; Irregular: <code>L-I-P-S/B-State</code>.</td></tr>
+      <tr><td><strong>Art. 979 &amp; 984 (RA 8552 / RA 11642)</strong></td><td>Adopted child succeeds like a legitimate child; adopters and adoptee are exclusive reciprocal intestate heirs (biological parents excluded).</td></tr>
+      <tr><td><strong><em>Bartolome v. SSS</em> (740 SCRA 78)</strong></td><td>If a sole adopter dies during the adopted child's <strong>minority</strong>, parental authority automatically reverts to the biological parents.</td></tr>
+      <tr><td><strong>Arts. 980–982</strong></td><td>Children inherit <em>per capita</em>; grandchildren inherit <em>per stirpes</em> (even if all children died).</td></tr>
+      <tr><td><strong>Art. 983 &amp; FC Art. 176</strong></td><td>Legitimate and illegitimate children concur in a <strong>2:1 ratio</strong>, never impairing the 1/2 legitime of legitimate children.</td></tr>
+      <tr><td><strong>Arts. 985–987</strong></td><td>Ascendants inherit in default of descendants (no representation); equal degree in different lines splits <strong>50% Paternal / 50% Maternal</strong>.</td></tr>
+      <tr><td><strong>Arts. 988–990</strong></td><td>Illegitimate children inherit 100% in default of legitimate direct lines; represented by both legitimate and illegitimate descendants.</td></tr>
+      <tr><td><strong>Art. 991</strong></td><td>Legitimate ascendants (1/2) + Illegitimate children (1/2); legacies in partial intestacy are deducted solely from IC's half (J.B.L. Reyes).</td></tr>
+      <tr><td><strong>Art. 992 (Barrier Rule)</strong></td><td>No reciprocal intestate succession between an illegitimate child and the legitimate relatives of his parent (<em>Diaz</em> vs. <em>Aquino</em> 2021 update).</td></tr>
+      <tr><td><strong><em>Delgado v. Damian</em> / <em>Manuel v. Ferrer</em></strong></td><td>Art. 992 does NOT bar intestate succession between full- or half-blood <strong>illegitimate siblings</strong>.</td></tr>
+      <tr><td><strong>Arts. 993–994</strong></td><td>Estate of childless illegitimate decedent goes to illegitimate parents (no grandparents), then spouse (100% or 1/2 with illegitimate siblings/nephews).</td></tr>
+      <tr><td><strong>Art. 995</strong></td><td>Surviving spouse takes 100% in default of descendants, ascendants, ICs, and siblings/nephews; no <em>articulo mortis</em> reduction.</td></tr>
+      <tr><td><strong>Art. 996 (<em>Santillon v. Miranda</em>)</strong></td><td>Spouse gets a share equal to 1 legitimate child; with only 1 legitimate child, they split <strong>1/2 – 1/2</strong>.</td></tr>
+      <tr><td><strong>Arts. 997–1000</strong></td><td>Spouse gets 1/2 with ascendants (997), 1/2 with ICs (998), 1 child's share in 2:2:1 with LC+IC (999), and 1/4 with Ascendants (1/2) + ICs (1/4) (1000).</td></tr>
+      <tr><td><strong>Arts. 1001–1002</strong></td><td>Spouse gets 1/2 with siblings/nephews/nieces (1001); disqualified only if guilty spouse in a final decree of legal separation (1002).</td></tr>
+      <tr><td><strong>Arts. 1003–1008 (<em>Bacayo</em>)</strong></td><td>Siblings/nephews exclude other collaterals; full-blood gets 2x half-blood; collateral representation stops at nephews/nieces.</td></tr>
+      <tr><td><strong>Arts. 1009–1010 (<em>Bagunu v. Piedad</em>)</strong></td><td>Other collaterals up to the 5th degree inherit by proximity without full/half-blood distinction.</td></tr>
+      <tr><td><strong>Arts. 1011–1014</strong></td><td>State inherits last via Rule 91 escheat (personal = last residence; real = where situated), subject to a 5-year reclaim window.</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Top 5 Rules to Prioritize for Examination</h4>
+  <ol>
+    <li><strong>The 3 Exceptions to Equal Division in the Same Degree (<code>L – B – R</code>):</strong> Division by Paternal/Maternal <strong>L</strong>ines (Art. 987), Full/Half-<strong>B</strong>lood 2:1 ratio among siblings/nephews (Art. 1006), and <strong>R</strong>epresentation <em>per stirpes</em> (Art. 981/1005).</li>
+    <li><strong>Grandchildren Alone (Art. 982) vs. Nephews/Nieces Alone (Art. 975/1005):</strong> When all children are dead, grandchildren still inherit <strong><em>per stirpes</em></strong>; when all brothers/sisters are dead, nephews and nieces inherit <strong><em>per capita</em></strong>.</li>
+    <li><strong>The Legitime Impairment Guardrail (Arts. 983 &amp; 999):</strong> Always test the <code>2 : 1</code> or <code>2 : 2 : 1</code> ratio first; if the legitimate children's collective share drops below <strong>1/2 of the net estate</strong>, lock the legitimate children at 1/2 (and the spouse at her legitime), then divide the remainder among the illegitimate children.</li>
+    <li><strong>Article 992 Nuances (Classroom vs. Bar):</strong> Remember that Art. 992 applies only to intestate/legal succession (not wills), does not bar illegitimate siblings from inheriting from each other (<em>Delgado</em>), and was modified in <em>Aquino v. Aquino</em> (2021) to allow grandchildren to represent their parents regardless of legitimacy.</li>
+    <li><strong>First vs. Second Collateral Group (Arts. 1005 &amp; 1009):</strong> Although both Nephews/Nieces and Uncles/Aunts are <strong>3rd-degree</strong> relatives, Nephews/Nieces belong to the First Collateral Group and <strong>completely exclude</strong> Uncles/Aunts (<em>Bacayo v. Borromeo</em>), and the 2:1 full/half-blood rule disappears once you reach Uncles/Aunts and Cousins (Art. 1009).</li>
+  </ol>
+
+  <h4>Final 5-Question Recall Challenge</h4>
+  <div class="ui-box final-quiz-box">
+    <div class="quiz-q" data-answer="2" data-why="Under Art. 999, applying 2:2:1 (2 + 2 + 5 = 9 parts) would give the lone legitimate child only 2/9 of the estate, impairing his 1/2 legitime (₱900k). Thus, LC gets 1/2 (₱900k), the Surviving Spouse gets 1/4 (₱450k), and the 5 Illegitimate Children divide the remaining 1/4 (₱450k ÷ 5 = ₱90k each).">
+      <div class="quiz-prompt">1. X dies intestate leaving a net estate of ₱1,800,000. He is survived by 1 Legitimate Child (LC), his Surviving Spouse (S), and 5 Illegitimate Children (IC1–IC5). How should the estate be distributed?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq1" value="0" onchange="updateFinalQuiz(this)"> ₱400k to LC, ₱400k to S, and ₱200k each to the 5 ICs (strict 2:2:1 ratio)</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="1" onchange="updateFinalQuiz(this)"> ₱900k to LC, ₱900k to S, and nothing to the 5 ICs</label>
+        <label class="quiz-opt"><input type="radio" name="fq1" value="2" onchange="updateFinalQuiz(this)"> ₱900k to LC (1/2), ₱450k to S (1/4), and ₱90k each to the 5 ICs (splitting the remaining 1/4)</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="1" data-why="Under Art. 987, when surviving ascendants are of equal degree in different lines, 1/2 goes to the paternal line (₱600k to Paternal Grandfather) and 1/2 goes to the maternal line, divided per capita (₱300k each to Maternal Grandfather and Maternal Grandmother).">
+      <div class="quiz-prompt">2. D dies intestate without descendants, spouse, or parents. He is survived by his Paternal Grandfather (PGF), Maternal Grandfather (MGF), and Maternal Grandmother (MGM). His estate is ₱1,200,000. How is it divided?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq2" value="0" onchange="updateFinalQuiz(this)"> ₱400,000 each to PGF, MGF, and MGM per capita</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="1" onchange="updateFinalQuiz(this)"> ₱600,000 to PGF, ₱300,000 to MGF, and ₱300,000 to MGM (division by lines)</label>
+        <label class="quiz-opt"><input type="radio" name="fq2" value="2" onchange="updateFinalQuiz(this)"> ₱800,000 to PGF and ₱200,000 each to MGF and MGM</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="0" data-why="Although both a Niece and an Aunt are 3rd-degree collaterals, Brothers, Sisters, Nephews, and Nieces belong to the First Collateral Group (Arts. 1004–1008) and exclude all other collaterals (Art. 1009; Abellana de Bacayo v. Borromeo). A Grandnephew (4th degree) cannot represent in the collateral line (Art. 1005).">
+      <div class="quiz-prompt">3. B dies intestate without primary or concurring heirs. His only surviving relatives are his Niece (child of a predeceased brother), his maternal Aunt, and his Grandnephew (grandchild of a predeceased sister). Who inherits?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq3" value="0" onchange="updateFinalQuiz(this)"> The Niece alone inherits 100% of the estate</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="1" onchange="updateFinalQuiz(this)"> The Niece and the Aunt split the estate 50-50 because both are in the 3rd civil degree</label>
+        <label class="quiz-opt"><input type="radio" name="fq3" value="2" onchange="updateFinalQuiz(this)"> The Niece and the Grandnephew split the estate by representation</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="2" data-why="Under Bartolome v. SSS (740 SCRA 78, now codified in RA 11642 Sec. 42), when the sole adopting parent dies during the minority of the adopted child, parental authority and legal custody automatically revert to the biological parents.">
+      <div class="quiz-prompt">4. John was legally adopted by a single adopter who died when John was only 10 years old, returning John to the care of his biological mother. Years later, John died intestate without issue or spouse. Under Bartolome v. SSS, can John's biological mother claim as his dependent parent/beneficiary?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq4" value="0" onchange="updateFinalQuiz(this)"> No, adoption permanently and irreversibly severs all ties with biological parents under all circumstances</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="1" onchange="updateFinalQuiz(this)"> No, the estate must escheat to the State</label>
+        <label class="quiz-opt"><input type="radio" name="fq4" value="2" onchange="updateFinalQuiz(this)"> Yes, because the sole adopter died during the adoptee's minority, causing parental authority to revert to the biological parents</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <div class="quiz-q" data-answer="1" data-why="Under Art. 991 and Justice J.B.L. Reyes' rule in partial intestacy, testamentary legacies must be deducted exclusively from the 1/2 share of the illegitimate children so that the 1/2 legitime of the legitimate ascendants (₱500,000) is never impaired.">
+      <div class="quiz-prompt">5. M dies leaving an estate of ₱1,000,000, survived by her Legitimate Parents and 2 Illegitimate Children. Her will contains only one disposition: a ₱100,000 legacy to her best friend. How is the estate distributed in partial intestacy?</div>
+      <div class="quiz-opts">
+        <label class="quiz-opt"><input type="radio" name="fq5" value="0" onchange="updateFinalQuiz(this)"> ₱450,000 to Legitimate Parents, ₱450,000 to Illegitimate Children, and ₱100,000 to the friend</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="1" onchange="updateFinalQuiz(this)"> ₱500,000 to Legitimate Parents, ₱400,000 to Illegitimate Children (₱200k each), and ₱100,000 to the friend</label>
+        <label class="quiz-opt"><input type="radio" name="fq5" value="2" onchange="updateFinalQuiz(this)"> The ₱100,000 legacy is void because Art. 991 requires a strict 50-50 split</label>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+    </div>
+
+    <button type="button" class="check-btn" disabled onclick="gradeFinalQuiz(this)">Check my answers</button>
+    <div class="final-score-box" hidden>
+      <div class="final-score-num">0 / 5</div>
+      <div style="font-size:0.88rem; color:var(--muted); margin-bottom:0.75rem;">Correct answers</div>
+      <button type="button" class="reset-btn" onclick="resetFinalQuiz(this)">Try again</button>
+    </div>
+  </div>
+
+  <div class="ui-caption" style="text-align:center; margin-top:2rem; font-weight:600; color:var(--navy);">
+    Mastery Sequence: <code>IDENTIFY HEIR CLASSES (L-P-I-S-C-St) → APPLY EXCLUSION &amp; CONCURRENCE → GUARD THE LEGITIME (50% CAP) → CHECK PROXIMITY &amp; BLOOD RATIOS</code>
+  </div>
+</div>
+
+<script>
+  function copyMnemonic(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    });
+  }
+
+  function switchTab(btn, panelId) {
+    const box = btn.closest('[data-tabs]');
+    box.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+    box.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = box.querySelector(`[data-panel="${panelId}"]`);
+    if (target) target.classList.add('active');
+  }
+
+  function gradeInstant(input) {
+    const qBox = input.closest('.quiz-q');
+    const ans = qBox.dataset.answer;
+    const why = qBox.dataset.why || '';
+    const fb = qBox.querySelector('.quiz-feedback');
+    const opts = qBox.querySelectorAll('.quiz-opt');
+    const correctText = opts[Number(ans)] ? opts[Number(ans)].textContent.trim() : '';
+    const isCorrect = input.value === ans;
+    fb.hidden = false;
+    fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+    fb.textContent = (isCorrect ? '✓ Correct. ' : `ℹ Correct answer: ${correctText}. `) + why;
+  }
+
+  function updateFinalQuiz(input) {
+    const box = input.closest('.final-quiz-box');
+    const total = box.querySelectorAll('.quiz-q').length;
+    const answered = new Set();
+    box.querySelectorAll('input[type="radio"]:checked').forEach(r => answered.add(r.name));
+    const btn = box.querySelector('.check-btn');
+    if (btn) btn.disabled = answered.size < total;
+  }
+
+  function gradeFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    const qs = box.querySelectorAll('.quiz-q');
+    let score = 0;
+    qs.forEach(q => {
+      const ans = q.dataset.answer;
+      const why = q.dataset.why || '';
+      const checked = q.querySelector('input[type="radio"]:checked');
+      const fb = q.querySelector('.quiz-feedback');
+      const isCorrect = checked && checked.value === ans;
+      if (isCorrect) score++;
+      fb.hidden = false;
+      fb.className = 'quiz-feedback ' + (isCorrect ? 'ok' : 'err');
+      fb.textContent = (isCorrect ? '✓ ' : 'ℹ ') + why;
+    });
+    const scoreBox = box.querySelector('.final-score-box');
+    if (scoreBox) {
+      scoreBox.hidden = false;
+      scoreBox.querySelector('.final-score-num').textContent = `${score} / ${qs.length}`;
+    }
+  }
+
+  function resetFinalQuiz(btn) {
+    const box = btn.closest('.final-quiz-box');
+    box.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+    box.querySelectorAll('.quiz-feedback').forEach(f => { f.hidden = true; });
+    box.querySelector('.final-score-box').hidden = true;
+    box.querySelector('.check-btn').disabled = true;
+  }
+</script>
+</body>
+</html>
